@@ -1,0 +1,52 @@
+timezone: America/Chicago
+window_days: 7
+site:
+  title: Energy News Daily
+  custom_domain: ""          # e.g. news.example.com; writes CNAME (FR-20)
+  banner: "Private preview for a small readership. Unverified, informational only. Not investment advice."
+  reference_links:
+    CARBON_CREDITS:
+      - {name: "CDR.fyi — durable carbon removal market data", url: "https://www.cdr.fyi/", note: "Further reading only. Not collected or summarized (CDR.fyi Terms of Service §5.3)."}
+feed:
+  relevance_threshold: 30
+  page_size: 25
+weights:
+  tier_weights: {1: 3, 2: 2, 3: 1}
+  half_life_hours: 72
+cluster:
+  similarity_threshold: "0.35"
+  window_hours: 72
+  lookback_days: 10
+trends:
+  hottest_n: 5
+  confirm_companies: 2
+  status_window_days: 30
+  trajectory_window_days: 7
+digest:
+  max_bytes: 60000
+author:
+  reading_budget: 15
+storage:
+  article_retention_days: 30
+  snapshot_retention_days: 30
+  max_file_bytes: 52428800
+  excerpt_chars: 300
+freshness:
+  stale_after_hours: 30
+analysis:
+  max_age_hours: 36
+archive:
+  weekday: 0
+  hour: 7
+prices:
+  enabled: false             # FR-8 deferred; price module is dormant (NFR-9)
+commodities:
+  CRUDE_OIL: {label: Crude Oil, slug: crude-oil}
+  NATURAL_GAS: {label: Natural Gas, slug: natural-gas}
+  REFINED_PRODUCTS: {label: Refined Products, slug: refined-products}
+  CARBON_CREDITS: {label: Carbon Credits, slug: carbon-credits}
+release_calendar:   # recurring scheduled releases (US Eastern); holidays can shift them
+  - {id: eia-wpsr, name: "EIA Weekly Petroleum Status Report", weekday: 2, time: "10:30", tz: America/New_York, commodities: [CRUDE_OIL, REFINED_PRODUCTS]}
+  - {id: eia-ngs, name: "EIA Weekly Natural Gas Storage Report", weekday: 3, time: "10:30", tz: America/New_York, commodities: [NATURAL_GAS]}
+  - {id: baker-hughes, name: "Baker Hughes rig count", weekday: 4, time: "13:00", tz: America/New_York, commodities: [CRUDE_OIL, NATURAL_GAS]}
+  - {id: cftc-cot, name: "CFTC Commitments of Traders", weekday: 4, time: "15:30", tz: America/New_York, commodities: [CRUDE_OIL, NATURAL_GAS, REFINED_PRODUCTS]}

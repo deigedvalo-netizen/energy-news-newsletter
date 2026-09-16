@@ -1,0 +1,58 @@
+name: scan
+# Daily scan -> tag -> cluster -> trends -> digest -> publish site (FR-1..FR-16, NFR-1). No LLM calls, no API keys.
+on:
+  schedule:
+    - cron: "0 10 * * *"   # 05:00 America/Chicago during CDT; change to "0 11 * * *" when CST starts (2026-11-01)
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: site-publish
+  cancel-in-progress: false
+jobs:
+  scan:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install
+        run: pip install -e ".[dev]"
+      - name: Unit and acceptance tests
+        run: pytest -q -p no:warnings
+      - name: Restore database from data branch
+        run: |
+          mkdir -p data
+          if git ls-remote --exit-code --heads origin data >/dev/null; then
+            git fetch --depth=1 origin data
+            git show origin/data:energynews.db > data/energynews.db
+          fi
+      - name: Restore current site from gh-pages
+        run: |
+          mkdir -p site
+          if git ls-remote --exit-code --heads origin gh-pages >/dev/null; then
+            git fetch --depth=1 origin gh-pages
+            git archive origin/gh-pages | tar -x -C site
+          fi
+      - name: Run pipeline
+        run: python -m energynews.run --db data/energynews.db --site site --registry config/sources.yaml --settings config/settings.yaml --organizations config/organizations.yaml
+      - name: Re-apply ledger and published issues
+        run: python -m energynews.issues.gate --issues issues --site site --settings config/settings.yaml --organizations config/organizations.yaml
+      - name: Publish site atomically (single-commit gh-pages, NFR-6/7)
+        run: |
+          cd site
+          git init -q -b gh-pages
+          git add -A
+          git -c user.name="energynews-bot" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" commit -qm "site: scan $(date -u +%FT%TZ)"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" gh-pages
+      - name: Save database (single-commit data branch)
+        run: |
+          mkdir -p /tmp/databranch && cp data/energynews.db /tmp/databranch/
+          cd /tmp/databranch
+          git init -q -b data
+          git add energynews.db
+          git -c user.name="energynews-bot" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" commit -qm "data: $(date -u +%FT%TZ)"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" data

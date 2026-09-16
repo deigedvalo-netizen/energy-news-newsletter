@@ -1,0 +1,2036 @@
+{
+  "architecture_spec": {
+    "status": "COMPLETE",
+    "feature_id": "energy-news-newsletter",
+    "problem_restatement": "Design a free, single-developer system for a small private energy newsletter. Once a day a deterministic pipeline collects stories from a curated, mostly tier-1 registry of reputable sources (FR-1, FR-2, FR-18), tags commodities (crude oil, natural gas, refined products, carbon credits), topics and organizations without any LLM (FR-4), clusters cross-outlet coverage (FR-5), extracts verbatim figures (FR-6), and builds a digest with candidate trend groups, computed trend trajectories and a data-only synopsis (FR-7, FR-16). A Claude scheduled task on the owner's subscription reads the digest and a bounded set of linked articles, appends evidence to an append-only trend ledger (FR-19), and writes a condensed newsletter and a trader analysis (FR-14, FR-17). A validator rejects unsourced links, unconfirmed hot topics and advice, and warns on unverified figures (FR-15). Output is a noindex web page on a custom domain with Newsletter, Analysis, Trends, All and four commodity tabs (FR-9, FR-10, FR-20). Price data is deferred (FR-8, NFR-9). The system is deterministic outside the author (NFR-2), free of API spend (NFR-3), compliant with source terms including CDR.fyi's (NFR-4), traceable (NFR-5), bounded in storage (NFR-6), resilient (NFR-7) and least-privilege for the author (NFR-8).",
+    "reused_adrs": [
+      "ADR-002",
+      "ADR-007",
+      "ADR-009",
+      "ADR-011"
+    ],
+    "assumptions": [
+      {
+        "id": "ARCH-A1",
+        "statement": "Requirement assumptions A1-A7 and the owner decisions of 2026-09-16 are adopted.",
+        "requirement_ids": [
+          "FR-7",
+          "FR-14",
+          "NFR-3"
+        ]
+      },
+      {
+        "id": "ARCH-A2",
+        "statement": "Pinned versions reflect known-good releases; beautifulsoup4 is added for HTML_LIST sources; the anthropic SDK and EIA price client are removed from dependencies.",
+        "requirement_ids": [
+          "FR-2",
+          "NFR-3"
+        ]
+      },
+      {
+        "id": "ARCH-A3",
+        "statement": "Cron times are UTC: scan '0 10 * * *' and task '30 12 * * *' during CDT; both move one hour later during CST (from 2026-11-01).",
+        "requirement_ids": [
+          "NFR-1",
+          "FR-14"
+        ]
+      },
+      {
+        "id": "ARCH-A4",
+        "statement": "config/organizations.yaml starts with roughly 80 organizations (majors, NOCs, LNG developers, utilities, CDR suppliers and buyers, regulators); the owner extends it as trends surface new companies.",
+        "requirement_ids": [
+          "FR-4",
+          "FR-19"
+        ]
+      },
+      {
+        "id": "ARCH-A5",
+        "statement": "The scheduled task's web access to article URLs follows the owner's Claude settings; if a link cannot be opened, the author uses the digest excerpt only.",
+        "requirement_ids": [
+          "FR-14"
+        ]
+      }
+    ],
+    "options_considered": [
+      {
+        "id": "OPT-1",
+        "summary": "Hybrid: daily deterministic collector on GitHub Actions builds a digest and static site; a Claude scheduled task on the owner's subscription writes the ledger, newsletter and analysis; a CI validator gates publishing.",
+        "tradeoffs": {
+          "scale": "PRO: handles 35 sources daily; ledger history supports growth.",
+          "latency": "CON: daily freshness.",
+          "cost": "PRO: no API or hosting cost.",
+          "team_size": "PRO: one developer; the author is a scheduled task.",
+          "existing_stack": "PRO: same stack as the owner's other projects.",
+          "compliance": "PRO: terms gate and reference-only sources enforced in code."
+        },
+        "rejected_because": null
+      },
+      {
+        "id": "OPT-2",
+        "summary": "Always-on web service with a database and scheduler on a VPS.",
+        "tradeoffs": {
+          "scale": "PRO: personalisation later.",
+          "latency": "PRO: near-real-time.",
+          "cost": "CON: monthly hosting.",
+          "team_size": "CON: server operations.",
+          "existing_stack": "CON: new components.",
+          "compliance": "NEUTRAL"
+        },
+        "rejected_because": "Costs money and adds operations for real-time features the owner does not need."
+      },
+      {
+        "id": "OPT-3",
+        "summary": "Claude scheduled task does everything: browses sources, decides trends and writes the newsletter with no collector or validator.",
+        "tradeoffs": {
+          "scale": "CON: reading 35 sources daily in one run strains plan usage and context.",
+          "latency": "PRO: nothing else to run.",
+          "cost": "CON: heavier subscription usage.",
+          "team_size": "PRO: least code.",
+          "existing_stack": "NEUTRAL",
+          "compliance": "CON: cannot enforce robots.txt, terms gates or link provenance; trend trajectories drift day to day."
+        },
+        "rejected_because": "Unverifiable and inconsistent: no guarantee links are from reputable sources, trends are evidence-backed, or trajectories are computed the same way each day (FR-7, FR-15, FR-19, NFR-4)."
+      }
+    ],
+    "recommendation": {
+      "chosen_option": "OPT-1",
+      "rationale": "OPT-1 keeps collection, tagging and trend math deterministic and free, while spending the owner's subscription only on what needs judgment: naming ideas, condensing stories and explaining them. The validator and ledger keep that judgment evidence-backed.",
+      "tradeoffs_accepted": [
+        "Daily freshness",
+        "News-only v1",
+        "Keyword tagging instead of model tagging",
+        "Unverified figures warned rather than blocked",
+        "Public-but-unlisted hosting until access control is needed"
+      ]
+    },
+    "components": [
+      {
+        "name": "SourceRegistry",
+        "responsibility": "Load and validate the registry (tier, source_type, access_method, tos_status, terms_note); expose only fetchable sources (ALLOWED, HEADLINE_ONLY) in tier order; treat tier-3 AGGREGATOR as disabled unless explicitly enabled.",
+        "requirement_ids": [
+          "FR-1",
+          "FR-18",
+          "NFR-4"
+        ],
+        "depends_on": []
+      },
+      {
+        "name": "Fetcher",
+        "responsibility": "Daily polling with robots.txt checks, conditional GET, timeouts and per-source isolation. Adapters: RSS (feedparser) and HTML_LIST (CSS selectors for item, link, title, date). Canonicalises URLs and skips seen items.",
+        "requirement_ids": [
+          "FR-2",
+          "NFR-4",
+          "NFR-7"
+        ],
+        "depends_on": [
+          "SourceRegistry",
+          "ArticleStore",
+          "FlagRegistry"
+        ]
+      },
+      {
+        "name": "ArticleExtractor",
+        "responsibility": "Build Article records: title, outlet, UTC published_at, <=300-char excerpt, transient body only for ALLOWED sources; mark UNDATED.",
+        "requirement_ids": [
+          "FR-3",
+          "NFR-4"
+        ],
+        "depends_on": [
+          "FlagRegistry"
+        ]
+      },
+      {
+        "name": "ArticleStore",
+        "responsibility": "Sole persistence boundary (SQLite): source health, articles, organizations per article, figures, flags, run reports; 30-day retention and size guard.",
+        "requirement_ids": [
+          "FR-2",
+          "NFR-2",
+          "NFR-6"
+        ],
+        "depends_on": []
+      },
+      {
+        "name": "Tagger",
+        "responsibility": "Deterministic commodity and topic tagging from closed keyword taxonomies (no LLM), plus organization tagging against config/organizations.yaml (name, aliases, org_type).",
+        "requirement_ids": [
+          "FR-4",
+          "FR-18",
+          "NFR-2",
+          "NFR-3"
+        ],
+        "depends_on": [
+          "ArticleStore"
+        ]
+      },
+      {
+        "name": "Clusterer",
+        "responsibility": "Group same-event articles across outlets (TF-IDF cosine with normalising analyzer, shared commodity, 72 h window); compute distinct sources, best tier, organizations, first_published_at.",
+        "requirement_ids": [
+          "FR-5"
+        ],
+        "depends_on": [
+          "ArticleStore"
+        ]
+      },
+      {
+        "name": "FigureExtractor",
+        "responsibility": "Regex proposal of reported figures from allowed text, kept only when the span is verbatim; conflict flagging; no arithmetic.",
+        "requirement_ids": [
+          "FR-6",
+          "NFR-5"
+        ],
+        "depends_on": [
+          "FlagRegistry"
+        ]
+      },
+      {
+        "name": "Summarizer",
+        "responsibility": "Extractive one-sentence summaries from the best-tier source; abbreviation-aware sentence splitting.",
+        "requirement_ids": [
+          "FR-11"
+        ],
+        "depends_on": []
+      },
+      {
+        "name": "RelevanceRanker",
+        "responsibility": "Pure relevance = round(100 x (0.6 x min(cluster_weight/10,1) + 0.4 x tier_score)); threshold and 7-day window.",
+        "requirement_ids": [
+          "FR-9",
+          "NFR-2"
+        ],
+        "depends_on": []
+      },
+      {
+        "name": "TrendEngine",
+        "responsibility": "Pure functions over the validated ledger and digest: company verification per mention, CONFIRMED/EMERGING status, NEW/RISING/STEADY/FADING/DORMANT trajectory, hotness, hottest-topics ranking, and candidate trend groups (topic x commodity clusters naming 2+ companies) for the author.",
+        "requirement_ids": [
+          "FR-7",
+          "FR-16",
+          "FR-19",
+          "NFR-2",
+          "NFR-5"
+        ],
+        "depends_on": [
+          "ArticleStore"
+        ]
+      },
+      {
+        "name": "DigestBuilder",
+        "responsibility": "Assemble the daily snapshot JSON (feed items, clusters, organizations, figures, candidate groups, ledger view with computed trends, most active companies, release calendar, data-only synopsis sentences) and the compact Markdown digest capped at 60 KB.",
+        "requirement_ids": [
+          "FR-9",
+          "FR-10",
+          "FR-16",
+          "NFR-1",
+          "NFR-5"
+        ],
+        "depends_on": [
+          "RelevanceRanker",
+          "TrendEngine",
+          "Summarizer",
+          "ArticleStore"
+        ]
+      },
+      {
+        "name": "SiteRenderer",
+        "responsibility": "Static HTML + vanilla JS: tabs Newsletter, Analysis, Trends, All, Crude Oil, Natural Gas, Refined Products, Carbon Credits; pinned analysis or synopsis cards; trajectory badges and mention timelines; lazy feed; warning note for PUBLISHED_WITH_WARNINGS; noindex meta, robots.txt, private-preview banner, CNAME; CDR.fyi reference link in Carbon Credits.",
+        "requirement_ids": [
+          "FR-9",
+          "FR-10",
+          "FR-15",
+          "FR-17",
+          "FR-18",
+          "FR-20",
+          "NFR-1",
+          "NFR-4",
+          "NFR-5"
+        ],
+        "depends_on": [
+          "DigestBuilder"
+        ]
+      },
+      {
+        "name": "SnapshotStore",
+        "responsibility": "Write content-addressed snapshots/feed-<sha>.json and digest-<sha>.md with latest.json pointer; 30-day retention so ledger mentions and newsletters validate against exactly what the author read.",
+        "requirement_ids": [
+          "FR-15",
+          "FR-16",
+          "FR-19",
+          "NFR-2",
+          "NFR-6"
+        ],
+        "depends_on": [
+          "DigestBuilder"
+        ]
+      },
+      {
+        "name": "IssueArchiver",
+        "responsibility": "Weekly immutable archive of the digest and that week's newsletters.",
+        "requirement_ids": [
+          "FR-12"
+        ],
+        "depends_on": [
+          "SnapshotStore"
+        ]
+      },
+      {
+        "name": "Publisher",
+        "responsibility": "Atomic single-commit force-push of the site (gh-pages) and database (data branch) only after all stages and size guards pass.",
+        "requirement_ids": [
+          "NFR-6",
+          "NFR-7",
+          "FR-20"
+        ],
+        "depends_on": [
+          "SiteRenderer",
+          "IssueArchiver"
+        ]
+      },
+      {
+        "name": "FlagRegistry",
+        "responsibility": "Typed flags: STALE_SOURCE, ROBOTS_DISALLOWED, SELECTOR_NO_MATCH, UNDATED, NOT_RELEVANT, CONFLICTING_FIGURES, FIGURE_DROPPED, STORAGE_LIMIT.",
+        "requirement_ids": [
+          "FR-2",
+          "FR-3",
+          "FR-4",
+          "FR-6",
+          "NFR-6"
+        ],
+        "depends_on": [
+          "ArticleStore"
+        ]
+      },
+      {
+        "name": "IssueAuthorTask",
+        "responsibility": "External Claude scheduled task on the owner's subscription, daily 07:30 CT. Reads latest.json and the Markdown digest via the GitHub connector, opens at most 15 digest links, appends ledger mentions, and writes the newsletter and the trader analysis under issues/ in one commit. No publish rights, no API keys.",
+        "requirement_ids": [
+          "FR-14",
+          "FR-17",
+          "FR-19",
+          "NFR-3",
+          "NFR-8"
+        ],
+        "depends_on": [
+          "SnapshotStore"
+        ]
+      },
+      {
+        "name": "IssueValidator",
+        "responsibility": "Deterministic gate on pushes to issues/**: ledger validation (append-only, mention URLs in retained snapshots, company verification); newsletter and analysis validation with REJECT rules (unsourced URL, missing disclaimer/unverified line, advisory or forecast language, hottest topic not CONFIRMED, missing sections, reading budget exceeded) and WARN rules (numbers not in digest). Publishes PUBLISHED and PUBLISHED_WITH_WARNINGS outputs and rebuilds trend views.",
+        "requirement_ids": [
+          "FR-15",
+          "FR-17",
+          "FR-19",
+          "NFR-3",
+          "NFR-5"
+        ],
+        "depends_on": [
+          "SnapshotStore",
+          "TrendEngine"
+        ]
+      },
+      {
+        "name": "IssueScopeGuard",
+        "responsibility": "CI check reverting task commits (message prefix 'issue:') that touch paths outside issues/.",
+        "requirement_ids": [
+          "NFR-8"
+        ],
+        "depends_on": []
+      },
+      {
+        "name": "RunOrchestrator",
+        "responsibility": "CLI invoked by the daily scan workflow; runs stages, writes the run report, decides publish vs abort; prices module is not invoked while prices.enabled is false.",
+        "requirement_ids": [
+          "FR-13",
+          "NFR-1",
+          "NFR-7",
+          "NFR-9",
+          "FR-8"
+        ],
+        "depends_on": [
+          "Fetcher",
+          "ArticleExtractor",
+          "Tagger",
+          "Clusterer",
+          "FigureExtractor",
+          "DigestBuilder",
+          "SnapshotStore",
+          "SiteRenderer",
+          "Publisher"
+        ]
+      }
+    ],
+    "data_flow": [
+      {
+        "step": 1,
+        "from": "GitHub Actions cron (daily 05:00 CT)",
+        "to": "RunOrchestrator",
+        "payload": "restored SQLite + current site",
+        "protocol": "process"
+      },
+      {
+        "step": 2,
+        "from": "Fetcher",
+        "to": "Reputable sources",
+        "payload": "RSS and HTML-list requests honouring robots.txt",
+        "protocol": "HTTPS"
+      },
+      {
+        "step": 3,
+        "from": "ArticleExtractor -> Tagger -> FigureExtractor",
+        "to": "ArticleStore",
+        "payload": "articles with commodities, topic, organizations, figures",
+        "protocol": "in-process"
+      },
+      {
+        "step": 4,
+        "from": "Clusterer -> RelevanceRanker -> TrendEngine",
+        "to": "DigestBuilder",
+        "payload": "clusters, relevance, candidate groups, computed trends from validated ledger",
+        "protocol": "in-process"
+      },
+      {
+        "step": 5,
+        "from": "DigestBuilder",
+        "to": "SnapshotStore -> SiteRenderer -> Publisher",
+        "payload": "digest JSON + Markdown, site build",
+        "protocol": "in-process, then git push to gh-pages"
+      },
+      {
+        "step": 6,
+        "from": "Claude scheduled task (daily 07:30 CT, owner's subscription)",
+        "to": "SnapshotStore",
+        "payload": "read latest.json and digest-<sha>.md; open <=15 digest links",
+        "protocol": "GitHub connector + web fetch"
+      },
+      {
+        "step": 7,
+        "from": "IssueAuthorTask",
+        "to": "repo issues/",
+        "payload": "newsletter, analysis, trends.json append, index.json in one 'issue:' commit",
+        "protocol": "GitHub connector"
+      },
+      {
+        "step": 8,
+        "from": "GitHub Actions (push to issues/**)",
+        "to": "IssueScopeGuard -> IssueValidator",
+        "payload": "scope check, ledger validation, newsletter/analysis validation",
+        "protocol": "workflow"
+      },
+      {
+        "step": 9,
+        "from": "IssueValidator",
+        "to": "SiteRenderer -> Publisher",
+        "payload": "published newsletter, analysis sections, trend views; rejected files kept out",
+        "protocol": "in-process, git push"
+      }
+    ],
+    "interfaces": [
+      {
+        "name": "LoadRegistry",
+        "kind": "function",
+        "signature": "load_registry(path: Path) -> list[Source]  # raises RegistryValidationError(entry_id, reason); Source{source_id, name, url, tier: 1|2|3, source_type: OFFICIAL|PRESS|TRADE|NEWSROOM|AGGREGATOR, commodities, access_method: RSS|HTML_LIST, selectors: HtmlSelectors|None, tos_status: ALLOWED|HEADLINE_ONLY|REFERENCE_ONLY|BLOCKED|UNVERIFIED, terms_note, enabled}",
+        "consumers": [
+          "RunOrchestrator",
+          "Fetcher"
+        ]
+      },
+      {
+        "name": "EligibleSources",
+        "kind": "function",
+        "signature": "eligible_sources(reg: list[Source]) -> list[Source]  # enabled and tos_status in {ALLOWED, HEADLINE_ONLY}; ordered (tier, source_id)",
+        "consumers": [
+          "Fetcher"
+        ]
+      },
+      {
+        "name": "FetchSource",
+        "kind": "function",
+        "signature": "fetch_source(src: Source, state: SourceHealth, http: HttpClient, robots: Robots) -> FetchResult  # {items: list[RawItem], status: OK|NOT_MODIFIED|FAILED|ROBOTS_DISALLOWED, reason}; HTML_LIST uses src.selectors {item, link, title, date, date_format}; SELECTOR_NO_MATCH -> FAILED; never raises",
+        "consumers": [
+          "RunOrchestrator"
+        ]
+      },
+      {
+        "name": "CanonicalizeUrl",
+        "kind": "function",
+        "signature": "canonicalize_url(url: str) -> str",
+        "consumers": [
+          "Fetcher",
+          "ArticleStore",
+          "IssueValidator"
+        ]
+      },
+      {
+        "name": "ExtractArticle",
+        "kind": "function",
+        "signature": "extract_article(item: RawItem, src: Source, http: HttpClient|None, now: datetime, excerpt_chars: int = 300) -> tuple[Article, str]  # second value is transient text, never persisted",
+        "consumers": [
+          "RunOrchestrator"
+        ]
+      },
+      {
+        "name": "TagArticle",
+        "kind": "function",
+        "signature": "tag_article(a: Article, text: str, orgs: OrganizationIndex) -> list[Flag]  # sets a.commodities, a.topic, a.organizations: list[OrgRef{org_id, name, org_type}] or status NOT_RELEVANT",
+        "consumers": [
+          "RunOrchestrator",
+          "test-bot"
+        ]
+      },
+      {
+        "name": "ClusterArticles",
+        "kind": "function",
+        "signature": "cluster_articles(articles: Sequence[Article], threshold: Decimal = 0.35, window_hours: int = 72) -> list[Cluster]",
+        "consumers": [
+          "RunOrchestrator",
+          "test-bot"
+        ]
+      },
+      {
+        "name": "ExtractFigures",
+        "kind": "function",
+        "signature": "extract_figures(a: Article, text: str) -> list[Flag]  # appends verbatim ExtractedFigure to a.figures",
+        "consumers": [
+          "RunOrchestrator"
+        ]
+      },
+      {
+        "name": "Summarize",
+        "kind": "function",
+        "signature": "summarize(members: Sequence[Article], sources: Mapping[str, Source]) -> str  # first sentence of best-tier excerpt",
+        "consumers": [
+          "DigestBuilder",
+          "test-bot"
+        ]
+      },
+      {
+        "name": "ClusterWeight",
+        "kind": "function",
+        "signature": "cluster_weight(cluster: Cluster, articles, sources, now) -> Decimal  # sum over distinct sources of W[tier] * 0.5**(age_h/72)",
+        "consumers": [
+          "RelevanceRanker",
+          "TrendEngine",
+          "test-bot"
+        ]
+      },
+      {
+        "name": "Relevance",
+        "kind": "function",
+        "signature": "relevance(cluster_weight: Decimal, best_tier: int) -> int  # round(100*(0.6*min(w/10,1)+0.4*tier_score))",
+        "consumers": [
+          "DigestBuilder",
+          "test-bot"
+        ]
+      },
+      {
+        "name": "ValidateLedger",
+        "kind": "function",
+        "signature": "validate_ledger(new: Ledger, previous: Ledger|None, snapshots_dir: Path, orgs: OrganizationIndex) -> LedgerValidation  # {status: ACCEPTED|REJECTED, reasons: [UNSOURCED_MENTION|LEDGER_NOT_APPEND_ONLY|BAD_LEDGER], mentions: [{..., verified: bool, reason?: UNVERIFIED_COMPANY}]}",
+        "consumers": [
+          "IssueValidator",
+          "test-bot"
+        ]
+      },
+      {
+        "name": "ComputeTrends",
+        "kind": "function",
+        "signature": "compute_trends(ledger: ValidatedLedger, stories: Mapping[url, StoryRef], now: datetime) -> list[TrendView]  # TrendView{trend_id, name, thesis, commodities, status: CONFIRMED|EMERGING, trajectory: NEW|RISING|STEADY|FADING|DORMANT, companies_current, companies_previous, mentions_current, mentions_previous, hotness: Decimal, companies: list[str], timeline: list[Mention]}; sorted by (-hotness, -latest_mention, trend_id)",
+        "consumers": [
+          "DigestBuilder",
+          "IssueValidator",
+          "SiteRenderer",
+          "test-bot"
+        ]
+      },
+      {
+        "name": "CandidateTrendGroups",
+        "kind": "function",
+        "signature": "candidate_groups(clusters: Sequence[Cluster], window_days: int = 7) -> list[CandidateGroup]  # (topic, commodity) groups whose clusters name >= 2 distinct COMPANY orgs; hints for the author, not trends",
+        "consumers": [
+          "DigestBuilder"
+        ]
+      },
+      {
+        "name": "BuildDigest",
+        "kind": "function",
+        "signature": "build_digest(store: ArticleStore, ledger: ValidatedLedger, now: datetime, settings: Settings) -> tuple[DigestPayload, str]  # JSON payload (schema digest.v2) and Markdown <= 60 KB with omitted-count notes",
+        "consumers": [
+          "RunOrchestrator",
+          "SnapshotStore"
+        ]
+      },
+      {
+        "name": "WriteSnapshot",
+        "kind": "function",
+        "signature": "write_snapshot(out_dir: Path, payload: DigestPayload, markdown: str) -> SnapshotRef  # snapshots/feed-<sha>.json, snapshots/digest-<sha>.md, snapshots/latest.json {feed_sha256, data_as_of, path, digest_path}",
+        "consumers": [
+          "Publisher",
+          "IssueAuthorTask",
+          "IssueValidator"
+        ]
+      },
+      {
+        "name": "RenderSite",
+        "kind": "function",
+        "signature": "render_site(payload: DigestPayload, out_dir: Path, settings: Settings) -> SiteBuild  # index.html (noindex), robots.txt, CNAME if configured, assets, feed.json",
+        "consumers": [
+          "Publisher"
+        ]
+      },
+      {
+        "name": "ValidateIssue",
+        "kind": "function",
+        "signature": "validate_issue(path: Path, snapshots_dir: Path, ledger: ValidatedLedger, kind: Literal['issue','analysis']) -> IssueValidation  # status PUBLISHED|PUBLISHED_WITH_WARNINGS|REJECTED; reject codes UNSOURCED_URL, MISSING_DISCLAIMER, ADVISORY_LANGUAGE, TREND_NOT_CONFIRMED, BAD_FRONTMATTER, READING_BUDGET_EXCEEDED, UNKNOWN_SNAPSHOT; warn codes UNVERIFIED_NUMBER",
+        "consumers": [
+          "IssueValidator",
+          "test-bot"
+        ]
+      },
+      {
+        "name": "IssueFiles",
+        "kind": "event",
+        "signature": "issues/YYYY-MM-DD.md (newsletter; H2: Hottest topics | Crude Oil | Natural Gas | Refined Products | Carbon Credits | Sources | Disclaimer; frontmatter date, feed_sha256, data_as_of, prompt_version, articles_opened[<=15]) + issues/analysis/YYYY-MM-DD.md (H2: The big picture | Crude Oil | Natural Gas | Refined Products | Carbon Credits | Trend trajectories | What to watch | Data notes | Disclaimer) + issues/trends.json (append-only ledger) + issues/index.json",
+        "consumers": [
+          "IssueAuthorTask",
+          "IssueValidator",
+          "SiteRenderer"
+        ]
+      },
+      {
+        "name": "CheckIssueScope",
+        "kind": "function",
+        "signature": "check_issue_scope(changed_paths: Sequence[str], commit_message: str) -> bool",
+        "consumers": [
+          "GitHub Actions workflow"
+        ]
+      },
+      {
+        "name": "RunPipeline",
+        "kind": "function",
+        "signature": "run_pipeline(db_path: Path, site_dir: Path, registry_path: Path, settings_path: Path|None, http: HttpClient|None, now: datetime|None) -> RunReport  # CLI: python -m energynews.run; no LLM calls; prices skipped unless settings prices.enabled",
+        "consumers": [
+          "GitHub Actions workflow"
+        ]
+      }
+    ],
+    "data_model": [
+      {
+        "entity": "Source",
+        "owned_by": "SourceRegistry",
+        "fields": [
+          {
+            "name": "source_id",
+            "type": "str",
+            "constraints": "primary key"
+          },
+          {
+            "name": "tier",
+            "type": "int",
+            "constraints": "1..3"
+          },
+          {
+            "name": "source_type",
+            "type": "enum",
+            "constraints": "OFFICIAL|PRESS|TRADE|NEWSROOM|AGGREGATOR"
+          },
+          {
+            "name": "access_method",
+            "type": "enum",
+            "constraints": "RSS|HTML_LIST"
+          },
+          {
+            "name": "selectors",
+            "type": "HtmlSelectors|None",
+            "constraints": "required iff HTML_LIST"
+          },
+          {
+            "name": "tos_status",
+            "type": "enum",
+            "constraints": "ALLOWED|HEADLINE_ONLY|REFERENCE_ONLY|BLOCKED|UNVERIFIED"
+          },
+          {
+            "name": "terms_note",
+            "type": "str",
+            "constraints": "required"
+          },
+          {
+            "name": "enabled",
+            "type": "bool",
+            "constraints": "AGGREGATOR default false"
+          }
+        ]
+      },
+      {
+        "entity": "Organization",
+        "owned_by": "Tagger",
+        "fields": [
+          {
+            "name": "org_id",
+            "type": "str",
+            "constraints": "slug"
+          },
+          {
+            "name": "name",
+            "type": "str",
+            "constraints": "display name"
+          },
+          {
+            "name": "aliases",
+            "type": "list[str]",
+            "constraints": "case-insensitive whole-word match"
+          },
+          {
+            "name": "org_type",
+            "type": "enum",
+            "constraints": "COMPANY|GOVERNMENT|AGENCY|INTERGOVERNMENTAL"
+          }
+        ]
+      },
+      {
+        "entity": "Article",
+        "owned_by": "ArticleStore",
+        "fields": [
+          {
+            "name": "article_id",
+            "type": "str",
+            "constraints": "sha256(canonical_url)[:16]"
+          },
+          {
+            "name": "source_id",
+            "type": "str",
+            "constraints": "FK"
+          },
+          {
+            "name": "canonical_url",
+            "type": "str",
+            "constraints": "unique"
+          },
+          {
+            "name": "title",
+            "type": "str",
+            "constraints": ""
+          },
+          {
+            "name": "published_at",
+            "type": "datetime|None",
+            "constraints": "None => UNDATED"
+          },
+          {
+            "name": "excerpt",
+            "type": "str",
+            "constraints": "<=300 chars"
+          },
+          {
+            "name": "commodities",
+            "type": "set[Commodity]",
+            "constraints": "CRUDE_OIL|NATURAL_GAS|REFINED_PRODUCTS|CARBON_CREDITS"
+          },
+          {
+            "name": "topic",
+            "type": "Topic",
+            "constraints": ""
+          },
+          {
+            "name": "organizations",
+            "type": "list[OrgRef]",
+            "constraints": ""
+          },
+          {
+            "name": "status",
+            "type": "enum",
+            "constraints": "OK|UNDATED|NOT_RELEVANT"
+          },
+          {
+            "name": "fetched_at",
+            "type": "datetime",
+            "constraints": "retained 30 days"
+          }
+        ]
+      },
+      {
+        "entity": "Cluster",
+        "owned_by": "Clusterer",
+        "fields": [
+          {
+            "name": "cluster_id",
+            "type": "str",
+            "constraints": "hash of member ids"
+          },
+          {
+            "name": "article_ids",
+            "type": "list[str]",
+            "constraints": ""
+          },
+          {
+            "name": "commodities",
+            "type": "set[Commodity]",
+            "constraints": ""
+          },
+          {
+            "name": "topic",
+            "type": "Topic",
+            "constraints": ""
+          },
+          {
+            "name": "organizations",
+            "type": "list[OrgRef]",
+            "constraints": "union"
+          },
+          {
+            "name": "first_published_at",
+            "type": "datetime",
+            "constraints": ""
+          },
+          {
+            "name": "distinct_source_count",
+            "type": "int",
+            "constraints": ""
+          },
+          {
+            "name": "best_tier",
+            "type": "int",
+            "constraints": ""
+          },
+          {
+            "name": "summary",
+            "type": "str",
+            "constraints": "extractive"
+          }
+        ]
+      },
+      {
+        "entity": "TrendLedger",
+        "owned_by": "IssueAuthorTask",
+        "fields": [
+          {
+            "name": "trend_id",
+            "type": "str",
+            "constraints": "slug, unique"
+          },
+          {
+            "name": "name",
+            "type": "str",
+            "constraints": ""
+          },
+          {
+            "name": "thesis",
+            "type": "str",
+            "constraints": "one sentence"
+          },
+          {
+            "name": "commodities",
+            "type": "list[Commodity]",
+            "constraints": "non-empty"
+          },
+          {
+            "name": "first_seen",
+            "type": "date",
+            "constraints": ""
+          },
+          {
+            "name": "mentions",
+            "type": "list[Mention{date, company, story_url, action<=20 words}]",
+            "constraints": "append-only"
+          }
+        ]
+      },
+      {
+        "entity": "TrendView",
+        "owned_by": "TrendEngine",
+        "fields": [
+          {
+            "name": "status",
+            "type": "enum",
+            "constraints": "CONFIRMED|EMERGING"
+          },
+          {
+            "name": "trajectory",
+            "type": "enum",
+            "constraints": "NEW|RISING|STEADY|FADING|DORMANT"
+          },
+          {
+            "name": "companies_current",
+            "type": "int",
+            "constraints": "verified only"
+          },
+          {
+            "name": "companies_previous",
+            "type": "int",
+            "constraints": ""
+          },
+          {
+            "name": "hotness",
+            "type": "Decimal",
+            "constraints": "quantised 0.01"
+          }
+        ]
+      },
+      {
+        "entity": "SnapshotRef",
+        "owned_by": "SnapshotStore",
+        "fields": [
+          {
+            "name": "feed_sha256",
+            "type": "str",
+            "constraints": "primary key"
+          },
+          {
+            "name": "data_as_of",
+            "type": "datetime",
+            "constraints": ""
+          },
+          {
+            "name": "path",
+            "type": "str",
+            "constraints": "retained 30 days"
+          },
+          {
+            "name": "digest_path",
+            "type": "str",
+            "constraints": "Markdown <= 60 KB"
+          }
+        ]
+      },
+      {
+        "entity": "Issue",
+        "owned_by": "IssueValidator",
+        "fields": [
+          {
+            "name": "date",
+            "type": "date",
+            "constraints": "one per day, never overwritten"
+          },
+          {
+            "name": "kind",
+            "type": "enum",
+            "constraints": "issue|analysis"
+          },
+          {
+            "name": "feed_sha256",
+            "type": "str",
+            "constraints": "FK SnapshotRef"
+          },
+          {
+            "name": "articles_opened",
+            "type": "list[url]",
+            "constraints": "<=15, each in digest"
+          },
+          {
+            "name": "status",
+            "type": "enum",
+            "constraints": "SUBMITTED|PUBLISHED|PUBLISHED_WITH_WARNINGS|REJECTED|SKIPPED_STALE"
+          },
+          {
+            "name": "reasons",
+            "type": "list",
+            "constraints": ""
+          }
+        ]
+      }
+    ],
+    "technology_choices": [
+      {
+        "concern": "Language and runtime",
+        "choice": "CPython",
+        "version": "3.12.7",
+        "requirement_ids": [
+          "NFR-2"
+        ],
+        "rationale": "Existing stack."
+      },
+      {
+        "concern": "Scheduler and CI",
+        "choice": "GitHub Actions scheduled workflow",
+        "version": "ubuntu-24.04 runner image",
+        "requirement_ids": [
+          "NFR-1",
+          "NFR-3"
+        ],
+        "rationale": "Free on public repositories; daily cron."
+      },
+      {
+        "concern": "Hosting",
+        "choice": "GitHub Pages with custom domain (CNAME, HTTPS enforced)",
+        "version": "static",
+        "requirement_ids": [
+          "FR-20",
+          "NFR-3"
+        ],
+        "rationale": "Free; owner-bought domain points at Pages."
+      },
+      {
+        "concern": "Storage",
+        "choice": "SQLite (stdlib sqlite3)",
+        "version": "3.12.7",
+        "requirement_ids": [
+          "NFR-6"
+        ],
+        "rationale": "Single file on a single-commit data branch."
+      },
+      {
+        "concern": "RSS parsing",
+        "choice": "feedparser",
+        "version": "6.0.11",
+        "requirement_ids": [
+          "FR-2"
+        ],
+        "rationale": ""
+      },
+      {
+        "concern": "HTML list parsing",
+        "choice": "beautifulsoup4 with soupsieve CSS selectors",
+        "version": "4.12.3",
+        "requirement_ids": [
+          "FR-2"
+        ],
+        "rationale": "Official sources without RSS (IEA, European Commission, ICAP, CARB, FERC, DOE, OPEC)."
+      },
+      {
+        "concern": "HTTP client",
+        "choice": "httpx",
+        "version": "0.27.2",
+        "requirement_ids": [
+          "FR-2"
+        ],
+        "rationale": ""
+      },
+      {
+        "concern": "Article text extraction",
+        "choice": "trafilatura",
+        "version": "1.12.2",
+        "requirement_ids": [
+          "FR-3"
+        ],
+        "rationale": "ALLOWED sources only."
+      },
+      {
+        "concern": "Clustering",
+        "choice": "scikit-learn TfidfVectorizer",
+        "version": "1.5.2",
+        "requirement_ids": [
+          "FR-5",
+          "NFR-2"
+        ],
+        "rationale": "Deterministic, no API."
+      },
+      {
+        "concern": "Templating",
+        "choice": "Jinja2",
+        "version": "3.1.4",
+        "requirement_ids": [
+          "FR-10",
+          "FR-20"
+        ],
+        "rationale": ""
+      },
+      {
+        "concern": "Markdown rendering",
+        "choice": "Markdown",
+        "version": "3.7",
+        "requirement_ids": [
+          "FR-15",
+          "FR-17"
+        ],
+        "rationale": "Author HTML escaped before conversion."
+      },
+      {
+        "concern": "Frontmatter",
+        "choice": "python-frontmatter",
+        "version": "1.1.0",
+        "requirement_ids": [
+          "FR-15"
+        ],
+        "rationale": ""
+      },
+      {
+        "concern": "Config and payload validation",
+        "choice": "jsonschema + PyYAML",
+        "version": "4.23.0 / 6.0.2",
+        "requirement_ids": [
+          "FR-1",
+          "FR-19"
+        ],
+        "rationale": "Registry, organizations file, ledger schema."
+      },
+      {
+        "concern": "Testing",
+        "choice": "pytest",
+        "version": "8.3.3",
+        "requirement_ids": [
+          "NFR-2"
+        ],
+        "rationale": ""
+      },
+      {
+        "concern": "Newsletter author",
+        "choice": "Claude scheduled task with GitHub connector on the owner's Claude subscription",
+        "version": "prompt_version newsletter-v2 / analysis-v2",
+        "requirement_ids": [
+          "FR-14",
+          "FR-17",
+          "FR-19",
+          "NFR-3"
+        ],
+        "rationale": "Owner decision: no API spend."
+      }
+    ],
+    "adrs": [
+      {
+        "id": "ADR-001",
+        "title": "Daily batch pipeline publishing a static site",
+        "status": "ACCEPTED",
+        "context": "A handful of readers, 25-35 reputable sources and a free-tier budget. The owner confirmed on 2026-09-16 that daily updates are enough, replacing the earlier 3-hour cadence. An always-on service and an agent-only design were evaluated.",
+        "decision": "Run one deterministic Python pipeline daily at 05:00 America/Chicago on GitHub Actions that scans, tags, clusters and builds the digest, then renders static HTML to GitHub Pages. Interactivity is client-side over prebuilt JSON.",
+        "consequences": "Positive: zero hosting cost, low load on sources (one request per feed per day), reproducible builds. Negative: news is up to a day old; breaking stories wait for the next run.",
+        "requirement_ids": [
+          "NFR-1",
+          "NFR-3",
+          "FR-2",
+          "FR-10"
+        ]
+      },
+      {
+        "id": "ADR-002",
+        "title": "Figures quoted verbatim; all scores computed by pure functions",
+        "status": "ACCEPTED",
+        "context": "Energy news is dense with numbers. An LLM paraphrase or unit conversion that silently alters '4.1 million barrels' would mislead a trader and cannot be detected downstream.",
+        "decision": "FigureExtractor keeps a figure only if its span is an exact substring of allowed source text and never converts units. Relevance, trend status, trajectory and hotness are pure functions with no LLM involvement.",
+        "consequences": "Positive: every pipeline-produced number is traceable and testable. Negative: some valid figures are dropped when phrasing varies.",
+        "requirement_ids": [
+          "FR-6",
+          "FR-7",
+          "FR-9",
+          "NFR-5"
+        ]
+      },
+      {
+        "id": "ADR-003",
+        "title": "LLM confined behind LLMPort with API adapter",
+        "status": "SUPERSEDED",
+        "context": "Classification, figure proposal and summarisation need language understanding, but LLM output is non-deterministic, costs money and can invent labels.",
+        "decision": "All model calls go through LLMPort, which enforces a per-run token budget, caches by (prompt_version, content_hash), and has a deterministic stub adapter. Callers validate outputs against closed taxonomies and grounding rules and flag failures rather than accept them. SUPERSEDED on 2026-09-16 by ADR-014 (no LLM API; all generative work in the Claude scheduled task).",
+        "consequences": "Positive: re-renders are byte-identical, cost is capped, tests run offline. Negative: prompt changes require a prompt_version bump that invalidates the cache.",
+        "requirement_ids": [
+          "FR-4",
+          "FR-11",
+          "NFR-2",
+          "NFR-3"
+        ]
+      },
+      {
+        "id": "ADR-004",
+        "title": "Two-level model: clusters and topic x commodity trends",
+        "status": "SUPERSEDED",
+        "context": "'Most commonly reported trends' mixes single events and multi-day themes; counting raw articles rewards outlets that republish.",
+        "decision": "Cluster articles per event and count distinct sources, weighted by tier and decayed by age; aggregate clusters into trends keyed by (topic, commodity). Priority HIGH requires the 80th percentile score and at least one tier-1 source. SUPERSEDED on 2026-09-16 by ADR-015 (a trend is an idea multiple companies push, tracked as a trajectory). Story clusters remain.",
+        "consequences": "Positive: syndicated duplicates do not inflate trends; official data releases dominate priority. Negative: topic taxonomy granularity limits how specific a trend can be.",
+        "requirement_ids": [
+          "FR-5",
+          "FR-7"
+        ]
+      },
+      {
+        "id": "ADR-005",
+        "title": "Daily event-window price effect",
+        "status": "DEPRECATED",
+        "context": "Free intraday data is not reliably licensable, and many stories break on the same day, so attributing moves to a single story overstates causality.",
+        "decision": "Use daily settlements: event day T from the per-benchmark settlement time and holiday calendar; report day_move, two_day_move and z against sigma20. Missing prices produce PRICE_MISSING with no interpolation; clusters sharing T and benchmark are marked CONFOUNDED. Every badge is labelled 'correlated, not causal'. DEPRECATED on 2026-09-16: price data deferred (ADR-016); reinstate when prices.enabled is turned on.",
+        "consequences": "Positive: honest, reproducible numbers from free data. Negative: coarse resolution; lagged EIA series leave some effects PENDING for days.",
+        "requirement_ids": [
+          "FR-8",
+          "NFR-9"
+        ]
+      },
+      {
+        "id": "ADR-006",
+        "title": "Terms-of-use gate, excerpt-only persistence and reference-only sources",
+        "status": "ACCEPTED",
+        "context": "Many high-value outlets are paywalled or prohibit automated use. Some valuable specialist sites, notably CDR.fyi, forbid scraping and AI summarization of their data without a commercial license (Terms of Service section 5.3, checked 2026-09-16).",
+        "decision": "SourceRegistry fetches only ALLOWED or HEADLINE_ONLY sources, default UNVERIFIED. REFERENCE_ONLY sources are rendered as attributed further-reading links and never requested by the pipeline or given to the author to summarize. Body text is processed in memory for ALLOWED sources only; persisted excerpts are at most 300 characters; every item links to the original.",
+        "consequences": "Positive: compliant by construction and safe to grow. Negative: CDR.fyi's carbon removal purchase data is unavailable to the newsletter until a partner or commercial license is obtained.",
+        "requirement_ids": [
+          "FR-1",
+          "FR-3",
+          "FR-18",
+          "NFR-4"
+        ]
+      },
+      {
+        "id": "ADR-007",
+        "title": "Bounded storage with retention and a 50 MiB guard",
+        "status": "ACCEPTED",
+        "context": "The owner's earlier tracker stalled when a committed database approached GitHub's 100 MiB per-file hard limit and pushes silently failed.",
+        "decision": "Persist SQLite on a single-commit data branch and the site on a single-commit gh-pages branch with 30-day raw-article retention and VACUUM each run; Publisher refuses to push any file over 50 MiB and raises STORAGE_LIMIT; the published site carries only derived JSON and HTML. Snapshots and digests are retained 30 days so ledger mentions can be validated.",
+        "consequences": "Positive: growth is bounded and failure is loud rather than silent. Negative: raw articles older than 30 days cannot be re-clustered.",
+        "requirement_ids": [
+          "NFR-6",
+          "NFR-7",
+          "FR-19"
+        ]
+      },
+      {
+        "id": "ADR-008",
+        "title": "Flag rather than guess",
+        "status": "ACCEPTED",
+        "context": "Undated articles, unmatched selectors, unverified companies and conflicting figures are routine.",
+        "decision": "FlagRegistry and the validators record typed flags (UNDATED, SELECTOR_NO_MATCH, NOT_RELEVANT, CONFLICTING_FIGURES, UNVERIFIED_COMPANY, UNVERIFIED_NUMBER); affected items are excluded or rendered with explicit markers, never filled with defaults.",
+        "consequences": "Positive: data-quality problems are visible to the owner. Negative: some days look sparse.",
+        "requirement_ids": [
+          "FR-3",
+          "FR-4",
+          "FR-6",
+          "FR-15",
+          "FR-19"
+        ]
+      },
+      {
+        "id": "ADR-009",
+        "title": "Per-source failure isolation and atomic publish",
+        "status": "ACCEPTED",
+        "context": "Individual feeds break often; a partial run must not degrade the live newsletter.",
+        "decision": "Fetcher never raises per source; the run continues and records FAILED or STALE_SOURCE. Publisher pushes gh-pages only after every stage and size guard succeed, in a single commit; otherwise the last good build stays live and the stale banner appears after 30 h.",
+        "consequences": "Positive: readers always see a coherent page. Negative: one failing late stage delays all updates until fixed.",
+        "requirement_ids": [
+          "FR-2",
+          "NFR-1",
+          "NFR-7"
+        ]
+      },
+      {
+        "id": "ADR-010",
+        "title": "Issue authored by the scheduled task, published only through a gate with strict number checks",
+        "status": "SUPERSEDED",
+        "context": "The owner wants a newsletter written automatically each day from the gathered news. Three placements were evaluated: (a) an LLM call inside the Python pipeline via LLMPort; (b) a Claude scheduled task that writes an issue file which CI validates before publishing; (c) a Claude scheduled task that pushes finished HTML straight to gh-pages. Option (c) gives the LLM unchecked publish authority; option (a) works but was not what the owner asked for and adds long-form generation spend to every scan run.",
+        "decision": "Adopt (b). The task reads one immutable feed snapshot, writes issues/YYYY-MM-DD.md in a fixed template recording feed_sha256 and prompt_version, and never publishes. IssueValidator checks every number and URL against the snapshot's allowed-token sets plus disclaimer and advisory-language rules, and only PUBLISHED issues reach the site. This mirrors the pipeline rule that a judge gates every handoff. SUPERSEDED on 2026-09-16 by ADR-017 (author may read linked articles; unverified numbers warn instead of reject).",
+        "consequences": "Positive: readable daily prose with no path for invented numbers, sources or advice to reach readers; issues are reproducible against their snapshot. Negative: legitimate phrasing like 'two sessions' or derived percentages not present in the snapshot will be rejected, so the prompt must tell the author to quote numbers exactly as the snapshot formats them; a rejected day shows the previous issue.",
+        "requirement_ids": [
+          "FR-14",
+          "FR-15"
+        ]
+      },
+      {
+        "id": "ADR-011",
+        "title": "Immutable snapshots and least-privilege authoring",
+        "status": "ACCEPTED",
+        "context": "feed.json is rewritten every 3 hours, so an issue validated against the live feed could fail or pass by accident. The authoring task also holds repository write access through the connector.",
+        "decision": "Publisher writes content-addressed snapshots with a latest.json pointer and 30-day retention; issues must reference a snapshot hash. The task's instructions restrict it to issues/ (newsletter, analysis, index.json, trends.json), and IssueScopeGuard enforces this in CI by reverting task-authored commits touching any other path. Issue dates are never overwritten.",
+        "consequences": "Positive: validation is exact and repeatable; a misbehaving task cannot alter pipeline code, data or the live site. Negative: extra storage for snapshots (small, bounded by NFR-6) and a CI workflow to maintain.",
+        "requirement_ids": [
+          "FR-14",
+          "FR-15",
+          "FR-19",
+          "NFR-2",
+          "NFR-6",
+          "NFR-8"
+        ]
+      },
+      {
+        "id": "ADR-012",
+        "title": "Trader analysis: interpretation allowed, forecasts and trade ideas not",
+        "status": "ACCEPTED",
+        "context": "The owner wants an explanation of what all collected news means for energy traders, which requires interpretation. Unconstrained interpretation drifts into invented facts, price forecasts and trade ideas. Three options were weighed: (a) deterministic templates only, which are verifiable but read as data dumps; (b) an LLM analysis inside the pipeline, which would need an API key; (c) the daily Claude task writes the analysis once a day from a precomputed synopsis, passing the same validator as issues.",
+        "decision": "The daily Claude task writes the analysis from the digest, the computed trend trajectories and the articles it opened. It may explain in general, conditional terms how developments are usually read, but the validator rejects links absent from the digest, forecast patterns and advisory language. When no analysis based on data from the last 36 hours is published, pinned cards show the data-only synopsis.",
+        "consequences": "Positive: readers get narrative context while every checkable claim remains traceable to collected data. Negative: general explanatory statements cannot be verified mechanically; they rely on the prompt rules and are visible for human review in the issues/analysis history. Some legitimate phrasing will be rejected by the forecast patterns.",
+        "requirement_ids": [
+          "FR-16",
+          "FR-17",
+          "FR-15"
+        ]
+      },
+      {
+        "id": "ADR-013",
+        "title": "Carbon Credits without a price source",
+        "status": "SUPERSEDED",
+        "context": "The owner added carbon credits. Daily EUA (ICE Endex/EEX) and CCA prices are exchange-licensed with no free, redistributable series comparable to EIA spot data.",
+        "decision": "Add CARBON_CREDITS to the taxonomy, registry, tabs and synopsis with benchmark null. FeedBuilder emits price_effect status NO_PRICE_SOURCE with an explanatory note; relevance uses |z| = 0; the tab and the analysis state that no price effect is shown. Adding a licensed series later only requires a PriceSource adapter and a benchmark entry in settings. SUPERSEDED on 2026-09-16 by ADR-016: all price data is deferred, so Carbon Credits is simply a news commodity like the others.",
+        "consequences": "Positive: carbon news, trends and analysis ship now without inventing prices. Negative: carbon stories rank lower on relevance than priced commodities with large moves, and carbon analysis cannot reference market moves.",
+        "requirement_ids": [
+          "FR-18"
+        ]
+      },
+      {
+        "id": "ADR-014",
+        "title": "No LLM API: generative work runs only in the Claude scheduled task on the owner's subscription",
+        "status": "ACCEPTED",
+        "context": "The owner prefers to use an existing Claude subscription instead of paying per token. The earlier design allowed an optional API adapter inside the pipeline for classification and summaries.",
+        "decision": "Remove the LLM API adapter and keys. The pipeline is fully deterministic: keyword taxonomies, an organizations alias file, TF-IDF clustering and extractive summaries. Naming trends, writing the newsletter and writing the analysis happen once a day in the Claude scheduled task, bounded to one compact digest (<= 60 KB) and at most 15 opened articles.",
+        "consequences": "Positive: zero API cost, simpler secrets, fully reproducible pipeline. Negative: tagging quality is limited to keyword rules; plan usage limits can occasionally block a daily run (fallback: synopsis and previous newsletter).",
+        "requirement_ids": [
+          "FR-4",
+          "FR-11",
+          "FR-14",
+          "NFR-2",
+          "NFR-3"
+        ]
+      },
+      {
+        "id": "ADR-015",
+        "title": "Trends are ideas multiple companies push, tracked by an append-only ledger with computed trajectory",
+        "status": "ACCEPTED",
+        "context": "The owner defined a trend as 'an idea multiple companies are pushing, essentially trajectory'. Keyword topics cannot name ideas, and an LLM judging trajectory each day would be inconsistent. Options: (a) deterministic topic x commodity grouping; (b) the author decides trends and trajectory daily in prose; (c) the author records evidence in a ledger and code computes status and trajectory.",
+        "decision": "Adopt (c). The pipeline supplies candidate groups (clusters naming 2+ companies) and the current trend views. The task appends dated mentions (company, story_url, short action) to issues/trends.json. The validator enforces append-only mentions whose URLs exist in retained snapshots and verifies each company against the story's digest text or organization tags. TrendEngine computes CONFIRMED (2+ verified companies in 30 days) vs EMERGING, NEW/RISING/STEADY/FADING/DORMANT from current vs previous 7-day windows, and hotness; the newsletter's hottest topics must be CONFIRMED.",
+        "consequences": "Positive: trends are evidence-backed, trajectories are consistent day to day, and history accumulates for growth. Negative: trend quality depends on the author naming ideas well; company verification misses companies mentioned only in article bodies (kept as UNVERIFIED_COMPANY).",
+        "requirement_ids": [
+          "FR-7",
+          "FR-16",
+          "FR-19",
+          "NFR-5"
+        ]
+      },
+      {
+        "id": "ADR-016",
+        "title": "News-only v1; price module dormant behind a flag",
+        "status": "ACCEPTED",
+        "context": "The owner decided price data is not important yet; the goal is to read reputable sources and condense the hottest topics.",
+        "decision": "Drop price effects, benchmark changes and price badges from v1 outputs (FR-8 WONT). Keep price code isolated behind settings prices.enabled (default false) so it can return without restructuring.",
+        "consequences": "Positive: less scope, no EIA key needed, faster to launch. Negative: the analysis cannot connect news to market moves until prices return.",
+        "requirement_ids": [
+          "FR-8",
+          "NFR-9"
+        ]
+      },
+      {
+        "id": "ADR-017",
+        "title": "Author may read linked articles; unverified numbers warn instead of reject",
+        "status": "ACCEPTED",
+        "context": "To condense news well, the author needs more than headlines and short excerpts, so it opens some linked articles. Figures read there are not in the digest, so the earlier rule (reject any number absent from the snapshot) would block most good newsletters. The readership is small and the page is prefaced as unverified.",
+        "decision": "The task may open at most 15 URLs that appear in the digest and lists them in frontmatter. The validator REJECTS unsourced URLs, missing disclaimer or unverified line, advisory or forecast language, hottest topics that are not CONFIRMED, missing sections and reading-budget overruns. It WARNS on numbers absent from the digest; such newsletters publish with a visible 'contains figures not machine-verified' note. Revisit this before opening the site to a wider audience.",
+        "consequences": "Positive: richer newsletters that still cannot invent sources, trends or advice. Negative: a mis-read figure from an article can reach readers, flagged but not blocked.",
+        "requirement_ids": [
+          "FR-14",
+          "FR-15",
+          "FR-17",
+          "NFR-3",
+          "NFR-5"
+        ]
+      },
+      {
+        "id": "ADR-018",
+        "title": "Reputable source policy: tiers, types and verification from the runner",
+        "status": "ACCEPTED",
+        "context": "The owner wants mostly tier-1, well-checked sources. Wire services (Reuters, Bloomberg, AP) and price reporting agencies (Platts, Argus) need licenses. Several reputable feeds could not be checked from the planning environment.",
+        "decision": "Tier 1 = official or primary publishers and news organizations with a public editorial and corrections policy; tier 2 = specialist trade press and press-release wires; tier 3 = aggregators, disabled. Each source records source_type and terms_note. Official sites without RSS use HTML_LIST adapters. The first run report confirms each feed from the GitHub runner; failing sources are fixed or disabled by the owner.",
+        "consequences": "Positive: a defensible, documented source list that can grow. Negative: licensed wire services stay out; HTML_LIST selectors need occasional maintenance when official sites redesign.",
+        "requirement_ids": [
+          "FR-1",
+          "FR-2",
+          "FR-18"
+        ]
+      },
+      {
+        "id": "ADR-019",
+        "title": "Hosting on GitHub Pages with a custom domain, noindex and a private-preview banner",
+        "status": "ACCEPTED",
+        "context": "The newsletter is for the owner and a friend, may grow, and the owner can buy a domain. GitHub Pages sites on free plans are public.",
+        "decision": "Publish to GitHub Pages with an optional CNAME from settings and HTTPS enforced. Add noindex meta, robots.txt Disallow and a banner stating it is a private preview with unverified, informational content that is not investment advice. If real access control is needed, put the domain behind Cloudflare Access or move hosting to a private host; the pipeline is unchanged.",
+        "consequences": "Positive: free, simple, custom-branded. Negative: anyone with the URL can read it; digest JSON is publicly fetchable.",
+        "requirement_ids": [
+          "FR-20",
+          "NFR-4",
+          "NFR-9"
+        ]
+      }
+    ],
+    "downstream_contract": {
+      "module_boundaries": [
+        {
+          "module": "energynews.sources",
+          "owns": [
+            "SourceRegistry"
+          ],
+          "public_interfaces": [
+            "LoadRegistry",
+            "EligibleSources"
+          ],
+          "in_scope": [
+            "src/energynews/sources/registry.py",
+            "config/sources.yaml",
+            "config/sources.schema.json"
+          ]
+        },
+        {
+          "module": "energynews.fetch",
+          "owns": [
+            "Fetcher"
+          ],
+          "public_interfaces": [
+            "FetchSource",
+            "CanonicalizeUrl"
+          ],
+          "in_scope": [
+            "src/energynews/fetch/fetcher.py",
+            "src/energynews/fetch/html_list.py",
+            "src/energynews/fetch/urls.py"
+          ]
+        },
+        {
+          "module": "energynews.extract",
+          "owns": [
+            "ArticleExtractor"
+          ],
+          "public_interfaces": [
+            "ExtractArticle"
+          ],
+          "in_scope": [
+            "src/energynews/extract/extractor.py"
+          ]
+        },
+        {
+          "module": "energynews.store",
+          "owns": [
+            "ArticleStore",
+            "FlagRegistry"
+          ],
+          "public_interfaces": [],
+          "in_scope": [
+            "src/energynews/store/db.py"
+          ]
+        },
+        {
+          "module": "energynews.tag",
+          "owns": [
+            "Tagger",
+            "FigureExtractor",
+            "Summarizer"
+          ],
+          "public_interfaces": [
+            "TagArticle",
+            "ExtractFigures",
+            "Summarize"
+          ],
+          "in_scope": [
+            "src/energynews/tag/taxonomy.py",
+            "src/energynews/tag/organizations.py",
+            "src/energynews/tag/figures.py",
+            "src/energynews/tag/summarize.py",
+            "config/organizations.yaml"
+          ]
+        },
+        {
+          "module": "energynews.cluster",
+          "owns": [
+            "Clusterer"
+          ],
+          "public_interfaces": [
+            "ClusterArticles"
+          ],
+          "in_scope": [
+            "src/energynews/cluster/clusterer.py"
+          ]
+        },
+        {
+          "module": "energynews.scoring",
+          "owns": [
+            "RelevanceRanker",
+            "TrendEngine"
+          ],
+          "public_interfaces": [
+            "ClusterWeight",
+            "Relevance",
+            "ComputeTrends",
+            "CandidateTrendGroups",
+            "ValidateLedger"
+          ],
+          "in_scope": [
+            "src/energynews/scoring/relevance.py",
+            "src/energynews/scoring/trends.py",
+            "src/energynews/scoring/ledger.py"
+          ]
+        },
+        {
+          "module": "energynews.publish",
+          "owns": [
+            "DigestBuilder",
+            "SnapshotStore",
+            "SiteRenderer",
+            "IssueArchiver",
+            "Publisher"
+          ],
+          "public_interfaces": [
+            "BuildDigest",
+            "WriteSnapshot",
+            "RenderSite"
+          ],
+          "in_scope": [
+            "src/energynews/publish/digest.py",
+            "src/energynews/publish/render.py",
+            "src/energynews/publish/templates/",
+            "src/energynews/publish/assets/"
+          ]
+        },
+        {
+          "module": "energynews.issues",
+          "owns": [
+            "IssueValidator",
+            "IssueScopeGuard"
+          ],
+          "public_interfaces": [
+            "ValidateIssue",
+            "IssueFiles",
+            "CheckIssueScope"
+          ],
+          "in_scope": [
+            "src/energynews/issues/validate.py",
+            "src/energynews/issues/gate.py",
+            "src/energynews/issues/scope.py",
+            "src/energynews/issues/rules.yaml",
+            ".github/workflows/issue-gate.yml",
+            "tasks/daily-newsletter-task.md",
+            "issues/"
+          ]
+        },
+        {
+          "module": "energynews.run",
+          "owns": [
+            "RunOrchestrator"
+          ],
+          "public_interfaces": [
+            "RunPipeline"
+          ],
+          "in_scope": [
+            "src/energynews/run.py",
+            ".github/workflows/scan.yml"
+          ]
+        },
+        {
+          "module": "energynews.prices (dormant)",
+          "owns": [],
+          "public_interfaces": [],
+          "in_scope": [
+            "src/energynews/prices/"
+          ]
+        }
+      ],
+      "in_scope": [
+        "src/energynews/sources/registry.py",
+        "config/sources.yaml",
+        "config/sources.schema.json",
+        "src/energynews/fetch/fetcher.py",
+        "src/energynews/fetch/html_list.py",
+        "src/energynews/fetch/urls.py",
+        "src/energynews/extract/extractor.py",
+        "src/energynews/store/db.py",
+        "src/energynews/tag/taxonomy.py",
+        "src/energynews/tag/organizations.py",
+        "src/energynews/tag/figures.py",
+        "src/energynews/tag/summarize.py",
+        "config/organizations.yaml",
+        "src/energynews/cluster/clusterer.py",
+        "src/energynews/scoring/relevance.py",
+        "src/energynews/scoring/trends.py",
+        "src/energynews/scoring/ledger.py",
+        "src/energynews/publish/digest.py",
+        "src/energynews/publish/render.py",
+        "src/energynews/publish/templates/",
+        "src/energynews/publish/assets/",
+        "src/energynews/issues/validate.py",
+        "src/energynews/issues/gate.py",
+        "src/energynews/issues/scope.py",
+        "src/energynews/issues/rules.yaml",
+        ".github/workflows/issue-gate.yml",
+        "tasks/daily-newsletter-task.md",
+        "issues/",
+        "src/energynews/run.py",
+        ".github/workflows/scan.yml",
+        "src/energynews/prices/",
+        "tests/"
+      ],
+      "out_of_scope": [
+        "Price data, benchmark moves and price effects (deferred, FR-8)",
+        "Price forecasts, trade ideas or investment advice",
+        "Any LLM API usage or API keys",
+        "Automated collection or AI summarization of CDR.fyi or other REFERENCE_ONLY sources",
+        "Paywall bypass or full-text republication",
+        "Email delivery and user accounts (growth path)",
+        "True access control in v1 (GitHub Pages is public; noindex only)"
+      ],
+      "interface_signatures": [
+        "load_registry(path: Path) -> list[Source]  # raises RegistryValidationError(entry_id, reason); Source{source_id, name, url, tier: 1|2|3, source_type: OFFICIAL|PRESS|TRADE|NEWSROOM|AGGREGATOR, commodities, access_method: RSS|HTML_LIST, selectors: HtmlSelectors|None, tos_status: ALLOWED|HEADLINE_ONLY|REFERENCE_ONLY|BLOCKED|UNVERIFIED, terms_note, enabled}",
+        "eligible_sources(reg: list[Source]) -> list[Source]  # enabled and tos_status in {ALLOWED, HEADLINE_ONLY}; ordered (tier, source_id)",
+        "fetch_source(src: Source, state: SourceHealth, http: HttpClient, robots: Robots) -> FetchResult  # {items: list[RawItem], status: OK|NOT_MODIFIED|FAILED|ROBOTS_DISALLOWED, reason}; HTML_LIST uses src.selectors {item, link, title, date, date_format}; SELECTOR_NO_MATCH -> FAILED; never raises",
+        "canonicalize_url(url: str) -> str",
+        "extract_article(item: RawItem, src: Source, http: HttpClient|None, now: datetime, excerpt_chars: int = 300) -> tuple[Article, str]  # second value is transient text, never persisted",
+        "tag_article(a: Article, text: str, orgs: OrganizationIndex) -> list[Flag]  # sets a.commodities, a.topic, a.organizations: list[OrgRef{org_id, name, org_type}] or status NOT_RELEVANT",
+        "cluster_articles(articles: Sequence[Article], threshold: Decimal = 0.35, window_hours: int = 72) -> list[Cluster]",
+        "extract_figures(a: Article, text: str) -> list[Flag]  # appends verbatim ExtractedFigure to a.figures",
+        "summarize(members: Sequence[Article], sources: Mapping[str, Source]) -> str  # first sentence of best-tier excerpt",
+        "cluster_weight(cluster: Cluster, articles, sources, now) -> Decimal  # sum over distinct sources of W[tier] * 0.5**(age_h/72)",
+        "relevance(cluster_weight: Decimal, best_tier: int) -> int  # round(100*(0.6*min(w/10,1)+0.4*tier_score))",
+        "validate_ledger(new: Ledger, previous: Ledger|None, snapshots_dir: Path, orgs: OrganizationIndex) -> LedgerValidation  # {status: ACCEPTED|REJECTED, reasons: [UNSOURCED_MENTION|LEDGER_NOT_APPEND_ONLY|BAD_LEDGER], mentions: [{..., verified: bool, reason?: UNVERIFIED_COMPANY}]}",
+        "compute_trends(ledger: ValidatedLedger, stories: Mapping[url, StoryRef], now: datetime) -> list[TrendView]  # TrendView{trend_id, name, thesis, commodities, status: CONFIRMED|EMERGING, trajectory: NEW|RISING|STEADY|FADING|DORMANT, companies_current, companies_previous, mentions_current, mentions_previous, hotness: Decimal, companies: list[str], timeline: list[Mention]}; sorted by (-hotness, -latest_mention, trend_id)",
+        "candidate_groups(clusters: Sequence[Cluster], window_days: int = 7) -> list[CandidateGroup]  # (topic, commodity) groups whose clusters name >= 2 distinct COMPANY orgs; hints for the author, not trends",
+        "build_digest(store: ArticleStore, ledger: ValidatedLedger, now: datetime, settings: Settings) -> tuple[DigestPayload, str]  # JSON payload (schema digest.v2) and Markdown <= 60 KB with omitted-count notes",
+        "write_snapshot(out_dir: Path, payload: DigestPayload, markdown: str) -> SnapshotRef  # snapshots/feed-<sha>.json, snapshots/digest-<sha>.md, snapshots/latest.json {feed_sha256, data_as_of, path, digest_path}",
+        "render_site(payload: DigestPayload, out_dir: Path, settings: Settings) -> SiteBuild  # index.html (noindex), robots.txt, CNAME if configured, assets, feed.json",
+        "validate_issue(path: Path, snapshots_dir: Path, ledger: ValidatedLedger, kind: Literal['issue','analysis']) -> IssueValidation  # status PUBLISHED|PUBLISHED_WITH_WARNINGS|REJECTED; reject codes UNSOURCED_URL, MISSING_DISCLAIMER, ADVISORY_LANGUAGE, TREND_NOT_CONFIRMED, BAD_FRONTMATTER, READING_BUDGET_EXCEEDED, UNKNOWN_SNAPSHOT; warn codes UNVERIFIED_NUMBER",
+        "issues/YYYY-MM-DD.md (newsletter; H2: Hottest topics | Crude Oil | Natural Gas | Refined Products | Carbon Credits | Sources | Disclaimer; frontmatter date, feed_sha256, data_as_of, prompt_version, articles_opened[<=15]) + issues/analysis/YYYY-MM-DD.md (H2: The big picture | Crude Oil | Natural Gas | Refined Products | Carbon Credits | Trend trajectories | What to watch | Data notes | Disclaimer) + issues/trends.json (append-only ledger) + issues/index.json",
+        "check_issue_scope(changed_paths: Sequence[str], commit_message: str) -> bool",
+        "run_pipeline(db_path: Path, site_dir: Path, registry_path: Path, settings_path: Path|None, http: HttpClient|None, now: datetime|None) -> RunReport  # CLI: python -m energynews.run; no LLM calls; prices skipped unless settings prices.enabled"
+      ]
+    },
+    "persistence": {
+      "committed": false,
+      "commit_sha": null,
+      "paths_written": [
+        "architecture/energy-news-newsletter/architecture_spec.json",
+        "architecture/energy-news-newsletter/adr/ADR-001.md",
+        "architecture/energy-news-newsletter/adr/ADR-002.md",
+        "architecture/energy-news-newsletter/adr/ADR-003.md",
+        "architecture/energy-news-newsletter/adr/ADR-004.md",
+        "architecture/energy-news-newsletter/adr/ADR-005.md",
+        "architecture/energy-news-newsletter/adr/ADR-006.md",
+        "architecture/energy-news-newsletter/adr/ADR-007.md",
+        "architecture/energy-news-newsletter/adr/ADR-008.md",
+        "architecture/energy-news-newsletter/adr/ADR-009.md",
+        "architecture/energy-news-newsletter/adr/ADR-010.md",
+        "architecture/energy-news-newsletter/adr/ADR-011.md",
+        "architecture/energy-news-newsletter/adr/ADR-012.md",
+        "architecture/energy-news-newsletter/adr/ADR-013.md",
+        "architecture/energy-news-newsletter/adr/ADR-014.md",
+        "architecture/energy-news-newsletter/adr/ADR-015.md",
+        "architecture/energy-news-newsletter/adr/ADR-016.md",
+        "architecture/energy-news-newsletter/adr/ADR-017.md",
+        "architecture/energy-news-newsletter/adr/ADR-018.md",
+        "architecture/energy-news-newsletter/adr/ADR-019.md"
+      ],
+      "index_updated": false
+    },
+    "self_verification": {
+      "schema_valid": true,
+      "requirement_coverage": {
+        "FR-1": {
+          "components": [
+            "SourceRegistry"
+          ],
+          "adrs": [
+            "ADR-006",
+            "ADR-018"
+          ],
+          "acceptance_criteria": [
+            "AC-1.1",
+            "AC-1.2",
+            "AC-1.3",
+            "AC-1.4"
+          ]
+        },
+        "FR-2": {
+          "components": [
+            "Fetcher",
+            "ArticleStore",
+            "FlagRegistry"
+          ],
+          "adrs": [
+            "ADR-001",
+            "ADR-009",
+            "ADR-018"
+          ],
+          "acceptance_criteria": [
+            "AC-2.1",
+            "AC-2.2",
+            "AC-2.3",
+            "AC-2.4",
+            "AC-2.5"
+          ]
+        },
+        "FR-3": {
+          "components": [
+            "ArticleExtractor",
+            "FlagRegistry"
+          ],
+          "adrs": [
+            "ADR-006",
+            "ADR-008"
+          ],
+          "acceptance_criteria": [
+            "AC-3.1",
+            "AC-3.2",
+            "AC-3.3"
+          ]
+        },
+        "FR-4": {
+          "components": [
+            "Tagger",
+            "FlagRegistry"
+          ],
+          "adrs": [
+            "ADR-008",
+            "ADR-014"
+          ],
+          "acceptance_criteria": [
+            "AC-4.1",
+            "AC-4.2",
+            "AC-4.3"
+          ]
+        },
+        "FR-5": {
+          "components": [
+            "Clusterer"
+          ],
+          "adrs": [],
+          "acceptance_criteria": [
+            "AC-5.1",
+            "AC-5.2",
+            "AC-5.3",
+            "AC-5.4"
+          ]
+        },
+        "FR-6": {
+          "components": [
+            "FigureExtractor",
+            "FlagRegistry"
+          ],
+          "adrs": [
+            "ADR-002",
+            "ADR-008"
+          ],
+          "acceptance_criteria": [
+            "AC-6.1",
+            "AC-6.2"
+          ]
+        },
+        "FR-7": {
+          "components": [
+            "TrendEngine"
+          ],
+          "adrs": [
+            "ADR-002",
+            "ADR-015"
+          ],
+          "acceptance_criteria": [
+            "AC-7.1",
+            "AC-7.2",
+            "AC-7.3",
+            "AC-7.4",
+            "AC-7.5",
+            "AC-7.6"
+          ]
+        },
+        "FR-8": {
+          "components": [
+            "RunOrchestrator"
+          ],
+          "adrs": [
+            "ADR-016"
+          ],
+          "acceptance_criteria": [
+            "AC-8.1"
+          ]
+        },
+        "FR-9": {
+          "components": [
+            "RelevanceRanker",
+            "DigestBuilder",
+            "SiteRenderer"
+          ],
+          "adrs": [
+            "ADR-002"
+          ],
+          "acceptance_criteria": [
+            "AC-9.1",
+            "AC-9.2",
+            "AC-9.3",
+            "AC-9.4"
+          ]
+        },
+        "FR-10": {
+          "components": [
+            "DigestBuilder",
+            "SiteRenderer"
+          ],
+          "adrs": [
+            "ADR-001"
+          ],
+          "acceptance_criteria": [
+            "AC-10.1",
+            "AC-10.2",
+            "AC-10.3",
+            "AC-10.4"
+          ]
+        },
+        "FR-11": {
+          "components": [
+            "Summarizer"
+          ],
+          "adrs": [
+            "ADR-014"
+          ],
+          "acceptance_criteria": [
+            "AC-11.1"
+          ]
+        },
+        "FR-12": {
+          "components": [
+            "IssueArchiver"
+          ],
+          "adrs": [],
+          "acceptance_criteria": [
+            "AC-12.1"
+          ]
+        },
+        "FR-13": {
+          "components": [
+            "RunOrchestrator"
+          ],
+          "adrs": [],
+          "acceptance_criteria": [
+            "AC-13.1"
+          ]
+        },
+        "FR-14": {
+          "components": [
+            "IssueAuthorTask"
+          ],
+          "adrs": [
+            "ADR-011",
+            "ADR-014",
+            "ADR-017"
+          ],
+          "acceptance_criteria": [
+            "AC-14.1",
+            "AC-14.2",
+            "AC-14.3",
+            "AC-14.4"
+          ]
+        },
+        "FR-15": {
+          "components": [
+            "SiteRenderer",
+            "SnapshotStore",
+            "IssueValidator"
+          ],
+          "adrs": [
+            "ADR-008",
+            "ADR-011",
+            "ADR-012",
+            "ADR-017"
+          ],
+          "acceptance_criteria": [
+            "AC-15.1",
+            "AC-15.2",
+            "AC-15.3",
+            "AC-15.4",
+            "AC-15.5"
+          ]
+        },
+        "FR-16": {
+          "components": [
+            "TrendEngine",
+            "DigestBuilder",
+            "SnapshotStore"
+          ],
+          "adrs": [
+            "ADR-012",
+            "ADR-015"
+          ],
+          "acceptance_criteria": [
+            "AC-16.1",
+            "AC-16.2",
+            "AC-16.3"
+          ]
+        },
+        "FR-17": {
+          "components": [
+            "SiteRenderer",
+            "IssueAuthorTask",
+            "IssueValidator"
+          ],
+          "adrs": [
+            "ADR-012",
+            "ADR-017"
+          ],
+          "acceptance_criteria": [
+            "AC-17.1",
+            "AC-17.2",
+            "AC-17.3"
+          ]
+        },
+        "FR-18": {
+          "components": [
+            "SourceRegistry",
+            "Tagger",
+            "SiteRenderer"
+          ],
+          "adrs": [
+            "ADR-006",
+            "ADR-018"
+          ],
+          "acceptance_criteria": [
+            "AC-18.1",
+            "AC-18.2"
+          ]
+        },
+        "FR-19": {
+          "components": [
+            "TrendEngine",
+            "SnapshotStore",
+            "IssueAuthorTask",
+            "IssueValidator"
+          ],
+          "adrs": [
+            "ADR-007",
+            "ADR-008",
+            "ADR-011",
+            "ADR-015"
+          ],
+          "acceptance_criteria": [
+            "AC-19.1",
+            "AC-19.2",
+            "AC-19.3",
+            "AC-19.4"
+          ]
+        },
+        "FR-20": {
+          "components": [
+            "SiteRenderer",
+            "Publisher"
+          ],
+          "adrs": [
+            "ADR-019"
+          ],
+          "acceptance_criteria": [
+            "AC-20.1",
+            "AC-20.2"
+          ]
+        },
+        "NFR-1": {
+          "components": [
+            "DigestBuilder",
+            "SiteRenderer",
+            "RunOrchestrator"
+          ],
+          "adrs": [
+            "ADR-001",
+            "ADR-009"
+          ],
+          "acceptance_criteria": [
+            "AC-N1.1"
+          ]
+        },
+        "NFR-2": {
+          "components": [
+            "ArticleStore",
+            "Tagger",
+            "RelevanceRanker",
+            "TrendEngine",
+            "SnapshotStore"
+          ],
+          "adrs": [
+            "ADR-011",
+            "ADR-014"
+          ],
+          "acceptance_criteria": [
+            "AC-N2.1"
+          ]
+        },
+        "NFR-3": {
+          "components": [
+            "Tagger",
+            "IssueAuthorTask",
+            "IssueValidator"
+          ],
+          "adrs": [
+            "ADR-001",
+            "ADR-014",
+            "ADR-017"
+          ],
+          "acceptance_criteria": [
+            "AC-N3.1",
+            "AC-N3.2"
+          ]
+        },
+        "NFR-4": {
+          "components": [
+            "SourceRegistry",
+            "Fetcher",
+            "ArticleExtractor",
+            "SiteRenderer"
+          ],
+          "adrs": [
+            "ADR-006",
+            "ADR-019"
+          ],
+          "acceptance_criteria": [
+            "AC-N4.1",
+            "AC-N4.2"
+          ]
+        },
+        "NFR-5": {
+          "components": [
+            "FigureExtractor",
+            "TrendEngine",
+            "DigestBuilder",
+            "SiteRenderer",
+            "IssueValidator"
+          ],
+          "adrs": [
+            "ADR-002",
+            "ADR-015",
+            "ADR-017"
+          ],
+          "acceptance_criteria": [
+            "AC-N5.1"
+          ]
+        },
+        "NFR-6": {
+          "components": [
+            "ArticleStore",
+            "SnapshotStore",
+            "Publisher",
+            "FlagRegistry"
+          ],
+          "adrs": [
+            "ADR-007",
+            "ADR-011"
+          ],
+          "acceptance_criteria": [
+            "AC-N6.1"
+          ]
+        },
+        "NFR-7": {
+          "components": [
+            "Fetcher",
+            "Publisher",
+            "RunOrchestrator"
+          ],
+          "adrs": [
+            "ADR-007",
+            "ADR-009"
+          ],
+          "acceptance_criteria": [
+            "AC-N7.1"
+          ]
+        },
+        "NFR-8": {
+          "components": [
+            "IssueAuthorTask",
+            "IssueScopeGuard"
+          ],
+          "adrs": [
+            "ADR-011"
+          ],
+          "acceptance_criteria": [
+            "AC-N8.1"
+          ]
+        },
+        "NFR-9": {
+          "components": [
+            "RunOrchestrator"
+          ],
+          "adrs": [
+            "ADR-016",
+            "ADR-019"
+          ],
+          "acceptance_criteria": [
+            "AC-N9.1"
+          ]
+        }
+      },
+      "unsatisfiable_requirements": [],
+      "conformance_check": {
+        "every_requirement_has_component": true,
+        "every_requirement_has_accepted_adr_or_component": true
+      }
+    }
+  }
+}

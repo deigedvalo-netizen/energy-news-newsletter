@@ -1,0 +1,874 @@
+{
+  "requirements_artifact": {
+    "status": "COMPLETE",
+    "feature_id": "energy-news-newsletter",
+    "problem_statement": "Build a small, private, daily energy-markets newsletter. A deterministic pipeline reads a curated list of reputable, mostly tier-1 sources once a day (official agencies and regulators, major news organizations with corrections policies, specialist carbon and energy press), tags and groups the stories, and publishes a digest. A Claude scheduled task on the owner's subscription reads that digest, tracks trends (ideas that multiple companies are pushing, with their trajectory), and writes a condensed newsletter plus a 'What this means for energy traders' analysis. A validator checks both before they appear on a web page with tabs for crude oil, natural gas, refined products and carbon credits. v1 is news-only; price data is deferred.",
+    "in_scope": [
+      "Curated reputable source registry with tiers, types and terms status",
+      "Daily RSS and HTML-list collection",
+      "Deterministic commodity, topic and organization tagging",
+      "Cross-outlet story clustering",
+      "Verbatim figure extraction",
+      "Digest snapshot and compact Markdown digest for the author",
+      "Trend ledger with company verification, status, trajectory and hotness",
+      "Daily newsletter and trader analysis written by a Claude scheduled task",
+      "Validator gate with reject and warn rules",
+      "Web page: Newsletter, Analysis, Trends, All and four commodity tabs",
+      "Carbon Credits as a v1 commodity",
+      "Custom domain, noindex and private-preview disclaimer",
+      "Weekly archive (COULD)"
+    ],
+    "out_of_scope": [
+      "Price data, benchmark moves and price effects (deferred, FR-8)",
+      "Price forecasts, trade ideas or investment advice",
+      "Any LLM API usage or API keys",
+      "Automated collection or AI summarization of CDR.fyi or other REFERENCE_ONLY sources",
+      "Paywall bypass or full-text republication",
+      "Email delivery and user accounts (growth path)",
+      "True access control in v1 (GitHub Pages is public; noindex only)"
+    ],
+    "assumptions": [
+      {
+        "id": "A1",
+        "statement": "v1 commodities are Crude Oil, Natural Gas, Refined Products and Carbon Credits.",
+        "requirement_ids": [
+          "FR-4",
+          "FR-10",
+          "FR-18"
+        ]
+      },
+      {
+        "id": "A2",
+        "statement": "Reuters, Bloomberg, AP, S&P Global Platts and Argus require licenses and stay BLOCKED; tier-1 coverage comes from official publishers and outlets with public feeds.",
+        "requirement_ids": [
+          "FR-1"
+        ]
+      },
+      {
+        "id": "A3",
+        "statement": "Company press-release wires (e.g. PR Newswire Energy) are tier-2 NEWSROOM sources: good evidence of what a company is pushing, not independent confirmation. A CONFIRMED trend needs 2+ companies but not an independent source; the analysis must say when a trend rests only on company releases.",
+        "requirement_ids": [
+          "FR-7",
+          "FR-17"
+        ]
+      },
+      {
+        "id": "A4",
+        "statement": "The readership is the owner and a friend; the page is public-but-unlisted (noindex), prefaced as unverified. If it grows, add access control and review each source's terms for wider distribution.",
+        "requirement_ids": [
+          "FR-20",
+          "NFR-4",
+          "NFR-9"
+        ]
+      },
+      {
+        "id": "A5",
+        "statement": "Claude scheduled tasks count against the owner's plan usage; one bounded run per day is expected to fit. If a run fails on usage limits, the site shows the data-only synopsis and the previous newsletter.",
+        "requirement_ids": [
+          "FR-14",
+          "NFR-3"
+        ]
+      },
+      {
+        "id": "A6",
+        "statement": "Several reputable feeds (The Guardian, BBC, Financial Times, CNBC, OPEC, UNFCCC) could not be verified from the planning environment; they ship enabled or pending per the registry and the first run report (AC-1.4) confirms them from the GitHub runner.",
+        "requirement_ids": [
+          "FR-1",
+          "FR-2"
+        ]
+      },
+      {
+        "id": "A7",
+        "statement": "The existing stack is reused: Python 3.12, SQLite, GitHub Actions and GitHub Pages; the owner buys a domain and points it at Pages.",
+        "requirement_ids": [
+          "FR-20",
+          "NFR-3"
+        ]
+      }
+    ],
+    "constraints": {
+      "scale": "About 25-35 enabled sources, roughly 150-400 new articles per day, one private web page for a handful of readers, with room to grow.",
+      "latency": "Daily scan completes in under 15 minutes; the newsletter is live by about 08:00 America/Chicago; the page is interactive in under 2 s.",
+      "cost": "No API spend; free CI and hosting; existing Claude subscription; optional domain (roughly the price of a domain registration per year).",
+      "team_size": "One developer plus the scheduled Claude task.",
+      "existing_stack": "Python 3.12, SQLite, GitHub Actions, GitHub Pages, Claude scheduled tasks with the GitHub connector.",
+      "compliance": "Reputable sources only; honour robots.txt and terms; excerpts and links only; no scraping or AI use of CDR.fyi data without a license; unverified, not-investment-advice disclaimer; noindex."
+    },
+    "requirements": [
+      {
+        "id": "FR-1",
+        "type": "functional",
+        "statement": "Maintain a source registry (config file). Every source declares id, name, url, tier, source_type, commodities, access_method (RSS | HTML_LIST), tos_status (ALLOWED | HEADLINE_ONLY | REFERENCE_ONLY | BLOCKED | UNVERIFIED), terms_note and enabled. Tier 1 = official or primary publishers (government agencies, regulators, intergovernmental bodies) and news organizations with a public editorial and corrections policy; tier 2 = specialist trade press and company press-release wires; tier 3 = aggregators and commentary, disabled by default. source_type is OFFICIAL | PRESS | TRADE | NEWSROOM | AGGREGATOR.",
+        "priority": "MUST",
+        "acceptance_criteria": [
+          {
+            "id": "AC-1.1",
+            "given": "a source whose tos_status is BLOCKED, UNVERIFIED or REFERENCE_ONLY",
+            "when": "the daily scan runs",
+            "then": "no HTTP request is made to it and the run report lists it as SKIPPED with its tos_status"
+          },
+          {
+            "id": "AC-1.2",
+            "given": "a registry entry with a duplicate id, a tier outside 1-3, or an unknown source_type",
+            "when": "the registry is loaded",
+            "then": "loading fails with a validation error naming the entry and no scan starts"
+          },
+          {
+            "id": "AC-1.3",
+            "given": "a tier-3 AGGREGATOR entry with enabled omitted",
+            "when": "the registry is loaded",
+            "then": "it is treated as disabled"
+          },
+          {
+            "id": "AC-1.4",
+            "given": "the first successful daily run",
+            "when": "the run report is written",
+            "then": "it lists every enabled source with OK, NOT_MODIFIED, FAILED or ROBOTS_DISALLOWED so the owner can confirm which reputable feeds work from the runner"
+          }
+        ],
+        "rationale": "Reputable, well-checked sources are the product. Tier and type drive weighting, and terms status decides what the scanner may touch."
+      },
+      {
+        "id": "FR-2",
+        "type": "functional",
+        "statement": "Once per day, scan enabled sources in tier order, honouring robots.txt and conditional GET, and store only items not already seen after URL canonicalisation. RSS sources are parsed as feeds; official sources without RSS use an HTML_LIST adapter configured with CSS selectors for item link, title and date.",
+        "priority": "MUST",
+        "acceptance_criteria": [
+          {
+            "id": "AC-2.1",
+            "given": "an item whose URL differs from a stored item only by utm_* parameters or a trailing slash",
+            "when": "it is scanned",
+            "then": "it is recognised as a duplicate and not stored again"
+          },
+          {
+            "id": "AC-2.2",
+            "given": "one source times out or returns HTTP 5xx",
+            "when": "the scan runs",
+            "then": "that source is recorded FAILED with the reason, every other source is still scanned, and the run completes"
+          },
+          {
+            "id": "AC-2.3",
+            "given": "a source has FAILED on 3 consecutive daily runs",
+            "when": "the run report is produced",
+            "then": "the source carries a STALE_SOURCE flag"
+          },
+          {
+            "id": "AC-2.4",
+            "given": "robots.txt disallows the listing or article path",
+            "when": "it would be fetched",
+            "then": "it is not fetched and is recorded ROBOTS_DISALLOWED"
+          },
+          {
+            "id": "AC-2.5",
+            "given": "an HTML_LIST source (e.g. ICAP news) whose page yields items with title, link and date via the configured selectors",
+            "when": "it is scanned",
+            "then": "each item becomes a stored article exactly as an RSS item would; if the selectors match nothing the source is FAILED with reason SELECTOR_NO_MATCH"
+          }
+        ],
+        "depends_on": [
+          "FR-1"
+        ]
+      },
+      {
+        "id": "FR-3",
+        "type": "functional",
+        "statement": "Read each new item: title, canonical url, outlet, published_at (UTC) and a persisted excerpt of at most 300 characters. HEADLINE_ONLY sources use only the listing or feed title and summary; ALLOWED sources may fetch the article body transiently for tagging and figure extraction.",
+        "priority": "MUST",
+        "acceptance_criteria": [
+          {
+            "id": "AC-3.1",
+            "given": "an article with no parseable publish timestamp",
+            "when": "it is extracted",
+            "then": "it is marked UNDATED and excluded from the digest, trends and newsletter candidates"
+          },
+          {
+            "id": "AC-3.2",
+            "given": "a HEADLINE_ONLY source",
+            "when": "one of its items is read",
+            "then": "the article page is never requested by the pipeline"
+          },
+          {
+            "id": "AC-3.3",
+            "given": "an article published '2026-09-09 10:35 EDT'",
+            "when": "it is extracted",
+            "then": "published_at is stored as 2026-09-09T14:35:00Z"
+          }
+        ],
+        "depends_on": [
+          "FR-2"
+        ]
+      },
+      {
+        "id": "FR-4",
+        "type": "functional",
+        "statement": "Tag every article deterministically (no LLM API): one or more commodities from CRUDE_OIL, NATURAL_GAS, REFINED_PRODUCTS, CARBON_CREDITS; one topic from the closed topic list; and the organizations it names, matched against a maintained organizations file (name, aliases, org_type COMPANY | GOVERNMENT | AGENCY | INTERGOVERNMENTAL).",
+        "priority": "MUST",
+        "acceptance_criteria": [
+          {
+            "id": "AC-4.1",
+            "given": "the headline 'Venture Global and Cheniere expand US LNG export capacity'",
+            "when": "it is tagged",
+            "then": "commodities include NATURAL_GAS and organizations include Venture Global and Cheniere Energy (via alias 'Cheniere'), both COMPANY"
+          },
+          {
+            "id": "AC-4.2",
+            "given": "an article with no commodity keyword matches",
+            "when": "it is tagged",
+            "then": "it is marked NOT_RELEVANT and excluded from all outputs"
+          },
+          {
+            "id": "AC-4.3",
+            "given": "the headline 'EU carbon allowances slide after Commission proposes changes to EU ETS auctions'",
+            "when": "it is tagged",
+            "then": "its commodities are exactly CARBON_CREDITS and organizations include European Commission as GOVERNMENT"
+          }
+        ],
+        "depends_on": [
+          "FR-3"
+        ]
+      },
+      {
+        "id": "FR-5",
+        "type": "functional",
+        "statement": "Group articles from different outlets that report the same event into a story cluster with distinct_source_count, best source tier, organizations (union) and first_published_at.",
+        "priority": "MUST",
+        "acceptance_criteria": [
+          {
+            "id": "AC-5.1",
+            "given": "4 articles from 4 sources about the same EIA Weekly Petroleum Status Report within 24 h",
+            "when": "clustering runs",
+            "then": "exactly one cluster is formed with distinct_source_count = 4"
+          },
+          {
+            "id": "AC-5.2",
+            "given": "3 articles from one source about one event",
+            "when": "clustering runs",
+            "then": "they share one cluster and the source counts once"
+          },
+          {
+            "id": "AC-5.3",
+            "given": "two OPEC+ meeting articles more than 72 h apart",
+            "when": "clustering runs",
+            "then": "they form two clusters"
+          },
+          {
+            "id": "AC-5.4",
+            "given": "identical inputs and configuration",
+            "when": "clustering runs twice",
+            "then": "membership is identical"
+          }
+        ],
+        "depends_on": [
+          "FR-4"
+        ]
+      },
+      {
+        "id": "FR-6",
+        "type": "functional",
+        "statement": "Extract key reported figures verbatim (exact quoted span, unit as written, source url) from text the pipeline is allowed to read; never compute, convert or average them.",
+        "priority": "SHOULD",
+        "acceptance_criteria": [
+          {
+            "id": "AC-6.1",
+            "given": "a proposed figure whose span is not an exact substring of the source text",
+            "when": "figures are validated",
+            "then": "it is dropped and logged"
+          },
+          {
+            "id": "AC-6.2",
+            "given": "two sources in a cluster report different values for the same quantity",
+            "when": "the cluster is rendered",
+            "then": "both are shown with sources and the cluster carries CONFLICTING_FIGURES"
+          }
+        ],
+        "depends_on": [
+          "FR-5"
+        ]
+      },
+      {
+        "id": "FR-7",
+        "type": "functional",
+        "statement": "Trends are ideas, initiatives or directions that multiple companies are pushing, tracked as a trajectory over time. A trend is CONFIRMED when at least 2 distinct verified COMPANY organizations have mentions in the last 30 days, and EMERGING with 1. Trajectory is computed deterministically from the trend ledger (FR-19) using the 7 days before the run (current) and the 7 days before that (previous): NEW if first_seen is within the current window; otherwise RISING if distinct companies increased, or stayed equal while mentions increased; FADING if distinct companies decreased, or stayed equal while mentions decreased; STEADY otherwise; DORMANT if no mentions in 30 days (hidden). hotness = 3 x distinct companies (current) + sum over distinct linked stories in the current window of w(tier) x 0.5^(age_h / 72), with w = 3 / 2 / 1 for tiers 1 / 2 / 3. Hottest topics are the top 5 CONFIRMED trends by hotness, ties broken by latest mention then trend_id.",
+        "priority": "MUST",
+        "acceptance_criteria": [
+          {
+            "id": "AC-7.1",
+            "given": "a trend whose verified mentions in 30 days all come from Shell",
+            "when": "trends are computed",
+            "then": "its status is EMERGING and it is not eligible for hottest topics"
+          },
+          {
+            "id": "AC-7.2",
+            "given": "a trend first seen 20 days ago with 3 distinct companies in the current window and 1 in the previous",
+            "when": "trajectory is computed",
+            "then": "it is RISING"
+          },
+          {
+            "id": "AC-7.3",
+            "given": "a trend first seen 3 days ago",
+            "when": "trajectory is computed",
+            "then": "it is NEW"
+          },
+          {
+            "id": "AC-7.4",
+            "given": "a trend with 0 mentions in the current window and 2 companies in the previous",
+            "when": "trajectory is computed",
+            "then": "it is FADING"
+          },
+          {
+            "id": "AC-7.5",
+            "given": "2 companies in the current window and one linked tier-1 story aged 72 h",
+            "when": "hotness is computed",
+            "then": "it equals 3x2 + 3x0.5 = 7.5"
+          },
+          {
+            "id": "AC-7.6",
+            "given": "identical ledger, digest and run time",
+            "when": "trends are computed twice",
+            "then": "statuses, trajectories, hotness and ranking are identical"
+          }
+        ],
+        "rationale": "Owner definition (2026-09-16): 'a trend is an idea multiple companies are pushing, essentially trajectory'.",
+        "depends_on": [
+          "FR-19",
+          "FR-4"
+        ]
+      },
+      {
+        "id": "FR-8",
+        "type": "functional",
+        "statement": "Price effects (benchmark moves beside stories) are deferred. v1 is news-only. The price module stays in the codebase disabled behind a settings flag (see NFR-9).",
+        "priority": "WONT",
+        "acceptance_criteria": [
+          {
+            "id": "AC-8.1",
+            "given": "v1 settings",
+            "when": "any page, digest or newsletter is produced",
+            "then": "no price, benchmark move or price-effect badge appears"
+          }
+        ],
+        "rationale": "Owner decision 2026-09-16: price data is not important yet; reading and condensing reputable news is."
+      },
+      {
+        "id": "FR-9",
+        "type": "functional",
+        "statement": "Render a scrollable feed of story clusters first published in the last 7 days with relevance >= threshold (default 30), newest first. relevance = round(100 x (0.6 x min(cluster_weight / 10, 1) + 0.4 x tier_score)), cluster_weight = sum over distinct sources of w(tier) x 0.5^(age_h / 72), tier_score = 1.0 / 0.66 / 0.33. Each item shows local time, title, 1-sentence extractive summary, source count and best tier, commodity chips, organizations, linked trend names, and links to every source.",
+        "priority": "MUST",
+        "acceptance_criteria": [
+          {
+            "id": "AC-9.1",
+            "given": "a cluster first published 7 days and 1 hour ago",
+            "when": "the feed is built",
+            "then": "it is excluded"
+          },
+          {
+            "id": "AC-9.2",
+            "given": "120 eligible clusters",
+            "when": "the page loads",
+            "then": "25 items render and 25 more append each time the reader nears the end"
+          },
+          {
+            "id": "AC-9.3",
+            "given": "one tier-1 source 0 h old",
+            "when": "relevance is computed",
+            "then": "it is round(100 x (0.6 x 0.3 + 0.4 x 1.0)) = 58"
+          },
+          {
+            "id": "AC-9.4",
+            "given": "a cluster with relevance 29 and threshold 30",
+            "when": "the feed is built",
+            "then": "it is excluded"
+          }
+        ],
+        "depends_on": [
+          "FR-5"
+        ]
+      },
+      {
+        "id": "FR-10",
+        "type": "functional",
+        "statement": "Tabs: Newsletter (default), Analysis, Trends, All, and one per commodity (Crude Oil, Natural Gas, Refined Products, Carbon Credits). Commodity tabs show that commodity's pinned analysis section, its hottest trends with trajectory badges and companies, and the filtered feed. The Trends tab lists all CONFIRMED and EMERGING trends with trajectory, companies and dated mention timeline.",
+        "priority": "MUST",
+        "acceptance_criteria": [
+          {
+            "id": "AC-10.1",
+            "given": "a cluster tagged CRUDE_OIL and REFINED_PRODUCTS",
+            "when": "tabs render",
+            "then": "it appears in both commodity tabs"
+          },
+          {
+            "id": "AC-10.2",
+            "given": "a commodity with no qualifying stories",
+            "when": "its tab opens",
+            "then": "it shows 'No qualifying news in the last 7 days' and is not hidden"
+          },
+          {
+            "id": "AC-10.3",
+            "given": "the URL /#carbon-credits",
+            "when": "the page opens",
+            "then": "the Carbon Credits tab is selected"
+          },
+          {
+            "id": "AC-10.4",
+            "given": "a trend RISING with companies Shell, TotalEnergies and Equinor",
+            "when": "the Trends tab renders it",
+            "then": "it shows a RISING badge, the three company names, and each dated mention linking to its story"
+          }
+        ],
+        "depends_on": [
+          "FR-9",
+          "FR-7"
+        ]
+      },
+      {
+        "id": "FR-11",
+        "type": "functional",
+        "statement": "Feed and cluster summaries are extractive in v1: the first sentence of the best-tier source's feed summary or excerpt, never generated by an LLM API.",
+        "priority": "MUST",
+        "acceptance_criteria": [
+          {
+            "id": "AC-11.1",
+            "given": "a cluster whose best-tier excerpt is 'U.S. crude inventories fell 4.1 million barrels. Stocks at Cushing rose.'",
+            "when": "its summary is built",
+            "then": "it is 'U.S. crude inventories fell 4.1 million barrels.'"
+          }
+        ],
+        "depends_on": [
+          "FR-5"
+        ]
+      },
+      {
+        "id": "FR-12",
+        "type": "functional",
+        "statement": "Freeze a weekly archive of the digest and that week's newsletters every Monday 07:00 America/Chicago; archives are immutable.",
+        "priority": "COULD",
+        "acceptance_criteria": [
+          {
+            "id": "AC-12.1",
+            "given": "the archive for 2026-W38 exists",
+            "when": "later runs execute",
+            "then": "its content hash does not change"
+          }
+        ],
+        "depends_on": [
+          "FR-10"
+        ]
+      },
+      {
+        "id": "FR-13",
+        "type": "functional",
+        "statement": "Write a daily run report: sources scanned / skipped / failed with reasons, new articles, clusters, organizations tagged, digest size, flags.",
+        "priority": "SHOULD",
+        "acceptance_criteria": [
+          {
+            "id": "AC-13.1",
+            "given": "a completed run",
+            "when": "the report is written",
+            "then": "its totals reconcile with stored records"
+          }
+        ]
+      },
+      {
+        "id": "FR-14",
+        "type": "functional",
+        "statement": "A Claude scheduled task on the owner's Claude subscription runs daily at 07:30 America/Chicago. It reads the latest digest snapshot, may open up to 15 article links that appear in the digest to understand the stories, updates the trend ledger (FR-19), and writes a condensed newsletter issues/YYYY-MM-DD.md: title, an 'unverified, informational only' line, Hottest topics (top 5 trends: name, trajectory, companies pushing it, 2-3 sentences, links), one short section per commodity (Crude Oil, Natural Gas, Refined Products, Carbon Credits) with up to 4 notable stories, Sources and Disclaimer. Target 600-900 words.",
+        "priority": "MUST",
+        "acceptance_criteria": [
+          {
+            "id": "AC-14.1",
+            "given": "the digest's data_as_of is more than 30 hours before the task starts",
+            "when": "the task runs",
+            "then": "no newsletter is written and a SKIPPED_STALE entry is appended to issues/index.json"
+          },
+          {
+            "id": "AC-14.2",
+            "given": "issues/2026-09-16.md already exists",
+            "when": "the task runs again that day",
+            "then": "nothing is overwritten and the task ends ALREADY_PUBLISHED"
+          },
+          {
+            "id": "AC-14.3",
+            "given": "a commodity with no qualifying stories in the digest",
+            "when": "the newsletter is written",
+            "then": "its section says 'No qualifying news in the last 24 hours.'"
+          },
+          {
+            "id": "AC-14.4",
+            "given": "a written newsletter",
+            "when": "it is uploaded",
+            "then": "frontmatter records date, digest feed_sha256, data_as_of, prompt_version and articles_opened (list of URLs, at most 15)"
+          }
+        ],
+        "rationale": "Owner decisions 2026-09-16: the scheduled Claude task writes the newsletter; use the Claude subscription, no API.",
+        "depends_on": [
+          "FR-16",
+          "FR-19"
+        ]
+      },
+      {
+        "id": "FR-15",
+        "type": "functional",
+        "statement": "Before publishing, a deterministic validator checks newsletters and analyses. REJECT when: a URL is not in the referenced digest; the disclaimer or 'unverified' line is missing; advisory or forecast language appears; a Hottest topic names a trend that is not CONFIRMED in the validated ledger; required sections are missing. WARN (publish with a visible 'contains figures not machine-verified' note) when a number does not appear in the digest, because the author may cite figures from linked articles it opened.",
+        "priority": "MUST",
+        "acceptance_criteria": [
+          {
+            "id": "AC-15.1",
+            "given": "a newsletter linking https://evil.example/a",
+            "when": "validation runs",
+            "then": "it is REJECTED with UNSOURCED_URL and not published"
+          },
+          {
+            "id": "AC-15.2",
+            "given": "a newsletter citing '3.8 million barrels' where the digest has no 3.8",
+            "when": "validation runs",
+            "then": "it is PUBLISHED_WITH_WARNINGS listing UNVERIFIED_NUMBER 3.8 and the page shows the warning note"
+          },
+          {
+            "id": "AC-15.3",
+            "given": "a newsletter containing 'traders should buy'",
+            "when": "validation runs",
+            "then": "it is REJECTED with ADVISORY_LANGUAGE"
+          },
+          {
+            "id": "AC-15.4",
+            "given": "a Hottest topic for a trend whose ledger status is EMERGING",
+            "when": "validation runs",
+            "then": "it is REJECTED with TREND_NOT_CONFIRMED"
+          },
+          {
+            "id": "AC-15.5",
+            "given": "a rejected newsletter",
+            "when": "the site builds",
+            "then": "the Newsletter tab keeps the previous published issue and the run report shows the reasons"
+          }
+        ],
+        "depends_on": [
+          "FR-14",
+          "FR-19"
+        ]
+      },
+      {
+        "id": "FR-16",
+        "type": "functional",
+        "statement": "Every scan builds a digest for the author: a JSON snapshot (validator's source of truth) and a compact Markdown digest (<= 60 KB) listing, per commodity, qualifying clusters with title, extractive summary, outlets and tiers, links, organizations and verbatim figures; candidate trend groups (topic x commodity clusters with 2+ companies); the current trend ledger with computed status, trajectory and hotness; the most active companies of the last 7 days; and the next recurring scheduled releases (EIA WPSR, EIA storage, Baker Hughes, CFTC COT). It also contains a data-only synopsis in template sentences.",
+        "priority": "MUST",
+        "acceptance_criteria": [
+          {
+            "id": "AC-16.1",
+            "given": "a day with 400 qualifying clusters",
+            "when": "the Markdown digest is built",
+            "then": "it is at most 60 KB, keeping the highest-relevance clusters per commodity and stating how many were omitted"
+          },
+          {
+            "id": "AC-16.2",
+            "given": "the run time Tuesday 2026-09-15 12:00 CT",
+            "when": "the calendar is built",
+            "then": "its first entry is EIA Weekly Petroleum Status Report at Wed 2026-09-16 09:30 CT"
+          },
+          {
+            "id": "AC-16.3",
+            "given": "identical stored data and run time",
+            "when": "the digest is built twice",
+            "then": "both JSON snapshots are byte-identical"
+          }
+        ],
+        "depends_on": [
+          "FR-5",
+          "FR-7",
+          "FR-9"
+        ]
+      },
+      {
+        "id": "FR-17",
+        "type": "functional",
+        "statement": "Publish a daily analysis, 'What this means for energy traders', written by the same scheduled task from the same digest (issues/analysis/YYYY-MM-DD.md): The big picture, one section per commodity, Trend trajectories, What to watch, Data notes, Disclaimer. It explains what the collected news and trend trajectories add up to, may describe in general conditional terms how such developments are usually read, and may not forecast prices, suggest trades, or add links absent from the digest. It is shown in an Analysis tab and pinned to All and each commodity tab; if none based on data from the last 36 hours exists, pinned cards show the data-only synopsis.",
+        "priority": "MUST",
+        "acceptance_criteria": [
+          {
+            "id": "AC-17.1",
+            "given": "a submitted analysis whose links are all in its digest",
+            "when": "the gate runs",
+            "then": "it is PUBLISHED and its sections are available to each tab"
+          },
+          {
+            "id": "AC-17.2",
+            "given": "an analysis containing 'LNG prices are likely to rise'",
+            "when": "validation runs",
+            "then": "it is REJECTED with ADVISORY_LANGUAGE"
+          },
+          {
+            "id": "AC-17.3",
+            "given": "the latest published analysis is based on data over 36 hours old",
+            "when": "a commodity tab opens",
+            "then": "the pinned card shows the data-only synopsis"
+          }
+        ],
+        "depends_on": [
+          "FR-14",
+          "FR-15",
+          "FR-16"
+        ]
+      },
+      {
+        "id": "FR-18",
+        "type": "functional",
+        "statement": "Carbon Credits is a v1 commodity with its own tab and reputable sources: official (European Commission Climate Action, ICAP, California Air Resources Board, UNFCCC) and specialist press (Carbon Brief tier 1; Carbon Herald tier 2). CDR.fyi is REFERENCE_ONLY: its terms forbid scraping and AI summarization without a commercial license, so it is shown as a static 'further reading' link in the Carbon Credits tab and never collected or summarized.",
+        "priority": "MUST",
+        "acceptance_criteria": [
+          {
+            "id": "AC-18.1",
+            "given": "the registry entry for cdr.fyi with tos_status REFERENCE_ONLY",
+            "when": "the daily scan runs",
+            "then": "no request is made to cdr.fyi and the Carbon Credits tab shows the reference link with attribution"
+          },
+          {
+            "id": "AC-18.2",
+            "given": "a scan with at least one qualifying carbon story",
+            "when": "the Carbon Credits tab opens",
+            "then": "it shows the pinned analysis or synopsis, carbon trends and carbon stories"
+          }
+        ],
+        "depends_on": [
+          "FR-1",
+          "FR-4",
+          "FR-10"
+        ]
+      },
+      {
+        "id": "FR-19",
+        "type": "functional",
+        "statement": "The scheduled task maintains a trend ledger issues/trends.json: trends (trend_id slug, name, one-sentence thesis, commodities, first_seen) with dated mentions (date, company, story_url, action in 20 words or fewer). The ledger is append-only for mentions. The validator accepts a ledger update only if every new mention's story_url exists in a retained digest snapshot (30 days) and no existing mention was removed or changed; a mention's company is 'verified' when its name or a known alias appears in that story's digest title, excerpt or organizations. Unverified mentions are kept but excluded from trend status and trajectory.",
+        "priority": "MUST",
+        "acceptance_criteria": [
+          {
+            "id": "AC-19.1",
+            "given": "a new mention whose story_url is not in any retained digest",
+            "when": "the ledger is validated",
+            "then": "the update is REJECTED with UNSOURCED_MENTION and the previous ledger stays live"
+          },
+          {
+            "id": "AC-19.2",
+            "given": "an update that deletes an existing mention",
+            "when": "the ledger is validated",
+            "then": "it is REJECTED with LEDGER_NOT_APPEND_ONLY"
+          },
+          {
+            "id": "AC-19.3",
+            "given": "a mention naming 'BP' for a story whose digest organizations include BP",
+            "when": "it is validated",
+            "then": "the mention is verified"
+          },
+          {
+            "id": "AC-19.4",
+            "given": "a mention naming 'Aramco' where the story's digest text does not mention Aramco",
+            "when": "it is validated",
+            "then": "the update is accepted, the mention is marked UNVERIFIED_COMPANY and it does not count toward status or trajectory"
+          }
+        ],
+        "depends_on": [
+          "FR-16"
+        ]
+      },
+      {
+        "id": "FR-20",
+        "type": "functional",
+        "statement": "Host the web page on GitHub Pages with an optional custom domain from settings (CNAME, HTTPS enforced). Because the readership is small and private, every page carries <meta name=\"robots\" content=\"noindex, nofollow\">, robots.txt disallows all crawlers, and a banner states 'Private preview for a small readership. Unverified, informational only. Not investment advice.'",
+        "priority": "MUST",
+        "acceptance_criteria": [
+          {
+            "id": "AC-20.1",
+            "given": "settings site.custom_domain = 'news.example.com'",
+            "when": "the site builds",
+            "then": "a CNAME file containing news.example.com is published"
+          },
+          {
+            "id": "AC-20.2",
+            "given": "any rendered page",
+            "when": "it is inspected",
+            "then": "the noindex meta tag and the banner are present and robots.txt contains 'Disallow: /'"
+          }
+        ]
+      },
+      {
+        "id": "NFR-1",
+        "type": "non_functional",
+        "statement": "Cadence: the scan runs once daily at 05:00 America/Chicago; the task runs at 07:30. The page shows data-as-of and a stale banner when the last successful scan is older than 30 hours.",
+        "priority": "MUST",
+        "acceptance_criteria": [
+          {
+            "id": "AC-N1.1",
+            "given": "the last successful scan finished 31 hours ago",
+            "when": "the page is viewed",
+            "then": "the stale banner is visible"
+          }
+        ],
+        "rationale": "Owner decision 2026-09-16: daily updates are enough."
+      },
+      {
+        "id": "NFR-2",
+        "type": "non_functional",
+        "statement": "Determinism: the pipeline has no LLM calls; identical inputs, ledger and run time produce byte-identical digests and trend computations.",
+        "priority": "MUST",
+        "acceptance_criteria": [
+          {
+            "id": "AC-N2.1",
+            "given": "the same stored data, ledger and run time",
+            "when": "the pipeline runs twice",
+            "then": "digest JSON and trends output are byte-identical"
+          }
+        ]
+      },
+      {
+        "id": "NFR-3",
+        "type": "non_functional",
+        "statement": "Cost: no API keys or per-token spend. Infrastructure is free (GitHub Actions on a public repo, GitHub Pages); the only paid items are the owner's existing Claude subscription and an optional domain. Subscription usage is bounded to one task run per day reading one compact digest (<= 60 KB) and at most 15 linked articles.",
+        "priority": "MUST",
+        "acceptance_criteria": [
+          {
+            "id": "AC-N3.1",
+            "given": "the repository and workflows",
+            "when": "they are inspected",
+            "then": "no Anthropic or other LLM API key, SDK call or secret is referenced"
+          },
+          {
+            "id": "AC-N3.2",
+            "given": "a newsletter frontmatter listing 16 articles_opened",
+            "when": "validation runs",
+            "then": "it is REJECTED with READING_BUDGET_EXCEEDED"
+          }
+        ]
+      },
+      {
+        "id": "NFR-4",
+        "type": "non_functional",
+        "statement": "Compliance and reputation: honour robots.txt and source terms; persist at most 300-character excerpts; always link to originals; never collect REFERENCE_ONLY or BLOCKED sources; the author quotes at most one short sentence per linked article; every page and newsletter carries the private-preview, unverified, not-investment-advice disclaimer.",
+        "priority": "MUST",
+        "acceptance_criteria": [
+          {
+            "id": "AC-N4.1",
+            "given": "a stored article",
+            "when": "the database is inspected",
+            "then": "its persisted text is 300 characters or fewer"
+          },
+          {
+            "id": "AC-N4.2",
+            "given": "any rendered page or published newsletter",
+            "when": "it is inspected",
+            "then": "the disclaimer is present"
+          }
+        ]
+      },
+      {
+        "id": "NFR-5",
+        "type": "non_functional",
+        "statement": "Traceability: every story links to its sources, every trend mention links to its story, every figure shows its source, and every trend status and trajectory can be expanded to show the mention counts behind it.",
+        "priority": "MUST",
+        "acceptance_criteria": [
+          {
+            "id": "AC-N5.1",
+            "given": "a trend marked RISING",
+            "when": "the reader expands it",
+            "then": "the current and previous window company counts and mention lists are shown"
+          }
+        ]
+      },
+      {
+        "id": "NFR-6",
+        "type": "non_functional",
+        "statement": "Bounded storage: raw article records kept 30 days, digests kept 30 days, the ledger kept indefinitely; no committed file over 50 MiB; data and site branches are single-commit force-pushed.",
+        "priority": "MUST",
+        "acceptance_criteria": [
+          {
+            "id": "AC-N6.1",
+            "given": "a file would exceed 50 MiB",
+            "when": "publish runs",
+            "then": "the push aborts, the live site stays intact and STORAGE_LIMIT is raised"
+          }
+        ]
+      },
+      {
+        "id": "NFR-7",
+        "type": "non_functional",
+        "statement": "Resilience: a failed scan or rejected newsletter never replaces the last good published page.",
+        "priority": "MUST",
+        "acceptance_criteria": [
+          {
+            "id": "AC-N7.1",
+            "given": "the scan fails during clustering",
+            "when": "the workflow ends",
+            "then": "the live site still serves the previous build"
+          }
+        ]
+      },
+      {
+        "id": "NFR-8",
+        "type": "non_functional",
+        "statement": "Least privilege: the task may only create or modify files under issues/ (newsletter, analysis, index.json, trends.json); a CI scope guard reverts task commits touching anything else.",
+        "priority": "MUST",
+        "acceptance_criteria": [
+          {
+            "id": "AC-N8.1",
+            "given": "a task commit modifying config/sources.yaml",
+            "when": "CI runs",
+            "then": "it is reverted and ISSUE_SCOPE_VIOLATION is raised"
+          }
+        ]
+      },
+      {
+        "id": "NFR-9",
+        "type": "non_functional",
+        "statement": "Growth path: price tracking, email delivery and access control can be added without restructuring. Prices sit behind settings prices.enabled (default false); access control can later move hosting behind Cloudflare Access or a private host without changing the pipeline.",
+        "priority": "COULD",
+        "acceptance_criteria": [
+          {
+            "id": "AC-N9.1",
+            "given": "prices.enabled is false",
+            "when": "the scan runs",
+            "then": "no request is made to any price API"
+          }
+        ]
+      }
+    ],
+    "glossary": [
+      {
+        "term": "Tier 1",
+        "definition": "Official or primary publishers (agencies, regulators, intergovernmental bodies) and news organizations with a public editorial and corrections policy."
+      },
+      {
+        "term": "Tier 2",
+        "definition": "Specialist trade press and company press-release wires."
+      },
+      {
+        "term": "Tier 3",
+        "definition": "Aggregators and commentary; disabled by default."
+      },
+      {
+        "term": "Trend",
+        "definition": "An idea, initiative or direction that multiple companies are pushing, tracked as a trajectory over time."
+      },
+      {
+        "term": "Trajectory",
+        "definition": "NEW, RISING, STEADY, FADING or DORMANT, computed from verified company mentions in the current vs previous 7-day window."
+      },
+      {
+        "term": "Hotness",
+        "definition": "3 x distinct companies in the current window plus tier-weighted, recency-decayed linked stories; ranks the hottest topics."
+      },
+      {
+        "term": "Trend ledger",
+        "definition": "issues/trends.json, an append-only record of trends and their dated company mentions maintained by the scheduled task."
+      },
+      {
+        "term": "Digest",
+        "definition": "The daily JSON snapshot (source of truth) and compact Markdown version the author reads."
+      },
+      {
+        "term": "REFERENCE_ONLY",
+        "definition": "A source shown only as a link for further reading; never fetched or summarized (e.g. CDR.fyi)."
+      }
+    ],
+    "self_verification": {
+      "schema_valid": true
+    }
+  }
+}

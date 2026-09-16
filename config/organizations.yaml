@@ -1,0 +1,111 @@
+# Organizations used for tagging (FR-4) and trend company verification (FR-19).
+# org_type: COMPANY | GOVERNMENT | AGENCY | INTERGOVERNMENTAL. Only COMPANY counts toward trend confirmation.
+# aliases are matched case-insensitively as whole words. Avoid aliases that are common words; set match_name: false when the name itself is ambiguous.
+organizations:
+  # Integrated majors and NOCs
+  - {id: exxonmobil, name: ExxonMobil, aliases: [Exxon, Exxon Mobil], org_type: COMPANY}
+  - {id: chevron, name: Chevron, aliases: [], org_type: COMPANY}
+  - {id: shell, name: Shell, aliases: [Shell plc], org_type: COMPANY}
+  - {id: bp, name: BP, aliases: [], org_type: COMPANY}
+  - {id: totalenergies, name: TotalEnergies, aliases: [], org_type: COMPANY}
+  - {id: equinor, name: Equinor, aliases: [], org_type: COMPANY}
+  - {id: eni, name: Eni, aliases: [], org_type: COMPANY}
+  - {id: conocophillips, name: ConocoPhillips, aliases: [], org_type: COMPANY}
+  - {id: occidental, name: Occidental Petroleum, aliases: [Occidental, Oxy], org_type: COMPANY}
+  - {id: aramco, name: Saudi Aramco, aliases: [Aramco], org_type: COMPANY}
+  - {id: adnoc, name: ADNOC, aliases: [], org_type: COMPANY}
+  - {id: qatarenergy, name: QatarEnergy, aliases: [], org_type: COMPANY}
+  - {id: petrobras, name: Petrobras, aliases: [], org_type: COMPANY}
+  - {id: repsol, name: Repsol, aliases: [], org_type: COMPANY}
+  - {id: omv, name: OMV, aliases: [], org_type: COMPANY}
+  - {id: woodside, name: Woodside Energy, aliases: [Woodside], org_type: COMPANY}
+  - {id: inpex, name: Inpex, aliases: [], org_type: COMPANY}
+  - {id: petronas, name: Petronas, aliases: [], org_type: COMPANY}
+  - {id: cnooc, name: CNOOC, aliases: [], org_type: COMPANY}
+  - {id: sinopec, name: Sinopec, aliases: [], org_type: COMPANY}
+  - {id: petrochina, name: PetroChina, aliases: [CNPC], org_type: COMPANY}
+  - {id: gazprom, name: Gazprom, aliases: [], org_type: COMPANY}
+  - {id: rosneft, name: Rosneft, aliases: [], org_type: COMPANY}
+  - {id: novatek, name: Novatek, aliases: [], org_type: COMPANY}
+  - {id: reliance, name: Reliance Industries, aliases: [], org_type: COMPANY}
+  # US E&P and refiners
+  - {id: devon, name: Devon Energy, aliases: [], org_type: COMPANY}
+  - {id: eog, name: EOG Resources, aliases: [], org_type: COMPANY}
+  - {id: diamondback, name: Diamondback Energy, aliases: [], org_type: COMPANY}
+  - {id: hess, name: Hess, aliases: [Hess Corporation], org_type: COMPANY}
+  - {id: marathon-petroleum, name: Marathon Petroleum, aliases: [], org_type: COMPANY}
+  - {id: phillips66, name: Phillips 66, aliases: [], org_type: COMPANY}
+  - {id: valero, name: Valero, aliases: [Valero Energy], org_type: COMPANY}
+  # LNG, gas and midstream
+  - {id: cheniere, name: Cheniere Energy, aliases: [Cheniere], org_type: COMPANY}
+  - {id: venture-global, name: Venture Global, aliases: [], org_type: COMPANY}
+  - {id: sempra, name: Sempra, aliases: [], org_type: COMPANY}
+  - {id: kinder-morgan, name: Kinder Morgan, aliases: [], org_type: COMPANY}
+  - {id: energy-transfer, name: Energy Transfer, aliases: [], org_type: COMPANY}
+  - {id: eqt, name: EQT, aliases: [], org_type: COMPANY}
+  - {id: nextdecade, name: NextDecade, aliases: [], org_type: COMPANY}
+  - {id: new-fortress, name: New Fortress Energy, aliases: [], org_type: COMPANY}
+  - {id: excelerate, name: Excelerate Energy, aliases: [], org_type: COMPANY}
+  - {id: enbridge, name: Enbridge, aliases: [], org_type: COMPANY}
+  - {id: tc-energy, name: TC Energy, aliases: [], org_type: COMPANY}
+  - {id: oneok, name: ONEOK, aliases: [], org_type: COMPANY}
+  - {id: fluxys, name: Fluxys, aliases: [], org_type: COMPANY}
+  # Services
+  - {id: slb, name: SLB, aliases: [Schlumberger], org_type: COMPANY}
+  - {id: halliburton, name: Halliburton, aliases: [], org_type: COMPANY}
+  - {id: baker-hughes, name: Baker Hughes, aliases: [], org_type: COMPANY}
+  # Utilities and power
+  - {id: nextera, name: NextEra Energy, aliases: [NextEra], org_type: COMPANY}
+  - {id: duke, name: Duke Energy, aliases: [], org_type: COMPANY}
+  - {id: southern-company, name: Southern Company, aliases: [], org_type: COMPANY}
+  - {id: dominion, name: Dominion Energy, aliases: [], org_type: COMPANY}
+  - {id: constellation, name: Constellation Energy, aliases: [], org_type: COMPANY}
+  - {id: vistra, name: Vistra, aliases: [], org_type: COMPANY}
+  - {id: iberdrola, name: Iberdrola, aliases: [], org_type: COMPANY}
+  - {id: enel, name: Enel, aliases: [], org_type: COMPANY}
+  - {id: orsted, name: Ørsted, aliases: [Orsted], org_type: COMPANY}
+  - {id: rwe, name: RWE, aliases: [], org_type: COMPANY}
+  - {id: edf, name: EDF Group, aliases: [Électricité de France, Electricite de France], org_type: COMPANY}
+  - {id: uniper, name: Uniper, aliases: [], org_type: COMPANY}
+  # Traders
+  - {id: vitol, name: Vitol, aliases: [], org_type: COMPANY}
+  - {id: trafigura, name: Trafigura, aliases: [], org_type: COMPANY}
+  - {id: glencore, name: Glencore, aliases: [], org_type: COMPANY}
+  - {id: gunvor, name: Gunvor, aliases: [], org_type: COMPANY}
+  - {id: mercuria, name: Mercuria, aliases: [], org_type: COMPANY}
+  # Corporate buyers and carbon market companies
+  - {id: microsoft, name: Microsoft, aliases: [], org_type: COMPANY}
+  - {id: google, name: Google, aliases: [Alphabet], org_type: COMPANY}
+  - {id: amazon, name: Amazon, match_name: false, aliases: [Amazon.com, Amazon Web Services, AWS, Amazon Inc], org_type: COMPANY}  # plain "Amazon" collides with the rainforest
+  - {id: meta, name: Meta Platforms, aliases: [Meta Platforms Inc], org_type: COMPANY}
+  - {id: frontier, name: Frontier Climate, aliases: [Frontier buyers], org_type: COMPANY}
+  - {id: stripe, name: Stripe, aliases: [], org_type: COMPANY}
+  - {id: jpmorgan, name: JPMorgan Chase, aliases: [JPMorgan], org_type: COMPANY}
+  - {id: airbus, name: Airbus, aliases: [], org_type: COMPANY}
+  - {id: boeing, name: Boeing, aliases: [], org_type: COMPANY}
+  - {id: climeworks, name: Climeworks, aliases: [], org_type: COMPANY}
+  - {id: 1pointfive, name: 1PointFive, aliases: [], org_type: COMPANY}
+  - {id: heirloom, name: Heirloom, aliases: [Heirloom Carbon], org_type: COMPANY}
+  - {id: charm, name: Charm Industrial, aliases: [], org_type: COMPANY}
+  - {id: stockholm-exergi, name: Stockholm Exergi, aliases: [], org_type: COMPANY}
+  - {id: south-pole, name: South Pole, aliases: [], org_type: COMPANY}
+  - {id: xpansiv, name: Xpansiv, aliases: [], org_type: COMPANY}
+  - {id: sylvera, name: Sylvera, aliases: [], org_type: COMPANY}
+  # Standards bodies and registries (not companies for trend confirmation)
+  - {id: verra, name: Verra, aliases: [], org_type: AGENCY}
+  - {id: gold-standard, name: Gold Standard, aliases: [], org_type: AGENCY}
+  - {id: icvcm, name: ICVCM, aliases: [Integrity Council for the Voluntary Carbon Market], org_type: AGENCY}
+  - {id: puro, name: Puro.earth, aliases: [], org_type: AGENCY}
+  - {id: isometric, name: Isometric, aliases: [], org_type: AGENCY}
+  # Governments, regulators, intergovernmental
+  - {id: european-commission, name: European Commission, aliases: [EU Commission], org_type: GOVERNMENT}
+  - {id: eia, name: EIA, aliases: [U.S. Energy Information Administration, Energy Information Administration], org_type: AGENCY}
+  - {id: doe, name: US Department of Energy, aliases: [Department of Energy, DOE], org_type: GOVERNMENT}
+  - {id: ferc, name: FERC, aliases: [Federal Energy Regulatory Commission], org_type: AGENCY}
+  - {id: epa, name: EPA, aliases: [Environmental Protection Agency], org_type: AGENCY}
+  - {id: carb, name: California Air Resources Board, aliases: [CARB], org_type: AGENCY}
+  - {id: rggi, name: RGGI, aliases: [Regional Greenhouse Gas Initiative], org_type: INTERGOVERNMENTAL}
+  - {id: iea, name: IEA, aliases: [International Energy Agency], org_type: INTERGOVERNMENTAL}
+  - {id: opec, name: OPEC, aliases: [OPEC+], org_type: INTERGOVERNMENTAL}
+  - {id: unfccc, name: UNFCCC, aliases: [], org_type: INTERGOVERNMENTAL}
+  - {id: icap, name: ICAP, aliases: [International Carbon Action Partnership], org_type: INTERGOVERNMENTAL}

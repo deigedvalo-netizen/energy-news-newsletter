@@ -1,0 +1,19 @@
+common:
+  required_phrases:
+    - {pattern: "not investment advice", code: MISSING_DISCLAIMER}
+    - {pattern: "unverified", code: MISSING_DISCLAIMER}
+  always_allowed_numbers: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "12", "15", "24", "20", "30"]
+issue:
+  required_sections: ["Hottest topics", "Crude Oil", "Natural Gas", "Refined Products", "Carbon Credits", "Sources", "Disclaimer"]
+analysis:
+  required_sections: ["The big picture", "Crude Oil", "Natural Gas", "Refined Products", "Carbon Credits", "Trend trajectories", "What to watch", "Data notes", "Disclaimer"]
+  section_keys:
+    "The big picture": overall
+    "Crude Oil": CRUDE_OIL
+    "Natural Gas": NATURAL_GAS
+    "Refined Products": REFINED_PRODUCTS
+    "Carbon Credits": CARBON_CREDITS
+    "Trend trajectories": trends
+    "What to watch": watch
+    "Data notes": notes
+    "Disclaimer": disclaimer

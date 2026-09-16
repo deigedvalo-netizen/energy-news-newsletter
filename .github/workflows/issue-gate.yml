@@ -1,0 +1,55 @@
+name: issue-gate
+# Validates the trend ledger, newsletter and analysis written by the daily Claude task; publishes only passing ones (FR-15, FR-17, FR-19, NFR-8).
+on:
+  push:
+    branches: [main]
+    paths: ["issues/**"]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: site-publish
+  cancel-in-progress: false
+jobs:
+  gate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install
+        run: pip install -e .
+      - name: Scope guard (task commits may only touch issues/)
+        if: github.event_name == 'push'
+        run: |
+          set +e
+          python -m energynews.issues.scope "${{ github.event.before }}" "${{ github.sha }}" | tee scope.txt
+          status=${PIPESTATUS[0]}
+          set -e
+          if [ "$status" -ne 0 ]; then
+            git config user.name "energynews-bot"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            for sha in $(grep '^ISSUE_SCOPE_VIOLATION' scope.txt | awk '{print $2}' | tac); do git revert --no-edit "$sha"; done
+            git push origin HEAD:main
+            echo "::error::ISSUE_SCOPE_VIOLATION - offending commits reverted"
+            exit 1
+          fi
+      - name: Restore current site from gh-pages
+        run: |
+          mkdir -p site
+          git fetch --depth=1 origin gh-pages
+          git archive origin/gh-pages | tar -x -C site
+      - name: Validate and publish issues
+        run: python -m energynews.issues.gate --issues issues --site site --settings config/settings.yaml --organizations config/organizations.yaml
+      - name: Publish site atomically
+        run: |
+          cd site
+          git init -q -b gh-pages
+          git add -A
+          git -c user.name="energynews-bot" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" commit -qm "site: issue gate $(date -u +%FT%TZ)"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" gh-pages

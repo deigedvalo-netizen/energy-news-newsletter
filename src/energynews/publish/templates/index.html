@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>{{ site.title }}</title>
+<meta name="description" content="Private daily digest of energy and carbon market news from reputable sources.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<link rel="stylesheet" href="assets/style.css?v={{ version }}">
+</head>
+<body>
+<div class="banner" role="note">{{ site.banner }}</div>
+<header class="top">
+  <div class="wrap head">
+    <div>
+      <h1>{{ site.title }}</h1>
+      <p class="sub">The hottest energy and carbon topics from reputable sources, condensed daily.</p>
+    </div>
+    <div class="asof" id="asof">Loading…</div>
+  </div>
+  <div id="stale" class="stale" hidden></div>
+  <nav class="wrap tabs" id="tabs" role="tablist"></nav>
+</header>
+<main class="wrap" id="main">
+  <noscript>This page needs JavaScript. Raw data: <a href="feed.json">feed.json</a>.</noscript>
+</main>
+<footer class="wrap foot">
+  <p id="disclaimer">{{ site.banner }}</p>
+  <p class="muted">Data: <a href="feed.json">feed.json</a> · <a href="trends/trends.json">trends.json</a></p>
+</footer>
+<script src="assets/app.js?v={{ version }}"></script>
+</body>
+</html>

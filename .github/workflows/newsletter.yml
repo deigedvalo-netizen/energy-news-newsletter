@@ -1,0 +1,76 @@
+name: newsletter
+# Daily newsletter + analysis + trend ledger, written by the Claude Code GitHub Action on the owner's Claude subscription
+# (CLAUDE_CODE_OAUTH_TOKEN from `claude setup-token`). Replaces the Cowork scheduled task, whose GitHub connector cannot write
+# (anthropics/claude-code#80874). FR-14, FR-15, FR-17, FR-19, NFR-3, NFR-8.
+on:
+  schedule:
+    - cron: "30 12 * * *"   # 07:30 America/Chicago during CDT; "30 13 * * *" from 2026-11-01 (CST)
+  workflow_dispatch:
+permissions:
+  contents: write
+  id-token: write
+concurrency:
+  group: site-publish
+  cancel-in-progress: false
+jobs:
+  newsletter:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install
+        run: pip install -e .
+      - name: Restore current site from gh-pages
+        run: |
+          mkdir -p site
+          git fetch --depth=1 origin gh-pages
+          git archive origin/gh-pages | tar -x -C site
+      - name: Prepare prompt
+        id: prep
+        run: |
+          python -m energynews.issues.prepare --site site --issues issues --template tasks/newsletter-action-prompt.md --out "$RUNNER_TEMP/prompt.md" | tee -a "$GITHUB_OUTPUT"
+          {
+            echo "prompt<<PROMPT_EOF"
+            [ -f "$RUNNER_TEMP/prompt.md" ] && cat "$RUNNER_TEMP/prompt.md"
+            echo "PROMPT_EOF"
+          } >> "$GITHUB_OUTPUT"
+      - name: Write newsletter with Claude
+        if: steps.prep.outputs.status == 'READY'
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          prompt: ${{ steps.prep.outputs.prompt }}
+          claude_args: |
+            --max-turns 80
+            --allowedTools "Read,Write,Edit,Glob,Grep,WebFetch"
+      - name: Scope guard (only issues/ may change)
+        if: steps.prep.outputs.status == 'READY' || steps.prep.outputs.status == 'SKIPPED_STALE'
+        run: |
+          bad=$(git status --porcelain --untracked-files=all | awk '{print $2}' | grep -v '^issues/' || true)
+          if [ -n "$bad" ]; then
+            echo "::error::ISSUE_SCOPE_VIOLATION - files outside issues/ changed:"; echo "$bad"
+            git checkout -- . ; git clean -fd -e site -e data
+            exit 1
+          fi
+      - name: Commit issue files
+        if: steps.prep.outputs.status == 'READY' || steps.prep.outputs.status == 'SKIPPED_STALE'
+        run: |
+          git add issues
+          if git diff --cached --quiet; then echo "nothing to commit"; exit 0; fi
+          git -c user.name="energynews-bot" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" commit -qm "issue: ${{ steps.prep.outputs.today }}"
+          git push origin HEAD:main
+      - name: Validate and publish
+        if: steps.prep.outputs.status == 'READY'
+        run: python -m energynews.issues.gate --issues issues --site site --settings config/settings.yaml --organizations config/organizations.yaml
+      - name: Publish site atomically
+        if: steps.prep.outputs.status == 'READY'
+        run: |
+          cd site
+          git init -q -b gh-pages
+          git add -A
+          git -c user.name="energynews-bot" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" commit -qm "site: newsletter ${{ steps.prep.outputs.today }}"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" gh-pages

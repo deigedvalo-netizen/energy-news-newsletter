@@ -1,0 +1,83 @@
+# Source registry v2 (FR-1, FR-18, ADR-006, ADR-018)
+# tier: 1 = official/primary publishers and news organizations with a public editorial + corrections policy
+#       2 = specialist trade press and company press-release wires
+#       3 = aggregators/commentary (disabled unless enabled: true)
+# source_type: OFFICIAL | PRESS | TRADE | NEWSROOM | AGGREGATOR
+# access_method: RSS | HTML_LIST (HTML_LIST needs link_pattern: regex matched against item links on the listing page)
+# tos_status: ALLOWED (may read article body) | HEADLINE_ONLY | REFERENCE_ONLY (link only, never fetched) | BLOCKED | UNVERIFIED
+# check: result of the 2026-09-15/16 planning check; "pending" feeds are confirmed by the first run report (AC-1.4).
+sources:
+  # ---------- Tier 1 · OFFICIAL ----------
+  - {id: eia-today-in-energy, name: "EIA Today in Energy", url: "https://www.eia.gov/rss/todayinenergy.xml", tier: 1, source_type: OFFICIAL,
+     commodities: [CRUDE_OIL, NATURAL_GAS, REFINED_PRODUCTS], access_method: RSS, tos_status: ALLOWED, terms_note: "US federal government, public domain", check: verified}
+  - {id: eia-press, name: "EIA Press Releases", url: "https://www.eia.gov/rss/press_rss.xml", tier: 1, source_type: OFFICIAL,
+     commodities: [CRUDE_OIL, NATURAL_GAS, REFINED_PRODUCTS], access_method: RSS, tos_status: ALLOWED, terms_note: "US federal government, public domain", check: "listed on EIA feeds page"}
+  - {id: eia-gas-diesel, name: "EIA Gasoline & Diesel Fuel Update", url: "https://www.eia.gov/petroleum/gasdiesel/includes/gas_diesel_rss.xml", tier: 1, source_type: OFFICIAL,
+     commodities: [REFINED_PRODUCTS], access_method: RSS, tos_status: ALLOWED, terms_note: "US federal government, public domain", check: "listed on EIA feeds page"}
+  - {id: eia-heating-oil-propane, name: "EIA Heating Oil & Propane Update", url: "https://www.eia.gov/petroleum/heatingoilpropane/includes/hopu_rss.xml", tier: 1, source_type: OFFICIAL,
+     commodities: [REFINED_PRODUCTS], access_method: RSS, tos_status: ALLOWED, terms_note: "US federal government, public domain", check: "listed on EIA feeds page"}
+  - {id: doe-newsroom, name: "US Department of Energy Newsroom", url: "https://www.energy.gov/newsroom", tier: 1, source_type: OFFICIAL,
+     commodities: [CRUDE_OIL, NATURAL_GAS, REFINED_PRODUCTS, CARBON_CREDITS], access_method: HTML_LIST, link_pattern: "energy\\.gov/articles/[a-z0-9-]+",
+     tos_status: ALLOWED, terms_note: "US federal government, public domain", check: "page found"}
+  - {id: ferc-news, name: "FERC News Releases", url: "https://www.ferc.gov/news-events/news/news-releases-headlines", tier: 1, source_type: OFFICIAL,
+     commodities: [NATURAL_GAS], access_method: HTML_LIST, link_pattern: "ferc\\.gov/news-events/news/(?!news-releases-headlines)[a-z0-9-]+",
+     tos_status: ALLOWED, terms_note: "US federal government, public domain", check: "page found"}
+  - {id: iea-news, name: "IEA News", url: "https://www.iea.org/news", tier: 1, source_type: OFFICIAL,
+     commodities: [CRUDE_OIL, NATURAL_GAS, REFINED_PRODUCTS, CARBON_CREDITS], access_method: HTML_LIST, link_pattern: "iea\\.org/news/[a-z0-9-]+$",
+     tos_status: HEADLINE_ONLY, terms_note: "IEA terms: link and attribute; no republication", check: "page found, no RSS"}
+  - {id: opec-press, name: "OPEC Press Releases", url: "https://www.opec.org/opec_web/en/press_room/28.htm", tier: 1, source_type: OFFICIAL,
+     commodities: [CRUDE_OIL], access_method: HTML_LIST, link_pattern: "opec\\.org/.*(press_room/\\d+\\.htm|pr-detail)",
+     tos_status: HEADLINE_ONLY, terms_note: "Headlines and links only", check: "pending (HTTP 402 to planning checker)"}
+  - {id: ec-climate-news, name: "European Commission — Climate Action", url: "https://climate.ec.europa.eu/news-other-reads/news_en", tier: 1, source_type: OFFICIAL,
+     commodities: [CARBON_CREDITS], access_method: HTML_LIST, link_pattern: "climate\\.ec\\.europa\\.eu/news-other-reads/news/[^?#]+_en$",
+     tos_status: HEADLINE_ONLY, terms_note: "EU content reusable with attribution; headlines and links used", check: "page found"}
+  - {id: icap-news, name: "ICAP — International Carbon Action Partnership", url: "https://icapcarbonaction.com/en/news", tier: 1, source_type: OFFICIAL,
+     commodities: [CARBON_CREDITS], access_method: HTML_LIST, link_pattern: "icapcarbonaction\\.com/en/news/[a-z0-9-]+$",
+     tos_status: HEADLINE_ONLY, terms_note: "Headlines and links only", check: "verified listing structure"}
+  - {id: carb-cap-and-invest, name: "California Air Resources Board — Cap-and-Invest", url: "https://ww2.arb.ca.gov/our-work/programs/cap-and-invest-program/news", tier: 1, source_type: OFFICIAL,
+     commodities: [CARBON_CREDITS], access_method: HTML_LIST, link_pattern: "arb\\.ca\\.gov/news/[a-z0-9-]+$",
+     tos_status: HEADLINE_ONLY, terms_note: "State government; headlines and links", check: "page found"}
+  - {id: unfccc-news, name: "UNFCCC News", url: "https://unfccc.int/news", tier: 1, source_type: OFFICIAL,
+     commodities: [CARBON_CREDITS], access_method: HTML_LIST, link_pattern: "unfccc\\.int/news/[a-z0-9-]+$",
+     tos_status: HEADLINE_ONLY, terms_note: "Headlines and links only", check: "pending (timed out)"}
+  # ---------- Tier 1 · PRESS ----------
+  - {id: carbon-brief, name: "Carbon Brief", url: "https://www.carbonbrief.org/feed/", tier: 1, source_type: PRESS,
+     commodities: [CARBON_CREDITS, NATURAL_GAS], access_method: RSS, tos_status: HEADLINE_ONLY, terms_note: "Specialist outlet with fact-check desk; headlines and links", check: verified}
+  - {id: guardian-energy, name: "The Guardian — Energy", url: "https://www.theguardian.com/environment/energy/rss", tier: 1, source_type: PRESS,
+     commodities: [CRUDE_OIL, NATURAL_GAS, REFINED_PRODUCTS, CARBON_CREDITS], access_method: RSS, tos_status: HEADLINE_ONLY, terms_note: "RSS for non-commercial use with link", check: pending}
+  - {id: bbc-business, name: "BBC News — Business", url: "https://feeds.bbci.co.uk/news/business/rss.xml", tier: 1, source_type: PRESS,
+     commodities: [CRUDE_OIL, NATURAL_GAS, REFINED_PRODUCTS, CARBON_CREDITS], access_method: RSS, tos_status: HEADLINE_ONLY, terms_note: "RSS headlines with link; tagger filters non-energy stories", check: pending}
+  - {id: ft-energy, name: "Financial Times — Energy", url: "https://www.ft.com/energy?format=rss", tier: 1, source_type: PRESS,
+     commodities: [CRUDE_OIL, NATURAL_GAS, REFINED_PRODUCTS, CARBON_CREDITS], access_method: RSS, tos_status: HEADLINE_ONLY, terms_note: "Paywalled: headlines only; the author does not open FT links", check: pending}
+  - {id: cnbc-energy, name: "CNBC — Energy", url: "https://www.cnbc.com/id/19836768/device/rss/rss.html", tier: 1, source_type: PRESS,
+     commodities: [CRUDE_OIL, NATURAL_GAS, REFINED_PRODUCTS], access_method: RSS, tos_status: HEADLINE_ONLY, terms_note: "RSS headlines with link", check: "pending (403 to planning checker)"}
+  # ---------- Tier 2 · TRADE / NEWSROOM ----------
+  - {id: utility-dive, name: "Utility Dive", url: "https://www.utilitydive.com/feeds/news/", tier: 2, source_type: TRADE,
+     commodities: [NATURAL_GAS, CARBON_CREDITS], access_method: RSS, tos_status: HEADLINE_ONLY, terms_note: "Headlines and links", check: verified}
+  - {id: canary-media, name: "Canary Media", url: "https://www.canarymedia.com/rss.rss", tier: 2, source_type: TRADE,
+     commodities: [NATURAL_GAS, CARBON_CREDITS], access_method: RSS, tos_status: HEADLINE_ONLY, terms_note: "Nonprofit newsroom; headlines and links", check: verified}
+  - {id: lng-prime, name: "LNG Prime", url: "https://lngprime.com/feed/", tier: 2, source_type: TRADE,
+     commodities: [NATURAL_GAS], access_method: RSS, tos_status: HEADLINE_ONLY, terms_note: "Headlines and links", check: verified}
+  - {id: offshore-energy, name: "Offshore Energy", url: "https://www.offshore-energy.biz/feed/", tier: 2, source_type: TRADE,
+     commodities: [CRUDE_OIL, NATURAL_GAS], access_method: RSS, tos_status: HEADLINE_ONLY, terms_note: "Headlines and links", check: verified}
+  - {id: rigzone, name: "Rigzone", url: "https://www.rigzone.com/news/rss/rigzone_latest.aspx", tier: 2, source_type: TRADE,
+     commodities: [CRUDE_OIL, NATURAL_GAS, REFINED_PRODUCTS], access_method: RSS, tos_status: HEADLINE_ONLY, terms_note: "Headlines and links", check: pending}
+  - {id: carbon-herald, name: "Carbon Herald", url: "https://carbonherald.com/feed/", tier: 2, source_type: TRADE,
+     commodities: [CARBON_CREDITS], access_method: RSS, tos_status: HEADLINE_ONLY, terms_note: "Headlines and links", check: verified}
+  - {id: prnewswire-energy, name: "PR Newswire — Energy", url: "https://www.prnewswire.com/rss/energy-latest-news/energy-latest-news-list.rss", tier: 2, source_type: NEWSROOM,
+     commodities: [CRUDE_OIL, NATURAL_GAS, REFINED_PRODUCTS, CARBON_CREDITS], access_method: RSS, tos_status: HEADLINE_ONLY, terms_note: "Company press releases: claims, not independent confirmation", check: verified}
+  # ---------- Tier 3 · disabled ----------
+  - {id: oilprice, name: "OilPrice.com", url: "https://oilprice.com/rss/main", tier: 3, source_type: AGGREGATOR,
+     commodities: [CRUDE_OIL, NATURAL_GAS], access_method: RSS, tos_status: HEADLINE_ONLY, terms_note: "Commentary-heavy; off by default", check: "not checked"}
+  # ---------- Licensed / reference only ----------
+  - {id: reuters, name: "Reuters", url: "https://www.reuters.com/business/energy/", tier: 1, source_type: PRESS,
+     commodities: [CRUDE_OIL, NATURAL_GAS, REFINED_PRODUCTS, CARBON_CREDITS], access_method: RSS, tos_status: BLOCKED, terms_note: "License required"}
+  - {id: bloomberg, name: "Bloomberg", url: "https://www.bloomberg.com/energy", tier: 1, source_type: PRESS,
+     commodities: [CRUDE_OIL, NATURAL_GAS, REFINED_PRODUCTS, CARBON_CREDITS], access_method: RSS, tos_status: BLOCKED, terms_note: "License required"}
+  - {id: ap-energy, name: "Associated Press", url: "https://apnews.com/hub/energy-industry", tier: 1, source_type: PRESS,
+     commodities: [CRUDE_OIL, NATURAL_GAS, REFINED_PRODUCTS], access_method: RSS, tos_status: BLOCKED, terms_note: "License required"}
+  - {id: platts-argus, name: "S&P Global Platts / Argus", url: "https://www.spglobal.com/commodity-insights/", tier: 1, source_type: TRADE,
+     commodities: [CRUDE_OIL, NATURAL_GAS, REFINED_PRODUCTS, CARBON_CREDITS], access_method: RSS, tos_status: BLOCKED, terms_note: "Price reporting agencies; license required"}
+  - {id: cdr-fyi, name: "CDR.fyi — durable carbon removal market data", url: "https://www.cdr.fyi/", tier: 1, source_type: TRADE,
+     commodities: [CARBON_CREDITS], tos_status: REFERENCE_ONLY,
+     terms_note: "Terms of Service §5.3 prohibit scraping and AI summarization without a commercial license; shown as a further-reading link only. Contact partners@cdr.fyi for a license."}
