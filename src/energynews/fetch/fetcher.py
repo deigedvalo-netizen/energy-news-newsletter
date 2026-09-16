@@ -3,7 +3,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from urllib import robotparser
-from urllib.parse import urlsplit
+from urllib.parse import urljoin, urlsplit
 import calendar
 import feedparser
 import httpx
@@ -37,13 +37,15 @@ class Robots:
 
     def allowed(self, url: str) -> bool:
         p = urlsplit(url)
+        if p.scheme not in ("http", "https") or not p.netloc:
+            return False  # never fetch relative or non-web URLs
         base = f"{p.scheme}://{p.netloc}"
         if base not in self.cache:
             rp = robotparser.RobotFileParser()
             try:
                 r = self.http.get(base + "/robots.txt", timeout=15)
                 rp.parse(r.text.splitlines() if r.status_code == 200 else [])
-            except httpx.HTTPError:
+            except Exception:  # network or URL errors: treat as no robots.txt
                 rp.parse([])
             self.cache[base] = rp
         return self.cache[base].can_fetch(USER_AGENT, url)
@@ -84,6 +86,9 @@ def fetch_source(src: Source, state: SourceHealth, http: httpx.Client, robots: R
         for e in feed.entries:
             link = e.get("link")
             if not link or not e.get("title"):
+                continue
+            link = urljoin(str(r.url), link.strip())  # some feeds (e.g. EIA) use relative links
+            if urlsplit(link).scheme not in ("http", "https"):
                 continue
             items.append(RawItem(src.source_id, link, e.get("title", "").strip(), e.get("summary", "") or "",
                                  e.get("published") or e.get("updated"), _parsed_time(e)))

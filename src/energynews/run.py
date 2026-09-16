@@ -75,15 +75,18 @@ def run_pipeline(*, db_path: Path, site_dir: Path, registry_path: Path, settings
             for item in res.items:
                 if store.has_url(canonicalize_url(item.url)):
                     continue
-                a, text = extract_article(item, src, http, now, settings["storage"]["excerpt_chars"], robots)
-                if a.status == "UNDATED":
-                    flags.append(Flag("UNDATED", a.article_id, f"{src.source_id}: {a.title[:80]}"))
-                else:
-                    flags.extend(tag_article(a, text, orgs))
-                    if a.status == "OK":
-                        extract_figures(a, text if src.tos_status == "ALLOWED" else a.title + ". " + a.excerpt)
-                if store.insert_article(a):
-                    new += 1
+                try:
+                    a, text = extract_article(item, src, http, now, settings["storage"]["excerpt_chars"], robots)
+                    if a.status == "UNDATED":
+                        flags.append(Flag("UNDATED", a.article_id, f"{src.source_id}: {a.title[:80]}"))
+                    else:
+                        flags.extend(tag_article(a, text, orgs))
+                        if a.status == "OK":
+                            extract_figures(a, text if src.tos_status == "ALLOWED" else a.title + ". " + a.excerpt)
+                    if store.insert_article(a):
+                        new += 1
+                except Exception as ex:  # one bad item never fails the run (NFR-7)
+                    flags.append(Flag("ITEM_FAILED", src.source_id, f"{type(ex).__name__}: {str(ex)[:120]} ({item.url[:100]})"))
             report["new_articles"] += new
             report["sources"].append({"source_id": src.source_id, "tier": src.tier, "status": res.status, "reason": res.reason,
                                       "items_seen": len(res.items), "new": new})
