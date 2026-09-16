@@ -1,1 +1,103 @@
-{"trends": []}
+{
+  "trends": [
+    {
+      "trend_id": "eastern-med-gas-buildout",
+      "name": "Eastern Mediterranean gas development buildout",
+      "thesis": "Operators and oilfield service firms are ramping up investment and service contracts to develop Eastern Mediterranean gas discoveries.",
+      "commodities": ["Crude Oil", "Natural Gas"],
+      "first_seen": "2026-09-16",
+      "mentions": [
+        {
+          "date": "2026-09-16",
+          "company": "Eni",
+          "story_url": "https://www.offshore-energy.biz/halliburton-bags-enis-deepwater-bundle-as-eastern-mediterranean-gas-buildout-continues",
+          "action": "Advanced its Cronos ultra-deepwater gas field development off Cyprus by awarding a multi-year services contract"
+        },
+        {
+          "date": "2026-09-16",
+          "company": "Halliburton",
+          "story_url": "https://www.offshore-energy.biz/halliburton-bags-enis-deepwater-bundle-as-eastern-mediterranean-gas-buildout-continues",
+          "action": "Won a multi-year contract for drilling, completions and automation services on Eni's Cyprus gas field"
+        }
+      ]
+    },
+    {
+      "trend_id": "lng-asia-offtake",
+      "name": "LNG cooperation deals with Asian buyers",
+      "thesis": "Trading houses and Asian gas distributors are signing cooperation agreements to secure LNG supply and trading flexibility.",
+      "commodities": ["Natural Gas"],
+      "first_seen": "2026-09-16",
+      "mentions": [
+        {
+          "date": "2026-09-16",
+          "company": "Trafigura",
+          "story_url": "https://lngprime.com/asia/chinas-enn-inks-lng-cooperation-pact-with-trafigura/196943",
+          "action": "Signed an MOU with China's ENN to explore LNG cooperation"
+        }
+      ]
+    },
+    {
+      "trend_id": "ai-lng-investment",
+      "name": "AI power demand sustaining gas/LNG investment",
+      "thesis": "Rising electricity demand from AI data centers is keeping energy companies committed to gas and LNG project investment despite higher financing costs.",
+      "commodities": ["Natural Gas"],
+      "first_seen": "2026-09-13",
+      "mentions": [
+        {
+          "date": "2026-09-13",
+          "company": "Baker Hughes",
+          "story_url": "https://www.cnbc.com/2026/09/14/baker-hughes-ceo-no-slowdown-in-energy-projects-despite-higher-rates-.html",
+          "action": "CEO said higher borrowing costs have not slowed energy project investment amid AI-driven LNG demand"
+        }
+      ]
+    },
+    {
+      "trend_id": "majors-retreat-fuel-retail",
+      "name": "Oil majors retreat from fuel retail forecourts",
+      "thesis": "BP and Shell are divesting fuel retail forecourt networks as independents consolidate the downstream retail business.",
+      "commodities": ["Refined Products"],
+      "first_seen": "2026-09-13",
+      "mentions": [
+        {
+          "date": "2026-09-13",
+          "company": "BP",
+          "story_url": "https://www.ft.com/content/130f45b6-ee45-4fa0-83eb-5ea8f9bc4680?syn-25a6b1a6=1",
+          "action": "Retreated from UK forecourts business as Essar agreed to buy 118 petrol stations"
+        },
+        {
+          "date": "2026-09-13",
+          "company": "Shell",
+          "story_url": "https://www.ft.com/content/130f45b6-ee45-4fa0-83eb-5ea8f9bc4680?syn-25a6b1a6=1",
+          "action": "Retreated from UK forecourts business as Essar agreed to buy 118 petrol stations"
+        }
+      ]
+    },
+    {
+      "trend_id": "us-lng-export-expansion",
+      "name": "US LNG export capacity expansion",
+      "thesis": "US LNG developers are completing and announcing new liquefaction trains to grow export capacity.",
+      "commodities": ["Natural Gas"],
+      "first_seen": "2026-09-15",
+      "mentions": [
+        {
+          "date": "2026-09-15",
+          "company": "Cheniere Energy",
+          "story_url": "https://www.eia.gov/todayinenergy/detail.php?id=68144",
+          "action": "Completed Corpus Christi Stage 3, making the facility the second-largest LNG export terminal in the US"
+        },
+        {
+          "date": "2026-09-16",
+          "company": "Kimmeridge",
+          "story_url": "https://lngprime.com/americas/kimmeridges-caturus-plans-to-almost-double-commonwealth-lng-capacity/196892",
+          "action": "Caturus unit unveiled plans to nearly double Commonwealth LNG capacity to about 17.25 mtpa"
+        },
+        {
+          "date": "2026-09-16",
+          "company": "Mubadala",
+          "story_url": "https://www.rigzone.com/news/kimmeridge_mubadala_to_nearly_double_commonwealth_lng_capacity-16-sep-2026-184634-article?rss=true",
+          "action": "Partnered with Kimmeridge's Caturus to nearly double Commonwealth LNG export capacity"
+        }
+      ]
+    }
+  ]
+}
