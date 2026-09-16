@@ -19,24 +19,24 @@ sources:
   - {id: doe-newsroom, name: "US Department of Energy Newsroom", url: "https://www.energy.gov/newsroom", tier: 1, source_type: OFFICIAL,
      commodities: [CRUDE_OIL, NATURAL_GAS, REFINED_PRODUCTS, CARBON_CREDITS], access_method: HTML_LIST, link_pattern: "energy\\.gov/articles/[a-z0-9-]+",
      tos_status: ALLOWED, terms_note: "US federal government, public domain", check: "page found"}
-  - {id: ferc-news, name: "FERC News Releases", url: "https://www.ferc.gov/news-events/news/news-releases-headlines", tier: 1, source_type: OFFICIAL,
+  - {id: ferc-news, enabled: false, name: "FERC News Releases", url: "https://www.ferc.gov/news-events/news/news-releases-headlines", tier: 1, source_type: OFFICIAL,
      commodities: [NATURAL_GAS], access_method: HTML_LIST, link_pattern: "ferc\\.gov/news-events/news/(?!news-releases-headlines)[a-z0-9-]+",
-     tos_status: ALLOWED, terms_note: "US federal government, public domain", check: "page found"}
-  - {id: iea-news, name: "IEA News", url: "https://www.iea.org/news", tier: 1, source_type: OFFICIAL,
+     tos_status: ALLOWED, terms_note: "US federal government, public domain", check: "disabled: HTTP 403 from GitHub runners (bot protection), 2026-09-16"}
+  - {id: iea-news, enabled: false, name: "IEA News", url: "https://www.iea.org/news", tier: 1, source_type: OFFICIAL,
      commodities: [CRUDE_OIL, NATURAL_GAS, REFINED_PRODUCTS, CARBON_CREDITS], access_method: HTML_LIST, link_pattern: "iea\\.org/news/[a-z0-9-]+$",
-     tos_status: HEADLINE_ONLY, terms_note: "IEA terms: link and attribute; no republication", check: "page found, no RSS"}
-  - {id: opec-press, name: "OPEC Press Releases", url: "https://www.opec.org/opec_web/en/press_room/28.htm", tier: 1, source_type: OFFICIAL,
+     tos_status: HEADLINE_ONLY, terms_note: "IEA terms: link and attribute; no republication", check: "disabled: HTTP 403 from GitHub runners (bot protection), 2026-09-16"}
+  - {id: opec-press, enabled: false, name: "OPEC Press Releases", url: "https://www.opec.org/opec_web/en/press_room/28.htm", tier: 1, source_type: OFFICIAL,
      commodities: [CRUDE_OIL], access_method: HTML_LIST, link_pattern: "opec\\.org/.*(press_room/\\d+\\.htm|pr-detail)",
-     tos_status: HEADLINE_ONLY, terms_note: "Headlines and links only", check: "pending (HTTP 402 to planning checker)"}
+     tos_status: HEADLINE_ONLY, terms_note: "Headlines and links only", check: "disabled: HTTP 403 from GitHub runners (bot protection), 2026-09-16"}
   - {id: ec-climate-news, name: "European Commission — Climate Action", url: "https://climate.ec.europa.eu/news-other-reads/news_en", tier: 1, source_type: OFFICIAL,
      commodities: [CARBON_CREDITS], access_method: HTML_LIST, link_pattern: "climate\\.ec\\.europa\\.eu/news-other-reads/news/[^?#]+_en$",
      tos_status: HEADLINE_ONLY, terms_note: "EU content reusable with attribution; headlines and links used", check: "page found"}
   - {id: icap-news, name: "ICAP — International Carbon Action Partnership", url: "https://icapcarbonaction.com/en/news", tier: 1, source_type: OFFICIAL,
      commodities: [CARBON_CREDITS], access_method: HTML_LIST, link_pattern: "icapcarbonaction\\.com/en/news/[a-z0-9-]+$",
      tos_status: HEADLINE_ONLY, terms_note: "Headlines and links only", check: "verified listing structure"}
-  - {id: carb-cap-and-invest, name: "California Air Resources Board — Cap-and-Invest", url: "https://ww2.arb.ca.gov/our-work/programs/cap-and-invest-program/news", tier: 1, source_type: OFFICIAL,
+  - {id: carb-cap-and-invest, enabled: false, name: "California Air Resources Board — Cap-and-Invest", url: "https://ww2.arb.ca.gov/our-work/programs/cap-and-invest-program/news", tier: 1, source_type: OFFICIAL,
      commodities: [CARBON_CREDITS], access_method: HTML_LIST, link_pattern: "arb\\.ca\\.gov/news/[a-z0-9-]+$",
-     tos_status: HEADLINE_ONLY, terms_note: "State government; headlines and links", check: "page found"}
+     tos_status: HEADLINE_ONLY, terms_note: "State government; headlines and links", check: "disabled: SELECTOR_NO_MATCH on GitHub runner (listing likely JS-rendered), 2026-09-16"}
   - {id: unfccc-news, name: "UNFCCC News", url: "https://unfccc.int/news", tier: 1, source_type: OFFICIAL,
      commodities: [CARBON_CREDITS], access_method: HTML_LIST, link_pattern: "unfccc\\.int/news/[a-z0-9-]+$",
      tos_status: HEADLINE_ONLY, terms_note: "Headlines and links only", check: "pending (timed out)"}
@@ -62,8 +62,8 @@ sources:
      commodities: [CRUDE_OIL, NATURAL_GAS], access_method: RSS, tos_status: HEADLINE_ONLY, terms_note: "Headlines and links", check: verified}
   - {id: rigzone, name: "Rigzone", url: "https://www.rigzone.com/news/rss/rigzone_latest.aspx", tier: 2, source_type: TRADE,
      commodities: [CRUDE_OIL, NATURAL_GAS, REFINED_PRODUCTS], access_method: RSS, tos_status: HEADLINE_ONLY, terms_note: "Headlines and links", check: pending}
-  - {id: carbon-herald, name: "Carbon Herald", url: "https://carbonherald.com/feed/", tier: 2, source_type: TRADE,
-     commodities: [CARBON_CREDITS], access_method: RSS, tos_status: HEADLINE_ONLY, terms_note: "Headlines and links", check: verified}
+  - {id: carbon-herald, enabled: false, name: "Carbon Herald", url: "https://carbonherald.com/feed/", tier: 2, source_type: TRADE,
+     commodities: [CARBON_CREDITS], access_method: RSS, tos_status: HEADLINE_ONLY, terms_note: "Headlines and links", check: "disabled: feed returned non-XML to GitHub runner (likely bot challenge page), 2026-09-16"}
   - {id: prnewswire-energy, name: "PR Newswire — Energy", url: "https://www.prnewswire.com/rss/energy-latest-news/energy-latest-news-list.rss", tier: 2, source_type: NEWSROOM,
      commodities: [CRUDE_OIL, NATURAL_GAS, REFINED_PRODUCTS, CARBON_CREDITS], access_method: RSS, tos_status: HEADLINE_ONLY, terms_note: "Company press releases: claims, not independent confirmation", check: verified}
   # ---------- Tier 3 · disabled ----------
