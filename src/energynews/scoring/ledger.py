@@ -66,6 +66,8 @@ def _schema_errors(ledger) -> list[str]:
             if not isinstance(t.get(k), str) or not t[k].strip() or len(t[k]) > limit:
                 errs.append(f"{where}.{k} required, max {limit} chars")
         comms = t.get("commodities")
+        if isinstance(comms, list):  # accept display names such as "Crude Oil" and store the enum form
+            comms = t["commodities"] = [re.sub(r"[\s-]+", "_", str(c).strip()).upper() for c in comms]
         if not isinstance(comms, list) or not comms or any(c not in COMMODITIES for c in comms):
             errs.append(f"{where}.commodities must be a non-empty subset of {sorted(COMMODITIES)}")
         try:

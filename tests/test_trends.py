@@ -103,3 +103,12 @@ def test_candidate_groups():
               "organizations": [{"org_id": "bp", "name": "BP", "org_type": "COMPANY"}, {"org_id": "eia", "name": "EIA", "org_type": "AGENCY"}]}]
     [g] = candidate_groups(items)
     assert g["companies"] == ["BP", "Shell"] and g["commodity"] == "NATURAL_GAS"
+
+
+def test_commodity_display_names_are_normalized(orgs):
+    lg = ledger(mention("Shell", "https://a.example/1"))
+    lg["trends"][0]["commodities"] = ["Natural Gas", "crude-oil"]
+    v = validate_ledger(lg, None, INDEX, orgs)
+    assert v.status == "ACCEPTED" and v.ledger["trends"][0]["commodities"] == ["NATURAL_GAS", "CRUDE_OIL"]
+    lg["trends"][0]["commodities"] = ["Power"]
+    assert validate_ledger(lg, None, INDEX, orgs).reasons[0]["code"] == "BAD_LEDGER"

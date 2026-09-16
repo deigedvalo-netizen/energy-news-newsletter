@@ -19,7 +19,7 @@ Today is {{TODAY}} ({{TODAY_LONG}}, America/Chicago). Digest snapshot: feed_sha2
 ## 3. Update the trend ledger (`issues/trends.json`)
 A trend is an idea, initiative or direction that multiple companies are pushing, such as "long-term LNG supply deals with Asian buyers" or "corporate purchases of durable carbon removal". It isn't a single event and it isn't a commodity.
 - For each story that shows a company pushing an existing trend, append a mention to that trend: `{"date": "<story date YYYY-MM-DD>", "company": "<company name as written in the story>", "story_url": "<digest URL>", "action": "<what the company did, 20 words or fewer>"}`.
-- Create a new trend only when the digest shows a genuine idea that at least one company is pushing: `{"trend_id": "<lowercase-slug>", "name": "<short name>", "thesis": "<one sentence>", "commodities": [...], "first_seen": "<date>", "mentions": [...]}`. Check the candidate trend groups for ideas already backed by several companies.
+- Create a new trend only when the digest shows a genuine idea that at least one company is pushing: `{"trend_id": "<lowercase-slug>", "name": "<short name>", "thesis": "<one sentence>", "commodities": ["CRUDE_OIL" | "NATURAL_GAS" | "REFINED_PRODUCTS" | "CARBON_CREDITS", ...], "first_seen": "<date>", "mentions": [...]}`. Check the candidate trend groups for ideas already backed by several companies.
 - Never delete or edit existing mentions; the ledger is append-only. You may improve a trend's `name` or `thesis`.
 - Only name a company in a mention if the story's headline or summary names it; otherwise the mention won't count.
 - Don't add status or trajectory. Code computes them.
