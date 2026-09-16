@@ -62,7 +62,9 @@ jobs:
           git add issues
           if git diff --cached --quiet; then echo "nothing to commit"; exit 0; fi
           git -c user.name="energynews-bot" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" commit -qm "issue: ${{ steps.prep.outputs.today }}"
-          git push origin HEAD:main
+          # claude-code-action swaps in (and then revokes) its own git credentials, so push with the workflow token explicitly
+          git config --local --unset-all http.https://github.com/.extraheader || true
+          git push "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" HEAD:main
       - name: Validate and publish
         if: steps.prep.outputs.status == 'READY'
         run: python -m energynews.issues.gate --issues issues --site site --settings config/settings.yaml --organizations config/organizations.yaml
