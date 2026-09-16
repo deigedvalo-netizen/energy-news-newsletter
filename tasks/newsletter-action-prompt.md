@@ -13,7 +13,7 @@ Today is {{TODAY}} ({{TODAY_LONG}}, America/Chicago). Digest snapshot: feed_sha2
 - Read `issues/trends.json` (the trend ledger) and `issues/index.json`.
 
 ## 2. Read articles
-- Use WebFetch to open at most 15 story links, choosing the ones most likely to matter (tier 1 first, then stories naming several companies). Only open URLs that appear in the digest. Don't open Financial Times links (paywalled). If a page won't load, rely on the digest's headline and summary.
+- Use WebFetch to open at most 15 story links, choosing the ones most likely to matter (tier 1 first, then stories naming several companies). Only open URLs that appear in the digest. Don't open links on ft.com, wsj.com, bloomberg.com, reuters.com, apnews.com, carbon-pulse.com, qcintel.com, argusmedia.com or spglobal.com (paywalled or licensed); use their headlines only. If a page won't load, rely on the digest's headline and summary.
 - Keep a list of every URL you opened for `articles_opened`.
 
 ## 3. Update the trend ledger (`issues/trends.json`)

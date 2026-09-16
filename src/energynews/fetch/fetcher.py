@@ -25,7 +25,7 @@ class SourceHealth:
 @dataclass
 class FetchResult:
     items: list[RawItem] = field(default_factory=list)
-    status: str = "OK"  # OK | NOT_MODIFIED | FAILED | ROBOTS_DISALLOWED
+    status: str = "OK"  # OK | NOT_MODIFIED | FAILED | ROBOTS_DISALLOWED | SKIPPED
     reason: str | None = None
     etag: str | None = None
     last_modified: str | None = None
@@ -60,6 +60,9 @@ def _parsed_time(entry) -> datetime | None:
 
 
 def fetch_source(src: Source, state: SourceHealth, http: httpx.Client, robots: Robots) -> FetchResult:
+    if src.access_method.startswith("API_"):
+        from .apis import fetch_api_source  # documented APIs: keyed/rate-limited access instead of robots.txt
+        return fetch_api_source(src, http)
     try:
         if not robots.allowed(src.url):
             return FetchResult(status="ROBOTS_DISALLOWED", reason="robots.txt disallows feed url")

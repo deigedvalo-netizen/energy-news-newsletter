@@ -56,13 +56,14 @@ class Source:
     url: str
     tier: int
     commodities: frozenset[Commodity]
-    access_method: str  # RSS | HTML_LIST
+    access_method: str  # RSS | HTML_LIST | API_GDELT | API_GUARDIAN | API_NEWSDATA
     tos_status: str  # ALLOWED | HEADLINE_ONLY | REFERENCE_ONLY | BLOCKED | UNVERIFIED
     enabled: bool
     source_type: str = "PRESS"  # OFFICIAL | PRESS | TRADE | NEWSROOM | AGGREGATOR
     terms_note: str = ""
     link_pattern: str | None = None  # HTML_LIST: regex matched against item hrefs
     base_url: str | None = None
+    options: dict | None = field(default=None, hash=False, compare=False)  # API sources: queries, domains, api_key_env, ...
 
 
 @dataclass

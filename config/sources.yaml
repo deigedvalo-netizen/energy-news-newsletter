@@ -4,6 +4,9 @@
 #       3 = aggregators/commentary (disabled unless enabled: true)
 # source_type: OFFICIAL | PRESS | TRADE | NEWSROOM | AGGREGATOR
 # access_method: RSS | HTML_LIST (HTML_LIST needs link_pattern: regex matched against item links on the listing page)
+#                | API_GDELT (no key) | API_GUARDIAN (GUARDIAN_API_KEY secret) | API_NEWSDATA (NEWSDATA_API_KEY secret)
+#   API sources need queries: [...]; optional domains: [...] (only links on these domains are kept) and params: {...}.
+#   An API source whose key secret is missing is reported as SKIPPED, not failed.
 # tos_status: ALLOWED (may read article body) | HEADLINE_ONLY | REFERENCE_ONLY (link only, never fetched) | BLOCKED | UNVERIFIED
 # check: result of the 2026-09-15/16 planning check; "pending" feeds are confirmed by the first run report (AC-1.4).
 sources:
@@ -66,6 +69,65 @@ sources:
      commodities: [CARBON_CREDITS], access_method: RSS, tos_status: HEADLINE_ONLY, terms_note: "Headlines and links", check: "disabled: feed returned non-XML to GitHub runner (likely bot challenge page), 2026-09-16"}
   - {id: prnewswire-energy, name: "PR Newswire — Energy", url: "https://www.prnewswire.com/rss/energy-latest-news/energy-latest-news-list.rss", tier: 2, source_type: NEWSROOM,
      commodities: [CRUDE_OIL, NATURAL_GAS, REFINED_PRODUCTS, CARBON_CREDITS], access_method: RSS, tos_status: HEADLINE_ONLY, terms_note: "Company press releases: claims, not independent confirmation", check: verified}
+  # ---------- News APIs ----------
+  - id: gdelt-major-press
+    name: "Major press (via GDELT)"
+    url: "https://api.gdeltproject.org/api/v2/doc/doc"
+    tier: 1
+    source_type: PRESS
+    commodities: [CRUDE_OIL, NATURAL_GAS, REFINED_PRODUCTS, CARBON_CREDITS]
+    access_method: API_GDELT
+    tos_status: HEADLINE_ONLY
+    terms_note: "GDELT open metadata: headline and link only; licensed outlets (Reuters, Bloomberg, AP, WSJ, FT) are never opened"
+    queries:
+      - '("carbon credits" OR "carbon market" OR "emissions trading" OR "carbon offsets" OR "carbon removal" OR "carbon price" OR cbam)'
+      - '("crude oil" OR opec OR "natural gas" OR lng OR refinery OR diesel OR gasoline OR "jet fuel")'
+    domains: [reuters.com, apnews.com, bloomberg.com, wsj.com, nytimes.com, ft.com, economist.com, bbc.com, bbc.co.uk, cnbc.com, theguardian.com, axios.com, washingtonpost.com, npr.org, nikkei.com]
+    params: {timespan: 2d, maxrecords: 150}
+    check: "added 2026-09-16; confirmed by the next run report"
+  - id: gdelt-carbon-trade
+    name: "Carbon market trade press (via GDELT)"
+    url: "https://api.gdeltproject.org/api/v2/doc/doc"
+    tier: 2
+    source_type: TRADE
+    commodities: [CARBON_CREDITS]
+    access_method: API_GDELT
+    tos_status: HEADLINE_ONLY
+    terms_note: "GDELT open metadata: headline and link only (several of these outlets are paywalled)"
+    queries:
+      - '("carbon credits" OR "carbon market" OR "emissions trading" OR "carbon offsets" OR "carbon removal" OR "carbon price" OR cbam OR corsia)'
+    domains: [carbon-pulse.com, qcintel.com, argusmedia.com, spglobal.com, carbonherald.com, climatechangenews.com, ecosystemmarketplace.com, energymonitor.ai, edie.net, businessgreen.com, trellis.net, esgtoday.com]
+    params: {timespan: 3d, maxrecords: 150}
+    check: "added 2026-09-16; confirmed by the next run report"
+  - id: guardian-api
+    name: "The Guardian (API)"
+    url: "https://content.guardianapis.com/search"
+    tier: 1
+    source_type: PRESS
+    commodities: [CRUDE_OIL, NATURAL_GAS, REFINED_PRODUCTS, CARBON_CREDITS]
+    access_method: API_GUARDIAN
+    tos_status: HEADLINE_ONLY
+    terms_note: "Guardian Open Platform developer key (non-commercial): headline, trail text and link"
+    queries:
+      - '"carbon credits" OR "carbon market" OR "emissions trading" OR "carbon offsets" OR "carbon removal" OR "carbon price"'
+      - '"oil price" OR opec OR "natural gas" OR lng OR refinery OR diesel OR "petrol prices"'
+    check: "added 2026-09-16; needs GUARDIAN_API_KEY secret"
+  - id: newsdata-carbon
+    name: "NewsData.io — top outlets"
+    url: "https://newsdata.io/api/1/latest"
+    tier: 2
+    source_type: AGGREGATOR
+    enabled: true
+    commodities: [CARBON_CREDITS, CRUDE_OIL, NATURAL_GAS, REFINED_PRODUCTS]
+    access_method: API_NEWSDATA
+    tos_status: HEADLINE_ONLY
+    terms_note: "NewsData.io free plan (commercial use allowed, ~12 h delay): headline, description and link; top-priority domains only"
+    queries:
+      - '"carbon credits" OR "carbon market" OR "emissions trading" OR "carbon offset"'
+      - '"carbon removal" OR "carbon price" OR CBAM OR "voluntary carbon"'
+      - '"crude oil" OR OPEC OR LNG OR refinery'
+    params: {prioritydomain: top, pages: 2}
+    check: "added 2026-09-16; needs NEWSDATA_API_KEY secret"
   # ---------- Tier 3 · disabled ----------
   - {id: oilprice, name: "OilPrice.com", url: "https://oilprice.com/rss/main", tier: 3, source_type: AGGREGATOR,
      commodities: [CRUDE_OIL, NATURAL_GAS], access_method: RSS, tos_status: HEADLINE_ONLY, terms_note: "Commentary-heavy; off by default", check: "not checked"}

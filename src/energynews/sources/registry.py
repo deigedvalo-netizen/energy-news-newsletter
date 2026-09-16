@@ -5,7 +5,9 @@ import re
 import yaml
 from ..models import Commodity, Source
 
-ACCESS = {"RSS", "HTML_LIST"}
+API_ACCESS = {"API_GDELT", "API_GUARDIAN", "API_NEWSDATA"}
+ACCESS = {"RSS", "HTML_LIST"} | API_ACCESS
+API_KEY_ENV = {"API_GUARDIAN": "GUARDIAN_API_KEY", "API_NEWSDATA": "NEWSDATA_API_KEY"}
 TOS = {"ALLOWED", "HEADLINE_ONLY", "REFERENCE_ONLY", "BLOCKED", "UNVERIFIED"}
 TYPES = {"OFFICIAL", "PRESS", "TRADE", "NEWSROOM", "AGGREGATOR"}
 FETCHABLE = {"ALLOWED", "HEADLINE_ONLY"}
@@ -55,9 +57,19 @@ def load_registry(path: Path) -> list[Source]:
                 re.compile(e["link_pattern"])
             except re.error as ex:
                 raise RegistryValidationError(sid, f"bad link_pattern: {ex}")
+        options = None
+        if access in API_ACCESS:
+            queries = e.get("queries")
+            if not isinstance(queries, list) or not queries or not all(isinstance(q, str) and q.strip() for q in queries):
+                raise RegistryValidationError(sid, "API sources need a non-empty queries list")
+            domains = e.get("domains") or []
+            if not isinstance(domains, list):
+                raise RegistryValidationError(sid, "domains must be a list")
+            options = {"queries": queries, "domains": domains, "api_key_env": e.get("api_key_env", API_KEY_ENV.get(access)),
+                       "params": dict(e.get("params") or {})}
         enabled_default = stype != "AGGREGATOR" and tier != 3
         out.append(Source(sid, e["name"], e["url"], tier, comms, access, tos, bool(e.get("enabled", enabled_default)),
-                          stype, e.get("terms_note", ""), e.get("link_pattern"), e.get("base_url")))
+                          stype, e.get("terms_note", ""), e.get("link_pattern"), e.get("base_url"), options))
     return out
 
 

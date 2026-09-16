@@ -1,5 +1,5 @@
 name: scan
-# Daily scan -> tag -> cluster -> trends -> digest -> publish site (FR-1..FR-16, NFR-1). No LLM calls, no API keys.
+# Daily scan -> tag -> cluster -> trends -> digest -> publish site (FR-1..FR-16, NFR-1). No LLM calls. Optional news API keys come from secrets.
 on:
   schedule:
     - cron: "0 10 * * *"   # 05:00 America/Chicago during CDT; change to "0 11 * * *" when CST starts (2026-11-01)
@@ -12,7 +12,7 @@ concurrency:
 jobs:
   scan:
     runs-on: ubuntu-24.04
-    timeout-minutes: 20
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -38,6 +38,9 @@ jobs:
             git archive origin/gh-pages | tar -x -C site
           fi
       - name: Run pipeline
+        env:
+          GUARDIAN_API_KEY: ${{ secrets.GUARDIAN_API_KEY }}
+          NEWSDATA_API_KEY: ${{ secrets.NEWSDATA_API_KEY }}
         run: python -m energynews.run --db data/energynews.db --site site --registry config/sources.yaml --settings config/settings.yaml --organizations config/organizations.yaml
       - name: Re-apply ledger and published issues
         run: python -m energynews.issues.gate --issues issues --site site --settings config/settings.yaml --organizations config/organizations.yaml
