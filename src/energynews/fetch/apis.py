@@ -16,6 +16,7 @@ GUARDIAN_URL = "https://content.guardianapis.com/search"
 NEWSDATA_URL = "https://newsdata.io/api/1/latest"
 GDELT_PAUSE_S = 6.0  # GDELT asks for at most one request every 5 seconds
 GDELT_DOMAIN_CHUNK = 8
+GDELT_RETRY_S = (0, 20, 45)
 _last_gdelt = [0.0]
 
 
@@ -63,8 +64,22 @@ def fetch_gdelt(src: Source, http: httpx.Client, sleep=time.sleep) -> tuple[list
             wait = GDELT_PAUSE_S - (time.monotonic() - _last_gdelt[0])
             if _last_gdelt[0] and wait > 0:
                 sleep(wait)
-            _last_gdelt[0] = time.monotonic()
-            r = http.get(GDELT_URL, params={"query": query, "mode": "artlist", "format": "json", "sort": "datedesc", **params}, timeout=45)
+            r, last = None, ""
+            for backoff in GDELT_RETRY_S:  # GDELT throttles shared cloud IPs: back off, then give up for this run
+                if backoff:
+                    sleep(backoff)
+                _last_gdelt[0] = time.monotonic()
+                try:
+                    r = http.get(GDELT_URL, params={"query": query, "mode": "artlist", "format": "json", "sort": "datedesc", **params}, timeout=45)
+                except httpx.TransportError as ex:
+                    r, last = None, type(ex).__name__
+                    continue
+                if r.status_code != 429:
+                    break
+                last = "HTTP 429"
+            if r is None or r.status_code == 429:
+                errors.append(f"{last} after {len(GDELT_RETRY_S)} tries")
+                return items, errors
             if r.status_code >= 400:
                 errors.append(f"HTTP {r.status_code}")
                 continue

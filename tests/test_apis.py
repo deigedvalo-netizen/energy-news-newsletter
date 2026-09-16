@@ -98,3 +98,29 @@ def test_registry_api_entries_are_valid_and_eligible():
     assert api["guardian-api"].options["api_key_env"] == "GUARDIAN_API_KEY"
     assert api["gdelt-major-press"].options["api_key_env"] is None
     assert all(len(q) <= 100 for q in api["newsdata-carbon"].options["queries"])  # NewsData free-plan query limit
+
+
+def test_gdelt_backs_off_on_429_then_gives_up():
+    apis._last_gdelt[0] = 0.0
+    calls, slept = [], []
+
+    def handler(req):
+        calls.append(1)
+        return httpx.Response(429)
+    s = src("API_GDELT", ["cbam", "lng"])
+    res = apis.fetch_api_source(s, client(handler), NOW, sleep=slept.append)
+    assert res.status == "FAILED" and "429 after 3 tries" in res.reason
+    assert len(calls) == 3 and 20 in slept and 45 in slept  # second query is not attempted
+
+
+def test_gdelt_recovers_after_disconnect():
+    apis._last_gdelt[0] = 0.0
+    n = []
+
+    def handler(req):
+        n.append(1)
+        if len(n) == 1:
+            raise httpx.RemoteProtocolError("Server disconnected without sending a response.")
+        return httpx.Response(200, json={"articles": [{"url": "https://www.ft.com/content/x", "title": "CBAM row", "seendate": "20260916T083000Z"}]})
+    res = apis.fetch_api_source(src("API_GDELT", ["cbam"]), client(handler), NOW, sleep=lambda x: None)
+    assert res.status == "OK" and len(res.items) == 1
