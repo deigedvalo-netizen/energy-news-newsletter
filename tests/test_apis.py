@@ -94,9 +94,11 @@ def test_newsdata_paginates_and_redacts_key_on_errors(monkeypatch):
 def test_registry_api_entries_are_valid_and_eligible():
     reg = load_registry(ROOT / "config" / "sources.yaml")
     api = {s.source_id: s for s in eligible_sources(reg) if s.access_method.startswith("API_")}
-    assert set(api) == {"gdelt-major-press", "gdelt-carbon-trade", "guardian-api", "newsdata-carbon"}
+    assert set(api) == {"guardian-api", "newsdata-carbon"}  # GDELT entries stay in the registry but are disabled
+    gd = {s.source_id: s for s in reg if s.access_method == "API_GDELT"}
+    assert set(gd) == {"gdelt-major-press", "gdelt-carbon-trade"} and not any(s.enabled for s in gd.values())
     assert api["guardian-api"].options["api_key_env"] == "GUARDIAN_API_KEY"
-    assert api["gdelt-major-press"].options["api_key_env"] is None
+    assert gd["gdelt-major-press"].options["api_key_env"] is None
     assert all(len(q) <= 100 for q in api["newsdata-carbon"].options["queries"])  # NewsData free-plan query limit
 
 

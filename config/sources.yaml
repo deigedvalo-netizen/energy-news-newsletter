@@ -71,6 +71,7 @@ sources:
      commodities: [CRUDE_OIL, NATURAL_GAS, REFINED_PRODUCTS, CARBON_CREDITS], access_method: RSS, tos_status: HEADLINE_ONLY, terms_note: "Company press releases: claims, not independent confirmation", check: verified}
   # ---------- News APIs ----------
   - id: gdelt-major-press
+    enabled: false  # 2026-09-17: GDELT returns HTTP 429 to GitHub-hosted runners (shared IPs) on every run
     name: "Major press (via GDELT)"
     url: "https://api.gdeltproject.org/api/v2/doc/doc"
     tier: 1
@@ -86,6 +87,7 @@ sources:
     params: {timespan: 2d, maxrecords: 150}
     check: "added 2026-09-16; confirmed by the next run report"
   - id: gdelt-carbon-trade
+    enabled: false  # 2026-09-17: GDELT returns HTTP 429 to GitHub-hosted runners (shared IPs) on every run
     name: "Carbon market trade press (via GDELT)"
     url: "https://api.gdeltproject.org/api/v2/doc/doc"
     tier: 2
