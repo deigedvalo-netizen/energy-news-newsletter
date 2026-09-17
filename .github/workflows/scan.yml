@@ -2,10 +2,17 @@ name: scan
 # Daily scan -> tag -> cluster -> trends -> digest -> publish site (FR-1..FR-16, NFR-1). No LLM calls. Optional news API keys come from secrets.
 on:
   schedule:
-    - cron: "17 10 * * *"  # 05:17 America/Chicago during CDT; "17 11 * * *" from 2026-11-01 (CST). Off the hour: GitHub delays top-of-hour schedules
+    - cron: "17 11 * * *"  # 06:17 America/Chicago in summer, 05:17 in winter: one UTC time that needs no daylight-saving edit.
+                           # Off the top of the hour because GitHub delays those schedules the most.
   workflow_dispatch:
+    inputs:
+      force_fail:
+        description: "Fail on purpose, to check that the failure alert works"
+        type: boolean
+        default: false
 permissions:
   contents: write
+  issues: write   # failure alert
 concurrency:
   group: site-publish
   cancel-in-progress: false
@@ -15,6 +22,9 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
+      - name: Self-test of the failure alert
+        if: inputs.force_fail
+        run: exit 1
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -59,3 +69,17 @@ jobs:
           git add energynews.db
           git -c user.name="energynews-bot" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" commit -qm "data: $(date -u +%FT%TZ)"
           git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" data
+      - name: Open an issue if this run failed
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          title="${{ github.workflow }} run failed on $(TZ=America/Chicago date +%F)"
+          found=$(gh issue list --state open --search "$title in:title" --json number --jq '.[0].number // empty')
+          body="The **${{ github.workflow }}** workflow failed ($(TZ=America/Chicago date '+%F %H:%M %Z'), trigger: ${{ github.event_name }}).
+
+          Log: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+          The site keeps serving the last good version until this is fixed. Close this issue once the next run succeeds."
+          if [ -n "$found" ]; then gh issue comment "$found" --body "Failed again: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}";
+          else gh issue create --title "$title" --body "$body"; fi

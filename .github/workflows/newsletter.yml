@@ -7,11 +7,12 @@ on:
     workflows: [scan]
     types: [completed]
   schedule:                 # fallback if the scan-triggered run never happens; ALREADY_PUBLISHED makes repeats a no-op
-    - cron: "47 13 * * *"   # 08:47 America/Chicago during CDT; "47 14 * * *" from 2026-11-01 (CST)
+    - cron: "47 14 * * *"   # 09:47 America/Chicago in summer, 08:47 in winter: one UTC time that needs no daylight-saving edit
   workflow_dispatch:
 permissions:
   contents: write
   id-token: write
+  issues: write   # failure alert
 concurrency:
   group: site-publish
   cancel-in-progress: false
@@ -85,3 +86,17 @@ jobs:
           git add -A
           git -c user.name="energynews-bot" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" commit -qm "site: newsletter ${{ steps.prep.outputs.today }}"
           git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" gh-pages
+      - name: Open an issue if this run failed
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          title="${{ github.workflow }} run failed on $(TZ=America/Chicago date +%F)"
+          found=$(gh issue list --state open --search "$title in:title" --json number --jq '.[0].number // empty')
+          body="The **${{ github.workflow }}** workflow failed ($(TZ=America/Chicago date '+%F %H:%M %Z'), trigger: ${{ github.event_name }}).
+
+          Log: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+          The site keeps serving the last good version until this is fixed. Close this issue once the next run succeeds."
+          if [ -n "$found" ]; then gh issue comment "$found" --body "Failed again: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}";
+          else gh issue create --title "$title" --body "$body"; fi
