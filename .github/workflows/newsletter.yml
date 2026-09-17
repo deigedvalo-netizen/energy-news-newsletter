@@ -3,8 +3,11 @@ name: newsletter
 # (CLAUDE_CODE_OAUTH_TOKEN from `claude setup-token`). Replaces the Cowork scheduled task, whose GitHub connector cannot write
 # (anthropics/claude-code#80874). FR-14, FR-15, FR-17, FR-19, NFR-3, NFR-8.
 on:
-  schedule:
-    - cron: "30 12 * * *"   # 07:30 America/Chicago during CDT; "30 13 * * *" from 2026-11-01 (CST)
+  workflow_run:             # normal path: start as soon as the daily scan finishes
+    workflows: [scan]
+    types: [completed]
+  schedule:                 # fallback if the scan-triggered run never happens; ALREADY_PUBLISHED makes repeats a no-op
+    - cron: "47 13 * * *"   # 08:47 America/Chicago during CDT; "47 14 * * *" from 2026-11-01 (CST)
   workflow_dispatch:
 permissions:
   contents: write
@@ -14,6 +17,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   newsletter:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     steps:

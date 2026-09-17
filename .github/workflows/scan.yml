@@ -2,7 +2,7 @@ name: scan
 # Daily scan -> tag -> cluster -> trends -> digest -> publish site (FR-1..FR-16, NFR-1). No LLM calls. Optional news API keys come from secrets.
 on:
   schedule:
-    - cron: "0 10 * * *"   # 05:00 America/Chicago during CDT; change to "0 11 * * *" when CST starts (2026-11-01)
+    - cron: "17 10 * * *"  # 05:17 America/Chicago during CDT; "17 11 * * *" from 2026-11-01 (CST). Off the hour: GitHub delays top-of-hour schedules
   workflow_dispatch:
 permissions:
   contents: write
