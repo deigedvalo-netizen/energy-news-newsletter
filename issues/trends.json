@@ -33,6 +33,18 @@
           "company": "Trafigura",
           "story_url": "https://lngprime.com/asia/chinas-enn-inks-lng-cooperation-pact-with-trafigura/196943",
           "action": "Signed an MOU with China's ENN to explore LNG cooperation"
+        },
+        {
+          "date": "2026-09-17",
+          "company": "Eni",
+          "story_url": "https://lngprime.com/asia/indias-bpcl-inks-lng-pact-with-eni/196976",
+          "action": "Signed an LNG supply agreement with India's BPCL as it diversifies its buyer base"
+        },
+        {
+          "date": "2026-09-16",
+          "company": "Petronas",
+          "story_url": "https://www.channelnewsasia.com/business/japan-gas-association-welcomes-governments-first-emergency-lng-deal-petronas-6389061",
+          "action": "Agreed to supply LNG to Japan's government under Japan's first emergency LNG procurement deal"
         }
       ]
     },
@@ -96,6 +108,21 @@
           "company": "Mubadala",
           "story_url": "https://www.rigzone.com/news/kimmeridge_mubadala_to_nearly_double_commonwealth_lng_capacity-16-sep-2026-184634-article?rss=true",
           "action": "Partnered with Kimmeridge's Caturus to nearly double Commonwealth LNG export capacity"
+        }
+      ]
+    },
+    {
+      "trend_id": "corporate-carbon-removal-purchases",
+      "name": "Corporate purchases of durable carbon removal",
+      "thesis": "Large corporations are signing megaton-scale deals with carbon removal developers to lock in durable CO2 removal alongside other pollutant cuts.",
+      "commodities": ["CARBON_CREDITS"],
+      "first_seen": "2026-09-16",
+      "mentions": [
+        {
+          "date": "2026-09-16",
+          "company": "Google",
+          "story_url": "https://qz.com/google-terradot-carbon-removal-brazil-methane-091626",
+          "action": "Signed a megaton-scale deal with Terradot for enhanced rock weathering carbon removal paired with methane avoidance in Brazil"
         }
       ]
     }
