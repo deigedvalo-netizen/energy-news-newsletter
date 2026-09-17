@@ -3,7 +3,9 @@ from decimal import Decimal
 from energynews.cluster.clusterer import cluster_articles
 from energynews.models import Commodity, ExtractedFigure
 from energynews.scoring.relevance import relevance
+import pytest
 from energynews.tag.figures import conflicting_figures, extract_figures
+from energynews.tag.taxonomy import keyword_classify
 from energynews.tag.summarize import first_sentence
 from energynews.tag.tagger import tag_article
 from conftest import mk_article
@@ -105,3 +107,15 @@ from energynews.issues.language import has_advisory
 ])
 def test_advisory_language(text, bad):
     assert has_advisory(text) is bad
+
+
+@pytest.mark.parametrize("title,summary,carbon", [
+    ("India seeks EU approval for local CBAM verifiers", "India wants its accreditation body recognised.", True),
+    ("Goods exports up 26% in August, trade deficit eases", "Steel shipments face the EU carbon border levy next year.", False),
+    ("Germany set to extend national carbon price corridor through 2027", "", True),
+    ("Leaders unite on climate resilience and forests", "The statement mentions a carbon tax and DAC funding.", False),
+    ("'Carbon fever' threatens Indigenous rights", "Leaders denounce opaque deals over carbon credits.", True),
+])
+def test_loose_carbon_terms_only_count_in_the_headline(title, summary, carbon):
+    comms, _ = keyword_classify(title + ". " + summary, title)
+    assert (Commodity.CARBON_CREDITS in comms) is carbon

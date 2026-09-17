@@ -6,7 +6,7 @@ from .taxonomy import keyword_classify
 
 
 def tag_article(a: Article, text: str, orgs: OrganizationIndex) -> list[Flag]:
-    comms, topic = keyword_classify(text)
+    comms, topic = keyword_classify(text, a.title)
     if not comms:
         if a.status == "OK":
             a.status = "NOT_RELEVANT"

@@ -5,8 +5,14 @@ from ..models import Commodity
 COMMODITY_RULES = {
     Commodity.CRUDE_OIL: r"\b(crude|brent|wti|opec\+?|oil (?:price|prices|output|production|market|markets|demand|supply|field|fields|major|majors|exports?|imports?|stocks?|inventor\w*|tanker|rig|rigs|well|wells|company|companies|producers?|sands)|barrels?|bpd|b/d|shale oil|petroleum|upstream|oilfield)\b",
     Commodity.NATURAL_GAS: r"\b(natural gas|lng|liquefied natural gas|henry hub|gas storage|gas prices?|gas production|gas exports?|bcf|mmbtu|ttf|gas pipeline|pipeline gas|feedgas)\b",
-    Commodity.CARBON_CREDITS: r"\b(carbon credits?|carbon offsets?|carbon markets?|carbon prices?|carbon allowances?|emissions? allowances?|eu ets|uk ets|emissions trading(?: system| scheme)?|cap[- ]and[- ](?:trade|invest)|direct air capture|dac|biochar|durable (?:carbon )?removals?|cdr|euas?|rggi|corsia|article 6|voluntary carbon|vcm|carbon removals?|carbon dioxide removal|redd\+?|cbam|carbon border|verra|gold standard|icvcm|compliance market)\b",
+    Commodity.CARBON_CREDITS: r"\b(carbon credits?|carbon offsets?|carbon markets?|carbon allowances?|emissions? allowances?|eu ets|uk ets|emissions trading(?: system| scheme)?|cap[- ]and[- ](?:trade|invest)|direct air capture|biochar|durable (?:carbon )?removals?|carbon removals?|carbon dioxide removal|cdr|euas?|rggi|corsia|article 6|voluntary carbon|vcm|redd\+?|verra|gold standard|icvcm|compliance market)\b",
     Commodity.REFINED_PRODUCTS: r"\b(gasoline|diesel|jet fuel|refiner(?:y|ies|s|ing)|distillates?|heating oil|rbob|ulsd|crack spreads?|propane|fuel prices?|pump prices?)\b",
+}
+
+# Terms that are too loose to qualify a story on their own (they turn up in trade, tax and steel stories):
+# they only count when they appear in the headline. FR-4.
+WEAK_RULES = {
+    Commodity.CARBON_CREDITS: r"\b(cbam|carbon border|carbon prices?|carbon tax|dac)\b",
 }
 
 TOPIC_RULES = [  # order = tie-break priority
@@ -23,10 +29,12 @@ TOPIC_RULES = [  # order = tie-break priority
 
 _CR = {c: re.compile(p, re.I) for c, p in COMMODITY_RULES.items()}
 _TR = [(t, re.compile(p, re.I)) for t, p in TOPIC_RULES]
+_WR = {c: re.compile(p, re.I) for c, p in WEAK_RULES.items()}
 
 
-def keyword_classify(text: str) -> tuple[set[Commodity], str]:
+def keyword_classify(text: str, title: str = "") -> tuple[set[Commodity], str]:
     comms = {c for c, rx in _CR.items() if rx.search(text)}
+    comms |= {c for c, rx in _WR.items() if rx.search(title)}
     best, best_n = "OTHER", 0
     for t, rx in _TR:
         n = len(rx.findall(text))

@@ -65,8 +65,19 @@ sources:
      commodities: [CRUDE_OIL, NATURAL_GAS], access_method: RSS, tos_status: HEADLINE_ONLY, terms_note: "Headlines and links", check: verified}
   - {id: rigzone, name: "Rigzone", url: "https://www.rigzone.com/news/rss/rigzone_latest.aspx", tier: 2, source_type: TRADE,
      commodities: [CRUDE_OIL, NATURAL_GAS, REFINED_PRODUCTS], access_method: RSS, tos_status: HEADLINE_ONLY, terms_note: "Headlines and links", check: pending}
-  - {id: carbon-herald, enabled: false, name: "Carbon Herald", url: "https://carbonherald.com/feed/", tier: 2, source_type: TRADE,
-     commodities: [CARBON_CREDITS], access_method: RSS, tos_status: HEADLINE_ONLY, terms_note: "Headlines and links", check: "disabled: feed returned non-XML to GitHub runner (likely bot challenge page), 2026-09-16"}
+  - {id: carbon-herald, name: "Carbon Herald", url: "https://carbonherald.com/feed/", tier: 2, source_type: TRADE,
+     commodities: [CARBON_CREDITS], access_method: RSS, tos_status: HEADLINE_ONLY, terms_note: "Headlines and links", check: "re-enabled 2026-09-17: feed serves valid XML again"}
+  - {id: carbon-pulse, name: "Carbon Pulse", url: "https://carbon-pulse.com/feed/", tier: 2, source_type: TRADE,
+     commodities: [CARBON_CREDITS], access_method: RSS, tos_status: HEADLINE_ONLY,
+     terms_note: "Subscription service: headlines and links only; the author never opens carbon-pulse.com", check: "verified 2026-09-17, same-day items"}
+  - {id: verra-news, name: "Verra", url: "https://verra.org/feed/", tier: 1, source_type: OFFICIAL,
+     commodities: [CARBON_CREDITS], access_method: RSS, tos_status: HEADLINE_ONLY,
+     terms_note: "Crediting standard body: methodology and registry announcements; headlines and links", check: "verified 2026-09-17, same-day items"}
+  - {id: trellis, name: "Trellis", url: "https://trellis.net/feed/", tier: 2, source_type: TRADE,
+     commodities: [CARBON_CREDITS], access_method: RSS, tos_status: HEADLINE_ONLY, terms_note: "Headlines and links", check: "verified 2026-09-17"}
+  - {id: esg-today, name: "ESG Today", url: "https://www.esgtoday.com/feed/", tier: 2, source_type: TRADE,
+     commodities: [CARBON_CREDITS], access_method: RSS, tos_status: HEADLINE_ONLY,
+     terms_note: "Broad ESG wire: the carbon keyword filter keeps only carbon-market stories", check: "verified 2026-09-17, same-day items"}
   - {id: prnewswire-energy, name: "PR Newswire — Energy", url: "https://www.prnewswire.com/rss/energy-latest-news/energy-latest-news-list.rss", tier: 2, source_type: NEWSROOM,
      commodities: [CRUDE_OIL, NATURAL_GAS, REFINED_PRODUCTS, CARBON_CREDITS], access_method: RSS, tos_status: HEADLINE_ONLY, terms_note: "Company press releases: claims, not independent confirmation", check: verified}
   # ---------- News APIs ----------
