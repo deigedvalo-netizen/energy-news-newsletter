@@ -1,0 +1,2699 @@
+{
+ "analysis_max_age_hours": 36,
+ "calendar": [
+  {
+   "at": "2026-09-17T10:30:00-04:00",
+   "at_local": "Thu 2026-09-17 09:30 CT",
+   "commodities": [
+    "NATURAL_GAS"
+   ],
+   "id": "eia-ngs",
+   "name": "EIA Weekly Natural Gas Storage Report"
+  },
+  {
+   "at": "2026-09-18T13:00:00-04:00",
+   "at_local": "Fri 2026-09-18 12:00 CT",
+   "commodities": [
+    "CRUDE_OIL",
+    "NATURAL_GAS"
+   ],
+   "id": "baker-hughes",
+   "name": "Baker Hughes rig count"
+  },
+  {
+   "at": "2026-09-18T15:30:00-04:00",
+   "at_local": "Fri 2026-09-18 14:30 CT",
+   "commodities": [
+    "CRUDE_OIL",
+    "NATURAL_GAS",
+    "REFINED_PRODUCTS"
+   ],
+   "id": "cftc-cot",
+   "name": "CFTC Commitments of Traders"
+  },
+  {
+   "at": "2026-09-23T10:30:00-04:00",
+   "at_local": "Wed 2026-09-23 09:30 CT",
+   "commodities": [
+    "CRUDE_OIL",
+    "REFINED_PRODUCTS"
+   ],
+   "id": "eia-wpsr",
+   "name": "EIA Weekly Petroleum Status Report"
+  }
+ ],
+ "candidate_groups": [
+  {
+   "commodity": "CRUDE_OIL",
+   "companies": [
+    "Eni",
+    "Halliburton"
+   ],
+   "stories": [
+    {
+     "cluster_id": "9edfd5b2f429",
+     "companies": [
+      "Eni",
+      "Halliburton"
+     ],
+     "title": "Halliburton bags Eni’s deepwater bundle as Eastern Mediterranean gas buildout continues",
+     "url": "https://www.offshore-energy.biz/halliburton-bags-enis-deepwater-bundle-as-eastern-mediterranean-gas-buildout-continues"
+    }
+   ],
+   "topic": "PRODUCTION",
+   "topic_label": "Production"
+  },
+  {
+   "commodity": "NATURAL_GAS",
+   "companies": [
+    "Baker Hughes",
+    "Trafigura"
+   ],
+   "stories": [
+    {
+     "cluster_id": "3b0620f3db9d",
+     "companies": [
+      "Trafigura"
+     ],
+     "title": "China’s ENN inks LNG cooperation pact with Trafigura",
+     "url": "https://lngprime.com/asia/chinas-enn-inks-lng-cooperation-pact-with-trafigura/196943"
+    },
+    {
+     "cluster_id": "a8b0eb3725e1",
+     "companies": [
+      "Baker Hughes"
+     ],
+     "title": "Baker Hughes sees no slowdown in energy projects despite higher rates as AI buildouts stoke LNG demand",
+     "url": "https://www.cnbc.com/2026/09/14/baker-hughes-ceo-no-slowdown-in-energy-projects-despite-higher-rates-.html"
+    }
+   ],
+   "topic": "DEMAND_MACRO",
+   "topic_label": "Demand & macro"
+  },
+  {
+   "commodity": "NATURAL_GAS",
+   "companies": [
+    "BP",
+    "Fluxys"
+   ],
+   "stories": [
+    {
+     "cluster_id": "afd0ec3136d6",
+     "companies": [
+      "BP"
+     ],
+     "title": "Aker BP Makes New North Sea Gas Discovery",
+     "url": "https://www.rigzone.com/news/aker_bp_makes_new_north_sea_gas_discovery-16-sep-2026-184626-article?rss=true"
+    },
+    {
+     "cluster_id": "513213c5e9bd",
+     "companies": [
+      "Fluxys"
+     ],
+     "title": "Fluxys: Dunkirk LNG sendout reduced due to strike",
+     "url": "https://lngprime.com/europe/fluxys-dunkirk-lng-sendout-reduced-due-to-strike/196872"
+    }
+   ],
+   "topic": "OTHER",
+   "topic_label": "Other"
+  },
+  {
+   "commodity": "REFINED_PRODUCTS",
+   "companies": [
+    "BP",
+    "Shell"
+   ],
+   "stories": [
+    {
+     "cluster_id": "e111b89a90d1",
+     "companies": [
+      "BP",
+      "Shell"
+     ],
+     "title": "Essar strikes deal to buy 118 UK petrol stations",
+     "url": "https://www.ft.com/content/130f45b6-ee45-4fa0-83eb-5ea8f9bc4680?syn-25a6b1a6=1"
+    }
+   ],
+   "topic": "DEMAND_MACRO",
+   "topic_label": "Demand & macro"
+  }
+ ],
+ "data_as_of": "2026-09-16T20:37:09.678698+00:00",
+ "data_as_of_local": "2026-09-16 15:37 CT",
+ "disclaimer": "Private preview for a small readership. Generated automatically from public news sources. Unverified, informational only. Not investment advice.",
+ "feed": [
+  {
+   "best_tier": 1,
+   "cluster_id": "2434cc2e8350",
+   "commodities": [
+    "REFINED_PRODUCTS"
+   ],
+   "distinct_source_count": 1,
+   "figures": [],
+   "first_published_at": "2026-09-16T20:22:24+00:00",
+   "flags": [],
+   "organizations": [],
+   "published_local": "2026-09-16 15:22 CT",
+   "relevance": 58,
+   "relevance_inputs": {
+    "best_tier": 1,
+    "cluster_weight": "2.99"
+   },
+   "sources": [
+    {
+     "excerpt": "Prices for diesel, the fuel type used to power trucks and trains, came in at an all-time high of $6.31 per gallon on Wednesday.",
+     "organizations": [],
+     "outlet": "CNBC — Energy",
+     "published_at": "2026-09-16T20:22:24+00:00",
+     "published_local": "2026-09-16 15:22 CT",
+     "source_type": "PRESS",
+     "tier": 1,
+     "title": "'Science fiction': Transport companies — the backbone of economy — are sounding alarm on fuel prices",
+     "url": "https://www.cnbc.com/2026/09/16/transport-economy-diesel-prices-iran.html"
+    }
+   ],
+   "summary": "Prices for diesel, the fuel type used to power trucks and trains, came in at an all-time high of $6.31 per gallon on Wednesday.",
+   "title": "'Science fiction': Transport companies — the backbone of economy — are sounding alarm on fuel prices",
+   "topic": "DEMAND_MACRO",
+   "topic_label": "Demand & macro",
+   "trend_ids": []
+  },
+  {
+   "best_tier": 2,
+   "cluster_id": "99fa1c6ad85b",
+   "commodities": [
+    "REFINED_PRODUCTS"
+   ],
+   "distinct_source_count": 1,
+   "figures": [],
+   "first_published_at": "2026-09-16T20:00:00+00:00",
+   "flags": [],
+   "organizations": [],
+   "published_local": "2026-09-16 15:00 CT",
+   "relevance": 38,
+   "relevance_inputs": {
+    "best_tier": 2,
+    "cluster_weight": "1.99"
+   },
+   "sources": [
+    {
+     "excerpt": "Japanese refiners have stepped up purchases of Middle Eastern oil.",
+     "organizations": [],
+     "outlet": "Rigzone",
+     "published_at": "2026-09-16T20:00:00+00:00",
+     "published_local": "2026-09-16 15:00 CT",
+     "source_type": "TRADE",
+     "tier": 2,
+     "title": "Japan Refiners Rush for Mideast Oil",
+     "url": "https://www.rigzone.com/news/wire/japan_refiners_rush_for_mideast_oil-16-sep-2026-184632-article?rss=true"
+    }
+   ],
+   "summary": "Japanese refiners have stepped up purchases of Middle Eastern oil.",
+   "title": "Japan Refiners Rush for Mideast Oil",
+   "topic": "DEMAND_MACRO",
+   "topic_label": "Demand & macro",
+   "trend_ids": []
+  },
+  {
+   "best_tier": 2,
+   "cluster_id": "45ea1d666720",
+   "commodities": [
+    "CRUDE_OIL"
+   ],
+   "distinct_source_count": 1,
+   "figures": [],
+   "first_published_at": "2026-09-16T19:24:48+00:00",
+   "flags": [],
+   "organizations": [],
+   "published_local": "2026-09-16 14:24 CT",
+   "relevance": 38,
+   "relevance_inputs": {
+    "best_tier": 2,
+    "cluster_weight": "1.98"
+   },
+   "sources": [
+    {
+     "excerpt": "Crude futures fell as Saudi and Libyan supply disruptions showed signs of easing.",
+     "organizations": [],
+     "outlet": "Rigzone",
+     "published_at": "2026-09-16T19:24:48+00:00",
+     "published_local": "2026-09-16 14:24 CT",
+     "source_type": "TRADE",
+     "tier": 2,
+     "title": "Oil Falls as Saudi Supply Outlook Improves",
+     "url": "https://www.rigzone.com/news/wire/oil_falls_as_saudi_supply_outlook_improves-16-sep-2026-184635-article?rss=true"
+    }
+   ],
+   "summary": "Crude futures fell as Saudi and Libyan supply disruptions showed signs of easing.",
+   "title": "Oil Falls as Saudi Supply Outlook Improves",
+   "topic": "INFRASTRUCTURE_OUTAGE",
+   "topic_label": "Infrastructure & outages",
+   "trend_ids": []
+  },
+  {
+   "best_tier": 1,
+   "cluster_id": "86f5a4d7f601",
+   "commodities": [
+    "CRUDE_OIL"
+   ],
+   "distinct_source_count": 1,
+   "figures": [],
+   "first_published_at": "2026-09-16T18:57:53+00:00",
+   "flags": [],
+   "organizations": [],
+   "published_local": "2026-09-16 13:57 CT",
+   "relevance": 58,
+   "relevance_inputs": {
+    "best_tier": 1,
+    "cluster_weight": "2.95"
+   },
+   "sources": [
+    {
+     "excerpt": "The pipeline has allowed the Saudis to shift oil exports to the Red Sea while the U.S. and Iran battle for control over Hormuz.",
+     "organizations": [],
+     "outlet": "CNBC — Energy",
+     "published_at": "2026-09-16T18:57:53+00:00",
+     "published_local": "2026-09-16 13:57 CT",
+     "source_type": "PRESS",
+     "tier": 1,
+     "title": "Oil prices fall after U.S. says damaged Saudi pipeline will restart operations in days",
+     "url": "https://www.cnbc.com/2026/09/16/oil-prices-today-brent-wti-hormuz-iran-war.html"
+    }
+   ],
+   "summary": "The pipeline has allowed the Saudis to shift oil exports to the Red Sea while the U.S. and Iran battle for control over Hormuz.",
+   "title": "Oil prices fall after U.S. says damaged Saudi pipeline will restart operations in days",
+   "topic": "GEOPOLITICS_DISRUPTION",
+   "topic_label": "Geopolitics & disruption",
+   "trend_ids": []
+  },
+  {
+   "best_tier": 1,
+   "cluster_id": "033501d0b315",
+   "commodities": [
+    "CRUDE_OIL"
+   ],
+   "distinct_source_count": 1,
+   "figures": [],
+   "first_published_at": "2026-09-16T18:31:15+00:00",
+   "flags": [],
+   "organizations": [],
+   "published_local": "2026-09-16 13:31 CT",
+   "relevance": 58,
+   "relevance_inputs": {
+    "best_tier": 1,
+    "cluster_weight": "2.94"
+   },
+   "sources": [
+    {
+     "excerpt": "Move by Continental Resources marks latest foray by a western oil producer into the country after US military seized president Nicolás Maduro",
+     "organizations": [],
+     "outlet": "Financial Times — Energy",
+     "published_at": "2026-09-16T18:31:15+00:00",
+     "published_local": "2026-09-16 13:31 CT",
+     "source_type": "PRESS",
+     "tier": 1,
+     "title": "Trump oil ally Harold Hamm to invest in Venezuela",
+     "url": "https://www.ft.com/content/7be92efe-13d6-4d02-9f77-0e8229b3b8fa?syn-25a6b1a6=1"
+    }
+   ],
+   "summary": "Move by Continental Resources marks latest foray by a western oil producer into the country after US military seized president Nicolás Maduro",
+   "title": "Trump oil ally Harold Hamm to invest in Venezuela",
+   "topic": "GEOPOLITICS_DISRUPTION",
+   "topic_label": "Geopolitics & disruption",
+   "trend_ids": []
+  },
+  {
+   "best_tier": 2,
+   "cluster_id": "9edfd5b2f429",
+   "commodities": [
+    "CRUDE_OIL"
+   ],
+   "distinct_source_count": 1,
+   "figures": [],
+   "first_published_at": "2026-09-16T15:17:00+00:00",
+   "flags": [],
+   "organizations": [
+    {
+     "name": "Eni",
+     "org_id": "eni",
+     "org_type": "COMPANY"
+    },
+    {
+     "name": "Halliburton",
+     "org_id": "halliburton",
+     "org_type": "COMPANY"
+    }
+   ],
+   "published_local": "2026-09-16 10:17 CT",
+   "relevance": 38,
+   "relevance_inputs": {
+    "best_tier": 2,
+    "cluster_weight": "1.90"
+   },
+   "sources": [
+    {
+     "excerpt": "U.S.-headquartered oilfield services player Halliburton has secured a multi-year contract with Italy’s energy giant Eni to provide bundled well construction and completions services for an ultra-deepwater development in Cyprus, expanding its presence in the Eastern Mediterranean. The post…",
+     "organizations": [
+      {
+       "name": "Eni",
+       "org_id": "eni",
+       "org_type": "COMPANY"
+      },
+      {
+       "name": "Halliburton",
+       "org_id": "halliburton",
+       "org_type": "COMPANY"
+      }
+     ],
+     "outlet": "Offshore Energy",
+     "published_at": "2026-09-16T15:17:00+00:00",
+     "published_local": "2026-09-16 10:17 CT",
+     "source_type": "TRADE",
+     "tier": 2,
+     "title": "Halliburton bags Eni’s deepwater bundle as Eastern Mediterranean gas buildout continues",
+     "url": "https://www.offshore-energy.biz/halliburton-bags-enis-deepwater-bundle-as-eastern-mediterranean-gas-buildout-continues"
+    }
+   ],
+   "summary": "U.S.-headquartered oilfield services player Halliburton has secured a multi-year contract with Italy’s energy giant Eni to provide bundled well construction and completions services for an ultra-deepwater development in Cyprus, expanding its presence in the Eastern Mediterranean.",
+   "title": "Halliburton bags Eni’s deepwater bundle as Eastern Mediterranean gas buildout continues",
+   "topic": "PRODUCTION",
+   "topic_label": "Production",
+   "trend_ids": []
+  },
+  {
+   "best_tier": 2,
+   "cluster_id": "0931eb07eeee",
+   "commodities": [
+    "CRUDE_OIL"
+   ],
+   "distinct_source_count": 1,
+   "figures": [],
+   "first_published_at": "2026-09-16T14:15:05+00:00",
+   "flags": [],
+   "organizations": [
+    {
+     "name": "EIA",
+     "org_id": "eia",
+     "org_type": "AGENCY"
+    }
+   ],
+   "published_local": "2026-09-16 09:15 CT",
+   "relevance": 38,
+   "relevance_inputs": {
+    "best_tier": 2,
+    "cluster_weight": "1.88"
+   },
+   "sources": [
+    {
+     "excerpt": "The EIA predicted a bigger oil market crunch in 2026 and a bigger oil glut in 2027 in its latest STEO, compared to its previous August STEO.",
+     "organizations": [
+      {
+       "name": "EIA",
+       "org_id": "eia",
+       "org_type": "AGENCY"
+      }
+     ],
+     "outlet": "Rigzone",
+     "published_at": "2026-09-16T14:15:05+00:00",
+     "published_local": "2026-09-16 09:15 CT",
+     "source_type": "TRADE",
+     "tier": 2,
+     "title": "EIA Now Sees Bigger Oil Crunch in 2026, Glut in 2027",
+     "url": "https://www.rigzone.com/news/eia_now_sees_bigger_oil_crunch_in_2026_glut_in_2027-16-sep-2026-184633-article?rss=true"
+    }
+   ],
+   "summary": "The EIA predicted a bigger oil market crunch in 2026 and a bigger oil glut in 2027 in its latest STEO, compared to its previous August STEO.",
+   "title": "EIA Now Sees Bigger Oil Crunch in 2026, Glut in 2027",
+   "topic": "OTHER",
+   "topic_label": "Other",
+   "trend_ids": []
+  },
+  {
+   "best_tier": 1,
+   "cluster_id": "4b0e83bac6db",
+   "commodities": [
+    "CRUDE_OIL"
+   ],
+   "distinct_source_count": 1,
+   "figures": [],
+   "first_published_at": "2026-09-16T13:24:01+00:00",
+   "flags": [],
+   "organizations": [],
+   "published_local": "2026-09-16 08:24 CT",
+   "relevance": 57,
+   "relevance_inputs": {
+    "best_tier": 1,
+    "cluster_weight": "2.80"
+   },
+   "sources": [
+    {
+     "excerpt": "Beijing has cushioned global impact of Iran war by drawing down stocks but is now ‘coming off its crash diet’",
+     "organizations": [],
+     "outlet": "Financial Times — Energy",
+     "published_at": "2026-09-16T13:24:01+00:00",
+     "published_local": "2026-09-16 08:24 CT",
+     "source_type": "PRESS",
+     "tier": 1,
+     "title": "Chinese oil prices hit record highs after attacks on Saudi pipeline",
+     "url": "https://www.ft.com/content/3a88d016-9575-4c11-bd34-14606964a867?syn-25a6b1a6=1"
+    }
+   ],
+   "summary": "Beijing has cushioned global impact of Iran war by drawing down stocks but is now ‘coming off its crash diet’",
+   "title": "Chinese oil prices hit record highs after attacks on Saudi pipeline",
+   "topic": "GEOPOLITICS_DISRUPTION",
+   "topic_label": "Geopolitics & disruption",
+   "trend_ids": []
+  },
+  {
+   "best_tier": 2,
+   "cluster_id": "fe8f933a30b7",
+   "commodities": [
+    "CRUDE_OIL"
+   ],
+   "distinct_source_count": 1,
+   "figures": [
+    {
+     "context": "BKV said it had acquired upstream, midstream and carbon capture and storage assets in the Barnett Shale that grow its proven developed producing reserves by about 350 billion cubic feet equivalent.",
+     "outlet": "Rigzone",
+     "span": "350 billion cubic feet",
+     "url": "https://www.rigzone.com/news/bkv_expands_barnett_shale_footprint-16-sep-2026-184630-article?rss=true"
+    }
+   ],
+   "first_published_at": "2026-09-16T12:39:09+00:00",
+   "flags": [],
+   "organizations": [],
+   "published_local": "2026-09-16 07:39 CT",
+   "relevance": 38,
+   "relevance_inputs": {
+    "best_tier": 2,
+    "cluster_weight": "1.85"
+   },
+   "sources": [
+    {
+     "excerpt": "BKV said it had acquired upstream, midstream and carbon capture and storage assets in the Barnett Shale that grow its proven developed producing reserves by about 350 billion cubic feet equivalent.",
+     "organizations": [],
+     "outlet": "Rigzone",
+     "published_at": "2026-09-16T12:39:09+00:00",
+     "published_local": "2026-09-16 07:39 CT",
+     "source_type": "TRADE",
+     "tier": 2,
+     "title": "BKV Expands Barnett Shale Footprint",
+     "url": "https://www.rigzone.com/news/bkv_expands_barnett_shale_footprint-16-sep-2026-184630-article?rss=true"
+    }
+   ],
+   "summary": "BKV said it had acquired upstream, midstream and carbon capture and storage assets in the Barnett Shale that grow its proven developed producing reserves by about 350 billion cubic feet equivalent.",
+   "title": "BKV Expands Barnett Shale Footprint",
+   "topic": "PRODUCTION",
+   "topic_label": "Production",
+   "trend_ids": []
+  },
+  {
+   "best_tier": 2,
+   "cluster_id": "dd599868a447",
+   "commodities": [
+    "NATURAL_GAS"
+   ],
+   "distinct_source_count": 1,
+   "figures": [],
+   "first_published_at": "2026-09-16T12:36:00+00:00",
+   "flags": [],
+   "organizations": [],
+   "published_local": "2026-09-16 07:36 CT",
+   "relevance": 38,
+   "relevance_inputs": {
+    "best_tier": 2,
+    "cluster_weight": "1.85"
+   },
+   "sources": [
+    {
+     "excerpt": "A 294-meter floating storage and regasification unit (FSRU) has arrived at the new liquefied natural gas (LNG) terminal in Stade, marking the start of commissioning preparations and bringing the facility a step closer to operations, with gas feed-in to Germany’s grid expected from November. The…",
+     "organizations": [],
+     "outlet": "Offshore Energy",
+     "published_at": "2026-09-16T12:36:00+00:00",
+     "published_local": "2026-09-16 07:36 CT",
+     "source_type": "TRADE",
+     "tier": 2,
+     "title": "FSRU docks in Stade as LNG terminal prepares to feed gas into German grid from November",
+     "url": "https://www.offshore-energy.biz/fsru-docks-in-stade-as-lng-terminal-prepares-to-feed-gas-into-german-grid-from-november"
+    }
+   ],
+   "summary": "A 294-meter floating storage and regasification unit (FSRU) has arrived at the new liquefied natural gas (LNG) terminal in Stade, marking the start of commissioning preparations and bringing the facility a step closer to operations, with gas feed-in to Germany’s grid expected fro",
+   "title": "FSRU docks in Stade as LNG terminal prepares to feed gas into German grid from November",
+   "topic": "INVENTORIES",
+   "topic_label": "Inventories",
+   "trend_ids": []
+  },
+  {
+   "best_tier": 2,
+   "cluster_id": "26f6c34ac831",
+   "commodities": [
+    "NATURAL_GAS",
+    "REFINED_PRODUCTS"
+   ],
+   "distinct_source_count": 1,
+   "figures": [],
+   "first_published_at": "2026-09-16T12:13:08+00:00",
+   "flags": [],
+   "organizations": [],
+   "published_local": "2026-09-16 07:13 CT",
+   "relevance": 37,
+   "relevance_inputs": {
+    "best_tier": 2,
+    "cluster_weight": "1.84"
+   },
+   "sources": [
+    {
+     "excerpt": "Gasoline prices jumped in every U.S. state 'with no relief in sight', GasBuddy warned.",
+     "organizations": [],
+     "outlet": "Rigzone",
+     "published_at": "2026-09-16T12:13:08+00:00",
+     "published_local": "2026-09-16 07:13 CT",
+     "source_type": "TRADE",
+     "tier": 2,
+     "title": "Gas Prices Jump in Every State",
+     "url": "https://www.rigzone.com/news/gas_prices_jump_in_every_state-16-sep-2026-184629-article?rss=true"
+    }
+   ],
+   "summary": "Gasoline prices jumped in every U.S. state 'with no relief in sight', GasBuddy warned.",
+   "title": "Gas Prices Jump in Every State",
+   "topic": "OTHER",
+   "topic_label": "Other",
+   "trend_ids": []
+  },
+  {
+   "best_tier": 2,
+   "cluster_id": "0f9b4878791c",
+   "commodities": [
+    "CRUDE_OIL"
+   ],
+   "distinct_source_count": 1,
+   "figures": [],
+   "first_published_at": "2026-09-16T11:50:49+00:00",
+   "flags": [],
+   "organizations": [],
+   "published_local": "2026-09-16 06:50 CT",
+   "relevance": 37,
+   "relevance_inputs": {
+    "best_tier": 2,
+    "cluster_weight": "1.84"
+   },
+   "sources": [
+    {
+     "excerpt": "The initial development of the Rafael field in Western Australia's onshore Canning Basin has been assessed to contain 15.25 million barrels of oil equivalent proven and probable reserves, with potential for 65.74 billion cubic feet of sales gas.",
+     "organizations": [],
+     "outlet": "Rigzone",
+     "published_at": "2026-09-16T11:50:49+00:00",
+     "published_local": "2026-09-16 06:50 CT",
+     "source_type": "TRADE",
+     "tier": 2,
+     "title": "Buru Says Rafael Gas Project Holds Over 15 MMboe 2P Reserves",
+     "url": "https://www.rigzone.com/news/buru_says_rafael_gas_project_holds_over_15_mmboe_2p_reserves-16-sep-2026-184628-article?rss=true"
+    }
+   ],
+   "summary": "The initial development of the Rafael field in Western Australia's onshore Canning Basin has been assessed to contain 15.25 million barrels of oil equivalent proven and probable reserves, with potential for 65.74 billion cubic feet of sales gas.",
+   "title": "Buru Says Rafael Gas Project Holds Over 15 MMboe 2P Reserves",
+   "topic": "OTHER",
+   "topic_label": "Other",
+   "trend_ids": []
+  },
+  {
+   "best_tier": 2,
+   "cluster_id": "fdeb7ac2c30a",
+   "commodities": [
+    "NATURAL_GAS"
+   ],
+   "distinct_source_count": 1,
+   "figures": [],
+   "first_published_at": "2026-09-16T11:26:00+00:00",
+   "flags": [],
+   "organizations": [],
+   "published_local": "2026-09-16 06:26 CT",
+   "relevance": 37,
+   "relevance_inputs": {
+    "best_tier": 2,
+    "cluster_weight": "1.83"
+   },
+   "sources": [
+    {
+     "excerpt": "A new liquefied natural gas (LNG) carrier design that moves the accommodation block and bridge to the bow to make room for four wind-assisted sails has cleared a key technical milestone, with Lloyd’s Register, a maritime classification society, affirming technical readiness of the HD Hyundai Heavy…",
+     "organizations": [],
+     "outlet": "Offshore Energy",
+     "published_at": "2026-09-16T11:26:00+00:00",
+     "published_local": "2026-09-16 06:26 CT",
+     "source_type": "TRADE",
+     "tier": 2,
+     "title": "Fore-accommodation LNG carrier with four Wind Challenger sails clears LR design appraisal",
+     "url": "https://www.offshore-energy.biz/fore-accommodation-lng-carrier-with-four-wind-challenger-sails-clears-lr-design-appraisal"
+    }
+   ],
+   "summary": "A new liquefied natural gas (LNG) carrier design that moves the accommodation block and bridge to the bow to make room for four wind-assisted sails has cleared a key technical milestone, with Lloyd’s Register, a maritime classification society, affirming technical readiness of th",
+   "title": "Fore-accommodation LNG carrier with four Wind Challenger sails clears LR design appraisal",
+   "topic": "OTHER",
+   "topic_label": "Other",
+   "trend_ids": []
+  },
+  {
+   "best_tier": 1,
+   "cluster_id": "a60939e35601",
+   "commodities": [
+    "NATURAL_GAS"
+   ],
+   "distinct_source_count": 1,
+   "figures": [],
+   "first_published_at": "2026-09-16T11:00:07+00:00",
+   "flags": [],
+   "organizations": [],
+   "published_local": "2026-09-16 06:00 CT",
+   "relevance": 56,
+   "relevance_inputs": {
+    "best_tier": 1,
+    "cluster_weight": "2.73"
+   },
+   "sources": [
+    {
+     "excerpt": "Soaring prices drive search for alternatives in key Asian markets",
+     "organizations": [],
+     "outlet": "Financial Times — Energy",
+     "published_at": "2026-09-16T11:00:07+00:00",
+     "published_local": "2026-09-16 06:00 CT",
+     "source_type": "PRESS",
+     "tier": 1,
+     "title": "Hormuz crisis threatens to undermine long-term LNG demand",
+     "url": "https://www.ft.com/content/31f41c2e-084b-4bdf-a548-bf3d1139dbbe?syn-25a6b1a6=1"
+    }
+   ],
+   "summary": "Soaring prices drive search for alternatives in key Asian markets",
+   "title": "Hormuz crisis threatens to undermine long-term LNG demand",
+   "topic": "DEMAND_MACRO",
+   "topic_label": "Demand & macro",
+   "trend_ids": []
+  },
+  {
+   "best_tier": 2,
+   "cluster_id": "3b0620f3db9d",
+   "commodities": [
+    "NATURAL_GAS"
+   ],
+   "distinct_source_count": 1,
+   "figures": [],
+   "first_published_at": "2026-09-16T09:55:00+00:00",
+   "flags": [],
+   "organizations": [
+    {
+     "name": "Trafigura",
+     "org_id": "trafigura",
+     "org_type": "COMPANY"
+    }
+   ],
+   "published_local": "2026-09-16 04:55 CT",
+   "relevance": 37,
+   "relevance_inputs": {
+    "best_tier": 2,
+    "cluster_weight": "1.80"
+   },
+   "sources": [
+    {
+     "excerpt": "Chinese independent gas distributor ENN has signed a memorandum of understanding with commodity trader Trafigura to explore cooperation in liquefied natural gas (LNG).",
+     "organizations": [
+      {
+       "name": "Trafigura",
+       "org_id": "trafigura",
+       "org_type": "COMPANY"
+      }
+     ],
+     "outlet": "LNG Prime",
+     "published_at": "2026-09-16T09:55:00+00:00",
+     "published_local": "2026-09-16 04:55 CT",
+     "source_type": "TRADE",
+     "tier": 2,
+     "title": "China’s ENN inks LNG cooperation pact with Trafigura",
+     "url": "https://lngprime.com/asia/chinas-enn-inks-lng-cooperation-pact-with-trafigura/196943"
+    }
+   ],
+   "summary": "Chinese independent gas distributor ENN has signed a memorandum of understanding with commodity trader Trafigura to explore cooperation in liquefied natural gas (LNG).",
+   "title": "China’s ENN inks LNG cooperation pact with Trafigura",
+   "topic": "DEMAND_MACRO",
+   "topic_label": "Demand & macro",
+   "trend_ids": []
+  },
+  {
+   "best_tier": 2,
+   "cluster_id": "afd0ec3136d6",
+   "commodities": [
+    "NATURAL_GAS"
+   ],
+   "distinct_source_count": 1,
+   "figures": [],
+   "first_published_at": "2026-09-16T09:49:32+00:00",
+   "flags": [],
+   "organizations": [
+    {
+     "name": "BP",
+     "org_id": "bp",
+     "org_type": "COMPANY"
+    }
+   ],
+   "published_local": "2026-09-16 04:49 CT",
+   "relevance": 37,
+   "relevance_inputs": {
+    "best_tier": 2,
+    "cluster_weight": "1.80"
+   },
+   "sources": [
+    {
+     "excerpt": "Aker BP discovered natural gas with preliminary estimates of about 5.3-84.8 million cubic feet on Norway's side of the North Sea, some 16 miles north of the producing Duva field.",
+     "organizations": [
+      {
+       "name": "BP",
+       "org_id": "bp",
+       "org_type": "COMPANY"
+      }
+     ],
+     "outlet": "Rigzone",
+     "published_at": "2026-09-16T09:49:32+00:00",
+     "published_local": "2026-09-16 04:49 CT",
+     "source_type": "TRADE",
+     "tier": 2,
+     "title": "Aker BP Makes New North Sea Gas Discovery",
+     "url": "https://www.rigzone.com/news/aker_bp_makes_new_north_sea_gas_discovery-16-sep-2026-184626-article?rss=true"
+    }
+   ],
+   "summary": "Aker BP discovered natural gas with preliminary estimates of about 5.3-84.8 million cubic feet on Norway's side of the North Sea, some 16 miles north of the producing Duva field.",
+   "title": "Aker BP Makes New North Sea Gas Discovery",
+   "topic": "OTHER",
+   "topic_label": "Other",
+   "trend_ids": []
+  },
+  {
+   "best_tier": 1,
+   "cluster_id": "18b90bbcea5a",
+   "commodities": [
+    "REFINED_PRODUCTS"
+   ],
+   "distinct_source_count": 1,
+   "figures": [],
+   "first_published_at": "2026-09-16T09:12:42+00:00",
+   "flags": [],
+   "organizations": [],
+   "published_local": "2026-09-16 04:12 CT",
+   "relevance": 56,
+   "relevance_inputs": {
+    "best_tier": 1,
+    "cluster_weight": "2.69"
+   },
+   "sources": [
+    {
+     "excerpt": "UK inflation rose in August, pushed up by higher petrol and diesel prices.",
+     "organizations": [],
+     "outlet": "BBC News — Business",
+     "published_at": "2026-09-16T09:12:42+00:00",
+     "published_local": "2026-09-16 04:12 CT",
+     "source_type": "PRESS",
+     "tier": 1,
+     "title": "What is happening to UK prices?",
+     "url": "https://www.bbc.co.uk/news/articles/c17rgd8e9gjo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+     "excerpt": "Summer holidays and disruption to global oil supplies by the Middle East conflict stoked price growth.",
+     "organizations": [],
+     "outlet": "BBC News — Business",
+     "published_at": "2026-09-16T14:30:51+00:00",
+     "published_local": "2026-09-16 09:30 CT",
+     "source_type": "PRESS",
+     "tier": 1,
+     "title": "Petrol and diesel price rises push UK inflation higher",
+     "url": "https://www.bbc.co.uk/news/articles/cv2dw7lw4rkpo?at_medium=RSS&at_campaign=rss"
+    }
+   ],
+   "summary": "UK inflation rose in August, pushed up by higher petrol and diesel prices.",
+   "title": "What is happening to UK prices?",
+   "topic": "DEMAND_MACRO",
+   "topic_label": "Demand & macro",
+   "trend_ids": []
+  },
+  {
+   "best_tier": 1,
+   "cluster_id": "4b5a70642d08",
+   "commodities": [
+    "CRUDE_OIL"
+   ],
+   "distinct_source_count": 1,
+   "figures": [],
+   "first_published_at": "2026-09-16T09:00:15+00:00",
+   "flags": [],
+   "organizations": [],
+   "published_local": "2026-09-16 04:00 CT",
+   "relevance": 56,
+   "relevance_inputs": {
+    "best_tier": 1,
+    "cluster_weight": "2.68"
+   },
+   "sources": [
+    {
+     "excerpt": "New owners apply for permission to extract oil in Horse Hill despite landmark ruling from supreme court in 2024 After years of trying to dig for oil in Surrey, the company behind the drilling project that was turned down in a landmark supreme court ruling has sold off the site for a fraction of…",
+     "organizations": [],
+     "outlet": "The Guardian — Energy",
+     "published_at": "2026-09-16T09:00:15+00:00",
+     "published_local": "2026-09-16 04:00 CT",
+     "source_type": "PRESS",
+     "tier": 1,
+     "title": "Company behind failed Surrey oilfield project sells site at massive loss",
+     "url": "https://www.theguardian.com/environment/2026/sep/16/company-behind-failed-surrey-oilfield-project-sells-massive-loss"
+    }
+   ],
+   "summary": "New owners apply for permission to extract oil in Horse Hill despite landmark ruling from supreme court in 2024 After years of trying to dig for oil in Surrey, the company behind the drilling project that was turned down in a landmark supreme court ruling has sold off the site fo",
+   "title": "Company behind failed Surrey oilfield project sells site at massive loss",
+   "topic": "PRODUCTION",
+   "topic_label": "Production",
+   "trend_ids": []
+  },
+  {
+   "best_tier": 2,
+   "cluster_id": "e766e15a753b",
+   "commodities": [
+    "NATURAL_GAS"
+   ],
+   "distinct_source_count": 1,
+   "figures": [],
+   "first_published_at": "2026-09-16T08:55:42+00:00",
+   "flags": [],
+   "organizations": [],
+   "published_local": "2026-09-16 03:55 CT",
+   "relevance": 37,
+   "relevance_inputs": {
+    "best_tier": 2,
+    "cluster_weight": "1.79"
+   },
+   "sources": [
+    {
+     "excerpt": "South Africa’s Transnet National Ports Authority, part of Transnet, is seeking an operator to finance, build, and operate a small- to medium-scale LNG import facility at the Port of East London.",
+     "organizations": [],
+     "outlet": "LNG Prime",
+     "published_at": "2026-09-16T08:55:42+00:00",
+     "published_local": "2026-09-16 03:55 CT",
+     "source_type": "TRADE",
+     "tier": 2,
+     "title": "South Africa’s Transnet seeks operator for East London LNG terminal",
+     "url": "https://lngprime.com/contracts-and-tenders/south-africas-transnet-seeks-operator-for-east-london-lng-terminal/196928"
+    }
+   ],
+   "summary": "South Africa’s Transnet National Ports Authority, part of Transnet, is seeking an operator to finance, build, and operate a small- to medium-scale LNG import facility at the Port of East London.",
+   "title": "South Africa’s Transnet seeks operator for East London LNG terminal",
+   "topic": "INVENTORIES",
+   "topic_label": "Inventories",
+   "trend_ids": []
+  },
+  {
+   "best_tier": 2,
+   "cluster_id": "ff7679f43967",
+   "commodities": [
+    "CARBON_CREDITS"
+   ],
+   "distinct_source_count": 1,
+   "figures": [],
+   "first_published_at": "2026-09-16T07:30:00+00:00",
+   "flags": [],
+   "organizations": [],
+   "published_local": "2026-09-16 02:30 CT",
+   "relevance": 37,
+   "relevance_inputs": {
+    "best_tier": 2,
+    "cluster_weight": "1.76"
+   },
+   "sources": [
+    {
+     "excerpt": "Twenty years ago, a group of Northeastern states signed on to a plan to reduce the greenhouse gases spewing from power plants by making generators pay for the carbon they release. Since then, the region’s power sector emissions have dropped by half, and states have reaped more than $10 billion in…",
+     "organizations": [],
+     "outlet": "Canary Media",
+     "published_at": "2026-09-16T07:30:00+00:00",
+     "published_local": "2026-09-16 02:30 CT",
+     "source_type": "TRADE",
+     "tier": 2,
+     "title": "Is it time to rethink the Northeast's cap-and-trade system?",
+     "url": "https://www.canarymedia.com/articles/carbon-capture/rethink-northeast-cap-and-trade-system"
+    }
+   ],
+   "summary": "Twenty years ago, a group of Northeastern states signed on to a plan to reduce the greenhouse gases spewing from power plants by making generators pay for the carbon they release.",
+   "title": "Is it time to rethink the Northeast's cap-and-trade system?",
+   "topic": "SUPPLY_POLICY",
+   "topic_label": "Supply policy",
+   "trend_ids": []
+  },
+  {
+   "best_tier": 2,
+   "cluster_id": "b0eb27fda3d0",
+   "commodities": [
+    "NATURAL_GAS"
+   ],
+   "distinct_source_count": 1,
+   "figures": [],
+   "first_published_at": "2026-09-16T07:20:58+00:00",
+   "flags": [],
+   "organizations": [],
+   "published_local": "2026-09-16 02:20 CT",
+   "relevance": 37,
+   "relevance_inputs": {
+    "best_tier": 2,
+    "cluster_weight": "1.76"
+   },
+   "sources": [
+    {
+     "excerpt": "The 2021-built 174,000-cbm FSRU Energos Force has returned to Germany’s Stade as state-owned LNG terminal operator DET prepares to launch its fourth FSRU-based LNG import facility in Germany.",
+     "organizations": [],
+     "outlet": "LNG Prime",
+     "published_at": "2026-09-16T07:20:58+00:00",
+     "published_local": "2026-09-16 02:20 CT",
+     "source_type": "TRADE",
+     "tier": 2,
+     "title": "DET: FSRU returns to Stade",
+     "url": "https://lngprime.com/europe/det-fsru-returns-to-stade/196912"
+    }
+   ],
+   "summary": "The 2021-built 174,000-cbm FSRU Energos Force has returned to Germany’s Stade as state-owned LNG terminal operator DET prepares to launch its fourth FSRU-based LNG import facility in Germany.",
+   "title": "DET: FSRU returns to Stade",
+   "topic": "OTHER",
+   "topic_label": "Other",
+   "trend_ids": []
+  },
+  {
+   "best_tier": 2,
+   "cluster_id": "162f519dff82",
+   "commodities": [
+    "NATURAL_GAS"
+   ],
+   "distinct_source_count": 1,
+   "figures": [],
+   "first_published_at": "2026-09-16T07:19:00+00:00",
+   "flags": [],
+   "organizations": [],
+   "published_local": "2026-09-16 02:19 CT",
+   "relevance": 37,
+   "relevance_inputs": {
+    "best_tier": 2,
+    "cluster_weight": "1.76"
+   },
+   "sources": [
+    {
+     "excerpt": "French LNG engineer Technip Energies has been selected by LNG Alliance Pte for an enhanced project management consultant role for the Amigo LNG project in Mexico.",
+     "organizations": [],
+     "outlet": "LNG Prime",
+     "published_at": "2026-09-16T07:19:00+00:00",
+     "published_local": "2026-09-16 02:19 CT",
+     "source_type": "TRADE",
+     "tier": 2,
+     "title": "Technip Energies bags Amigo LNG gig",
+     "url": "https://lngprime.com/americas/technip-energies-bags-amigo-lng-gig/196965"
+    }
+   ],
+   "summary": "French LNG engineer Technip Energies has been selected by LNG Alliance Pte for an enhanced project management consultant role for the Amigo LNG project in Mexico.",
+   "title": "Technip Energies bags Amigo LNG gig",
+   "topic": "OTHER",
+   "topic_label": "Other",
+   "trend_ids": []
+  },
+  {
+   "best_tier": 2,
+   "cluster_id": "e4d70359b92b",
+   "commodities": [
+    "NATURAL_GAS"
+   ],
+   "distinct_source_count": 1,
+   "figures": [],
+   "first_published_at": "2026-09-16T07:15:49+00:00",
+   "flags": [],
+   "organizations": [],
+   "published_local": "2026-09-16 02:15 CT",
+   "relevance": 37,
+   "relevance_inputs": {
+    "best_tier": 2,
+    "cluster_weight": "1.76"
+   },
+   "sources": [
+    {
+     "excerpt": "South Korean shipbuilder HD Hyundai Heavy Industries has secured approval in principle from classification society DNV for its new 271,000-cbm LNG carrier design.",
+     "organizations": [],
+     "outlet": "LNG Prime",
+     "published_at": "2026-09-16T07:15:49+00:00",
+     "published_local": "2026-09-16 02:15 CT",
+     "source_type": "TRADE",
+     "tier": 2,
+     "title": "HD Hyundai Heavy gets DNV OK for giant LNG carrier",
+     "url": "https://lngprime.com/asia/hd-hyundai-heavy-gets-dnv-ok-for-giant-lng-carrier/196953"
+    }
+   ],
+   "summary": "South Korean shipbuilder HD Hyundai Heavy Industries has secured approval in principle from classification society DNV for its new 271,000-cbm LNG carrier design.",
+   "title": "HD Hyundai Heavy gets DNV OK for giant LNG carrier",
+   "topic": "REGULATION",
+   "topic_label": "Regulation",
+   "trend_ids": []
+  },
+  {
+   "best_tier": 2,
+   "cluster_id": "af0ef1836397",
+   "commodities": [
+    "NATURAL_GAS"
+   ],
+   "distinct_source_count": 1,
+   "figures": [],
+   "first_published_at": "2026-09-16T06:19:38+00:00",
+   "flags": [],
+   "organizations": [],
+   "published_local": "2026-09-16 01:19 CT",
+   "relevance": 37,
+   "relevance_inputs": {
+    "best_tier": 2,
+    "cluster_weight": "1.74"
+   },
+   "sources": [
+    {
+     "excerpt": "A unit of Finland’s Gasgrid is offering regasification capacity for 2028-2032 at the FSRU-based LNG import terminal in Inkoo.",
+     "organizations": [],
+     "outlet": "LNG Prime",
+     "published_at": "2026-09-16T06:19:38+00:00",
+     "published_local": "2026-09-16 01:19 CT",
+     "source_type": "TRADE",
+     "tier": 2,
+     "title": "Finland’s Gasgrid offers Inkoo FSRU capacity",
+     "url": "https://lngprime.com/europe/finlands-gasgrid-offers-inkoo-fsru-capacity/196903"
+    }
+   ],
+   "summary": "A unit of Finland’s Gasgrid is offering regasification capacity for 2028-2032 at the FSRU-based LNG import terminal in Inkoo.",
+   "title": "Finland’s Gasgrid offers Inkoo FSRU capacity",
+   "topic": "OTHER",
+   "topic_label": "Other",
+   "trend_ids": []
+  },
+  {
+   "best_tier": 2,
+   "cluster_id": "89ccaca4f93a",
+   "commodities": [
+    "NATURAL_GAS"
+   ],
+   "distinct_source_count": 2,
+   "figures": [
+    {
+     "context": "Kimmeridge's Caturus has revealed plans for a five-train, 7.75 million tonnes per annum (mtpa) expansion project for its Commonwealth LNG export facility in Cameron Parish, Louisiana, which would nearly double the site’s",
+     "outlet": "LNG Prime",
+     "span": "7.75 million tonnes",
+     "url": "https://lngprime.com/americas/kimmeridges-caturus-plans-to-almost-double-commonwealth-lng-capacity/196892"
+    },
+    {
+     "context": "n Cameron Parish, Louisiana, which would nearly double the site’s planned capacity to approximately 17.25 mtpa.",
+     "outlet": "LNG Prime",
+     "span": "17.25 mtpa",
+     "url": "https://lngprime.com/americas/kimmeridges-caturus-plans-to-almost-double-commonwealth-lng-capacity/196892"
+    }
+   ],
+   "first_published_at": "2026-09-16T06:02:01+00:00",
+   "flags": [],
+   "organizations": [],
+   "published_local": "2026-09-16 01:02 CT",
+   "relevance": 48,
+   "relevance_inputs": {
+    "best_tier": 2,
+    "cluster_weight": "3.64"
+   },
+   "sources": [
+    {
+     "excerpt": "Kimmeridge's Caturus has revealed plans for a five-train, 7.75 million tonnes per annum (mtpa) expansion project for its Commonwealth LNG export facility in Cameron Parish, Louisiana, which would nearly double the site’s planned capacity to approximately 17.25 mtpa.",
+     "organizations": [],
+     "outlet": "LNG Prime",
+     "published_at": "2026-09-16T06:02:01+00:00",
+     "published_local": "2026-09-16 01:02 CT",
+     "source_type": "TRADE",
+     "tier": 2,
+     "title": "Kimmeridge’s Caturus plans to almost double Commonwealth LNG capacity",
+     "url": "https://lngprime.com/americas/kimmeridges-caturus-plans-to-almost-double-commonwealth-lng-capacity/196892"
+    },
+    {
+     "excerpt": "Caturus, the joint venture of Kimmeridge and Mubadala, plans to add five liquefaction trains with a combined capacity of 7.75 million metric tons per annum to the Commonwealth LNG export project in Louisiana.",
+     "organizations": [],
+     "outlet": "Rigzone",
+     "published_at": "2026-09-16T15:17:44+00:00",
+     "published_local": "2026-09-16 10:17 CT",
+     "source_type": "TRADE",
+     "tier": 2,
+     "title": "Kimmeridge, Mubadala to Nearly Double Commonwealth LNG Capacity",
+     "url": "https://www.rigzone.com/news/kimmeridge_mubadala_to_nearly_double_commonwealth_lng_capacity-16-sep-2026-184634-article?rss=true"
+    }
+   ],
+   "summary": "Kimmeridge's Caturus has revealed plans for a five-train, 7.75 million tonnes per annum (mtpa) expansion project for its Commonwealth LNG export facility in Cameron Parish, Louisiana, which would nearly double the site’s planned capacity to approximately 17.25 mtpa.",
+   "title": "Kimmeridge’s Caturus plans to almost double Commonwealth LNG capacity",
+   "topic": "OTHER",
+   "topic_label": "Other",
+   "trend_ids": []
+  },
+  {
+   "best_tier": 2,
+   "cluster_id": "0192fa6aec99",
+   "commodities": [
+    "NATURAL_GAS"
+   ],
+   "distinct_source_count": 1,
+   "figures": [],
+   "first_published_at": "2026-09-16T05:49:02+00:00",
+   "flags": [],
+   "organizations": [],
+   "published_local": "2026-09-16 00:49 CT",
+   "relevance": 37,
+   "relevance_inputs": {
+    "best_tier": 2,
+    "cluster_weight": "1.73"
+   },
+   "sources": [
+    {
+     "excerpt": "Hanwha Power, part of South Korean conglomerate Hanwha, has secured approval in principle from the American Bureau of Shipping (ABS) for the concept design of a 22,000-cbm LNG bunkering vessel.",
+     "organizations": [],
+     "outlet": "LNG Prime",
+     "published_at": "2026-09-16T05:49:02+00:00",
+     "published_local": "2026-09-16 00:49 CT",
+     "source_type": "TRADE",
+     "tier": 2,
+     "title": "Hanwha Power gets ABS OK for LNG bunkering vessel",
+     "url": "https://lngprime.com/asia/hanwha-power-gets-abs-ok-for-lng-bunkering-vessel/196918"
+    }
+   ],
+   "summary": "Hanwha Power, part of South Korean conglomerate Hanwha, has secured approval in principle from the American Bureau of Shipping (ABS) for the concept design of a 22,000-cbm LNG bunkering vessel.",
+   "title": "Hanwha Power gets ABS OK for LNG bunkering vessel",
+   "topic": "SHIPPING_REFINING",
+   "topic_label": "Shipping & refining",
+   "trend_ids": []
+  },
+  {
+   "best_tier": 2,
+   "cluster_id": "90ec01d57921",
+   "commodities": [
+    "CRUDE_OIL"
+   ],
+   "distinct_source_count": 1,
+   "figures": [],
+   "first_published_at": "2026-09-15T19:44:08+00:00",
+   "flags": [],
+   "organizations": [],
+   "published_local": "2026-09-15 14:44 CT",
+   "relevance": 36,
+   "relevance_inputs": {
+    "best_tier": 2,
+    "cluster_weight": "1.57"
+   },
+   "sources": [
+    {
+     "excerpt": "Brent neared $109 as pipeline and oil field disruptions tightened supplies.",
+     "organizations": [],
+     "outlet": "Rigzone",
+     "published_at": "2026-09-15T19:44:08+00:00",
+     "published_local": "2026-09-15 14:44 CT",
+     "source_type": "TRADE",
+     "tier": 2,
+     "title": "Oil Jumps on Saudi and Libya Outages",
+     "url": "https://www.rigzone.com/news/wire/oil_jumps_on_saudi_and_libya_outages-15-sep-2026-184624-article?rss=true"
+    }
+   ],
+   "summary": "Brent neared $109 as pipeline and oil field disruptions tightened supplies.",
+   "title": "Oil Jumps on Saudi and Libya Outages",
+   "topic": "INFRASTRUCTURE_OUTAGE",
+   "topic_label": "Infrastructure & outages",
+   "trend_ids": []
+  },
+  {
+   "best_tier": 1,
+   "cluster_id": "e7e1640feed0",
+   "commodities": [
+    "CRUDE_OIL"
+   ],
+   "distinct_source_count": 1,
+   "figures": [],
+   "first_published_at": "2026-09-15T18:58:36+00:00",
+   "flags": [],
+   "organizations": [],
+   "published_local": "2026-09-15 13:58 CT",
+   "relevance": 54,
+   "relevance_inputs": {
+    "best_tier": 1,
+    "cluster_weight": "2.34"
+   },
+   "sources": [
+    {
+     "excerpt": "Iran-backed Houthi militants in Yemen, meanwhile, carried out renewed strikes on Saudi Arabia this week.",
+     "organizations": [],
+     "outlet": "CNBC — Energy",
+     "published_at": "2026-09-15T18:58:36+00:00",
+     "published_local": "2026-09-15 13:58 CT",
+     "source_type": "PRESS",
+     "tier": 1,
+     "title": "U.S. oil tops $105 as Saudi Arabia reportedly cancels some crude cargoes after pipeline closure",
+     "url": "https://www.cnbc.com/2026/09/15/oil-extends-gains-following-houthi-strikes-on-saudi-arabia.html"
+    }
+   ],
+   "summary": "Iran-backed Houthi militants in Yemen, meanwhile, carried out renewed strikes on Saudi Arabia this week.",
+   "title": "U.S. oil tops $105 as Saudi Arabia reportedly cancels some crude cargoes after pipeline closure",
+   "topic": "GEOPOLITICS_DISRUPTION",
+   "topic_label": "Geopolitics & disruption",
+   "trend_ids": []
+  },
+  {
+   "best_tier": 2,
+   "cluster_id": "ecf5590b7d03",
+   "commodities": [
+    "CRUDE_OIL"
+   ],
+   "distinct_source_count": 1,
+   "figures": [],
+   "first_published_at": "2026-09-15T14:15:10+00:00",
+   "flags": [],
+   "organizations": [],
+   "published_local": "2026-09-15 09:15 CT",
+   "relevance": 35,
+   "relevance_inputs": {
+    "best_tier": 2,
+    "cluster_weight": "1.49"
+   },
+   "sources": [
+    {
+     "excerpt": "Yuan-priced crude futures in China rallied to the highest level on record.",
+     "organizations": [],
+     "outlet": "Rigzone",
+     "published_at": "2026-09-15T14:15:10+00:00",
+     "published_local": "2026-09-15 09:15 CT",
+     "source_type": "TRADE",
+     "tier": 2,
+     "title": "China's Crude Oil Futures Have Never Been So Expensive",
+     "url": "https://www.rigzone.com/news/wire/chinas_crude_oil_futures_have_never_been_so_expensive-15-sep-2026-184619-article?rss=true"
+    }
+   ],
+   "summary": "Yuan-priced crude futures in China rallied to the highest level on record.",
+   "title": "China's Crude Oil Futures Have Never Been So Expensive",
+   "topic": "DEMAND_MACRO",
+   "topic_label": "Demand & macro",
+   "trend_ids": []
+  },
+  {
+   "best_tier": 1,
+   "cluster_id": "e93c46dac3ab",
+   "commodities": [
+    "CRUDE_OIL",
+    "NATURAL_GAS",
+    "REFINED_PRODUCTS"
+   ],
+   "distinct_source_count": 1,
+   "figures": [],
+   "first_published_at": "2026-09-15T14:00:29+00:00",
+   "flags": [],
+   "organizations": [
+    {
+     "name": "EIA",
+     "org_id": "eia",
+     "org_type": "AGENCY"
+    }
+   ],
+   "published_local": "2026-09-15 09:00 CT",
+   "relevance": 53,
+   "relevance_inputs": {
+    "best_tier": 1,
+    "cluster_weight": "2.23"
+   },
+   "sources": [
+    {
+     "excerpt": "Summary Excerpt: Regular Gasoline Retail Price (Dollars per Gallon) 4.319 .. U.S. 4.191 ... East Coast 4.294 .... New England 4.387 .... Central Atlantic 4.041 .... Lower Atlantic 4.091 ... Midwest 3.852 ... Gulf Coast 4.438 ... Rocky Mountain 5.467 ... West Coast 5.026 ... West Coast less…",
+     "organizations": [
+      {
+       "name": "EIA",
+       "org_id": "eia",
+       "org_type": "AGENCY"
+      }
+     ],
+     "outlet": "EIA Gasoline & Diesel Fuel Update",
+     "published_at": "2026-09-15T14:00:29+00:00",
+     "published_local": "2026-09-15 09:00 CT",
+     "source_type": "OFFICIAL",
+     "tier": 1,
+     "title": "Data For 09/14/26",
+     "url": "http://www.eia.gov/petroleum/gasdiesel"
+    }
+   ],
+   "summary": "Summary Excerpt: Regular Gasoline Retail Price (Dollars per Gallon) 4.319 ..",
+   "title": "Data For 09/14/26",
+   "topic": "PRODUCTION",
+   "topic_label": "Production",
+   "trend_ids": []
+  },
+  {
+   "best_tier": 1,
+   "cluster_id": "45c9d89ee88a",
+   "commodities": [
+    "NATURAL_GAS"
+   ],
+   "distinct_source_count": 1,
+   "figures": [
+    {
+     "context": "The additional capacity expands the total nominal capacity of the facility to 3.1 billion cubic feet per day (Bcf/d), or 3.9 Bcf/d peak capacity.",
+     "outlet": "EIA Today in Energy",
+     "span": "3.1 billion cubic feet",
+     "url": "https://www.eia.gov/todayinenergy/detail.php?id=68144"
+    },
+    {
+     "context": "The additional capacity expands the total nominal capacity of the facility to 3.1 billion cubic feet per day (Bcf/d), or 3.9 Bcf/d peak capacity.",
+     "outlet": "EIA Today in Energy",
+     "span": "3.9 Bcf",
+     "url": "https://www.eia.gov/todayinenergy/detail.php?id=68144"
+    },
+    {
+     "context": "With the addition, the Corpus Christi terminal became the second-largest facility in the United States after Sabine Pass in Louisiana, which has a nominal capacity of 3.6 Bcf/d (4.6 Bcf/d peak capacity).",
+     "outlet": "EIA Today in Energy",
+     "span": "3.6 Bcf",
+     "url": "https://www.eia.gov/todayinenergy/detail.php?id=68144"
+    },
+    {
+     "context": "With the addition, the Corpus Christi terminal became the second-largest facility in the United States after Sabine Pass in Louisiana, which has a nominal capacity of 3.6 Bcf/d (4.6 Bcf/d peak capacity).",
+     "outlet": "EIA Today in Energy",
+     "span": "4.6 Bcf",
+     "url": "https://www.eia.gov/todayinenergy/detail.php?id=68144"
+    },
+    {
+     "context": "The project consists of seven midscale trains, with a combined nominal capacity of 1.3 billion cubic feet per day (Bcf/d) and peak capacity of 1.5 Bcf/d.",
+     "outlet": "EIA Today in Energy",
+     "span": "1.3 billion cubic feet",
+     "url": "https://www.eia.gov/todayinenergy/detail.php?id=68144"
+    },
+    {
+     "context": "The project consists of seven midscale trains, with a combined nominal capacity of 1.3 billion cubic feet per day (Bcf/d) and peak capacity of 1.5 Bcf/d.",
+     "outlet": "EIA Today in Energy",
+     "span": "1.5 Bcf",
+     "url": "https://www.eia.gov/todayinenergy/detail.php?id=68144"
+    }
+   ],
+   "first_published_at": "2026-09-15T14:00:00+00:00",
+   "flags": [],
+   "organizations": [
+    {
+     "name": "Cheniere Energy",
+     "org_id": "cheniere",
+     "org_type": "COMPANY"
+    },
+    {
+     "name": "EIA",
+     "org_id": "eia",
+     "org_type": "AGENCY"
+    }
+   ],
+   "published_local": "2026-09-15 09:00 CT",
+   "relevance": 53,
+   "relevance_inputs": {
+    "best_tier": 1,
+    "cluster_weight": "2.23"
+   },
+   "sources": [
+    {
+     "excerpt": "On August 28, 2026, Cheniere Energy, Inc., completed its Corpus Christi Liquefaction Stage 3 Project (CCL Stage 3) in Texas, taking custody and control of the seventh and last liquefied natural gas (LNG) train in the project.",
+     "organizations": [
+      {
+       "name": "Cheniere Energy",
+       "org_id": "cheniere",
+       "org_type": "COMPANY"
+      },
+      {
+       "name": "EIA",
+       "org_id": "eia",
+       "org_type": "AGENCY"
+      }
+     ],
+     "outlet": "EIA Today in Energy",
+     "published_at": "2026-09-15T14:00:00+00:00",
+     "published_local": "2026-09-15 09:00 CT",
+     "source_type": "OFFICIAL",
+     "tier": 1,
+     "title": "Corpus Christi LNG expansion makes facility the second-largest in the United States",
+     "url": "https://www.eia.gov/todayinenergy/detail.php?id=68144"
+    }
+   ],
+   "summary": "On August 28, 2026, Cheniere Energy, Inc., completed its Corpus Christi Liquefaction Stage 3 Project (CCL Stage 3) in Texas, taking custody and control of the seventh and last liquefied natural gas (LNG) train in the project.",
+   "title": "Corpus Christi LNG expansion makes facility the second-largest in the United States",
+   "topic": "PRODUCTION",
+   "topic_label": "Production",
+   "trend_ids": []
+  },
+  {
+   "best_tier": 1,
+   "cluster_id": "c40f3af22885",
+   "commodities": [
+    "NATURAL_GAS"
+   ],
+   "distinct_source_count": 1,
+   "figures": [],
+   "first_published_at": "2026-09-15T12:42:59+00:00",
+   "flags": [],
+   "organizations": [],
+   "published_local": "2026-09-15 07:42 CT",
+   "relevance": 53,
+   "relevance_inputs": {
+    "best_tier": 1,
+    "cluster_weight": "2.21"
+   },
+   "sources": [
+    {
+     "excerpt": "Firms manage $7.3tn in assets and could afford to transition away from fossil fuels yet invest in natural gas and coal-fired plants to power datacenters The energy portfolios of 20 private equity firms produce 1.5bn tons of greenhouse gases a year, more than the annual emissions of any country…",
+     "organizations": [],
+     "outlet": "The Guardian — Energy",
+     "published_at": "2026-09-15T12:42:59+00:00",
+     "published_local": "2026-09-15 07:42 CT",
+     "source_type": "PRESS",
+     "tier": 1,
+     "title": "World’s top 20 private equity firms produce more greenhouse gases a year than most countries, report finds",
+     "url": "https://www.theguardian.com/us-news/2026/sep/15/private-equity-firms-energy-assets-greenhouse-gas"
+    }
+   ],
+   "summary": "Firms manage $7.3tn in assets and could afford to transition away from fossil fuels yet invest in natural gas and coal-fired plants to power datacenters The energy portfolios of 20 private equity firms produce 1.5bn tons of greenhouse gases a year, more than the annual emissions ",
+   "title": "World’s top 20 private equity firms produce more greenhouse gases a year than most countries, report finds",
+   "topic": "GEOPOLITICS_DISRUPTION",
+   "topic_label": "Geopolitics & disruption",
+   "trend_ids": []
+  },
+  {
+   "best_tier": 1,
+   "cluster_id": "3ea82f4df7c8",
+   "commodities": [
+    "CARBON_CREDITS"
+   ],
+   "distinct_source_count": 1,
+   "figures": [],
+   "first_published_at": "2026-09-15T12:00:00+00:00",
+   "flags": [],
+   "organizations": [],
+   "published_local": "2026-09-15 07:00 CT",
+   "relevance": 53,
+   "relevance_inputs": {
+    "best_tier": 1,
+    "cluster_weight": "2.19"
+   },
+   "sources": [
+    {
+     "excerpt": "On 8 September 2026, the Commission adopted a new Decision allocating EU Emissions Trading System (ETS) allowances to airlines for using sustainable aviation fuels (SAF) in 2025",
+     "organizations": [],
+     "outlet": "European Commission — Climate Action",
+     "published_at": "2026-09-15T12:00:00+00:00",
+     "published_local": "2026-09-15 07:00 CT",
+     "source_type": "OFFICIAL",
+     "tier": 1,
+     "title": "Over €400 million in EU ETS support given to airlines for using sustainable aviation fuels in 2025",
+     "url": "https://climate.ec.europa.eu/news-other-reads/news/over-eur400-million-eu-ets-support-given-airlines-using-sustainable-aviation-fuels-2025-2026-09-15_en"
+    }
+   ],
+   "summary": "On 8 September 2026, the Commission adopted a new Decision allocating EU Emissions Trading System (ETS) allowances to airlines for using sustainable aviation fuels (SAF) in 2025",
+   "title": "Over €400 million in EU ETS support given to airlines for using sustainable aviation fuels in 2025",
+   "topic": "OTHER",
+   "topic_label": "Other",
+   "trend_ids": []
+  },
+  {
+   "best_tier": 1,
+   "cluster_id": "dcc47204ee8a",
+   "commodities": [
+    "CRUDE_OIL"
+   ],
+   "distinct_source_count": 1,
+   "figures": [],
+   "first_published_at": "2026-09-15T11:25:12+00:00",
+   "flags": [],
+   "organizations": [],
+   "published_local": "2026-09-15 06:25 CT",
+   "relevance": 53,
+   "relevance_inputs": {
+    "best_tier": 1,
+    "cluster_weight": "2.18"
+   },
+   "sources": [
+    {
+     "excerpt": "Analysts warn oil prices could rally sharply if the pipeline remains offline beyond an estimated five-to-seven-day inventory cushion.",
+     "organizations": [],
+     "outlet": "CNBC — Energy",
+     "published_at": "2026-09-15T11:25:12+00:00",
+     "published_local": "2026-09-15 06:25 CT",
+     "source_type": "PRESS",
+     "tier": 1,
+     "title": "Oil’s safety net is fraying as Saudi Arabia races to restart a key pipeline",
+     "url": "https://www.cnbc.com/2026/09/15/oil-prices-saudi-arabia-east-west-pipeline-iran.html"
+    }
+   ],
+   "summary": "Analysts warn oil prices could rally sharply if the pipeline remains offline beyond an estimated five-to-seven-day inventory cushion.",
+   "title": "Oil’s safety net is fraying as Saudi Arabia races to restart a key pipeline",
+   "topic": "INVENTORIES",
+   "topic_label": "Inventories",
+   "trend_ids": []
+  },
+  {
+   "best_tier": 2,
+   "cluster_id": "513213c5e9bd",
+   "commodities": [
+    "NATURAL_GAS"
+   ],
+   "distinct_source_count": 1,
+   "figures": [],
+   "first_published_at": "2026-09-15T08:43:59+00:00",
+   "flags": [],
+   "organizations": [
+    {
+     "name": "Fluxys",
+     "org_id": "fluxys",
+     "org_type": "COMPANY"
+    }
+   ],
+   "published_local": "2026-09-15 03:43 CT",
+   "relevance": 35,
+   "relevance_inputs": {
+    "best_tier": 2,
+    "cluster_weight": "1.42"
+   },
+   "sources": [
+    {
+     "excerpt": "France’s Dunkirk LNG import terminal has reduced sendout to the grid on Tuesday due to a strike, according to Belgian LNG terminal operator Fluxys.",
+     "organizations": [
+      {
+       "name": "Fluxys",
+       "org_id": "fluxys",
+       "org_type": "COMPANY"
+      }
+     ],
+     "outlet": "LNG Prime",
+     "published_at": "2026-09-15T08:43:59+00:00",
+     "published_local": "2026-09-15 03:43 CT",
+     "source_type": "TRADE",
+     "tier": 2,
+     "title": "Fluxys: Dunkirk LNG sendout reduced due to strike",
+     "url": "https://lngprime.com/europe/fluxys-dunkirk-lng-sendout-reduced-due-to-strike/196872"
+    }
+   ],
+   "summary": "France’s Dunkirk LNG import terminal has reduced sendout to the grid on Tuesday due to a strike, according to Belgian LNG terminal operator Fluxys.",
+   "title": "Fluxys: Dunkirk LNG sendout reduced due to strike",
+   "topic": "OTHER",
+   "topic_label": "Other",
+   "trend_ids": []
+  },
+  {
+   "best_tier": 2,
+   "cluster_id": "f8aae2ef52ae",
+   "commodities": [
+    "NATURAL_GAS"
+   ],
+   "distinct_source_count": 1,
+   "figures": [
+    {
+     "context": "South Korean LNG importer Kogas said its gas sales decreased by 7.4 percent in August compared to last year.",
+     "outlet": "LNG Prime",
+     "span": "7.4 percent",
+     "url": "https://lngprime.com/asia/kogas-reports-lower-gas-sales-in-august/196855"
+    }
+   ],
+   "first_published_at": "2026-09-15T08:15:42+00:00",
+   "flags": [],
+   "organizations": [],
+   "published_local": "2026-09-15 03:15 CT",
+   "relevance": 35,
+   "relevance_inputs": {
+    "best_tier": 2,
+    "cluster_weight": "1.41"
+   },
+   "sources": [
+    {
+     "excerpt": "South Korean LNG importer Kogas said its gas sales decreased by 7.4 percent in August compared to last year.",
+     "organizations": [],
+     "outlet": "LNG Prime",
+     "published_at": "2026-09-15T08:15:42+00:00",
+     "published_local": "2026-09-15 03:15 CT",
+     "source_type": "TRADE",
+     "tier": 2,
+     "title": "Kogas reports lower gas sales in August",
+     "url": "https://lngprime.com/asia/kogas-reports-lower-gas-sales-in-august/196855"
+    }
+   ],
+   "summary": "South Korean LNG importer Kogas said its gas sales decreased by 7.4 percent in August compared to last year.",
+   "title": "Kogas reports lower gas sales in August",
+   "topic": "OTHER",
+   "topic_label": "Other",
+   "trend_ids": []
+  },
+  {
+   "best_tier": 1,
+   "cluster_id": "e668f7027f45",
+   "commodities": [
+    "CRUDE_OIL"
+   ],
+   "distinct_source_count": 1,
+   "figures": [],
+   "first_published_at": "2026-09-14T21:29:39+00:00",
+   "flags": [],
+   "organizations": [],
+   "published_local": "2026-09-14 16:29 CT",
+   "relevance": 51,
+   "relevance_inputs": {
+    "best_tier": 1,
+    "cluster_weight": "1.91"
+   },
+   "sources": [
+    {
+     "excerpt": "Costco is limiting sales of its house brand motor oil to two units per customer per week amid rising oil prices.",
+     "organizations": [],
+     "outlet": "CNBC — Energy",
+     "published_at": "2026-09-14T21:29:39+00:00",
+     "published_local": "2026-09-14 16:29 CT",
+     "source_type": "PRESS",
+     "tier": 1,
+     "title": "Costco hikes motor oil prices and puts limits on how much members can buy",
+     "url": "https://www.cnbc.com/2026/09/14/costco-motor-oil-price-limited.html"
+    }
+   ],
+   "summary": "Costco is limiting sales of its house brand motor oil to two units per customer per week amid rising oil prices.",
+   "title": "Costco hikes motor oil prices and puts limits on how much members can buy",
+   "topic": "OTHER",
+   "topic_label": "Other",
+   "trend_ids": []
+  },
+  {
+   "best_tier": 1,
+   "cluster_id": "1e703bcd62f2",
+   "commodities": [
+    "REFINED_PRODUCTS"
+   ],
+   "distinct_source_count": 2,
+   "figures": [],
+   "first_published_at": "2026-09-14T17:18:42+00:00",
+   "flags": [],
+   "organizations": [],
+   "published_local": "2026-09-14 12:18 CT",
+   "relevance": 62,
+   "relevance_inputs": {
+    "best_tier": 1,
+    "cluster_weight": "3.61"
+   },
+   "sources": [
+    {
+     "excerpt": "Kyiv was caught off guard by the US president’s announcement after previous attempts to halt strikes on power plants and refineries failed",
+     "organizations": [],
+     "outlet": "Financial Times — Energy",
+     "published_at": "2026-09-14T17:18:42+00:00",
+     "published_local": "2026-09-14 12:18 CT",
+     "source_type": "PRESS",
+     "tier": 1,
+     "title": "Trump claims Russia and Ukraine have agreed energy truce",
+     "url": "https://www.ft.com/content/d6f98d2e-9f0c-4414-a339-fe8462810276?syn-25a6b1a6=1"
+    },
+    {
+     "excerpt": "Ukraine said it hit the Syzran refinery in Russia's Volga region, underlining that the two nations have not signed up to the energy truce claimed by U.S. President Donald Trump.",
+     "organizations": [],
+     "outlet": "Rigzone",
+     "published_at": "2026-09-16T08:22:21+00:00",
+     "published_local": "2026-09-16 03:22 CT",
+     "source_type": "TRADE",
+     "tier": 2,
+     "title": "No Trump Truce Seen as Kyiv Hits Volga Refinery",
+     "url": "https://www.rigzone.com/news/wire/no_trump_truce_seen_as_kyiv_hits_volga_refinery-16-sep-2026-184625-article?rss=true"
+    }
+   ],
+   "summary": "Kyiv was caught off guard by the US president’s announcement after previous attempts to halt strikes on power plants and refineries failed",
+   "title": "Trump claims Russia and Ukraine have agreed energy truce",
+   "topic": "GEOPOLITICS_DISRUPTION",
+   "topic_label": "Geopolitics & disruption",
+   "trend_ids": []
+  },
+  {
+   "best_tier": 1,
+   "cluster_id": "69f7f8a3ab91",
+   "commodities": [
+    "REFINED_PRODUCTS"
+   ],
+   "distinct_source_count": 1,
+   "figures": [],
+   "first_published_at": "2026-09-14T16:01:48+00:00",
+   "flags": [],
+   "organizations": [],
+   "published_local": "2026-09-14 11:01 CT",
+   "relevance": 51,
+   "relevance_inputs": {
+    "best_tier": 1,
+    "cluster_weight": "1.81"
+   },
+   "sources": [
+    {
+     "excerpt": "Sharp increases by government to cost of diesel and petrol spark nationwide protests",
+     "organizations": [],
+     "outlet": "Financial Times — Energy",
+     "published_at": "2026-09-14T16:01:48+00:00",
+     "published_local": "2026-09-14 11:01 CT",
+     "source_type": "PRESS",
+     "tier": 1,
+     "title": "Syrians take to the streets over fuel price rise",
+     "url": "https://www.ft.com/content/b78370c8-dc35-47ea-a254-a75421a46a85?syn-25a6b1a6=1"
+    }
+   ],
+   "summary": "Sharp increases by government to cost of diesel and petrol spark nationwide protests",
+   "title": "Syrians take to the streets over fuel price rise",
+   "topic": "OTHER",
+   "topic_label": "Other",
+   "trend_ids": []
+  },
+  {
+   "best_tier": 1,
+   "cluster_id": "b22bc62eb203",
+   "commodities": [
+    "CRUDE_OIL",
+    "NATURAL_GAS"
+   ],
+   "distinct_source_count": 1,
+   "figures": [],
+   "first_published_at": "2026-09-14T15:49:39+00:00",
+   "flags": [],
+   "organizations": [],
+   "published_local": "2026-09-14 10:49 CT",
+   "relevance": 51,
+   "relevance_inputs": {
+    "best_tier": 1,
+    "cluster_weight": "1.80"
+   },
+   "sources": [
+    {
+     "excerpt": "Oil prices have marched higher in recent weeks, above $100 per barrel, as tensions between the U.S. and Iran have escalated again.",
+     "organizations": [],
+     "outlet": "CNBC — Energy",
+     "published_at": "2026-09-14T15:49:39+00:00",
+     "published_local": "2026-09-14 10:49 CT",
+     "source_type": "PRESS",
+     "tier": 1,
+     "title": "Prediction market traders think gas prices will hit new highs for the year",
+     "url": "https://www.cnbc.com/2026/09/14/prediction-markets-traders-think-gas-prices-will-hit-new-highs-in-2026.html"
+    }
+   ],
+   "summary": "Oil prices have marched higher in recent weeks, above $100 per barrel, as tensions between the U.S. and Iran have escalated again.",
+   "title": "Prediction market traders think gas prices will hit new highs for the year",
+   "topic": "GEOPOLITICS_DISRUPTION",
+   "topic_label": "Geopolitics & disruption",
+   "trend_ids": []
+  },
+  {
+   "best_tier": 1,
+   "cluster_id": "4c13aa119966",
+   "commodities": [
+    "REFINED_PRODUCTS"
+   ],
+   "distinct_source_count": 1,
+   "figures": [],
+   "first_published_at": "2026-09-14T11:10:45+00:00",
+   "flags": [],
+   "organizations": [],
+   "published_local": "2026-09-14 06:10 CT",
+   "relevance": 50,
+   "relevance_inputs": {
+    "best_tier": 1,
+    "cluster_weight": "1.73"
+   },
+   "sources": [
+    {
+     "excerpt": "India's inflation in August accelerated for the tenth month straight to 4.82% in August amid rising food and fuel prices.",
+     "organizations": [],
+     "outlet": "CNBC — Energy",
+     "published_at": "2026-09-14T11:10:45+00:00",
+     "published_local": "2026-09-14 06:10 CT",
+     "source_type": "PRESS",
+     "tier": 1,
+     "title": "India’s retail inflation hits 4.8% in August, rises for 10th straight month",
+     "url": "https://www.cnbc.com/2026/09/14/india-inflation-august-iran-war-energy-el-nino.html"
+    }
+   ],
+   "summary": "India's inflation in August accelerated for the tenth month straight to 4.82% in August amid rising food and fuel prices.",
+   "title": "India’s retail inflation hits 4.8% in August, rises for 10th straight month",
+   "topic": "DEMAND_MACRO",
+   "topic_label": "Demand & macro",
+   "trend_ids": []
+  },
+  {
+   "best_tier": 1,
+   "cluster_id": "e111b89a90d1",
+   "commodities": [
+    "REFINED_PRODUCTS"
+   ],
+   "distinct_source_count": 1,
+   "figures": [],
+   "first_published_at": "2026-09-14T04:00:21+00:00",
+   "flags": [],
+   "organizations": [
+    {
+     "name": "BP",
+     "org_id": "bp",
+     "org_type": "COMPANY"
+    },
+    {
+     "name": "Shell",
+     "org_id": "shell",
+     "org_type": "COMPANY"
+    }
+   ],
+   "published_local": "2026-09-13 23:00 CT",
+   "relevance": 50,
+   "relevance_inputs": {
+    "best_tier": 1,
+    "cluster_weight": "1.61"
+   },
+   "sources": [
+    {
+     "excerpt": "Purchase by owner of Stanlow refinery comes as BP and Shell retreat from forecourts globally",
+     "organizations": [
+      {
+       "name": "Shell",
+       "org_id": "shell",
+       "org_type": "COMPANY"
+      },
+      {
+       "name": "BP",
+       "org_id": "bp",
+       "org_type": "COMPANY"
+      }
+     ],
+     "outlet": "Financial Times — Energy",
+     "published_at": "2026-09-14T04:00:21+00:00",
+     "published_local": "2026-09-13 23:00 CT",
+     "source_type": "PRESS",
+     "tier": 1,
+     "title": "Essar strikes deal to buy 118 UK petrol stations",
+     "url": "https://www.ft.com/content/130f45b6-ee45-4fa0-83eb-5ea8f9bc4680?syn-25a6b1a6=1"
+    }
+   ],
+   "summary": "Purchase by owner of Stanlow refinery comes as BP and Shell retreat from forecourts globally",
+   "title": "Essar strikes deal to buy 118 UK petrol stations",
+   "topic": "DEMAND_MACRO",
+   "topic_label": "Demand & macro",
+   "trend_ids": []
+  },
+  {
+   "best_tier": 1,
+   "cluster_id": "193f2237b0c2",
+   "commodities": [
+    "NATURAL_GAS"
+   ],
+   "distinct_source_count": 1,
+   "figures": [],
+   "first_published_at": "2026-09-14T04:00:12+00:00",
+   "flags": [],
+   "organizations": [],
+   "published_local": "2026-09-13 23:00 CT",
+   "relevance": 50,
+   "relevance_inputs": {
+    "best_tier": 1,
+    "cluster_weight": "1.61"
+   },
+   "sources": [
+    {
+     "excerpt": "Market mindset has shifted to concerns of extended outage as the Strait of Hormuz blockages continue ahead of winter",
+     "organizations": [],
+     "outlet": "Financial Times — Energy",
+     "published_at": "2026-09-14T04:00:12+00:00",
+     "published_local": "2026-09-13 23:00 CT",
+     "source_type": "PRESS",
+     "tier": 1,
+     "title": "How high might natural gas prices go?",
+     "url": "https://www.ft.com/content/639b4d2a-30c7-473c-a3ec-1fe96a7a7ac7?syn-25a6b1a6=1"
+    }
+   ],
+   "summary": "Market mindset has shifted to concerns of extended outage as the Strait of Hormuz blockages continue ahead of winter",
+   "title": "How high might natural gas prices go?",
+   "topic": "GEOPOLITICS_DISRUPTION",
+   "topic_label": "Geopolitics & disruption",
+   "trend_ids": []
+  },
+  {
+   "best_tier": 1,
+   "cluster_id": "a8b0eb3725e1",
+   "commodities": [
+    "NATURAL_GAS"
+   ],
+   "distinct_source_count": 1,
+   "figures": [],
+   "first_published_at": "2026-09-14T03:27:58+00:00",
+   "flags": [],
+   "organizations": [
+    {
+     "name": "Baker Hughes",
+     "org_id": "baker-hughes",
+     "org_type": "COMPANY"
+    }
+   ],
+   "published_local": "2026-09-13 22:27 CT",
+   "relevance": 50,
+   "relevance_inputs": {
+    "best_tier": 1,
+    "cluster_weight": "1.60"
+   },
+   "sources": [
+    {
+     "excerpt": "Baker Hughes has yet to see higher borrowing costs slow investment in major energy projects.",
+     "organizations": [
+      {
+       "name": "Baker Hughes",
+       "org_id": "baker-hughes",
+       "org_type": "COMPANY"
+      }
+     ],
+     "outlet": "CNBC — Energy",
+     "published_at": "2026-09-14T03:27:58+00:00",
+     "published_local": "2026-09-13 22:27 CT",
+     "source_type": "PRESS",
+     "tier": 1,
+     "title": "Baker Hughes sees no slowdown in energy projects despite higher rates as AI buildouts stoke LNG demand",
+     "url": "https://www.cnbc.com/2026/09/14/baker-hughes-ceo-no-slowdown-in-energy-projects-despite-higher-rates-.html"
+    }
+   ],
+   "summary": "Baker Hughes has yet to see higher borrowing costs slow investment in major energy projects.",
+   "title": "Baker Hughes sees no slowdown in energy projects despite higher rates as AI buildouts stoke LNG demand",
+   "topic": "DEMAND_MACRO",
+   "topic_label": "Demand & macro",
+   "trend_ids": []
+  },
+  {
+   "best_tier": 1,
+   "cluster_id": "b8c1ff9bccc5",
+   "commodities": [
+    "REFINED_PRODUCTS"
+   ],
+   "distinct_source_count": 2,
+   "figures": [],
+   "first_published_at": "2026-09-13T19:08:31+00:00",
+   "flags": [],
+   "organizations": [],
+   "published_local": "2026-09-13 14:08 CT",
+   "relevance": 60,
+   "relevance_inputs": {
+    "best_tier": 1,
+    "cluster_weight": "3.26"
+   },
+   "sources": [
+    {
+     "excerpt": "US president says the attacks and not his war in Iran are responsible for diesel hitting record highs",
+     "organizations": [],
+     "outlet": "Financial Times — Energy",
+     "published_at": "2026-09-13T19:08:31+00:00",
+     "published_local": "2026-09-13 14:08 CT",
+     "source_type": "PRESS",
+     "tier": 1,
+     "title": "Trump calls on Ukraine to stop striking Russian oil refineries",
+     "url": "https://www.ft.com/content/e3ba3f9a-9312-4d0b-99fd-2c80728f2dcd?syn-25a6b1a6=1"
+    },
+    {
+     "excerpt": "U.S. diesel prices have surpassed $6 a gallon for the first time ever as the Ukraine and Iran wars drive broader energy supply concerns.",
+     "organizations": [],
+     "outlet": "CNBC — Energy",
+     "published_at": "2026-09-14T14:25:00+00:00",
+     "published_local": "2026-09-14 09:25 CT",
+     "source_type": "PRESS",
+     "tier": 1,
+     "title": "Trump urges Ukraine to stop ‘knocking out’ Russian oil refineries as U.S. diesel hits record",
+     "url": "https://www.cnbc.com/2026/09/14/trump-ukraine-russia-diesel-prices-oil.html"
+    },
+    {
+     "excerpt": "\"The World's Diesel price rise is mostly caused by the Russia/Ukraine War, not Iran,\" Trump said in a social media post.",
+     "organizations": [],
+     "outlet": "CNBC — Energy",
+     "published_at": "2026-09-14T22:18:56+00:00",
+     "published_local": "2026-09-14 17:18 CT",
+     "source_type": "PRESS",
+     "tier": 1,
+     "title": "Ukraine says it's open to halting attacks on Russian energy after Trump's claims of deal",
+     "url": "https://www.cnbc.com/2026/09/14/trump-ukraine-russia-energy-oil-iran.html"
+    }
+   ],
+   "summary": "US president says the attacks and not his war in Iran are responsible for diesel hitting record highs",
+   "title": "Trump calls on Ukraine to stop striking Russian oil refineries",
+   "topic": "GEOPOLITICS_DISRUPTION",
+   "topic_label": "Geopolitics & disruption",
+   "trend_ids": []
+  },
+  {
+   "best_tier": 1,
+   "cluster_id": "2f84dca539b2",
+   "commodities": [
+    "CRUDE_OIL"
+   ],
+   "distinct_source_count": 1,
+   "figures": [],
+   "first_published_at": "2026-09-12T17:22:26+00:00",
+   "flags": [],
+   "organizations": [],
+   "published_local": "2026-09-12 12:22 CT",
+   "relevance": 47,
+   "relevance_inputs": {
+    "best_tier": 1,
+    "cluster_weight": "1.15"
+   },
+   "sources": [
+    {
+     "excerpt": "Oil prices retreated on Friday on hopes of a resumptions in negotiations, but notched sharp weekly gains after soaring above $100 a barrel.",
+     "organizations": [],
+     "outlet": "CNBC — Energy",
+     "published_at": "2026-09-12T17:22:26+00:00",
+     "published_local": "2026-09-12 12:22 CT",
+     "source_type": "PRESS",
+     "tier": 1,
+     "title": "Trump sees Iran war ending soon after midterm elections, predicts oil prices will then fall sharply",
+     "url": "https://www.cnbc.com/2026/09/12/trump-sees-iran-war-ending-very-soon-oil-prices-then-falling.html"
+    }
+   ],
+   "summary": "Oil prices retreated on Friday on hopes of a resumptions in negotiations, but notched sharp weekly gains after soaring above $100 a barrel.",
+   "title": "Trump sees Iran war ending soon after midterm elections, predicts oil prices will then fall sharply",
+   "topic": "GEOPOLITICS_DISRUPTION",
+   "topic_label": "Geopolitics & disruption",
+   "trend_ids": []
+  },
+  {
+   "best_tier": 1,
+   "cluster_id": "ae9744cd9ee8",
+   "commodities": [
+    "CRUDE_OIL"
+   ],
+   "distinct_source_count": 1,
+   "figures": [],
+   "first_published_at": "2026-09-12T12:40:05+00:00",
+   "flags": [],
+   "organizations": [],
+   "published_local": "2026-09-12 07:40 CT",
+   "relevance": 47,
+   "relevance_inputs": {
+    "best_tier": 1,
+    "cluster_weight": "1.10"
+   },
+   "sources": [
+    {
+     "excerpt": "The U.S. crude oil price on Thursday topped $102 per barrel for its highest close since May.",
+     "organizations": [],
+     "outlet": "CNBC — Energy",
+     "published_at": "2026-09-12T12:40:05+00:00",
+     "published_local": "2026-09-12 07:40 CT",
+     "source_type": "PRESS",
+     "tier": 1,
+     "title": "Oil's roundtrip back to $100. Why China could determine what happens next",
+     "url": "https://www.cnbc.com/2026/09/12/oils-roundtrip-back-to-100-why-china-could-determine-what-happens-next.html"
+    }
+   ],
+   "summary": "The U.S. crude oil price on Thursday topped $102 per barrel for its highest close since May.",
+   "title": "Oil's roundtrip back to $100. Why China could determine what happens next",
+   "topic": "DEMAND_MACRO",
+   "topic_label": "Demand & macro",
+   "trend_ids": []
+  },
+  {
+   "best_tier": 1,
+   "cluster_id": "e3f18340725b",
+   "commodities": [
+    "CRUDE_OIL"
+   ],
+   "distinct_source_count": 1,
+   "figures": [],
+   "first_published_at": "2026-09-11T21:35:14+00:00",
+   "flags": [],
+   "organizations": [],
+   "published_local": "2026-09-11 16:35 CT",
+   "relevance": 46,
+   "relevance_inputs": {
+    "best_tier": 1,
+    "cluster_weight": "0.95"
+   },
+   "sources": [
+    {
+     "excerpt": "Iran-allied Houthi militants in Yemen have escalated strikes on Saudi Arabia this week.",
+     "organizations": [],
+     "outlet": "CNBC — Energy",
+     "published_at": "2026-09-11T21:35:14+00:00",
+     "published_local": "2026-09-11 16:35 CT",
+     "source_type": "PRESS",
+     "tier": 1,
+     "title": "Saudi Arabia shut down East-West crude oil pipeline after multiple attacks by drones from Iraq",
+     "url": "https://www.cnbc.com/2026/09/11/saudi-arabia-shut-down-east-west-crude-oil-pipeline.html"
+    },
+    {
+     "excerpt": "Saudi Arabia has faced escalating attacks from Iran-allied militant groups in recent days.",
+     "organizations": [],
+     "outlet": "CNBC — Energy",
+     "published_at": "2026-09-14T18:55:38+00:00",
+     "published_local": "2026-09-14 13:55 CT",
+     "source_type": "PRESS",
+     "tier": 1,
+     "title": "Oil prices rise after Saudi Arabia shuts down critical pipeline that bypasses Strait of Hormuz",
+     "url": "https://www.cnbc.com/2026/09/13/oil-price-iran-war-strait-hormuz-saudi-pipeline.html"
+    }
+   ],
+   "summary": "Iran-allied Houthi militants in Yemen have escalated strikes on Saudi Arabia this week.",
+   "title": "Saudi Arabia shut down East-West crude oil pipeline after multiple attacks by drones from Iraq",
+   "topic": "GEOPOLITICS_DISRUPTION",
+   "topic_label": "Geopolitics & disruption",
+   "trend_ids": []
+  },
+  {
+   "best_tier": 1,
+   "cluster_id": "f4eb2c2b7ce3",
+   "commodities": [
+    "CRUDE_OIL"
+   ],
+   "distinct_source_count": 1,
+   "figures": [],
+   "first_published_at": "2026-09-11T19:25:07+00:00",
+   "flags": [],
+   "organizations": [],
+   "published_local": "2026-09-11 14:25 CT",
+   "relevance": 46,
+   "relevance_inputs": {
+    "best_tier": 1,
+    "cluster_weight": "0.93"
+   },
+   "sources": [
+    {
+     "excerpt": "The decline snapped multiday winning streaks for both Brent and WTI crude oil futures.",
+     "organizations": [],
+     "outlet": "CNBC — Energy",
+     "published_at": "2026-09-11T19:25:07+00:00",
+     "published_local": "2026-09-11 14:25 CT",
+     "source_type": "PRESS",
+     "tier": 1,
+     "title": "Oil prices fall Friday, but post sharp weekly gains as tensions in the Middle East rise",
+     "url": "https://www.cnbc.com/2026/09/11/oil-price-today-iran-brent-wti-trump.html"
+    }
+   ],
+   "summary": "The decline snapped multiday winning streaks for both Brent and WTI crude oil futures.",
+   "title": "Oil prices fall Friday, but post sharp weekly gains as tensions in the Middle East rise",
+   "topic": "GEOPOLITICS_DISRUPTION",
+   "topic_label": "Geopolitics & disruption",
+   "trend_ids": []
+  },
+  {
+   "best_tier": 1,
+   "cluster_id": "10f1223a4cc7",
+   "commodities": [
+    "REFINED_PRODUCTS"
+   ],
+   "distinct_source_count": 1,
+   "figures": [],
+   "first_published_at": "2026-09-11T10:56:45+00:00",
+   "flags": [],
+   "organizations": [
+    {
+     "name": "IEA",
+     "org_id": "iea",
+     "org_type": "INTERGOVERNMENTAL"
+    }
+   ],
+   "published_local": "2026-09-11 05:56 CT",
+   "relevance": 45,
+   "relevance_inputs": {
+    "best_tier": 1,
+    "cluster_weight": "0.86"
+   },
+   "sources": [
+    {
+     "excerpt": "The energy agency warned shrinking inventories and strained refineries could further tighten markets.",
+     "organizations": [
+      {
+       "name": "IEA",
+       "org_id": "iea",
+       "org_type": "INTERGOVERNMENTAL"
+      }
+     ],
+     "outlet": "CNBC — Energy",
+     "published_at": "2026-09-11T10:56:45+00:00",
+     "published_local": "2026-09-11 05:56 CT",
+     "source_type": "PRESS",
+     "tier": 1,
+     "title": "IEA warns global oil refining system ‘stretched to the limit’ as Iran, Ukraine wars tighten market",
+     "url": "https://www.cnbc.com/2026/09/11/iran-war-oil-diesel-iea-hormuz.html"
+    }
+   ],
+   "summary": "The energy agency warned shrinking inventories and strained refineries could further tighten markets.",
+   "title": "IEA warns global oil refining system ‘stretched to the limit’ as Iran, Ukraine wars tighten market",
+   "topic": "GEOPOLITICS_DISRUPTION",
+   "topic_label": "Geopolitics & disruption",
+   "trend_ids": []
+  },
+  {
+   "best_tier": 1,
+   "cluster_id": "ddf4e186076e",
+   "commodities": [
+    "CRUDE_OIL"
+   ],
+   "distinct_source_count": 1,
+   "figures": [
+    {
+     "context": "We forecast U.S. crude oil production will average 13.8 million barrels per day (b/d) in 2026, surpassing the previous record of 13.7 million b/d set in 2025, in our latest Short-Term Energy Outlook (STEO).",
+     "outlet": "EIA Today in Energy",
+     "span": "13.8 million barrels per day",
+     "url": "https://www.eia.gov/todayinenergy/detail.php?id=68125"
+    },
+    {
+     "context": "We forecast U.S. crude oil production will average 13.8 million barrels per day (b/d) in 2026, surpassing the previous record of 13.7 million b/d set in 2025, in our latest Short-Term Energy Outlook (STEO).",
+     "outlet": "EIA Today in Energy",
+     "span": "13.7 million b/d",
+     "url": "https://www.eia.gov/todayinenergy/detail.php?id=68125"
+    },
+    {
+     "context": "In the first half of 2026 (1H26), crude oil production averaged 13.7 million b/d, 2% (0.3 million b/d) more than the same period in 2025.",
+     "outlet": "EIA Today in Energy",
+     "span": "2%",
+     "url": "https://www.eia.gov/todayinenergy/detail.php?id=68125"
+    },
+    {
+     "context": "In the first half of 2026 (1H26), crude oil production averaged 13.7 million b/d, 2% (0.3 million b/d) more than the same period in 2025.",
+     "outlet": "EIA Today in Energy",
+     "span": "0.3 million b/d",
+     "url": "https://www.eia.gov/todayinenergy/detail.php?id=68125"
+    },
+    {
+     "context": "We forecast Permian oil production will average 6.8 million b/d in 2026, 3% more than in 2025.",
+     "outlet": "EIA Today in Energy",
+     "span": "6.8 million b/d",
+     "url": "https://www.eia.gov/todayinenergy/detail.php?id=68125"
+    }
+   ],
+   "first_published_at": "2026-09-10T14:00:00+00:00",
+   "flags": [],
+   "organizations": [],
+   "published_local": "2026-09-10 09:00 CT",
+   "relevance": 44,
+   "relevance_inputs": {
+    "best_tier": 1,
+    "cluster_weight": "0.70"
+   },
+   "sources": [
+    {
+     "excerpt": "We forecast U.S. crude oil production will average 13.8 million barrels per day (b/d) in 2026, surpassing the previous record of 13.7 million b/d set in 2025, in our latest Short-Term Energy Outlook (STEO).",
+     "organizations": [],
+     "outlet": "EIA Today in Energy",
+     "published_at": "2026-09-10T14:00:00+00:00",
+     "published_local": "2026-09-10 09:00 CT",
+     "source_type": "OFFICIAL",
+     "tier": 1,
+     "title": "United States on track for record crude oil production in 2026",
+     "url": "https://www.eia.gov/todayinenergy/detail.php?id=68125"
+    }
+   ],
+   "summary": "We forecast U.S. crude oil production will average 13.8 million barrels per day (b/d) in 2026, surpassing the previous record of 13.7 million b/d set in 2025, in our latest Short-Term Energy Outlook (STEO).",
+   "title": "United States on track for record crude oil production in 2026",
+   "topic": "PRODUCTION",
+   "topic_label": "Production",
+   "trend_ids": []
+  },
+  {
+   "best_tier": 1,
+   "cluster_id": "4d04575900e3",
+   "commodities": [
+    "CRUDE_OIL"
+   ],
+   "distinct_source_count": 1,
+   "figures": [],
+   "first_published_at": "2026-09-10T05:00:16+00:00",
+   "flags": [],
+   "organizations": [],
+   "published_local": "2026-09-10 00:00 CT",
+   "relevance": 44,
+   "relevance_inputs": {
+    "best_tier": 1,
+    "cluster_weight": "0.65"
+   },
+   "sources": [
+    {
+     "excerpt": "Climate catastrophe is on our doorstep – yet Labour’s impending approval of further drilling will bring more pain for negligible gains Pinch yourself, it’s happening again. Here is a Labour government spending a vast amount of political capital to earn tiny material gains while risking huge…",
+     "organizations": [],
+     "outlet": "The Guardian — Energy",
+     "published_at": "2026-09-10T05:00:16+00:00",
+     "published_local": "2026-09-10 00:00 CT",
+     "source_type": "PRESS",
+     "tier": 1,
+     "title": "Is Burnham trying to appease Trump? Or Reform? What other reason is there for these North Sea oil plans? | George Monbiot",
+     "url": "https://www.theguardian.com/commentisfree/2026/sep/10/andy-burnham-north-sea-oil-plans-labour-climate-drilling-trump-reform"
+    }
+   ],
+   "summary": "Climate catastrophe is on our doorstep – yet Labour’s impending approval of further drilling will bring more pain for negligible gains Pinch yourself, it’s happening again.",
+   "title": "Is Burnham trying to appease Trump? Or Reform? What other reason is there for these North Sea oil plans? | George Monbiot",
+   "topic": "DEMAND_MACRO",
+   "topic_label": "Demand & macro",
+   "trend_ids": []
+  }
+ ],
+ "flags": [
+  {
+   "kind": "SELECTOR_NO_MATCH",
+   "reason": "link_pattern matched no items",
+   "subject_id": "carb-cap-and-invest"
+  },
+  {
+   "kind": "UNDATED",
+   "reason": "doe-newsroom: FACT SHEET: Delivering on President Trump's Promise to Unleash Prosperity and Se",
+   "subject_id": "884562b91d91fa5e"
+  },
+  {
+   "kind": "UNDATED",
+   "reason": "doe-newsroom: FACT SHEET: The Golden Era of American Nuclear Energy Has Arrived",
+   "subject_id": "c8b852664ec4b9e0"
+  }
+ ],
+ "generated_at": "2026-09-16T20:37:09.678698+00:00",
+ "most_active_companies": [
+  {
+   "commodities": [
+    "NATURAL_GAS",
+    "REFINED_PRODUCTS"
+   ],
+   "name": "BP",
+   "stories": 2
+  },
+  {
+   "commodities": [
+    "NATURAL_GAS"
+   ],
+   "name": "Baker Hughes",
+   "stories": 1
+  },
+  {
+   "commodities": [
+    "NATURAL_GAS"
+   ],
+   "name": "Cheniere Energy",
+   "stories": 1
+  },
+  {
+   "commodities": [
+    "CRUDE_OIL"
+   ],
+   "name": "Eni",
+   "stories": 1
+  },
+  {
+   "commodities": [
+    "NATURAL_GAS"
+   ],
+   "name": "Fluxys",
+   "stories": 1
+  },
+  {
+   "commodities": [
+    "CRUDE_OIL"
+   ],
+   "name": "Halliburton",
+   "stories": 1
+  },
+  {
+   "commodities": [
+    "REFINED_PRODUCTS"
+   ],
+   "name": "Shell",
+   "stories": 1
+  },
+  {
+   "commodities": [
+    "NATURAL_GAS"
+   ],
+   "name": "Trafigura",
+   "stories": 1
+  }
+ ],
+ "page_size": 25,
+ "reference_links": {
+  "CARBON_CREDITS": [
+   {
+    "name": "CDR.fyi — durable carbon removal market data",
+    "note": "Further reading only. Not collected or summarized (CDR.fyi Terms of Service §5.3).",
+    "url": "https://www.cdr.fyi/"
+   }
+  ]
+ },
+ "relevance_threshold": 30,
+ "run": {
+  "clusters": 52,
+  "new_articles": 394,
+  "run_id": "20260916T203709Z-d47623"
+ },
+ "schema": "digest.v2",
+ "site": {
+  "banner": "Private preview for a small readership. Unverified, informational only. Not investment advice.",
+  "title": "Energy News Daily"
+ },
+ "sources": {
+  "ap-energy": {
+   "name": "Associated Press",
+   "source_type": "PRESS",
+   "tier": 1,
+   "tos_status": "BLOCKED"
+  },
+  "bbc-business": {
+   "name": "BBC News — Business",
+   "source_type": "PRESS",
+   "tier": 1,
+   "tos_status": "HEADLINE_ONLY"
+  },
+  "bloomberg": {
+   "name": "Bloomberg",
+   "source_type": "PRESS",
+   "tier": 1,
+   "tos_status": "BLOCKED"
+  },
+  "canary-media": {
+   "name": "Canary Media",
+   "source_type": "TRADE",
+   "tier": 2,
+   "tos_status": "HEADLINE_ONLY"
+  },
+  "carb-cap-and-invest": {
+   "name": "California Air Resources Board — Cap-and-Invest",
+   "source_type": "OFFICIAL",
+   "tier": 1,
+   "tos_status": "HEADLINE_ONLY"
+  },
+  "carbon-brief": {
+   "name": "Carbon Brief",
+   "source_type": "PRESS",
+   "tier": 1,
+   "tos_status": "HEADLINE_ONLY"
+  },
+  "carbon-herald": {
+   "name": "Carbon Herald",
+   "source_type": "TRADE",
+   "tier": 2,
+   "tos_status": "HEADLINE_ONLY"
+  },
+  "cdr-fyi": {
+   "name": "CDR.fyi — durable carbon removal market data",
+   "source_type": "TRADE",
+   "tier": 1,
+   "tos_status": "REFERENCE_ONLY"
+  },
+  "cnbc-energy": {
+   "name": "CNBC — Energy",
+   "source_type": "PRESS",
+   "tier": 1,
+   "tos_status": "HEADLINE_ONLY"
+  },
+  "doe-newsroom": {
+   "name": "US Department of Energy Newsroom",
+   "source_type": "OFFICIAL",
+   "tier": 1,
+   "tos_status": "ALLOWED"
+  },
+  "ec-climate-news": {
+   "name": "European Commission — Climate Action",
+   "source_type": "OFFICIAL",
+   "tier": 1,
+   "tos_status": "HEADLINE_ONLY"
+  },
+  "eia-gas-diesel": {
+   "name": "EIA Gasoline & Diesel Fuel Update",
+   "source_type": "OFFICIAL",
+   "tier": 1,
+   "tos_status": "ALLOWED"
+  },
+  "eia-heating-oil-propane": {
+   "name": "EIA Heating Oil & Propane Update",
+   "source_type": "OFFICIAL",
+   "tier": 1,
+   "tos_status": "ALLOWED"
+  },
+  "eia-press": {
+   "name": "EIA Press Releases",
+   "source_type": "OFFICIAL",
+   "tier": 1,
+   "tos_status": "ALLOWED"
+  },
+  "eia-today-in-energy": {
+   "name": "EIA Today in Energy",
+   "source_type": "OFFICIAL",
+   "tier": 1,
+   "tos_status": "ALLOWED"
+  },
+  "ferc-news": {
+   "name": "FERC News Releases",
+   "source_type": "OFFICIAL",
+   "tier": 1,
+   "tos_status": "ALLOWED"
+  },
+  "ft-energy": {
+   "name": "Financial Times — Energy",
+   "source_type": "PRESS",
+   "tier": 1,
+   "tos_status": "HEADLINE_ONLY"
+  },
+  "guardian-energy": {
+   "name": "The Guardian — Energy",
+   "source_type": "PRESS",
+   "tier": 1,
+   "tos_status": "HEADLINE_ONLY"
+  },
+  "icap-news": {
+   "name": "ICAP — International Carbon Action Partnership",
+   "source_type": "OFFICIAL",
+   "tier": 1,
+   "tos_status": "HEADLINE_ONLY"
+  },
+  "iea-news": {
+   "name": "IEA News",
+   "source_type": "OFFICIAL",
+   "tier": 1,
+   "tos_status": "HEADLINE_ONLY"
+  },
+  "lng-prime": {
+   "name": "LNG Prime",
+   "source_type": "TRADE",
+   "tier": 2,
+   "tos_status": "HEADLINE_ONLY"
+  },
+  "offshore-energy": {
+   "name": "Offshore Energy",
+   "source_type": "TRADE",
+   "tier": 2,
+   "tos_status": "HEADLINE_ONLY"
+  },
+  "oilprice": {
+   "name": "OilPrice.com",
+   "source_type": "AGGREGATOR",
+   "tier": 3,
+   "tos_status": "HEADLINE_ONLY"
+  },
+  "opec-press": {
+   "name": "OPEC Press Releases",
+   "source_type": "OFFICIAL",
+   "tier": 1,
+   "tos_status": "HEADLINE_ONLY"
+  },
+  "platts-argus": {
+   "name": "S&P Global Platts / Argus",
+   "source_type": "TRADE",
+   "tier": 1,
+   "tos_status": "BLOCKED"
+  },
+  "prnewswire-energy": {
+   "name": "PR Newswire — Energy",
+   "source_type": "NEWSROOM",
+   "tier": 2,
+   "tos_status": "HEADLINE_ONLY"
+  },
+  "reuters": {
+   "name": "Reuters",
+   "source_type": "PRESS",
+   "tier": 1,
+   "tos_status": "BLOCKED"
+  },
+  "rigzone": {
+   "name": "Rigzone",
+   "source_type": "TRADE",
+   "tier": 2,
+   "tos_status": "HEADLINE_ONLY"
+  },
+  "unfccc-news": {
+   "name": "UNFCCC News",
+   "source_type": "OFFICIAL",
+   "tier": 1,
+   "tos_status": "HEADLINE_ONLY"
+  },
+  "utility-dive": {
+   "name": "Utility Dive",
+   "source_type": "TRADE",
+   "tier": 2,
+   "tos_status": "HEADLINE_ONLY"
+  }
+ },
+ "stale_after_hours": 30,
+ "synopsis": {
+  "commodities": {
+   "CARBON_CREDITS": {
+    "label": "Carbon Credits",
+    "sentences": [
+     "Carbon Credits: 2 qualifying stories in the last 7 days.",
+     "Highest-relevance story: “Over €400 million in EU ETS support given to airlines for using sustainable aviation fuels in 2025” (European Commission — Climate Action, 2026-09-15 07:00 CT)."
+    ],
+    "stories": 2
+   },
+   "CRUDE_OIL": {
+    "label": "Crude Oil",
+    "sentences": [
+     "Crude Oil: 22 qualifying stories in the last 7 days.",
+     "Highest-relevance story: “Oil prices fall after U.S. says damaged Saudi pipeline will restart operations in days” (CNBC — Energy, 2026-09-16 13:57 CT).",
+     "Most active companies: Eni, Halliburton.",
+     "Next scheduled release: Baker Hughes rig count, Fri 2026-09-18 12:00 CT."
+    ],
+    "stories": 22
+   },
+   "NATURAL_GAS": {
+    "label": "Natural Gas",
+    "sentences": [
+     "Natural Gas: 21 qualifying stories in the last 7 days.",
+     "Highest-relevance story: “Hormuz crisis threatens to undermine long-term LNG demand” (Financial Times — Energy, 2026-09-16 06:00 CT).",
+     "Most active companies: BP, Baker Hughes, Cheniere Energy.",
+     "Next scheduled release: EIA Weekly Natural Gas Storage Report, Thu 2026-09-17 09:30 CT."
+    ],
+    "stories": 21
+   },
+   "REFINED_PRODUCTS": {
+    "label": "Refined Products",
+    "sentences": [
+     "Refined Products: 11 qualifying stories in the last 7 days.",
+     "Highest-relevance story: “Trump claims Russia and Ukraine have agreed energy truce” (Financial Times — Energy, 2026-09-14 12:18 CT).",
+     "Most active companies: BP, Shell.",
+     "Next scheduled release: CFTC Commitments of Traders, Fri 2026-09-18 14:30 CT."
+    ],
+    "stories": 11
+   }
+  },
+  "label": "Automated synopsis (data only, no interpretation)",
+  "overall": {
+   "sentences": [
+    "52 qualifying stories from reputable sources in the last 7 days.",
+    "Stories by commodity: Crude Oil 22, Natural Gas 21, Refined Products 11, Carbon Credits 2."
+   ]
+  }
+ },
+ "tabs": [
+  {
+   "id": "all",
+   "label": "All"
+  },
+  {
+   "commodity": "CRUDE_OIL",
+   "id": "crude-oil",
+   "label": "Crude Oil"
+  },
+  {
+   "commodity": "NATURAL_GAS",
+   "id": "natural-gas",
+   "label": "Natural Gas"
+  },
+  {
+   "commodity": "REFINED_PRODUCTS",
+   "id": "refined-products",
+   "label": "Refined Products"
+  },
+  {
+   "commodity": "CARBON_CREDITS",
+   "id": "carbon-credits",
+   "label": "Carbon Credits"
+  }
+ ],
+ "timezone": "America/Chicago",
+ "trends": {
+  "CARBON_CREDITS": [],
+  "CRUDE_OIL": [],
+  "NATURAL_GAS": [],
+  "REFINED_PRODUCTS": [],
+  "all": [],
+  "hottest": []
+ },
+ "window_days": 7
+}

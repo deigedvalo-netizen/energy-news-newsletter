@@ -1,0 +1,309 @@
+{
+ "computed_at": "2026-09-19T14:36:13.030282+00:00",
+ "trends": [
+  {
+   "trend_id": "lng-asia-offtake",
+   "name": "LNG cooperation deals with Asian buyers",
+   "thesis": "Trading houses and Asian gas distributors are signing cooperation agreements to secure LNG supply and trading flexibility.",
+   "commodities": [
+    "NATURAL_GAS"
+   ],
+   "status": "CONFIRMED",
+   "trajectory": "NEW",
+   "hotness": "21.13",
+   "companies_current": 5,
+   "companies_previous": 0,
+   "mentions_current": 5,
+   "mentions_previous": 0,
+   "companies_30d": 5,
+   "companies": [
+    "Glencore",
+    "Equinor",
+    "Eni",
+    "Petronas",
+    "Trafigura"
+   ],
+   "first_seen": "2026-09-16",
+   "latest_mention": "2026-09-18T11:59:32+00:00",
+   "only_company_releases": false,
+   "timeline": [
+    {
+     "date": "2026-09-18",
+     "company": "Glencore",
+     "action": "Signed a long-term LNG supply deal with a unit of China's Suntien Green Energy",
+     "story_url": "https://lngprime.com/asia/glencore-pens-chinese-lng-supply-deal/197109",
+     "story_title": "Glencore pens Chinese LNG supply deal",
+     "outlet": "LNG Prime",
+     "verified": true,
+     "reason": null
+    },
+    {
+     "date": "2026-09-18",
+     "company": "Equinor",
+     "action": "Signed a long-term LNG sales and purchase agreement with a unit of Thailand's PTT",
+     "story_url": "https://lngprime.com/contracts-and-tenders/equinor-seals-long-term-lng-spa-with-thailands-ptt/197098",
+     "story_title": "Equinor seals long-term LNG SPA with Thailand\u2019s PTT",
+     "outlet": "LNG Prime",
+     "verified": true,
+     "reason": null
+    },
+    {
+     "date": "2026-09-17",
+     "company": "Eni",
+     "action": "Signed an LNG supply agreement with India's BPCL as it diversifies its buyer base",
+     "story_url": "https://lngprime.com/asia/indias-bpcl-inks-lng-pact-with-eni/196976",
+     "story_title": "India\u2019s BPCL inks LNG pact with Eni",
+     "outlet": "LNG Prime",
+     "verified": true,
+     "reason": null
+    },
+    {
+     "date": "2026-09-16",
+     "company": "Petronas",
+     "action": "Agreed to supply LNG to Japan's government under Japan's first emergency LNG procurement deal",
+     "story_url": "https://www.channelnewsasia.com/business/japan-gas-association-welcomes-governments-first-emergency-lng-deal-petronas-6389061",
+     "story_title": "Japan gas association welcomes government's first emergency LNG deal with Petronas",
+     "outlet": "NewsData.io \u2014 top outlets",
+     "verified": true,
+     "reason": null
+    },
+    {
+     "date": "2026-09-16",
+     "company": "Trafigura",
+     "action": "Signed an MOU with China's ENN to explore LNG cooperation",
+     "story_url": "https://lngprime.com/asia/chinas-enn-inks-lng-cooperation-pact-with-trafigura/196943",
+     "story_title": "China\u2019s ENN inks LNG cooperation pact with Trafigura",
+     "outlet": "LNG Prime",
+     "verified": true,
+     "reason": null
+    }
+   ]
+  },
+  {
+   "trend_id": "us-lng-export-expansion",
+   "name": "US LNG export capacity expansion",
+   "thesis": "US LNG developers are completing and announcing new liquefaction trains to grow export capacity.",
+   "commodities": [
+    "NATURAL_GAS"
+   ],
+   "status": "CONFIRMED",
+   "trajectory": "NEW",
+   "hotness": "16.69",
+   "companies_current": 4,
+   "companies_previous": 0,
+   "mentions_current": 4,
+   "mentions_previous": 0,
+   "companies_30d": 4,
+   "companies": [
+    "Sempra",
+    "Mubadala",
+    "Kimmeridge",
+    "Cheniere Energy"
+   ],
+   "first_seen": "2026-09-15",
+   "latest_mention": "2026-09-18T14:08:43+00:00",
+   "only_company_releases": false,
+   "timeline": [
+    {
+     "date": "2026-09-18",
+     "company": "Sempra",
+     "action": "Signed a 20-year LNG supply deal with Petrobras from its Port Arthur LNG Phase 2 project under development",
+     "story_url": "https://www.offshore-energy.biz/petrobras-locks-in-20-year-us-supply-from-sempras-lng-project-in-lone-star-state",
+     "story_title": "Petrobras locks in 20-year US supply from Sempra\u2019s LNG project in Lone Star State",
+     "outlet": "Offshore Energy",
+     "verified": true,
+     "reason": null
+    },
+    {
+     "date": "2026-09-16",
+     "company": "Mubadala",
+     "action": "Partnered with Kimmeridge's Caturus to nearly double Commonwealth LNG export capacity",
+     "story_url": "https://www.rigzone.com/news/kimmeridge_mubadala_to_nearly_double_commonwealth_lng_capacity-16-sep-2026-184634-article?rss=true",
+     "story_title": "Kimmeridge, Mubadala to Nearly Double Commonwealth LNG Capacity",
+     "outlet": "Rigzone",
+     "verified": true,
+     "reason": null
+    },
+    {
+     "date": "2026-09-16",
+     "company": "Kimmeridge",
+     "action": "Caturus unit unveiled plans to nearly double Commonwealth LNG capacity to about 17.25 mtpa",
+     "story_url": "https://lngprime.com/americas/kimmeridges-caturus-plans-to-almost-double-commonwealth-lng-capacity/196892",
+     "story_title": "Kimmeridge\u2019s Caturus plans to almost double Commonwealth LNG capacity",
+     "outlet": "LNG Prime",
+     "verified": true,
+     "reason": null
+    },
+    {
+     "date": "2026-09-15",
+     "company": "Cheniere Energy",
+     "action": "Completed Corpus Christi Stage 3, making the facility the second-largest LNG export terminal in the US",
+     "story_url": "https://www.eia.gov/todayinenergy/detail.php?id=68144",
+     "story_title": "Corpus Christi LNG expansion makes facility the second-largest in the United States",
+     "outlet": "EIA Today in Energy",
+     "verified": true,
+     "reason": null
+    }
+   ]
+  },
+  {
+   "trend_id": "eastern-med-gas-buildout",
+   "name": "Eastern Mediterranean gas development buildout",
+   "thesis": "Operators and oilfield service firms are ramping up investment and service contracts to develop Eastern Mediterranean gas discoveries.",
+   "commodities": [
+    "CRUDE_OIL",
+    "NATURAL_GAS"
+   ],
+   "status": "CONFIRMED",
+   "trajectory": "NEW",
+   "hotness": "7.01",
+   "companies_current": 2,
+   "companies_previous": 0,
+   "mentions_current": 2,
+   "mentions_previous": 0,
+   "companies_30d": 2,
+   "companies": [
+    "Eni",
+    "Halliburton"
+   ],
+   "first_seen": "2026-09-16",
+   "latest_mention": "2026-09-16T15:17:00+00:00",
+   "only_company_releases": false,
+   "timeline": [
+    {
+     "date": "2026-09-16",
+     "company": "Eni",
+     "action": "Advanced its Cronos ultra-deepwater gas field development off Cyprus by awarding a multi-year services contract",
+     "story_url": "https://www.offshore-energy.biz/halliburton-bags-enis-deepwater-bundle-as-eastern-mediterranean-gas-buildout-continues",
+     "story_title": "Halliburton bags Eni\u2019s deepwater bundle as Eastern Mediterranean gas buildout continues",
+     "outlet": "Offshore Energy",
+     "verified": true,
+     "reason": null
+    },
+    {
+     "date": "2026-09-16",
+     "company": "Halliburton",
+     "action": "Won a multi-year contract for drilling, completions and automation services on Eni's Cyprus gas field",
+     "story_url": "https://www.offshore-energy.biz/halliburton-bags-enis-deepwater-bundle-as-eastern-mediterranean-gas-buildout-continues",
+     "story_title": "Halliburton bags Eni\u2019s deepwater bundle as Eastern Mediterranean gas buildout continues",
+     "outlet": "Offshore Energy",
+     "verified": true,
+     "reason": null
+    }
+   ]
+  },
+  {
+   "trend_id": "majors-retreat-fuel-retail",
+   "name": "Oil majors retreat from fuel retail forecourts",
+   "thesis": "BP and Shell are divesting fuel retail forecourt networks as independents consolidate the downstream retail business.",
+   "commodities": [
+    "REFINED_PRODUCTS"
+   ],
+   "status": "CONFIRMED",
+   "trajectory": "NEW",
+   "hotness": "6.85",
+   "companies_current": 2,
+   "companies_previous": 0,
+   "mentions_current": 2,
+   "mentions_previous": 0,
+   "companies_30d": 2,
+   "companies": [
+    "BP",
+    "Shell"
+   ],
+   "first_seen": "2026-09-14",
+   "latest_mention": "2026-09-14T04:00:21+00:00",
+   "only_company_releases": false,
+   "timeline": [
+    {
+     "date": "2026-09-13",
+     "company": "BP",
+     "action": "Retreated from UK forecourts business as Essar agreed to buy 118 petrol stations",
+     "story_url": "https://www.ft.com/content/130f45b6-ee45-4fa0-83eb-5ea8f9bc4680?syn-25a6b1a6=1",
+     "story_title": "Essar strikes deal to buy 118 UK petrol stations",
+     "outlet": "Financial Times \u2014 Energy",
+     "verified": true,
+     "reason": null
+    },
+    {
+     "date": "2026-09-13",
+     "company": "Shell",
+     "action": "Retreated from UK forecourts business as Essar agreed to buy 118 petrol stations",
+     "story_url": "https://www.ft.com/content/130f45b6-ee45-4fa0-83eb-5ea8f9bc4680?syn-25a6b1a6=1",
+     "story_title": "Essar strikes deal to buy 118 UK petrol stations",
+     "outlet": "Financial Times \u2014 Energy",
+     "verified": true,
+     "reason": null
+    }
+   ]
+  },
+  {
+   "trend_id": "corporate-carbon-removal-purchases",
+   "name": "Corporate purchases of durable carbon removal",
+   "thesis": "Large corporations are signing megaton-scale deals with carbon removal developers to lock in durable CO2 removal alongside other pollutant cuts.",
+   "commodities": [
+    "CARBON_CREDITS"
+   ],
+   "status": "EMERGING",
+   "trajectory": "NEW",
+   "hotness": "4.00",
+   "companies_current": 1,
+   "companies_previous": 0,
+   "mentions_current": 1,
+   "mentions_previous": 0,
+   "companies_30d": 1,
+   "companies": [
+    "Google"
+   ],
+   "first_seen": "2026-09-16",
+   "latest_mention": "2026-09-16T14:15:01+00:00",
+   "only_company_releases": false,
+   "timeline": [
+    {
+     "date": "2026-09-16",
+     "company": "Google",
+     "action": "Signed a megaton-scale deal with Terradot for enhanced rock weathering carbon removal paired with methane avoidance in Brazil",
+     "story_url": "https://qz.com/google-terradot-carbon-removal-brazil-methane-091626",
+     "story_title": "Google is striking its biggest carbon removal deal yet, targeting methane and CO2 in Brazil",
+     "outlet": "NewsData.io \u2014 top outlets",
+     "verified": true,
+     "reason": null
+    }
+   ]
+  },
+  {
+   "trend_id": "ai-lng-investment",
+   "name": "AI power demand sustaining gas/LNG investment",
+   "thesis": "Rising electricity demand from AI data centers is keeping energy companies committed to gas and LNG project investment despite higher financing costs.",
+   "commodities": [
+    "NATURAL_GAS"
+   ],
+   "status": "EMERGING",
+   "trajectory": "NEW",
+   "hotness": "3.85",
+   "companies_current": 1,
+   "companies_previous": 0,
+   "mentions_current": 1,
+   "mentions_previous": 0,
+   "companies_30d": 1,
+   "companies": [
+    "Baker Hughes"
+   ],
+   "first_seen": "2026-09-14",
+   "latest_mention": "2026-09-14T03:27:58+00:00",
+   "only_company_releases": false,
+   "timeline": [
+    {
+     "date": "2026-09-13",
+     "company": "Baker Hughes",
+     "action": "CEO said higher borrowing costs have not slowed energy project investment amid AI-driven LNG demand",
+     "story_url": "https://www.cnbc.com/2026/09/14/baker-hughes-ceo-no-slowdown-in-energy-projects-despite-higher-rates-.html",
+     "story_title": "Baker Hughes sees no slowdown in energy projects despite higher rates as AI buildouts stoke LNG demand",
+     "outlet": "CNBC \u2014 Energy",
+     "verified": true,
+     "reason": null
+    }
+   ]
+  }
+ ]
+}
