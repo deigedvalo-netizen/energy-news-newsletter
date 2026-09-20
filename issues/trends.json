@@ -130,6 +130,33 @@
       ]
     },
     {
+      "trend_id": "biochar-carbon-removal-scaleup",
+      "name": "Biochar carbon removal supply scale-up",
+      "thesis": "Biochar producers and their carbon-market partners are rapidly expanding supply capacity and funding to meet growing demand for durable carbon removal.",
+      "commodities": ["CARBON_CREDITS"],
+      "first_seen": "2026-09-18",
+      "mentions": [
+        {
+          "date": "2026-09-18",
+          "company": "Biochar Industrial Group",
+          "story_url": "https://carbonherald.com/biochar-industrial-group-to-scale-biochar-as-a-service-with-new-1-5m-funding",
+          "action": "Raised $1.5M in funding to scale biochar-as-a-service carbon removal in Sub-Saharan Africa"
+        },
+        {
+          "date": "2026-09-18",
+          "company": "Exomad Green",
+          "story_url": "https://carbonherald.com/exomad-green-and-carbonfuture-expand-biochar-supply-deal-to-over-1-1m-tons",
+          "action": "Expanded biochar carbon removal supply partnership with Carbonfuture to over 1.1 million tons through 2035"
+        },
+        {
+          "date": "2026-09-18",
+          "company": "Carbonfuture",
+          "story_url": "https://carbonherald.com/exomad-green-and-carbonfuture-expand-biochar-supply-deal-to-over-1-1m-tons",
+          "action": "Expanded biochar carbon removal supply partnership with Exomad Green to over 1.1 million tons through 2035"
+        }
+      ]
+    },
+    {
       "trend_id": "corporate-carbon-removal-purchases",
       "name": "Corporate purchases of durable carbon removal",
       "thesis": "Large corporations are signing megaton-scale deals with carbon removal developers to lock in durable CO2 removal alongside other pollutant cuts.",
