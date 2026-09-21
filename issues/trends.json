@@ -57,6 +57,12 @@
           "company": "Glencore",
           "story_url": "https://lngprime.com/asia/glencore-pens-chinese-lng-supply-deal/197109",
           "action": "Signed a long-term LNG supply deal with a unit of China's Suntien Green Energy"
+        },
+        {
+          "date": "2026-09-21",
+          "company": "BP",
+          "story_url": "https://www.rigzone.com/news/bp_to_further_sell_down_browse_project_stake_to_osaka_gas-21-sep-2026-184659-article?rss=true",
+          "action": "Sold a further 5% Browse LNG stake to Japan's Osaka Gas, taking its East Asian buyer farm-down to 10%"
         }
       ]
     },
@@ -159,7 +165,7 @@
     {
       "trend_id": "corporate-carbon-removal-purchases",
       "name": "Corporate purchases of durable carbon removal",
-      "thesis": "Large corporations are signing megaton-scale deals with carbon removal developers to lock in durable CO2 removal alongside other pollutant cuts.",
+      "thesis": "Large corporations are signing megaton-scale offtake agreements with carbon removal developers, spanning engineered durable removal and nature-based projects, to lock in future supply and price certainty.",
       "commodities": ["CARBON_CREDITS"],
       "first_seen": "2026-09-16",
       "mentions": [
@@ -168,6 +174,18 @@
           "company": "Google",
           "story_url": "https://qz.com/google-terradot-carbon-removal-brazil-methane-091626",
           "action": "Signed a megaton-scale deal with Terradot for enhanced rock weathering carbon removal paired with methane avoidance in Brazil"
+        },
+        {
+          "date": "2026-09-21",
+          "company": "Google",
+          "story_url": "https://trellis.net/article/google-mckinsey-symbiosis-coalition-offtakes",
+          "action": "As a Symbiosis Coalition member, helped structure standard offtake agreements covering over 40 million tons of nature-based carbon removal"
+        },
+        {
+          "date": "2026-09-20",
+          "company": "Salesforce",
+          "story_url": "https://economictimes.indiatimes.com/tech/technology/brazils-mombak-raises-new-fund-adds-salesforce-as-carbon-credit-buyer/articleshow/134384150.cms",
+          "action": "Became a carbon credit buyer from Brazil's Mombak reforestation-based carbon removal fund"
         }
       ]
     }
