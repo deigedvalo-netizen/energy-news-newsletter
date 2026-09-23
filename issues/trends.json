@@ -138,6 +138,18 @@
           "company": "Sempra",
           "story_url": "https://www.offshore-energy.biz/petrobras-locks-in-20-year-us-supply-from-sempras-lng-project-in-lone-star-state",
           "action": "Signed a 20-year LNG supply deal with Petrobras from its Port Arthur LNG Phase 2 project under development"
+        },
+        {
+          "date": "2026-09-23",
+          "company": "Cheniere Energy",
+          "story_url": "https://lngprime.com/americas/ferc-issues-draft-eis-for-chenieres-corpus-christi-stage-4-project/197338",
+          "action": "Advanced its Corpus Christi Stage 4 LNG expansion as FERC issued a draft environmental impact statement"
+        },
+        {
+          "date": "2026-09-23",
+          "company": "Glenfarne",
+          "story_url": "https://lngprime.com/americas/glenfarnes-magnolia-lng-secures-ferc-extension/197296",
+          "action": "Secured a five-year FERC extension for its Magnolia LNG export plant under construction in Louisiana"
         }
       ]
     },
@@ -192,6 +204,12 @@
           "company": "Salesforce",
           "story_url": "https://economictimes.indiatimes.com/tech/technology/brazils-mombak-raises-new-fund-adds-salesforce-as-carbon-credit-buyer/articleshow/134384150.cms",
           "action": "Became a carbon credit buyer from Brazil's Mombak reforestation-based carbon removal fund"
+        },
+        {
+          "date": "2026-09-18",
+          "company": "Japan Airlines",
+          "story_url": "https://carbonherald.com/japan-airlines-climeworks-solutions-sign-historic-corsia-compliant-cdr-deal",
+          "action": "Signed a CORSIA-compliant carbon removal offtake deal with Climeworks spanning DAC, biochar and soil carbon"
         }
       ]
     }
