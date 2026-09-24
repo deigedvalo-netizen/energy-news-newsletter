@@ -150,6 +150,33 @@
           "company": "Glenfarne",
           "story_url": "https://lngprime.com/americas/glenfarnes-magnolia-lng-secures-ferc-extension/197296",
           "action": "Secured a five-year FERC extension for its Magnolia LNG export plant under construction in Louisiana"
+        },
+        {
+          "date": "2026-09-24",
+          "company": "Woodside Energy",
+          "story_url": "https://lngprime.com/americas/first-louisiana-lng-tank-taking-shape/197396",
+          "action": "Completed the first 235,000-cbm storage tank at its Louisiana LNG export terminal under construction"
+        }
+      ]
+    },
+    {
+      "trend_id": "african-lng-supply-growth",
+      "name": "African LNG project development",
+      "thesis": "International oil majors are advancing new gas supply and infrastructure projects in Africa to feed LNG export terminals.",
+      "commodities": ["NATURAL_GAS"],
+      "first_seen": "2026-09-23",
+      "mentions": [
+        {
+          "date": "2026-09-23",
+          "company": "TotalEnergies",
+          "story_url": "https://lngprime.com/africa/totalenergies-amni-take-fid-on-ima-gas-project-to-supply-nigeria-lng/197303",
+          "action": "Took final investment decision with Amni on the Ima gas project offshore Nigeria to supply Nigeria LNG's Bonny Island plant"
+        },
+        {
+          "date": "2026-09-23",
+          "company": "ExxonMobil",
+          "story_url": "https://lngprime.com/africa/exxonmobils-rovuma-lng-seeks-contractor-for-land-transportation-services/197351",
+          "action": "Invited bids for land transportation services for its Rovuma LNG project in Mozambique"
         }
       ]
     },
