@@ -1,0 +1,152 @@
+{
+ "issues": [
+  {
+   "date": "2026-09-26",
+   "kind": "issue",
+   "status": "PUBLISHED_WITH_WARNINGS",
+   "feed_sha256": "15b5ca5267c72098c9a7ea5b162b0fdc0d6a646aa65d66490b7465b3a5e6e60e",
+   "data_as_of": "2026-09-26 14:59:46.619323+00:00",
+   "validated_at": "2026-09-26T15:07:25.742091+00:00",
+   "reasons": [],
+   "warnings": [
+    {
+     "code": "UNVERIFIED_NUMBER",
+     "detail": "34.33"
+    }
+   ]
+  },
+  {
+   "date": "2026-09-25",
+   "kind": "issue",
+   "status": "PUBLISHED",
+   "feed_sha256": "3c6c2ba4a0a471d8b2cadc93aeef51af28b1d54a61cbee3c664ce4b0ce02dda7",
+   "data_as_of": "2026-09-25 15:51:09.370253+00:00",
+   "validated_at": "2026-09-25T15:57:51.693822+00:00",
+   "reasons": [],
+   "warnings": []
+  },
+  {
+   "date": "2026-09-24",
+   "kind": "issue",
+   "status": "PUBLISHED_WITH_WARNINGS",
+   "feed_sha256": "578bda8714e711a440ca960d3524d1b28a22b3fbfec4d081a717f37f54bd2c7e",
+   "data_as_of": "2026-09-24 15:51:07.249456+00:00",
+   "validated_at": "2026-09-24T16:00:04.487746+00:00",
+   "reasons": [],
+   "warnings": [
+    {
+     "code": "UNVERIFIED_NUMBER",
+     "detail": "2.3"
+    }
+   ]
+  },
+  {
+   "date": "2026-09-23",
+   "kind": "issue",
+   "status": "PUBLISHED",
+   "feed_sha256": "fcd0676c0493bf8b3878d1fc518c2b431c0786043dc9c4620643af6c9aa7d666",
+   "data_as_of": "2026-09-23 15:28:36.414028+00:00",
+   "validated_at": "2026-09-23T15:35:28.454437+00:00",
+   "reasons": [],
+   "warnings": []
+  },
+  {
+   "date": "2026-09-22",
+   "kind": "issue",
+   "status": "PUBLISHED",
+   "feed_sha256": "52c13185c2f4bd6c3e0a53d4c8a73343e17d682d5db6584e49b62f25a014d01c",
+   "data_as_of": "2026-09-22 15:32:43.783874+00:00",
+   "validated_at": "2026-09-22T15:39:23.614162+00:00",
+   "reasons": [],
+   "warnings": []
+  },
+  {
+   "date": "2026-09-21",
+   "kind": "issue",
+   "status": "PUBLISHED",
+   "feed_sha256": "0b16aaa6cd1c5974ece9e4ae3a83701c87b29b574543c3bdd249f52390cb5f19",
+   "data_as_of": "2026-09-21 17:06:58.350971+00:00",
+   "validated_at": "2026-09-21T17:13:09.991985+00:00",
+   "reasons": [],
+   "warnings": []
+  },
+  {
+   "date": "2026-09-20",
+   "kind": "issue",
+   "status": "PUBLISHED_WITH_WARNINGS",
+   "feed_sha256": "a07d6236de7576f6b3af24b5e5f4b6b6ffe26ca99e6547d98a28a400fa05df15",
+   "data_as_of": "2026-09-20 14:43:34.051170+00:00",
+   "validated_at": "2026-09-20T14:49:56.503167+00:00",
+   "reasons": [],
+   "warnings": [
+    {
+     "code": "UNVERIFIED_NUMBER",
+     "detail": "-65"
+    }
+   ]
+  },
+  {
+   "date": "2026-09-19",
+   "kind": "issue",
+   "status": "PUBLISHED_WITH_WARNINGS",
+   "feed_sha256": "9e8c074aedeb14be4e64f9e962b0c0053593795f74112d00da2a95f024b78f52",
+   "data_as_of": "2026-09-19 14:30:23.102470+00:00",
+   "validated_at": "2026-09-19T14:36:13.066826+00:00",
+   "reasons": [],
+   "warnings": [
+    {
+     "code": "UNVERIFIED_NUMBER",
+     "detail": "130"
+    }
+   ]
+  },
+  {
+   "date": "2026-09-18",
+   "kind": "issue",
+   "status": "PUBLISHED_WITH_WARNINGS",
+   "feed_sha256": "9ed87191f98026f138fd5cc53db3b04873a4821f8881f05ee5160f361cae0b6c",
+   "data_as_of": "2026-09-18 15:01:57.053813+00:00",
+   "validated_at": "2026-09-18T15:08:05.870644+00:00",
+   "reasons": [],
+   "warnings": [
+    {
+     "code": "UNVERIFIED_NUMBER",
+     "detail": "0.8"
+    }
+   ]
+  },
+  {
+   "date": "2026-09-17",
+   "kind": "issue",
+   "status": "PUBLISHED_WITH_WARNINGS",
+   "feed_sha256": "9ac1229f8dcfe3a192871114f096935436edee7f7b759f3c90c0915bc02b93ca",
+   "data_as_of": "2026-09-17 14:32:32.294352+00:00",
+   "validated_at": "2026-09-17T16:01:39.184349+00:00",
+   "reasons": [],
+   "warnings": [
+    {
+     "code": "UNVERIFIED_NUMBER",
+     "detail": "130"
+    },
+    {
+     "code": "UNVERIFIED_NUMBER",
+     "detail": "430"
+    },
+    {
+     "code": "UNVERIFIED_NUMBER",
+     "detail": "65"
+    }
+   ]
+  },
+  {
+   "date": "2026-09-16",
+   "kind": "issue",
+   "status": "PUBLISHED",
+   "feed_sha256": "63aa920fedee1838627687e29f99b86cba88a4f55a6ce951f57351a6f8e33b6b",
+   "data_as_of": "2026-09-16 20:37:09.678698+00:00",
+   "validated_at": "2026-09-16T23:02:27.651205+00:00",
+   "reasons": [],
+   "warnings": []
+  }
+ ]
+}

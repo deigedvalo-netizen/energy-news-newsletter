@@ -1,0 +1,284 @@
+{
+ "run_id": "20260926T145946Z-c6c5c9",
+ "started_at": "2026-09-26T14:59:46.619323+00:00",
+ "sources": [
+  {
+   "source_id": "bbc-business",
+   "tier": 1,
+   "status": "OK",
+   "reason": null,
+   "items_seen": 51,
+   "new": 7
+  },
+  {
+   "source_id": "carbon-brief",
+   "tier": 1,
+   "status": "NOT_MODIFIED",
+   "reason": null,
+   "items_seen": 0,
+   "new": 0
+  },
+  {
+   "source_id": "cnbc-energy",
+   "tier": 1,
+   "status": "OK",
+   "reason": null,
+   "items_seen": 30,
+   "new": 3
+  },
+  {
+   "source_id": "doe-newsroom",
+   "tier": 1,
+   "status": "OK",
+   "reason": null,
+   "items_seen": 14,
+   "new": 0
+  },
+  {
+   "source_id": "ec-climate-news",
+   "tier": 1,
+   "status": "OK",
+   "reason": null,
+   "items_seen": 13,
+   "new": 0
+  },
+  {
+   "source_id": "eia-gas-diesel",
+   "tier": 1,
+   "status": "NOT_MODIFIED",
+   "reason": null,
+   "items_seen": 0,
+   "new": 0
+  },
+  {
+   "source_id": "eia-heating-oil-propane",
+   "tier": 1,
+   "status": "NOT_MODIFIED",
+   "reason": null,
+   "items_seen": 0,
+   "new": 0
+  },
+  {
+   "source_id": "eia-press",
+   "tier": 1,
+   "status": "NOT_MODIFIED",
+   "reason": null,
+   "items_seen": 0,
+   "new": 0
+  },
+  {
+   "source_id": "eia-today-in-energy",
+   "tier": 1,
+   "status": "NOT_MODIFIED",
+   "reason": null,
+   "items_seen": 0,
+   "new": 0
+  },
+  {
+   "source_id": "ft-energy",
+   "tier": 1,
+   "status": "OK",
+   "reason": null,
+   "items_seen": 25,
+   "new": 0
+  },
+  {
+   "source_id": "guardian-api",
+   "tier": 1,
+   "status": "OK",
+   "reason": null,
+   "items_seen": 21,
+   "new": 3
+  },
+  {
+   "source_id": "guardian-energy",
+   "tier": 1,
+   "status": "OK",
+   "reason": null,
+   "items_seen": 20,
+   "new": 0
+  },
+  {
+   "source_id": "icap-news",
+   "tier": 1,
+   "status": "OK",
+   "reason": null,
+   "items_seen": 12,
+   "new": 0
+  },
+  {
+   "source_id": "unfccc-news",
+   "tier": 1,
+   "status": "OK",
+   "reason": null,
+   "items_seen": 24,
+   "new": 0
+  },
+  {
+   "source_id": "verra-news",
+   "tier": 1,
+   "status": "OK",
+   "reason": null,
+   "items_seen": 10,
+   "new": 0
+  },
+  {
+   "source_id": "canary-media",
+   "tier": 2,
+   "status": "OK",
+   "reason": null,
+   "items_seen": 100,
+   "new": 1
+  },
+  {
+   "source_id": "carbon-herald",
+   "tier": 2,
+   "status": "OK",
+   "reason": null,
+   "items_seen": 10,
+   "new": 10
+  },
+  {
+   "source_id": "carbon-pulse",
+   "tier": 2,
+   "status": "OK",
+   "reason": null,
+   "items_seen": 10,
+   "new": 9
+  },
+  {
+   "source_id": "esg-today",
+   "tier": 2,
+   "status": "NOT_MODIFIED",
+   "reason": null,
+   "items_seen": 0,
+   "new": 0
+  },
+  {
+   "source_id": "lng-prime",
+   "tier": 2,
+   "status": "OK",
+   "reason": null,
+   "items_seen": 10,
+   "new": 0
+  },
+  {
+   "source_id": "newsdata-carbon",
+   "tier": 2,
+   "status": "OK",
+   "reason": null,
+   "items_seen": 41,
+   "new": 35
+  },
+  {
+   "source_id": "offshore-energy",
+   "tier": 2,
+   "status": "OK",
+   "reason": null,
+   "items_seen": 10,
+   "new": 0
+  },
+  {
+   "source_id": "prnewswire-energy",
+   "tier": 2,
+   "status": "OK",
+   "reason": null,
+   "items_seen": 20,
+   "new": 20
+  },
+  {
+   "source_id": "rigzone",
+   "tier": 2,
+   "status": "OK",
+   "reason": null,
+   "items_seen": 20,
+   "new": 2
+  },
+  {
+   "source_id": "trellis",
+   "tier": 2,
+   "status": "OK",
+   "reason": null,
+   "items_seen": 10,
+   "new": 0
+  },
+  {
+   "source_id": "utility-dive",
+   "tier": 2,
+   "status": "NOT_MODIFIED",
+   "reason": null,
+   "items_seen": 0,
+   "new": 0
+  }
+ ],
+ "sources_skipped": [
+  {
+   "source_id": "ferc-news",
+   "tos_status": "ALLOWED",
+   "enabled": false
+  },
+  {
+   "source_id": "iea-news",
+   "tos_status": "HEADLINE_ONLY",
+   "enabled": false
+  },
+  {
+   "source_id": "opec-press",
+   "tos_status": "HEADLINE_ONLY",
+   "enabled": false
+  },
+  {
+   "source_id": "carb-cap-and-invest",
+   "tos_status": "HEADLINE_ONLY",
+   "enabled": false
+  },
+  {
+   "source_id": "gdelt-major-press",
+   "tos_status": "HEADLINE_ONLY",
+   "enabled": false
+  },
+  {
+   "source_id": "gdelt-carbon-trade",
+   "tos_status": "HEADLINE_ONLY",
+   "enabled": false
+  },
+  {
+   "source_id": "oilprice",
+   "tos_status": "HEADLINE_ONLY",
+   "enabled": false
+  },
+  {
+   "source_id": "reuters",
+   "tos_status": "BLOCKED",
+   "enabled": true
+  },
+  {
+   "source_id": "bloomberg",
+   "tos_status": "BLOCKED",
+   "enabled": true
+  },
+  {
+   "source_id": "ap-energy",
+   "tos_status": "BLOCKED",
+   "enabled": true
+  },
+  {
+   "source_id": "platts-argus",
+   "tos_status": "BLOCKED",
+   "enabled": true
+  },
+  {
+   "source_id": "cdr-fyi",
+   "tos_status": "REFERENCE_ONLY",
+   "enabled": true
+  }
+ ],
+ "new_articles": 90,
+ "clusters": 240,
+ "published": false,
+ "prices_enabled": false,
+ "finished_at": "2026-09-26T14:59:56.511164+00:00",
+ "digest_bytes": 59824,
+ "archived_week": null,
+ "feed_sha256": "15b5ca5267c72098c9a7ea5b162b0fdc0d6a646aa65d66490b7465b3a5e6e60e"
+}

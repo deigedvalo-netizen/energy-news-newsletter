@@ -1,0 +1,445 @@
+# Energy news digest — data as of 2026-09-16 18:20 CT
+feed_sha256 53de8cebf8125db7371673d48373b6eb810fbdadd96cf02caedb0f545dce7eb2 · schema digest.v2 · 72 qualifying stories (last 7 days, relevance >= 30).
+Only link URLs that appear in this digest. Story ids like [c:abc123] are for reference.
+
+## Current trends (validated ledger)
+
+| trend_id | name | status | trajectory | companies this wk / last wk | hotness | commodities | companies |
+|---|---|---|---|---|---|---|---|
+| us-lng-export-expansion | US LNG export capacity expansion | CONFIRMED | NEW | 3 / 0 | 14.72 | NATURAL_GAS | Mubadala, Kimmeridge, Cheniere Energy |
+| eastern-med-gas-buildout | Eastern Mediterranean gas development buildout | CONFIRMED | NEW | 2 / 0 | 7.85 | CRUDE_OIL, NATURAL_GAS | Eni, Halliburton |
+| majors-retreat-fuel-retail | Oil majors retreat from fuel retail forecourts | CONFIRMED | NEW | 2 / 0 | 7.57 | REFINED_PRODUCTS | BP, Shell |
+| lng-asia-offtake | LNG cooperation deals with Asian buyers | EMERGING | NEW | 1 / 0 | 4.76 | NATURAL_GAS | Trafigura |
+| ai-lng-investment | AI power demand sustaining gas/LNG investment | EMERGING | NEW | 1 / 0 | 4.56 | NATURAL_GAS | Baker Hughes |
+
+## Candidate trend groups (hints: stories naming 2+ companies)
+
+- **Demand & macro · Natural Gas** — companies: Baker Hughes, Petronas, Trafigura
+  - [c:48fdeb7779ec] Japan gas association welcomes government's first emergency LNG deal with Petronas (Petronas) https://www.channelnewsasia.com/business/japan-gas-association-welcomes-governments-first-emergency-lng-deal-petronas-6389061
+  - [c:3b0620f3db9d] China’s ENN inks LNG cooperation pact with Trafigura (Trafigura) https://lngprime.com/asia/chinas-enn-inks-lng-cooperation-pact-with-trafigura/196943
+  - [c:a8b0eb3725e1] Baker Hughes sees no slowdown in energy projects despite higher rates as AI buildouts stoke LNG demand (Baker Hughes) https://www.cnbc.com/2026/09/14/baker-hughes-ceo-no-slowdown-in-energy-projects-despite-higher-rates-.html
+- **Production · Crude Oil** — companies: Eni, Halliburton
+  - [c:9edfd5b2f429] Halliburton bags Eni’s deepwater bundle as Eastern Mediterranean gas buildout continues (Eni, Halliburton) https://www.offshore-energy.biz/halliburton-bags-enis-deepwater-bundle-as-eastern-mediterranean-gas-buildout-continues
+- **Other · Natural Gas** — companies: BP, Fluxys
+  - [c:afd0ec3136d6] Aker BP Makes New North Sea Gas Discovery (BP) https://www.rigzone.com/news/aker_bp_makes_new_north_sea_gas_discovery-16-sep-2026-184626-article?rss=true
+  - [c:513213c5e9bd] Fluxys: Dunkirk LNG sendout reduced due to strike (Fluxys) https://lngprime.com/europe/fluxys-dunkirk-lng-sendout-reduced-due-to-strike/196872
+- **Demand & macro · Refined Products** — companies: BP, Shell
+  - [c:e111b89a90d1] Essar strikes deal to buy 118 UK petrol stations (BP, Shell) https://www.ft.com/content/130f45b6-ee45-4fa0-83eb-5ea8f9bc4680?syn-25a6b1a6=1
+
+## Most active companies (last 7 days)
+
+- BP: 2 stories (Natural Gas, Refined Products)
+- Baker Hughes: 1 stories (Natural Gas)
+- Cheniere Energy: 1 stories (Natural Gas)
+- Eni: 1 stories (Crude Oil)
+- Fluxys: 1 stories (Natural Gas)
+- Halliburton: 1 stories (Crude Oil)
+- Petronas: 1 stories (Natural Gas)
+- Shell: 1 stories (Refined Products)
+- Trafigura: 1 stories (Natural Gas)
+
+## Scheduled releases
+
+- Thu 2026-09-17 09:30 CT — EIA Weekly Natural Gas Storage Report
+- Fri 2026-09-18 12:00 CT — Baker Hughes rig count
+- Fri 2026-09-18 14:30 CT — CFTC Commitments of Traders
+- Wed 2026-09-23 09:30 CT — EIA Weekly Petroleum Status Report
+
+## Crude Oil stories (30)
+
+### [c:033501d0b315] Trump oil ally Harold Hamm to invest in Venezuela
+2026-09-16 13:31 CT · relevance 57 · Geopolitics & disruption · Crude Oil
+Summary: Move by Continental Resources marks latest foray by a western oil producer into the country after US military seized president Nicolás Maduro
+- Financial Times — Energy (tier 1, PRESS): Trump oil ally Harold Hamm to invest in Venezuela — https://www.ft.com/content/7be92efe-13d6-4d02-9f77-0e8229b3b8fa?syn-25a6b1a6=1
+
+### [c:86f5a4d7f601] Oil prices fall after U.S. says damaged Saudi pipeline will restart operations in days
+2026-09-16 13:57 CT · relevance 57 · Geopolitics & disruption · Crude Oil
+Summary: The pipeline has allowed the Saudis to shift oil exports to the Red Sea while the U.S. and Iran battle for control over Hormuz.
+- CNBC — Energy (tier 1, PRESS): Oil prices fall after U.S. says damaged Saudi pipeline will restart operations in days — https://www.cnbc.com/2026/09/16/oil-prices-today-brent-wti-hormuz-iran-war.html
+
+### [c:4b5a70642d08] Company behind failed Surrey oilfield project sells site at massive loss
+2026-09-16 04:00 CT · relevance 56 · Production · Crude Oil
+Summary: New owners apply for permission to extract oil in Horse Hill despite landmark ruling from supreme court in 2024 After years of trying to dig for oil in Surrey, the company behind the drilling project that was turned down in a landmark supreme court ruling has sold off the site fo
+- The Guardian — Energy (tier 1, PRESS): Company behind failed Surrey oilfield project sells site at massive loss — https://www.theguardian.com/environment/2026/sep/16/company-behind-failed-surrey-oilfield-project-sells-massive-loss
+
+### [c:4b0e83bac6db] Chinese oil prices hit record highs after attacks on Saudi pipeline
+2026-09-16 08:24 CT · relevance 56 · Geopolitics & disruption · Crude Oil
+Summary: Beijing has cushioned global impact of Iran war by drawing down stocks but is now ‘coming off its crash diet’
+- Financial Times — Energy (tier 1, PRESS): Chinese oil prices hit record highs after attacks on Saudi pipeline — https://www.ft.com/content/3a88d016-9575-4c11-bd34-14606964a867?syn-25a6b1a6=1
+
+### [c:e7e1640feed0] U.S. oil tops $105 as Saudi Arabia reportedly cancels some crude cargoes after pipeline closure
+2026-09-15 13:58 CT · relevance 54 · Geopolitics & disruption · Crude Oil
+Summary: Iran-backed Houthi militants in Yemen, meanwhile, carried out renewed strikes on Saudi Arabia this week.
+- CNBC — Energy (tier 1, PRESS): U.S. oil tops $105 as Saudi Arabia reportedly cancels some crude cargoes after pipeline closure — https://www.cnbc.com/2026/09/15/oil-extends-gains-following-houthi-strikes-on-saudi-arabia.html
+
+### [c:dcc47204ee8a] Oil’s safety net is fraying as Saudi Arabia races to restart a key pipeline
+2026-09-15 06:25 CT · relevance 53 · Inventories · Crude Oil
+Summary: Analysts warn oil prices could rally sharply if the pipeline remains offline beyond an estimated five-to-seven-day inventory cushion.
+- CNBC — Energy (tier 1, PRESS): Oil’s safety net is fraying as Saudi Arabia races to restart a key pipeline — https://www.cnbc.com/2026/09/15/oil-prices-saudi-arabia-east-west-pipeline-iran.html
+
+### [c:e93c46dac3ab] Data For 09/14/26
+2026-09-15 09:00 CT · relevance 53 · Production · Crude Oil, Natural Gas, Refined Products
+Organizations: EIA
+Summary: Summary Excerpt: Regular Gasoline Retail Price (Dollars per Gallon) 4.319 ..
+- EIA Gasoline & Diesel Fuel Update (tier 1, OFFICIAL): Data For 09/14/26 — http://www.eia.gov/petroleum/gasdiesel
+
+### [c:b22bc62eb203] Prediction market traders think gas prices will hit new highs for the year
+2026-09-14 10:49 CT · relevance 51 · Geopolitics & disruption · Crude Oil, Natural Gas
+Summary: Oil prices have marched higher in recent weeks, above $100 per barrel, as tensions between the U.S. and Iran have escalated again.
+- CNBC — Energy (tier 1, PRESS): Prediction market traders think gas prices will hit new highs for the year — https://www.cnbc.com/2026/09/14/prediction-markets-traders-think-gas-prices-will-hit-new-highs-in-2026.html
+
+### [c:eeb901642142] US borrowing costs hit 5% for first time since 2023 amid bond sell-off
+2026-09-14 11:48 CT · relevance 51 · Geopolitics & disruption · Crude Oil
+Summary: Soaring oil prices of above $108 a barrel after Houthi attacks on Saudi infrastructure stoke inflation fears
+- The Guardian (API) (tier 1, PRESS): US borrowing costs hit 5% for first time since 2023 amid bond sell-off — https://www.theguardian.com/business/2026/sep/14/oil-prices-rise-drone-attacks-saudi-arabia-east-west-pipeline
+
+### [c:e668f7027f45] Costco hikes motor oil prices and puts limits on how much members can buy
+2026-09-14 16:29 CT · relevance 51 · Other · Crude Oil
+Summary: Costco is limiting sales of its house brand motor oil to two units per customer per week amid rising oil prices.
+- CNBC — Energy (tier 1, PRESS): Costco hikes motor oil prices and puts limits on how much members can buy — https://www.cnbc.com/2026/09/14/costco-motor-oil-price-limited.html
+
+### [c:838d735f197f] Satellite images show extent of damage to major Saudi pipeline, amid global oil supply fears
+2026-09-13 21:44 CT · relevance 49 · Geopolitics & disruption · Crude Oil
+Summary: Saudis yet to provide details about damage from drone attack to key east-west pipeline to Red Sea that could affect 4% of global oil supply
+- The Guardian (API) (tier 1, PRESS): Satellite images show extent of damage to major Saudi pipeline, amid global oil supply fears — https://www.theguardian.com/world/2026/sep/14/saudi-pipeline-drone-attack-houthis-global-oil-supply-prices
+- The Guardian (API) (tier 1, PRESS): First Thing: Oil prices surge as attacks on Saudi Arabia stoke supply fears — https://www.theguardian.com/us-news/2026/sep/14/first-thing-oil-prices-surge-houthi-attack-saudi-arabia-supply-fears
+
+### [c:2f84dca539b2] Trump sees Iran war ending soon after midterm elections, predicts oil prices will then fall sharply
+2026-09-12 12:22 CT · relevance 47 · Geopolitics & disruption · Crude Oil
+Summary: Oil prices retreated on Friday on hopes of a resumptions in negotiations, but notched sharp weekly gains after soaring above $100 a barrel.
+- CNBC — Energy (tier 1, PRESS): Trump sees Iran war ending soon after midterm elections, predicts oil prices will then fall sharply — https://www.cnbc.com/2026/09/12/trump-sees-iran-war-ending-very-soon-oil-prices-then-falling.html
+
+### [c:e3f18340725b] Saudi Arabia shut down East-West crude oil pipeline after multiple attacks by drones from Iraq
+2026-09-11 16:35 CT · relevance 46 · Geopolitics & disruption · Crude Oil
+Summary: Iran-allied Houthi militants in Yemen have escalated strikes on Saudi Arabia this week.
+- CNBC — Energy (tier 1, PRESS): Saudi Arabia shut down East-West crude oil pipeline after multiple attacks by drones from Iraq — https://www.cnbc.com/2026/09/11/saudi-arabia-shut-down-east-west-crude-oil-pipeline.html
+- CNBC — Energy (tier 1, PRESS): Oil prices rise after Saudi Arabia shuts down critical pipeline that bypasses Strait of Hormuz — https://www.cnbc.com/2026/09/13/oil-price-iran-war-strait-hormuz-saudi-pipeline.html
+
+### [c:ae9744cd9ee8] Oil's roundtrip back to $100. Why China could determine what happens next
+2026-09-12 07:40 CT · relevance 46 · Demand & macro · Crude Oil
+Summary: The U.S. crude oil price on Thursday topped $102 per barrel for its highest close since May.
+- CNBC — Energy (tier 1, PRESS): Oil's roundtrip back to $100. Why China could determine what happens next — https://www.cnbc.com/2026/09/12/oils-roundtrip-back-to-100-why-china-could-determine-what-happens-next.html
+
+### [c:f4eb2c2b7ce3] Oil prices fall Friday, but post sharp weekly gains as tensions in the Middle East rise
+2026-09-11 14:25 CT · relevance 45 · Geopolitics & disruption · Crude Oil
+Summary: The decline snapped multiday winning streaks for both Brent and WTI crude oil futures.
+- CNBC — Energy (tier 1, PRESS): Oil prices fall Friday, but post sharp weekly gains as tensions in the Middle East rise — https://www.cnbc.com/2026/09/11/oil-price-today-iran-brent-wti-trump.html
+
+### [c:4d04575900e3] Is Burnham trying to appease Trump? Or Reform? What other reason is there for these North Sea oil plans? | George Monbiot
+2026-09-10 00:00 CT · relevance 44 · Demand & macro · Crude Oil
+Summary: Climate catastrophe is on our doorstep – yet Labour’s impending approval of further drilling will bring more pain for negligible gains Pinch yourself, it’s happening again.
+- The Guardian — Energy (tier 1, PRESS): Is Burnham trying to appease Trump? Or Reform? What other reason is there for these North Sea oil plans? | George Monbiot — https://www.theguardian.com/commentisfree/2026/sep/10/andy-burnham-north-sea-oil-plans-labour-climate-drilling-trump-reform
+
+### [c:ddf4e186076e] United States on track for record crude oil production in 2026
+2026-09-10 09:00 CT · relevance 44 · Production · Crude Oil
+Summary: We forecast U.S. crude oil production will average 13.8 million barrels per day (b/d) in 2026, surpassing the previous record of 13.7 million b/d set in 2025, in our latest Short-Term Energy Outlook (STEO).
+- EIA Today in Energy (tier 1, OFFICIAL): United States on track for record crude oil production in 2026 — https://www.eia.gov/todayinenergy/detail.php?id=68125
+- figure: “13.8 million barrels per day” — EIA Today in Energy
+- figure: “13.7 million b/d” — EIA Today in Energy
+- figure: “2%” — EIA Today in Energy
+
+### [c:9edfd5b2f429] Halliburton bags Eni’s deepwater bundle as Eastern Mediterranean gas buildout continues
+2026-09-16 10:17 CT · relevance 38 · Production · Crude Oil · trends: eastern-med-gas-buildout
+Organizations: Eni, Halliburton
+Summary: U.S.-headquartered oilfield services player Halliburton has secured a multi-year contract with Italy’s energy giant Eni to provide bundled well construction and completions services for an ultra-deepwater development in Cyprus, expanding its presence in the Eastern Mediterranean.
+- Offshore Energy (tier 2, TRADE): Halliburton bags Eni’s deepwater bundle as Eastern Mediterranean gas buildout continues — https://www.offshore-energy.biz/halliburton-bags-enis-deepwater-bundle-as-eastern-mediterranean-gas-buildout-continues
+
+### [c:45ea1d666720] Oil Falls as Saudi Supply Outlook Improves
+2026-09-16 14:24 CT · relevance 38 · Infrastructure & outages · Crude Oil
+Summary: Crude futures fell as Saudi and Libyan supply disruptions showed signs of easing.
+- Rigzone (tier 2, TRADE): Oil Falls as Saudi Supply Outlook Improves — https://www.rigzone.com/news/wire/oil_falls_as_saudi_supply_outlook_improves-16-sep-2026-184635-article?rss=true
+
+### [c:1c3609cbc49a] Chart Of The Day: Oil? Surging. Oil Stocks? Not So Much
+2026-09-16 05:30 CT · relevance 37 · Other · Crude Oil
+Summary: Both WTI and Brent futures have surged by more than 20% in just a few weeks.
+- NewsData.io — top outlets (tier 2, AGGREGATOR): Chart Of The Day: Oil? Surging. Oil Stocks? Not So Much — https://seekingalpha.com/article/4946880-chart-of-day-oil-surging-oil-stocks-not-so-much
+
+### [c:3f0fe780019c] Find out more as petrol prices fall at depots, marketers release new rates
+2026-09-16 05:49 CT · relevance 37 · Other · Crude Oil, Refined Products
+Summary: Nigerians get relief as petrol and diesel prices fall below current landing costs across major markets, despite surging global crude prices and rising replacement.
+- NewsData.io — top outlets (tier 2, AGGREGATOR): Find out more as petrol prices fall at depots, marketers release new rates — https://www.legit.ng/business-economy/energy/1731128-relief-nigerians-petrol-prices-falls-depots
+
+### [c:d50be4b051af] The S&P 500 reached its pain threshold with oil above $100; a hawkish Fed could exacerbate the losses
+2026-09-16 06:07 CT · relevance 37 · Demand & macro · Crude Oil
+Summary: FUNDAMENTAL OVERVIEW The S&P 500 has been inversely correlated with oil prices recently as the break above the psychological $100 dollars a barrel triggered a hawkish repricing across the board and increased inflation and growth concerns.
+- NewsData.io — top outlets (tier 2, AGGREGATOR): The S&P 500 reached its pain threshold with oil above $100; a hawkish Fed could exacerbate the losses — https://investinglive.com/stocks/the-s-p-500-reached-its-pain-threshold-with-oil-above-100-a-hawkish-fed-could-exacerbate-the-losses
+
+### [c:227d72bf2640] Petrol at PKR 384, diesel at PKR 415 and RLNG at $23.25: Imported energy dependence comes back to haunt Pakistan
+2026-09-16 06:09 CT · relevance 37 · Demand & macro · Crude Oil, Refined Products
+Summary: Rising oil prices and disruptions to RLNG supplies are deepening Pakistan’s energy crisis.
+- NewsData.io — top outlets (tier 2, AGGREGATOR): Petrol at PKR 384, diesel at PKR 415 and RLNG at $23.25: Imported energy dependence comes back to haunt Pakistan — https://www.moneycontrol.com/world/petrol-at-pkr-384-diesel-at-pkr-415-and-rlng-at-23-25-imported-energy-dependence-comes-back-to-haunt-pakistan-article-14031222.html
+
+### [c:c2580fe9c78c] Current price of oil as of September 16, 2026
+2026-09-16 06:15 CT · relevance 37 · Other · Crude Oil
+Summary: When oil prices change, it affects your energy costs—and even the price of everyday items.
+- NewsData.io — top outlets (tier 2, AGGREGATOR): Current price of oil as of September 16, 2026 — https://fortune.com/article/price-of-oil-09-16-2026
+
+### [c:b400c0e38b30] Why are oil prices falling today despite Middle East supply risks? Fed, strong dollar and US stocks weigh
+2026-09-16 06:15 CT · relevance 37 · Demand & macro · Crude Oil
+Summary: Oil prices fall as Fed rate hike expectations, a strong dollar and higher US crude inventories weigh on demand despite ongoing Middle East supply risks.
+- NewsData.io — top outlets (tier 2, AGGREGATOR): Why are oil prices falling today despite Middle East supply risks? Fed, strong dollar and US stocks weigh — https://www.hindustantimes.com/world-news/us-news/why-are-oil-prices-falling-today-despite-middle-east-supply-risks-fed-strong-dollar-and-us-stocks-weigh-101789556889027.html
+
+### [c:0f9b4878791c] Buru Says Rafael Gas Project Holds Over 15 MMboe 2P Reserves
+2026-09-16 06:50 CT · relevance 37 · Other · Crude Oil
+Summary: The initial development of the Rafael field in Western Australia's onshore Canning Basin has been assessed to contain 15.25 million barrels of oil equivalent proven and probable reserves, with potential for 65.74 billion cubic feet of sales gas.
+- Rigzone (tier 2, TRADE): Buru Says Rafael Gas Project Holds Over 15 MMboe 2P Reserves — https://www.rigzone.com/news/buru_says_rafael_gas_project_holds_over_15_mmboe_2p_reserves-16-sep-2026-184628-article?rss=true
+
+### [c:fe8f933a30b7] BKV Expands Barnett Shale Footprint
+2026-09-16 07:39 CT · relevance 37 · Production · Crude Oil
+Summary: BKV said it had acquired upstream, midstream and carbon capture and storage assets in the Barnett Shale that grow its proven developed producing reserves by about 350 billion cubic feet equivalent.
+- Rigzone (tier 2, TRADE): BKV Expands Barnett Shale Footprint — https://www.rigzone.com/news/bkv_expands_barnett_shale_footprint-16-sep-2026-184630-article?rss=true
+- figure: “350 billion cubic feet” — Rigzone
+
+### [c:0931eb07eeee] EIA Now Sees Bigger Oil Crunch in 2026, Glut in 2027
+2026-09-16 09:15 CT · relevance 37 · Other · Crude Oil
+Organizations: EIA
+Summary: The EIA predicted a bigger oil market crunch in 2026 and a bigger oil glut in 2027 in its latest STEO, compared to its previous August STEO.
+- Rigzone (tier 2, TRADE): EIA Now Sees Bigger Oil Crunch in 2026, Glut in 2027 — https://www.rigzone.com/news/eia_now_sees_bigger_oil_crunch_in_2026_glut_in_2027-16-sep-2026-184633-article?rss=true
+
+### [c:90ec01d57921] Oil Jumps on Saudi and Libya Outages
+2026-09-15 14:44 CT · relevance 36 · Infrastructure & outages · Crude Oil
+Summary: Brent neared $109 as pipeline and oil field disruptions tightened supplies.
+- Rigzone (tier 2, TRADE): Oil Jumps on Saudi and Libya Outages — https://www.rigzone.com/news/wire/oil_jumps_on_saudi_and_libya_outages-15-sep-2026-184624-article?rss=true
+
+### [c:ecf5590b7d03] China's Crude Oil Futures Have Never Been So Expensive
+2026-09-15 09:15 CT · relevance 35 · Demand & macro · Crude Oil
+Summary: Yuan-priced crude futures in China rallied to the highest level on record.
+- Rigzone (tier 2, TRADE): China's Crude Oil Futures Have Never Been So Expensive — https://www.rigzone.com/news/wire/chinas_crude_oil_futures_have_never_been_so_expensive-15-sep-2026-184619-article?rss=true
+
+## Natural Gas stories (22)
+
+### [c:a60939e35601] Hormuz crisis threatens to undermine long-term LNG demand
+2026-09-16 06:00 CT · relevance 56 · Demand & macro · Natural Gas
+Summary: Soaring prices drive search for alternatives in key Asian markets
+- Financial Times — Energy (tier 1, PRESS): Hormuz crisis threatens to undermine long-term LNG demand — https://www.ft.com/content/31f41c2e-084b-4bdf-a548-bf3d1139dbbe?syn-25a6b1a6=1
+
+### [c:c40f3af22885] World’s top 20 private equity firms produce more greenhouse gases a year than most countries, report finds
+2026-09-15 07:42 CT · relevance 53 · Geopolitics & disruption · Natural Gas
+Summary: Firms manage $7.3tn in assets and could afford to transition away from fossil fuels yet invest in natural gas and coal-fired plants to power datacenters The energy portfolios of 20 private equity firms produce 1.5bn tons of greenhouse gases a year, more than the annual emissions 
+- The Guardian — Energy (tier 1, PRESS): World’s top 20 private equity firms produce more greenhouse gases a year than most countries, report finds — https://www.theguardian.com/us-news/2026/sep/15/private-equity-firms-energy-assets-greenhouse-gas
+
+### [c:45c9d89ee88a] Corpus Christi LNG expansion makes facility the second-largest in the United States
+2026-09-15 09:00 CT · relevance 53 · Production · Natural Gas · trends: us-lng-export-expansion
+Organizations: Cheniere Energy, EIA
+Summary: On August 28, 2026, Cheniere Energy, Inc., completed its Corpus Christi Liquefaction Stage 3 Project (CCL Stage 3) in Texas, taking custody and control of the seventh and last liquefied natural gas (LNG) train in the project.
+- EIA Today in Energy (tier 1, OFFICIAL): Corpus Christi LNG expansion makes facility the second-largest in the United States — https://www.eia.gov/todayinenergy/detail.php?id=68144
+- figure: “3.1 billion cubic feet” — EIA Today in Energy
+- figure: “3.9 Bcf” — EIA Today in Energy
+- figure: “3.6 Bcf” — EIA Today in Energy
+
+### [c:a8b0eb3725e1] Baker Hughes sees no slowdown in energy projects despite higher rates as AI buildouts stoke LNG demand
+2026-09-13 22:27 CT · relevance 49 · Demand & macro · Natural Gas · trends: ai-lng-investment
+Organizations: Baker Hughes
+Summary: Baker Hughes has yet to see higher borrowing costs slow investment in major energy projects.
+- CNBC — Energy (tier 1, PRESS): Baker Hughes sees no slowdown in energy projects despite higher rates as AI buildouts stoke LNG demand — https://www.cnbc.com/2026/09/14/baker-hughes-ceo-no-slowdown-in-energy-projects-despite-higher-rates-.html
+
+### [c:193f2237b0c2] How high might natural gas prices go?
+2026-09-13 23:00 CT · relevance 49 · Geopolitics & disruption · Natural Gas
+Summary: Market mindset has shifted to concerns of extended outage as the Strait of Hormuz blockages continue ahead of winter
+- Financial Times — Energy (tier 1, PRESS): How high might natural gas prices go? — https://www.ft.com/content/639b4d2a-30c7-473c-a3ec-1fe96a7a7ac7?syn-25a6b1a6=1
+
+### [c:89ccaca4f93a] Kimmeridge’s Caturus plans to almost double Commonwealth LNG capacity
+2026-09-16 01:02 CT · relevance 48 · Other · Natural Gas · trends: us-lng-export-expansion
+Summary: Kimmeridge's Caturus has revealed plans for a five-train, 7.75 million tonnes per annum (mtpa) expansion project for its Commonwealth LNG export facility in Cameron Parish, Louisiana, which would nearly double the site’s planned capacity to approximately 17.25 mtpa.
+- LNG Prime (tier 2, TRADE): Kimmeridge’s Caturus plans to almost double Commonwealth LNG capacity — https://lngprime.com/americas/kimmeridges-caturus-plans-to-almost-double-commonwealth-lng-capacity/196892
+- Rigzone (tier 2, TRADE): Kimmeridge, Mubadala to Nearly Double Commonwealth LNG Capacity — https://www.rigzone.com/news/kimmeridge_mubadala_to_nearly_double_commonwealth_lng_capacity-16-sep-2026-184634-article?rss=true
+- figure: “7.75 million tonnes” — LNG Prime
+- figure: “17.25 mtpa” — LNG Prime
+
+### [c:0192fa6aec99] Hanwha Power gets ABS OK for LNG bunkering vessel
+2026-09-16 00:49 CT · relevance 37 · Shipping & refining · Natural Gas
+Summary: Hanwha Power, part of South Korean conglomerate Hanwha, has secured approval in principle from the American Bureau of Shipping (ABS) for the concept design of a 22,000-cbm LNG bunkering vessel.
+- LNG Prime (tier 2, TRADE): Hanwha Power gets ABS OK for LNG bunkering vessel — https://lngprime.com/asia/hanwha-power-gets-abs-ok-for-lng-bunkering-vessel/196918
+
+### [c:af0ef1836397] Finland’s Gasgrid offers Inkoo FSRU capacity
+2026-09-16 01:19 CT · relevance 37 · Other · Natural Gas
+Summary: A unit of Finland’s Gasgrid is offering regasification capacity for 2028-2032 at the FSRU-based LNG import terminal in Inkoo.
+- LNG Prime (tier 2, TRADE): Finland’s Gasgrid offers Inkoo FSRU capacity — https://lngprime.com/europe/finlands-gasgrid-offers-inkoo-fsru-capacity/196903
+
+### [c:e4d70359b92b] HD Hyundai Heavy gets DNV OK for giant LNG carrier
+2026-09-16 02:15 CT · relevance 37 · Regulation · Natural Gas
+Summary: South Korean shipbuilder HD Hyundai Heavy Industries has secured approval in principle from classification society DNV for its new 271,000-cbm LNG carrier design.
+- LNG Prime (tier 2, TRADE): HD Hyundai Heavy gets DNV OK for giant LNG carrier — https://lngprime.com/asia/hd-hyundai-heavy-gets-dnv-ok-for-giant-lng-carrier/196953
+
+### [c:162f519dff82] Technip Energies bags Amigo LNG gig
+2026-09-16 02:19 CT · relevance 37 · Other · Natural Gas
+Summary: French LNG engineer Technip Energies has been selected by LNG Alliance Pte for an enhanced project management consultant role for the Amigo LNG project in Mexico.
+- LNG Prime (tier 2, TRADE): Technip Energies bags Amigo LNG gig — https://lngprime.com/americas/technip-energies-bags-amigo-lng-gig/196965
+
+### [c:b0eb27fda3d0] DET: FSRU returns to Stade
+2026-09-16 02:20 CT · relevance 37 · Other · Natural Gas
+Summary: The 2021-built 174,000-cbm FSRU Energos Force has returned to Germany’s Stade as state-owned LNG terminal operator DET prepares to launch its fourth FSRU-based LNG import facility in Germany.
+- LNG Prime (tier 2, TRADE): DET: FSRU returns to Stade — https://lngprime.com/europe/det-fsru-returns-to-stade/196912
+
+### [c:e766e15a753b] South Africa’s Transnet seeks operator for East London LNG terminal
+2026-09-16 03:55 CT · relevance 37 · Inventories · Natural Gas
+Summary: South Africa’s Transnet National Ports Authority, part of Transnet, is seeking an operator to finance, build, and operate a small- to medium-scale LNG import facility at the Port of East London.
+- LNG Prime (tier 2, TRADE): South Africa’s Transnet seeks operator for East London LNG terminal — https://lngprime.com/contracts-and-tenders/south-africas-transnet-seeks-operator-for-east-london-lng-terminal/196928
+
+### [c:afd0ec3136d6] Aker BP Makes New North Sea Gas Discovery
+2026-09-16 04:49 CT · relevance 37 · Other · Natural Gas
+Organizations: BP
+Summary: Aker BP discovered natural gas with preliminary estimates of about 5.3-84.8 million cubic feet on Norway's side of the North Sea, some 16 miles north of the producing Duva field.
+- Rigzone (tier 2, TRADE): Aker BP Makes New North Sea Gas Discovery — https://www.rigzone.com/news/aker_bp_makes_new_north_sea_gas_discovery-16-sep-2026-184626-article?rss=true
+
+### [c:3b0620f3db9d] China’s ENN inks LNG cooperation pact with Trafigura
+2026-09-16 04:55 CT · relevance 37 · Demand & macro · Natural Gas · trends: lng-asia-offtake
+Organizations: Trafigura
+Summary: Chinese independent gas distributor ENN has signed a memorandum of understanding with commodity trader Trafigura to explore cooperation in liquefied natural gas (LNG).
+- LNG Prime (tier 2, TRADE): China’s ENN inks LNG cooperation pact with Trafigura — https://lngprime.com/asia/chinas-enn-inks-lng-cooperation-pact-with-trafigura/196943
+
+### [c:6a44f9ae6a4d] AI data centre boom could push US natural gas demand to new highs by 2035
+2026-09-16 05:18 CT · relevance 37 · Demand & macro · Natural Gas
+Summary: America’s rapid expansion of AI infrastructure is creating a new energy challenge.
+- NewsData.io — top outlets (tier 2, AGGREGATOR): AI data centre boom could push US natural gas demand to new highs by 2035 — https://www.firstpost.com/tech/ai-data-centre-boom-could-push-us-natural-gas-demand-to-new-highs-by-2035-14046318.html
+
+### [c:d1ffdcbc816f] Thailand's PTTEP says every $3 rise in LNG prices could lift Thai power prices by 5%
+2026-09-16 05:35 CT · relevance 37 · Other · Natural Gas
+Summary: BANGKOK, Sept 16 : Every $3 per MMBtu increase in liquefied natural gas prices could raise Thai electricity prices by 5 per cent, Kanita Sartwattayu, the incoming chief executive of Thai energy firm PTTEP, told the Gastech conference on Wednesday."In Thailand, if you do not lower
+- NewsData.io — top outlets (tier 2, AGGREGATOR): Thailand's PTTEP says every $3 rise in LNG prices could lift Thai power prices by 5% — https://www.channelnewsasia.com/business/thailands-pttep-says-every-3-rise-in-lng-prices-could-lift-thai-power-prices-5-6388986
+
+### [c:48fdeb7779ec] Japan gas association welcomes government's first emergency LNG deal with Petronas
+2026-09-16 06:11 CT · relevance 37 · Demand & macro · Natural Gas
+Organizations: Petronas
+Summary: TOKYO, Sept 16 : Japan Gas Association welcomed the government's first deal to procure liquefied natural gas from Malaysia's Petronas in an emergencies and hoped similar agreements would follow, Chairman Takeshi Uchida said on Wednesday. • The master sales and purchase agreement,
+- NewsData.io — top outlets (tier 2, AGGREGATOR): Japan gas association welcomes government's first emergency LNG deal with Petronas — https://www.channelnewsasia.com/business/japan-gas-association-welcomes-governments-first-emergency-lng-deal-petronas-6389061
+
+### [c:fdeb7ac2c30a] Fore-accommodation LNG carrier with four Wind Challenger sails clears LR design appraisal
+2026-09-16 06:26 CT · relevance 37 · Other · Natural Gas
+Summary: A new liquefied natural gas (LNG) carrier design that moves the accommodation block and bridge to the bow to make room for four wind-assisted sails has cleared a key technical milestone, with Lloyd’s Register, a maritime classification society, affirming technical readiness of th
+- Offshore Energy (tier 2, TRADE): Fore-accommodation LNG carrier with four Wind Challenger sails clears LR design appraisal — https://www.offshore-energy.biz/fore-accommodation-lng-carrier-with-four-wind-challenger-sails-clears-lr-design-appraisal
+
+### [c:26f6c34ac831] Gas Prices Jump in Every State
+2026-09-16 07:13 CT · relevance 37 · Other · Natural Gas, Refined Products
+Summary: Gasoline prices jumped in every U.S. state 'with no relief in sight', GasBuddy warned.
+- Rigzone (tier 2, TRADE): Gas Prices Jump in Every State — https://www.rigzone.com/news/gas_prices_jump_in_every_state-16-sep-2026-184629-article?rss=true
+
+### [c:dd599868a447] FSRU docks in Stade as LNG terminal prepares to feed gas into German grid from November
+2026-09-16 07:36 CT · relevance 37 · Inventories · Natural Gas
+Summary: A 294-meter floating storage and regasification unit (FSRU) has arrived at the new liquefied natural gas (LNG) terminal in Stade, marking the start of commissioning preparations and bringing the facility a step closer to operations, with gas feed-in to Germany’s grid expected fro
+- Offshore Energy (tier 2, TRADE): FSRU docks in Stade as LNG terminal prepares to feed gas into German grid from November — https://www.offshore-energy.biz/fsru-docks-in-stade-as-lng-terminal-prepares-to-feed-gas-into-german-grid-from-november
+
+### [c:f8aae2ef52ae] Kogas reports lower gas sales in August
+2026-09-15 03:15 CT · relevance 35 · Other · Natural Gas
+Summary: South Korean LNG importer Kogas said its gas sales decreased by 7.4 percent in August compared to last year.
+- LNG Prime (tier 2, TRADE): Kogas reports lower gas sales in August — https://lngprime.com/asia/kogas-reports-lower-gas-sales-in-august/196855
+- figure: “7.4 percent” — LNG Prime
+
+### [c:513213c5e9bd] Fluxys: Dunkirk LNG sendout reduced due to strike
+2026-09-15 03:43 CT · relevance 35 · Other · Natural Gas
+Organizations: Fluxys
+Summary: France’s Dunkirk LNG import terminal has reduced sendout to the grid on Tuesday due to a strike, according to Belgian LNG terminal operator Fluxys.
+- LNG Prime (tier 2, TRADE): Fluxys: Dunkirk LNG sendout reduced due to strike — https://lngprime.com/europe/fluxys-dunkirk-lng-sendout-reduced-due-to-strike/196872
+
+## Refined Products stories (13)
+
+### [c:5c7d14a4952c] Ukraine and Russia have agreed not to hit energy targets, Trump claims – as it happened
+2026-09-14 11:55 CT · relevance 83 · Geopolitics & disruption · Refined Products
+Summary: US president blames conflict, and ‘not Iran;, for spike in US diesel prices
+- The Guardian (API) (tier 1, PRESS): Ukraine and Russia have agreed not to hit energy targets, Trump claims – as it happened — https://www.theguardian.com/world/live/2026/sep/14/sweden-election-magdalena-andersson-social-democrats-centre-left-latest-news-updates
+- Financial Times — Energy (tier 1, PRESS): Trump claims Russia and Ukraine have agreed energy truce — https://www.ft.com/content/d6f98d2e-9f0c-4414-a339-fe8462810276?syn-25a6b1a6=1
+- CNBC — Energy (tier 1, PRESS): Ukraine says it's open to halting attacks on Russian energy after Trump's claims of deal — https://www.cnbc.com/2026/09/14/trump-ukraine-russia-energy-oil-iran.html
+- Rigzone (tier 2, TRADE): No Trump Truce Seen as Kyiv Hits Volga Refinery — https://www.rigzone.com/news/wire/no_trump_truce_seen_as_kyiv_hits_volga_refinery-16-sep-2026-184625-article?rss=true
+
+### [c:8d0dc9efd189] Trump calls on Ukraine to stop striking Russian oil refineries
+2026-09-13 14:08 CT · relevance 59 · Geopolitics & disruption · Refined Products
+Summary: US president says the attacks and not his war in Iran are responsible for diesel hitting record highs
+- Financial Times — Energy (tier 1, PRESS): Trump calls on Ukraine to stop striking Russian oil refineries — https://www.ft.com/content/e3ba3f9a-9312-4d0b-99fd-2c80728f2dcd?syn-25a6b1a6=1
+- CNBC — Energy (tier 1, PRESS): Trump urges Ukraine to stop ‘knocking out’ Russian oil refineries as U.S. diesel hits record — https://www.cnbc.com/2026/09/14/trump-ukraine-russia-diesel-prices-oil.html
+
+### [c:2434cc2e8350] 'Science fiction': Transport companies — the backbone of economy — are sounding alarm on fuel prices
+2026-09-16 15:22 CT · relevance 57 · Demand & macro · Refined Products
+Summary: Prices for diesel, the fuel type used to power trucks and trains, came in at an all-time high of $6.31 per gallon on Wednesday.
+- CNBC — Energy (tier 1, PRESS): 'Science fiction': Transport companies — the backbone of economy — are sounding alarm on fuel prices — https://www.cnbc.com/2026/09/16/transport-economy-diesel-prices-iran.html
+
+### [c:18b90bbcea5a] What is happening to UK prices?
+2026-09-16 04:12 CT · relevance 56 · Demand & macro · Refined Products
+Summary: UK inflation rose in August, pushed up by higher petrol and diesel prices.
+- BBC News — Business (tier 1, PRESS): What is happening to UK prices? — https://www.bbc.co.uk/news/articles/c17rgd8e9gjo?at_medium=RSS&at_campaign=rss
+- BBC News — Business (tier 1, PRESS): Petrol and diesel price rises push UK inflation higher — https://www.bbc.co.uk/news/articles/cv2dw7lw4rkpo?at_medium=RSS&at_campaign=rss
+
+### [c:69f7f8a3ab91] Syrians take to the streets over fuel price rise
+2026-09-14 11:01 CT · relevance 51 · Other · Refined Products
+Summary: Sharp increases by government to cost of diesel and petrol spark nationwide protests
+- Financial Times — Energy (tier 1, PRESS): Syrians take to the streets over fuel price rise — https://www.ft.com/content/b78370c8-dc35-47ea-a254-a75421a46a85?syn-25a6b1a6=1
+
+### [c:4c13aa119966] India’s retail inflation hits 4.8% in August, rises for 10th straight month
+2026-09-14 06:10 CT · relevance 50 · Demand & macro · Refined Products
+Summary: India's inflation in August accelerated for the tenth month straight to 4.82% in August amid rising food and fuel prices.
+- CNBC — Energy (tier 1, PRESS): India’s retail inflation hits 4.8% in August, rises for 10th straight month — https://www.cnbc.com/2026/09/14/india-inflation-august-iran-war-energy-el-nino.html
+
+### [c:2fa661f3eba4] Africa’s richest man aiming to make $23bn from continent’s biggest-ever IPO
+2026-09-14 07:38 CT · relevance 50 · Other · Refined Products
+Summary: Public offering of Aliko Dangote’s Nigerian oil refinery business could swell his net wealth by two-thirds
+- The Guardian (API) (tier 1, PRESS): Africa’s richest man aiming to make $23bn from continent’s biggest-ever IPO — https://www.theguardian.com/world/2026/sep/14/aliko-dangote-nigeria-africa-richest-man-ipo
+
+### [c:e111b89a90d1] Essar strikes deal to buy 118 UK petrol stations
+2026-09-13 23:00 CT · relevance 49 · Demand & macro · Refined Products · trends: majors-retreat-fuel-retail
+Organizations: BP, Shell
+Summary: Purchase by owner of Stanlow refinery comes as BP and Shell retreat from forecourts globally
+- Financial Times — Energy (tier 1, PRESS): Essar strikes deal to buy 118 UK petrol stations — https://www.ft.com/content/130f45b6-ee45-4fa0-83eb-5ea8f9bc4680?syn-25a6b1a6=1
+
+### [c:10f1223a4cc7] IEA warns global oil refining system ‘stretched to the limit’ as Iran, Ukraine wars tighten market
+2026-09-11 05:56 CT · relevance 45 · Geopolitics & disruption · Refined Products
+Organizations: IEA
+Summary: The energy agency warned shrinking inventories and strained refineries could further tighten markets.
+- CNBC — Energy (tier 1, PRESS): IEA warns global oil refining system ‘stretched to the limit’ as Iran, Ukraine wars tighten market — https://www.cnbc.com/2026/09/11/iran-war-oil-diesel-iea-hormuz.html
+
+### [c:99fa1c6ad85b] Japan Refiners Rush for Mideast Oil
+2026-09-16 15:00 CT · relevance 38 · Demand & macro · Refined Products
+Summary: Japanese refiners have stepped up purchases of Middle Eastern oil.
+- Rigzone (tier 2, TRADE): Japan Refiners Rush for Mideast Oil — https://www.rigzone.com/news/wire/japan_refiners_rush_for_mideast_oil-16-sep-2026-184632-article?rss=true
+
+### [c:04972f41b44c] How buy Dangote Refinery's as billionaire plans to give up more shares
+2026-09-16 05:38 CT · relevance 37 · Demand & macro · Refined Products
+Summary: Dangote may release 30% more Dangote Refinery shares if IPO demand exceeds supply, targeting 10 million shareholders and Africa’s biggest company in three years.
+- NewsData.io — top outlets (tier 2, AGGREGATOR): How buy Dangote Refinery's as billionaire plans to give up more shares — https://www.legit.ng/business-economy/capital-market/1731131-dangote-refinery-plans-additional-30-share-sale-investors-rush-ipo
+- figure: “30%” — NewsData.io — top outlets
+
+### [c:4bf87c774e2f] US midterm elections 2026: Record diesel prices hit at worst time in key battleground states
+2026-09-16 06:20 CT · relevance 37 · Geopolitics & disruption · Refined Products
+Summary: Record US diesel prices are squeezing farmers, fishermen and households just weeks before the midterm elections.
+- NewsData.io — top outlets (tier 2, AGGREGATOR): US midterm elections 2026: Record diesel prices hit at worst time in key battleground states — https://economictimes.indiatimes.com/news/international/world-news/us-midterm-elections-2026-record-diesel-prices-hit-at-worst-time-in-key-battleground-states/articleshow/134286175.cms
+
+### [c:2e2cafbbd922] Europe Molecular Sieves Market Forecasts Growth from $0.98B (2026) to $1.16B by 2031, Profiling BASF, Honeywell, Clariant, Solvay & 17 Other Key Players
+2026-09-15 04:15 CT · relevance 35 · Demand & macro · Refined Products
+Summary: Tighter EU rules, medical oxygen, green hydrogen and refinery upgrades are driving demand for high-performance zeolites, microporous media and energy-efficient adsorbents.
+- NewsData.io — top outlets (tier 2, AGGREGATOR): Europe Molecular Sieves Market Forecasts Growth from $0.98B (2026) to $1.16B by 2031, Profiling BASF, Honeywell, Clariant, Solvay & 17 Other Key Players — https://www.globenewswire.com/fr/news-release/2026/09/15/3361799/28124/en/europe-molecular-sieves-market-forecasts-growth-from-0-98b-2026-to-1-16b-by-2031-profiling-basf-honeywell-clariant-solvay-17-other-key-players.html
+
+## Carbon Credits stories (7)
+
+### [c:3ea82f4df7c8] Over €400 million in EU ETS support given to airlines for using sustainable aviation fuels in 2025
+2026-09-15 07:00 CT · relevance 53 · Other · Carbon Credits
+Summary: On 8 September 2026, the Commission adopted a new Decision allocating EU Emissions Trading System (ETS) allowances to airlines for using sustainable aviation fuels (SAF) in 2025
+- European Commission — Climate Action (tier 1, OFFICIAL): Over €400 million in EU ETS support given to airlines for using sustainable aviation fuels in 2025 — https://climate.ec.europa.eu/news-other-reads/news/over-eur400-million-eu-ets-support-given-airlines-using-sustainable-aviation-fuels-2025-2026-09-15_en
+
+### [c:6085bb3695bf] ‘Carbon fever’ threatens hard-won Indigenous rights in Bolivian Amazon
+2026-09-14 06:00 CT · relevance 50 · Other · Carbon Credits
+Summary: Leaders in Pando region denounce opaque deals over carbon credits as government and companies rush to monetise Amazon rainforest after 2024 ruling
+- The Guardian (API) (tier 1, PRESS): ‘Carbon fever’ threatens hard-won Indigenous rights in Bolivian Amazon — https://www.theguardian.com/global-development/2026/sep/14/bolivia-amazon-environment-climate-carbon-credit-market-indigenous-rights-hecker
+
+### [c:ff7679f43967] Is it time to rethink the Northeast's cap-and-trade system?
+2026-09-16 02:30 CT · relevance 37 · Supply policy · Carbon Credits
+Summary: Twenty years ago, a group of Northeastern states signed on to a plan to reduce the greenhouse gases spewing from power plants by making generators pay for the carbon they release.
+- Canary Media (tier 2, TRADE): Is it time to rethink the Northeast's cap-and-trade system? — https://www.canarymedia.com/articles/carbon-capture/rethink-northeast-cap-and-trade-system
+
+### [c:0fb3ad0bfdee] STATEMENT: BRICS Leaders Unite on Climate Resilience, Energy Security and Forests
+2026-09-15 06:41 CT · relevance 35 · Demand & macro · Carbon Credits
+Summary: NEW DELHI (September 15, 2026) — The 2026 BRICS Summit concluded in New Delhi, bringing together leaders from countries including India, Brazil, China, Indonesia, Iran, Russia and South Africa to discuss economic development, global cooperation and climate action.
+- NewsData.io — top outlets (tier 2, AGGREGATOR): STATEMENT: BRICS Leaders Unite on Climate Resilience, Energy Security and Forests — https://www.wri.org/news/statement-brics-leaders-unite-climate-resilience-energy-security-and-forests
+
+### [c:7f7d3c9d1014] EU Parliament votes to scrap carbon border tax's emergency brake, setting up clash with member states
+2026-09-15 07:46 CT · relevance 35 · Regulation · Carbon Credits
+Summary: European Union lawmakers voted to remove a clause allowing suspension of the carbon border levy.
+- NewsData.io — top outlets (tier 2, AGGREGATOR): EU Parliament votes to scrap carbon border tax's emergency brake, setting up clash with member states — https://economictimes.indiatimes.com/news/international/global-trends/eu-parliament-votes-to-scrap-carbon-border-taxs-emergency-brake-setting-up-clash-with-member-states/articleshow/134263347.cms
+
+### [c:3623121b4f55] India seeks EU approval for local CBAM verifiers
+2026-09-15 08:24 CT · relevance 35 · Regulation · Carbon Credits
+Summary: India is seeking EU recognition for its national accreditation body and local verification agencies to help exporters meet CBAM requirements ahead of the first annual declaration deadline in September 2027.
+- NewsData.io — top outlets (tier 2, AGGREGATOR): India seeks EU approval for local CBAM verifiers — https://www.moneycontrol.com/news/business/india-seeks-eu-approval-for-local-cbam-verifiers-14030465.html
+
+### [c:5e49ea8f6f88] Goods exports up 26% in August, trade deficit eases: Engineering, petroleum products, chemicals and textiles lead shipments; US remains top market
+2026-09-15 13:31 CT · relevance 35 · Demand & macro · Carbon Credits, Crude Oil
+Summary: Indias goods exports surged in August, driven by robust global demand, while the trade deficit narrowed to a five-month low as imports declined.
+- NewsData.io — top outlets (tier 2, AGGREGATOR): Goods exports up 26% in August, trade deficit eases: Engineering, petroleum products, chemicals and textiles lead shipments; US remains top market — https://economictimes.indiatimes.com/news/economy/foreign-trade/goods-exports-up-26-in-august-trade-deficit-eases-engineering-petroleum-products-chemicals-and-textiles-lead-shipments-us-remains-top-market/articleshow/134271608.cms
+- figure: “26%” — NewsData.io — top outlets
