@@ -156,6 +156,24 @@
           "company": "Woodside Energy",
           "story_url": "https://lngprime.com/americas/first-louisiana-lng-tank-taking-shape/197396",
           "action": "Completed the first 235,000-cbm storage tank at its Louisiana LNG export terminal under construction"
+        },
+        {
+          "date": "2026-09-28",
+          "company": "NextDecade",
+          "story_url": "https://lngprime.com/americas/nextdecades-rio-grande-lng-gets-ferc-ok-to-boost-capacity/197562",
+          "action": "Won FERC approval to increase approved capacity at its Rio Grande LNG terminal in Texas"
+        },
+        {
+          "date": "2026-09-27",
+          "company": "Cheniere",
+          "story_url": "https://lngprime.com/americas/us-ferc-issues-final-eis-for-chenieres-sabine-pass-expansion-project/197573",
+          "action": "Advanced Sabine Pass Stage 5 expansion as FERC issued its final environmental impact statement"
+        },
+        {
+          "date": "2026-09-28",
+          "company": "Argent LNG",
+          "story_url": "https://lngprime.com/americas/argent-lng-awards-feed-contract/197559",
+          "action": "Awarded FEED contract to MAIRE's Tecnimont for its proposed 25 mtpa Port Fourchon LNG export terminal"
         }
       ]
     },
@@ -204,6 +222,12 @@
           "company": "Carbonfuture",
           "story_url": "https://carbonherald.com/exomad-green-and-carbonfuture-expand-biochar-supply-deal-to-over-1-1m-tons",
           "action": "Expanded biochar carbon removal supply partnership with Exomad Green to over 1.1 million tons through 2035"
+        },
+        {
+          "date": "2026-09-28",
+          "company": "Isometric",
+          "story_url": "https://carbon-pulse.com/555147",
+          "action": "Certified a methodology letting biochar stored in underground mines generate carbon removal credits"
         }
       ]
     },
