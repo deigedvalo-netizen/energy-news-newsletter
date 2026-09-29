@@ -170,6 +170,12 @@
           "action": "Advanced Sabine Pass Stage 5 expansion as FERC issued its final environmental impact statement"
         },
         {
+          "date": "2026-09-29",
+          "company": "Cheniere Energy",
+          "story_url": "https://lngprime.com/americas/cheniere-petrobras-seal-long-term-lng-spa/197674",
+          "action": "Signed a long-term LNG sale and purchase agreement with Petrobras"
+        },
+        {
           "date": "2026-09-28",
           "company": "Argent LNG",
           "story_url": "https://lngprime.com/americas/argent-lng-awards-feed-contract/197559",
@@ -195,6 +201,18 @@
           "company": "ExxonMobil",
           "story_url": "https://lngprime.com/africa/exxonmobils-rovuma-lng-seeks-contractor-for-land-transportation-services/197351",
           "action": "Invited bids for land transportation services for its Rovuma LNG project in Mozambique"
+        },
+        {
+          "date": "2026-09-29",
+          "company": "TotalEnergies",
+          "story_url": "https://lngprime.com/africa/totalenergies-plans-second-mozambique-lng-phase/197661",
+          "action": "Plans a second phase of its Mozambique LNG project in Cabo Delgado"
+        },
+        {
+          "date": "2026-09-29",
+          "company": "ExxonMobil",
+          "story_url": "https://offshore-energy.biz/2026/09/29/subsea-production-systems-for-mozambiques-deepwater-lng-project-ordered-from-onesubsea",
+          "action": "Ordered subsea production systems from OneSubsea for its Mozambique deepwater LNG project"
         }
       ]
     },
@@ -273,6 +291,12 @@
           "company": "Trafigura",
           "story_url": "https://carbonherald.com/paracel-carbon-forestry-project-verifies-first-carbon-credits-in-paraguay",
           "action": "Backed the Paracel forestry project in Paraguay, which verified its first carbon credits"
+        },
+        {
+          "date": "2026-09-29",
+          "company": "Salesforce",
+          "story_url": "https://carbonherald.com/milkywire-completes-eight-new-durable-cdr-pre-purchases-backed-by-salesforce",
+          "action": "Backed Milkywire pre-purchases of eight durable carbon removal agreements"
         }
       ]
     }
