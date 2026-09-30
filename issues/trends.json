@@ -69,6 +69,12 @@
           "company": "Venture Global",
           "story_url": "https://www.rigzone.com/news/china_gas_raises_lng_order_from_venture_global_to_25_mmtpa-22-sep-2026-184673-article?rss=true",
           "action": "Raised China Gas's LNG offtake to 2.5 MMtpa under 20-year contracts starting 2030"
+        },
+        {
+          "date": "2026-09-30",
+          "company": "Chevron",
+          "story_url": "https://lngprime.com/asia/petrovietnam-chevron-ink-lng-cooperation-pact/197713",
+          "action": "Signed an LNG cooperation pact with Vietnam's Petrovietnam"
         }
       ]
     },
@@ -297,6 +303,60 @@
           "company": "Salesforce",
           "story_url": "https://carbonherald.com/milkywire-completes-eight-new-durable-cdr-pre-purchases-backed-by-salesforce",
           "action": "Backed Milkywire pre-purchases of eight durable carbon removal agreements"
+        },
+        {
+          "date": "2026-09-30",
+          "company": "Salesforce",
+          "story_url": "https://www.esgtoday.com/salesforce-signs-series-of-carbon-removal-deals-with-8-early-stage-suppliers",
+          "action": "Signed a series of carbon removal deals with eight early-stage suppliers via Milkywire"
+        }
+      ]
+    },
+    {
+      "trend_id": "canada-lng-expansion",
+      "name": "Canadian LNG export expansion",
+      "thesis": "Developers and partners are committing capital to expand Canada's LNG export capacity.",
+      "commodities": ["NATURAL_GAS"],
+      "first_seen": "2026-09-29",
+      "mentions": [
+        {
+          "date": "2026-09-29",
+          "company": "Shell",
+          "story_url": "https://www.cnbc.com/2026/09/29/shell-canada-lng-carney-oil-gas-energy.html",
+          "action": "Led consortium backing a $23 billion LNG Canada Phase 2 expansion to double capacity"
+        },
+        {
+          "date": "2026-09-30",
+          "company": "MidOcean",
+          "story_url": "https://www.rigzone.com/news/midocean_confirms_participation_in_lng_canada-30-sep-2026-184738-article?rss=true",
+          "action": "Confirmed participation in LNG Canada phase 2, raising its associated LNG volumes"
+        }
+      ]
+    },
+    {
+      "trend_id": "fsru-lng-import-buildout",
+      "name": "FSRU-based LNG import infrastructure buildout",
+      "thesis": "Shipping and terminal firms are converting carriers and developing floating terminals to add LNG import capacity.",
+      "commodities": ["NATURAL_GAS"],
+      "first_seen": "2026-09-30",
+      "mentions": [
+        {
+          "date": "2026-09-30",
+          "company": "Karpowership",
+          "story_url": "https://lngprime.com/europe/karpowerships-kinetics-in-another-fsru-conversion-move/197705",
+          "action": "Kinetics unit will convert LNG carrier Arctic Voyager into an FSRU"
+        },
+        {
+          "date": "2026-09-30",
+          "company": "GasEntec",
+          "story_url": "https://lngprime.com/asia/gasentec-secures-exmar-fsru-gig/197724",
+          "action": "Won contract from Exmar to supply regasification modules for an FSRU conversion"
+        },
+        {
+          "date": "2026-09-30",
+          "company": "Hoegh Evi",
+          "story_url": "https://lngprime.com/asia/hoegh-evi-to-develop-malaysian-lng-terminal/197734",
+          "action": "Signed deal with Petros to jointly develop an FSRU-based LNG import terminal in Sarawak"
         }
       ]
     }
