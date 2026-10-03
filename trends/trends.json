@@ -1,0 +1,753 @@
+{
+ "computed_at": "2026-10-03T15:11:46.506694+00:00",
+ "trends": [
+  {
+   "trend_id": "us-lng-export-expansion",
+   "name": "US LNG export capacity expansion",
+   "thesis": "US LNG developers are completing and announcing new liquefaction trains to grow export capacity.",
+   "commodities": [
+    "NATURAL_GAS"
+   ],
+   "status": "CONFIRMED",
+   "trajectory": "RISING",
+   "hotness": "16.91",
+   "companies_current": 4,
+   "companies_previous": 1,
+   "mentions_current": 5,
+   "mentions_previous": 1,
+   "companies_30d": 8,
+   "companies": [
+    "Venture Global",
+    "Cheniere Energy",
+    "NextDecade",
+    "Argent LNG",
+    "Woodside Energy",
+    "Sempra",
+    "Mubadala",
+    "Kimmeridge"
+   ],
+   "first_seen": "2026-09-15",
+   "latest_mention": "2026-10-02T10:06:29+00:00",
+   "only_company_releases": false,
+   "timeline": [
+    {
+     "date": "2026-10-02",
+     "company": "Venture Global",
+     "action": "Sought FERC approval to place Phase 1 of its Plaquemines LNG export plant in service",
+     "story_url": "https://lngprime.com/americas/venture-global-seeks-ferc-ok-to-place-first-plaquemines-lng-phase-in-service/197859",
+     "story_title": "Venture Global seeks FERC OK to place first Plaquemines LNG phase in service",
+     "outlet": "LNG Prime",
+     "verified": true,
+     "reason": null
+    },
+    {
+     "date": "2026-10-02",
+     "company": "Venture Global",
+     "action": "Signed a 20-year LNG sale and purchase agreement with ConocoPhillips",
+     "story_url": "https://lngprime.com/americas/venture-global-conocophillips-seal-20-year-lng-spa/197811",
+     "story_title": "Venture Global, ConocoPhillips seal 20-year LNG SPA",
+     "outlet": "LNG Prime",
+     "verified": true,
+     "reason": null
+    },
+    {
+     "date": "2026-09-29",
+     "company": "Cheniere Energy",
+     "action": "Signed a long-term LNG sale and purchase agreement with Petrobras",
+     "story_url": "https://lngprime.com/americas/cheniere-petrobras-seal-long-term-lng-spa/197674",
+     "story_title": "Cheniere, Petrobras seal long-term LNG SPA",
+     "outlet": "LNG Prime",
+     "verified": true,
+     "reason": null
+    },
+    {
+     "date": "2026-09-28",
+     "company": "NextDecade",
+     "action": "Won FERC approval to increase approved capacity at its Rio Grande LNG terminal in Texas",
+     "story_url": "https://lngprime.com/americas/nextdecades-rio-grande-lng-gets-ferc-ok-to-boost-capacity/197562",
+     "story_title": "NextDecade\u2019s Rio Grande LNG gets FERC OK to boost capacity",
+     "outlet": "LNG Prime",
+     "verified": true,
+     "reason": null
+    },
+    {
+     "date": "2026-09-28",
+     "company": "Argent LNG",
+     "action": "Awarded FEED contract to MAIRE's Tecnimont for its proposed 25 mtpa Port Fourchon LNG export terminal",
+     "story_url": "https://lngprime.com/americas/argent-lng-awards-feed-contract/197559",
+     "story_title": "Argent LNG awards FEED contract",
+     "outlet": "LNG Prime",
+     "verified": true,
+     "reason": null
+    },
+    {
+     "date": "2026-09-27",
+     "company": "Cheniere Energy",
+     "action": "Advanced Sabine Pass Stage 5 expansion as FERC issued its final environmental impact statement",
+     "story_url": "https://lngprime.com/americas/us-ferc-issues-final-eis-for-chenieres-sabine-pass-expansion-project/197573",
+     "story_title": "US FERC issues final EIS for Cheniere\u2019s Sabine Pass expansion project",
+     "outlet": "LNG Prime",
+     "verified": false,
+     "reason": "UNVERIFIED_COMPANY"
+    },
+    {
+     "date": "2026-09-24",
+     "company": "Woodside Energy",
+     "action": "Completed the first 235,000-cbm storage tank at its Louisiana LNG export terminal under construction",
+     "story_url": "https://lngprime.com/americas/first-louisiana-lng-tank-taking-shape/197396",
+     "story_title": "First Louisiana LNG tank taking shape",
+     "outlet": "LNG Prime",
+     "verified": true,
+     "reason": null
+    },
+    {
+     "date": "2026-09-23",
+     "company": "Cheniere Energy",
+     "action": "Advanced its Corpus Christi Stage 4 LNG expansion as FERC issued a draft environmental impact statement",
+     "story_url": "https://lngprime.com/americas/ferc-issues-draft-eis-for-chenieres-corpus-christi-stage-4-project/197338",
+     "story_title": "FERC issues draft EIS for Cheniere\u2019s Corpus Christi Stage 4 project",
+     "outlet": "LNG Prime",
+     "verified": false,
+     "reason": "UNVERIFIED_COMPANY"
+    },
+    {
+     "date": "2026-09-23",
+     "company": "Glenfarne",
+     "action": "Secured a five-year FERC extension for its Magnolia LNG export plant under construction in Louisiana",
+     "story_url": "https://lngprime.com/americas/glenfarnes-magnolia-lng-secures-ferc-extension/197296",
+     "story_title": "Glenfarne\u2019s Magnolia LNG secures FERC extension",
+     "outlet": "LNG Prime",
+     "verified": false,
+     "reason": "UNVERIFIED_COMPANY"
+    },
+    {
+     "date": "2026-09-18",
+     "company": "Sempra",
+     "action": "Signed a 20-year LNG supply deal with Petrobras from its Port Arthur LNG Phase 2 project under development",
+     "story_url": "https://www.offshore-energy.biz/petrobras-locks-in-20-year-us-supply-from-sempras-lng-project-in-lone-star-state",
+     "story_title": "Petrobras locks in 20-year US supply from Sempra\u2019s LNG project in Lone Star State",
+     "outlet": "Offshore Energy",
+     "verified": true,
+     "reason": null
+    },
+    {
+     "date": "2026-09-16",
+     "company": "Mubadala",
+     "action": "Partnered with Kimmeridge's Caturus to nearly double Commonwealth LNG export capacity",
+     "story_url": "https://www.rigzone.com/news/kimmeridge_mubadala_to_nearly_double_commonwealth_lng_capacity-16-sep-2026-184634-article?rss=true",
+     "story_title": "Kimmeridge, Mubadala to Nearly Double Commonwealth LNG Capacity",
+     "outlet": "Rigzone",
+     "verified": true,
+     "reason": null
+    },
+    {
+     "date": "2026-09-16",
+     "company": "Kimmeridge",
+     "action": "Caturus unit unveiled plans to nearly double Commonwealth LNG capacity to about 17.25 mtpa",
+     "story_url": "https://lngprime.com/americas/kimmeridges-caturus-plans-to-almost-double-commonwealth-lng-capacity/196892",
+     "story_title": "Kimmeridge\u2019s Caturus plans to almost double Commonwealth LNG capacity",
+     "outlet": "LNG Prime",
+     "verified": true,
+     "reason": null
+    },
+    {
+     "date": "2026-09-15",
+     "company": "Cheniere Energy",
+     "action": "Completed Corpus Christi Stage 3, making the facility the second-largest LNG export terminal in the US",
+     "story_url": "https://www.eia.gov/todayinenergy/detail.php?id=68144",
+     "story_title": "Corpus Christi LNG expansion makes facility the second-largest in the United States",
+     "outlet": "EIA Today in Energy",
+     "verified": true,
+     "reason": null
+    }
+   ]
+  },
+  {
+   "trend_id": "canada-lng-expansion",
+   "name": "Canadian LNG export expansion",
+   "thesis": "Developers and partners are committing capital to expand Canada's LNG export capacity.",
+   "commodities": [
+    "NATURAL_GAS"
+   ],
+   "status": "CONFIRMED",
+   "trajectory": "NEW",
+   "hotness": "12.37",
+   "companies_current": 3,
+   "companies_previous": 0,
+   "mentions_current": 3,
+   "mentions_previous": 0,
+   "companies_30d": 3,
+   "companies": [
+    "Centrica",
+    "MidOcean",
+    "Shell"
+   ],
+   "first_seen": "2026-09-29",
+   "latest_mention": "2026-10-01T10:26:46+00:00",
+   "only_company_releases": false,
+   "timeline": [
+    {
+     "date": "2026-10-01",
+     "company": "Centrica",
+     "action": "Secured 20-year supply of 1 mtpa of LNG from a Canadian project on a free-on-board basis",
+     "story_url": "https://offshore-energy.biz/2026/10/01/centrica-secures-two-decade-long-lng-supply-from-canadian-project",
+     "story_title": "Centrica secures two-decade-long LNG supply from Canadian project",
+     "outlet": "Offshore Energy",
+     "verified": true,
+     "reason": null
+    },
+    {
+     "date": "2026-09-30",
+     "company": "MidOcean",
+     "action": "Confirmed participation in LNG Canada phase 2, raising its associated LNG volumes",
+     "story_url": "https://www.rigzone.com/news/midocean_confirms_participation_in_lng_canada-30-sep-2026-184738-article?rss=true",
+     "story_title": "MidOcean Confirms Participation in LNG Canada",
+     "outlet": "Rigzone",
+     "verified": true,
+     "reason": null
+    },
+    {
+     "date": "2026-09-29",
+     "company": "Shell",
+     "action": "Led consortium backing a $23 billion LNG Canada Phase 2 expansion to double capacity",
+     "story_url": "https://www.cnbc.com/2026/09/29/shell-canada-lng-carney-oil-gas-energy.html",
+     "story_title": "Shell backs $23 billion LNG Canada expansion in boost to Carney's \u2018energy superpower\u2019 push",
+     "outlet": "CNBC \u2014 Energy",
+     "verified": true,
+     "reason": null
+    }
+   ]
+  },
+  {
+   "trend_id": "fsru-lng-import-buildout",
+   "name": "FSRU-based LNG import infrastructure buildout",
+   "thesis": "Shipping and terminal firms are converting carriers and developing floating terminals to add LNG import capacity.",
+   "commodities": [
+    "NATURAL_GAS"
+   ],
+   "status": "CONFIRMED",
+   "trajectory": "NEW",
+   "hotness": "11.90",
+   "companies_current": 3,
+   "companies_previous": 0,
+   "mentions_current": 3,
+   "mentions_previous": 0,
+   "companies_30d": 3,
+   "companies": [
+    "Hoegh Evi",
+    "Karpowership",
+    "GasEntec"
+   ],
+   "first_seen": "2026-09-30",
+   "latest_mention": "2026-09-30T14:51:06+00:00",
+   "only_company_releases": false,
+   "timeline": [
+    {
+     "date": "2026-09-30",
+     "company": "Hoegh Evi",
+     "action": "Signed deal with Petros to jointly develop an FSRU-based LNG import terminal in Sarawak",
+     "story_url": "https://lngprime.com/asia/hoegh-evi-to-develop-malaysian-lng-terminal/197734",
+     "story_title": "Hoegh Evi to develop Malaysian LNG terminal",
+     "outlet": "LNG Prime",
+     "verified": true,
+     "reason": null
+    },
+    {
+     "date": "2026-09-30",
+     "company": "Karpowership",
+     "action": "Kinetics unit will convert LNG carrier Arctic Voyager into an FSRU",
+     "story_url": "https://lngprime.com/europe/karpowerships-kinetics-in-another-fsru-conversion-move/197705",
+     "story_title": "Karpowership\u2019s Kinetics in another FSRU conversion move",
+     "outlet": "LNG Prime",
+     "verified": true,
+     "reason": null
+    },
+    {
+     "date": "2026-09-30",
+     "company": "GasEntec",
+     "action": "Won contract from Exmar to supply regasification modules for an FSRU conversion",
+     "story_url": "https://lngprime.com/asia/gasentec-secures-exmar-fsru-gig/197724",
+     "story_title": "GasEntec secures Exmar FSRU gig",
+     "outlet": "LNG Prime",
+     "verified": true,
+     "reason": null
+    }
+   ]
+  },
+  {
+   "trend_id": "african-lng-supply-growth",
+   "name": "African LNG project development",
+   "thesis": "International oil majors are advancing new gas supply and infrastructure projects in Africa to feed LNG export terminals.",
+   "commodities": [
+    "NATURAL_GAS"
+   ],
+   "status": "CONFIRMED",
+   "trajectory": "STEADY",
+   "hotness": "7.54",
+   "companies_current": 2,
+   "companies_previous": 2,
+   "mentions_current": 2,
+   "mentions_previous": 2,
+   "companies_30d": 2,
+   "companies": [
+    "ExxonMobil",
+    "TotalEnergies"
+   ],
+   "first_seen": "2026-09-23",
+   "latest_mention": "2026-09-29T12:43:35+00:00",
+   "only_company_releases": false,
+   "timeline": [
+    {
+     "date": "2026-09-29",
+     "company": "ExxonMobil",
+     "action": "Ordered subsea production systems from OneSubsea for its Mozambique deepwater LNG project",
+     "story_url": "https://offshore-energy.biz/2026/09/29/subsea-production-systems-for-mozambiques-deepwater-lng-project-ordered-from-onesubsea",
+     "story_title": "Subsea production systems for Mozambique\u2019s deepwater LNG project ordered from OneSubsea",
+     "outlet": "Offshore Energy",
+     "verified": true,
+     "reason": null
+    },
+    {
+     "date": "2026-09-29",
+     "company": "TotalEnergies",
+     "action": "Plans a second phase of its Mozambique LNG project in Cabo Delgado",
+     "story_url": "https://lngprime.com/africa/totalenergies-plans-second-mozambique-lng-phase/197661",
+     "story_title": "TotalEnergies plans second Mozambique LNG phase",
+     "outlet": "LNG Prime",
+     "verified": true,
+     "reason": null
+    },
+    {
+     "date": "2026-09-23",
+     "company": "TotalEnergies",
+     "action": "Took final investment decision with Amni on the Ima gas project offshore Nigeria to supply Nigeria LNG's Bonny Island plant",
+     "story_url": "https://lngprime.com/africa/totalenergies-amni-take-fid-on-ima-gas-project-to-supply-nigeria-lng/197303",
+     "story_title": "TotalEnergies, Amni take FID on Ima gas project to supply Nigeria LNG",
+     "outlet": "LNG Prime",
+     "verified": true,
+     "reason": null
+    },
+    {
+     "date": "2026-09-23",
+     "company": "ExxonMobil",
+     "action": "Invited bids for land transportation services for its Rovuma LNG project in Mozambique",
+     "story_url": "https://lngprime.com/africa/exxonmobils-rovuma-lng-seeks-contractor-for-land-transportation-services/197351",
+     "story_title": "ExxonMobil\u2019s Rovuma LNG seeks contractor for land transportation services",
+     "outlet": "LNG Prime",
+     "verified": true,
+     "reason": null
+    }
+   ]
+  },
+  {
+   "trend_id": "corporate-carbon-removal-purchases",
+   "name": "Corporate purchases of durable carbon removal",
+   "thesis": "Large corporations are signing megaton-scale offtake agreements with carbon removal developers, spanning engineered durable removal and nature-based projects, to lock in future supply and price certainty.",
+   "commodities": [
+    "CARBON_CREDITS"
+   ],
+   "status": "CONFIRMED",
+   "trajectory": "FADING",
+   "hotness": "4.72",
+   "companies_current": 1,
+   "companies_previous": 4,
+   "mentions_current": 2,
+   "mentions_previous": 4,
+   "companies_30d": 5,
+   "companies": [
+    "Salesforce",
+    "Trafigura",
+    "Microsoft",
+    "Google",
+    "Japan Airlines"
+   ],
+   "first_seen": "2026-09-16",
+   "latest_mention": "2026-09-30T10:30:57+00:00",
+   "only_company_releases": false,
+   "timeline": [
+    {
+     "date": "2026-09-30",
+     "company": "Salesforce",
+     "action": "Signed a series of carbon removal deals with eight early-stage suppliers via Milkywire",
+     "story_url": "https://www.esgtoday.com/salesforce-signs-series-of-carbon-removal-deals-with-8-early-stage-suppliers",
+     "story_title": "Salesforce Signs Series of Carbon Removal Deals with 8 Early-Stage Suppliers",
+     "outlet": "ESG Today",
+     "verified": true,
+     "reason": null
+    },
+    {
+     "date": "2026-09-29",
+     "company": "Salesforce",
+     "action": "Backed Milkywire pre-purchases of eight durable carbon removal agreements",
+     "story_url": "https://carbonherald.com/milkywire-completes-eight-new-durable-cdr-pre-purchases-backed-by-salesforce",
+     "story_title": "Milkywire Completes Eight New Durable CDR Pre-Purchases Backed By Salesforce",
+     "outlet": "Carbon Herald",
+     "verified": true,
+     "reason": null
+    },
+    {
+     "date": "2026-09-25",
+     "company": "Trafigura",
+     "action": "Backed the Paracel forestry project in Paraguay, which verified its first carbon credits",
+     "story_url": "https://carbonherald.com/paracel-carbon-forestry-project-verifies-first-carbon-credits-in-paraguay",
+     "story_title": "Paracel Carbon Forestry Project Verifies First Carbon Credits In Paraguay",
+     "outlet": "Carbon Herald",
+     "verified": true,
+     "reason": null
+    },
+    {
+     "date": "2026-09-23",
+     "company": "Microsoft",
+     "action": "Co-published updated high-quality CDR criteria with Relae, adding a delivery-risk framework for the first time",
+     "story_url": "https://carbonherald.com/relae-microsoft-publish-new-high-quality-cdr-criteria-addressing-delivery-risk-for-the-first-time",
+     "story_title": "Relae, Microsoft Publish New High-Quality CDR Criteria, Addressing Delivery Risk For The First Time",
+     "outlet": "Carbon Herald",
+     "verified": true,
+     "reason": null
+    },
+    {
+     "date": "2026-09-21",
+     "company": "Google",
+     "action": "As a Symbiosis Coalition member, helped structure standard offtake agreements covering over 40 million tons of nature-based carbon removal",
+     "story_url": "https://trellis.net/article/google-mckinsey-symbiosis-coalition-offtakes",
+     "story_title": "How Google, McKinsey and others got finance to say \u201cyes\u201d on nature-based carbon removals",
+     "outlet": "Trellis",
+     "verified": true,
+     "reason": null
+    },
+    {
+     "date": "2026-09-20",
+     "company": "Salesforce",
+     "action": "Became a carbon credit buyer from Brazil's Mombak reforestation-based carbon removal fund",
+     "story_url": "https://economictimes.indiatimes.com/tech/technology/brazils-mombak-raises-new-fund-adds-salesforce-as-carbon-credit-buyer/articleshow/134384150.cms",
+     "story_title": "Brazil's Mombak raises new fund, adds Salesforce as carbon credit buyer",
+     "outlet": "NewsData.io \u2014 top outlets",
+     "verified": true,
+     "reason": null
+    },
+    {
+     "date": "2026-09-18",
+     "company": "Japan Airlines",
+     "action": "Signed a CORSIA-compliant carbon removal offtake deal with Climeworks spanning DAC, biochar and soil carbon",
+     "story_url": "https://carbonherald.com/japan-airlines-climeworks-solutions-sign-historic-corsia-compliant-cdr-deal",
+     "story_title": "Japan Airlines, Climeworks Solutions Sign Historic CORSIA-Compliant CDR Deal",
+     "outlet": "Carbon Herald",
+     "verified": true,
+     "reason": null
+    },
+    {
+     "date": "2026-09-16",
+     "company": "Google",
+     "action": "Signed a megaton-scale deal with Terradot for enhanced rock weathering carbon removal paired with methane avoidance in Brazil",
+     "story_url": "https://qz.com/google-terradot-carbon-removal-brazil-methane-091626",
+     "story_title": "Google is striking its biggest carbon removal deal yet, targeting methane and CO2 in Brazil",
+     "outlet": "NewsData.io \u2014 top outlets",
+     "verified": true,
+     "reason": null
+    }
+   ]
+  },
+  {
+   "trend_id": "lng-asia-offtake",
+   "name": "LNG cooperation deals with Asian buyers",
+   "thesis": "Trading houses and Asian gas distributors are signing cooperation agreements to secure LNG supply and trading flexibility.",
+   "commodities": [
+    "NATURAL_GAS"
+   ],
+   "status": "CONFIRMED",
+   "trajectory": "FADING",
+   "hotness": "3.92",
+   "companies_current": 1,
+   "companies_previous": 2,
+   "mentions_current": 1,
+   "mentions_previous": 2,
+   "companies_30d": 8,
+   "companies": [
+    "Chevron",
+    "Venture Global",
+    "BP",
+    "Glencore",
+    "Equinor",
+    "Eni",
+    "Petronas",
+    "Trafigura"
+   ],
+   "first_seen": "2026-09-16",
+   "latest_mention": "2026-09-30T07:00:59+00:00",
+   "only_company_releases": false,
+   "timeline": [
+    {
+     "date": "2026-09-30",
+     "company": "Chevron",
+     "action": "Signed an LNG cooperation pact with Vietnam's Petrovietnam",
+     "story_url": "https://lngprime.com/asia/petrovietnam-chevron-ink-lng-cooperation-pact/197713",
+     "story_title": "Petrovietnam, Chevron ink LNG cooperation pact",
+     "outlet": "LNG Prime",
+     "verified": true,
+     "reason": null
+    },
+    {
+     "date": "2026-09-22",
+     "company": "Venture Global",
+     "action": "Raised China Gas's LNG offtake to 2.5 MMtpa under 20-year contracts starting 2030",
+     "story_url": "https://www.rigzone.com/news/china_gas_raises_lng_order_from_venture_global_to_25_mmtpa-22-sep-2026-184673-article?rss=true",
+     "story_title": "China Gas Raises LNG Order from Venture Global to 2.5 MMtpa",
+     "outlet": "Rigzone",
+     "verified": true,
+     "reason": null
+    },
+    {
+     "date": "2026-09-21",
+     "company": "BP",
+     "action": "Sold a further 5% Browse LNG stake to Japan's Osaka Gas, taking its East Asian buyer farm-down to 10%",
+     "story_url": "https://www.rigzone.com/news/bp_to_further_sell_down_browse_project_stake_to_osaka_gas-21-sep-2026-184659-article?rss=true",
+     "story_title": "BP to Further Sell Down Browse Project Stake to Osaka Gas",
+     "outlet": "Rigzone",
+     "verified": true,
+     "reason": null
+    },
+    {
+     "date": "2026-09-18",
+     "company": "Glencore",
+     "action": "Signed a long-term LNG supply deal with a unit of China's Suntien Green Energy",
+     "story_url": "https://lngprime.com/asia/glencore-pens-chinese-lng-supply-deal/197109",
+     "story_title": "Glencore pens Chinese LNG supply deal",
+     "outlet": "LNG Prime",
+     "verified": true,
+     "reason": null
+    },
+    {
+     "date": "2026-09-18",
+     "company": "Equinor",
+     "action": "Signed a long-term LNG sales and purchase agreement with a unit of Thailand's PTT",
+     "story_url": "https://lngprime.com/contracts-and-tenders/equinor-seals-long-term-lng-spa-with-thailands-ptt/197098",
+     "story_title": "Equinor seals long-term LNG SPA with Thailand\u2019s PTT",
+     "outlet": "LNG Prime",
+     "verified": true,
+     "reason": null
+    },
+    {
+     "date": "2026-09-17",
+     "company": "Eni",
+     "action": "Signed an LNG supply agreement with India's BPCL as it diversifies its buyer base",
+     "story_url": "https://lngprime.com/asia/indias-bpcl-inks-lng-pact-with-eni/196976",
+     "story_title": "India\u2019s BPCL inks LNG pact with Eni",
+     "outlet": "LNG Prime",
+     "verified": true,
+     "reason": null
+    },
+    {
+     "date": "2026-09-16",
+     "company": "Petronas",
+     "action": "Agreed to supply LNG to Japan's government under Japan's first emergency LNG procurement deal",
+     "story_url": "https://www.channelnewsasia.com/business/japan-gas-association-welcomes-governments-first-emergency-lng-deal-petronas-6389061",
+     "story_title": "Japan gas association welcomes government's first emergency LNG deal with Petronas",
+     "outlet": "NewsData.io \u2014 top outlets",
+     "verified": true,
+     "reason": null
+    },
+    {
+     "date": "2026-09-16",
+     "company": "Trafigura",
+     "action": "Signed an MOU with China's ENN to explore LNG cooperation",
+     "story_url": "https://lngprime.com/asia/chinas-enn-inks-lng-cooperation-pact-with-trafigura/196943",
+     "story_title": "China\u2019s ENN inks LNG cooperation pact with Trafigura",
+     "outlet": "LNG Prime",
+     "verified": true,
+     "reason": null
+    }
+   ]
+  },
+  {
+   "trend_id": "biochar-carbon-removal-scaleup",
+   "name": "Biochar carbon removal supply scale-up",
+   "thesis": "Biochar producers and their carbon-market partners are rapidly expanding supply capacity and funding to meet growing demand for durable carbon removal.",
+   "commodities": [
+    "CARBON_CREDITS"
+   ],
+   "status": "CONFIRMED",
+   "trajectory": "STEADY",
+   "hotness": "0.00",
+   "companies_current": 0,
+   "companies_previous": 0,
+   "mentions_current": 0,
+   "mentions_previous": 0,
+   "companies_30d": 3,
+   "companies": [
+    "Exomad Green",
+    "Carbonfuture",
+    "Biochar Industrial Group"
+   ],
+   "first_seen": "2026-09-18",
+   "latest_mention": "2026-09-18T13:20:21+00:00",
+   "only_company_releases": false,
+   "timeline": [
+    {
+     "date": "2026-09-28",
+     "company": "Isometric",
+     "action": "Certified a methodology letting biochar stored in underground mines generate carbon removal credits",
+     "story_url": "https://carbon-pulse.com/555147",
+     "story_title": "Isometric certifies carbon removal methodology for storing biochar in underground mines",
+     "outlet": "Carbon Pulse",
+     "verified": false,
+     "reason": "NOT_A_COMPANY"
+    },
+    {
+     "date": "2026-09-18",
+     "company": "Exomad Green",
+     "action": "Expanded biochar carbon removal supply partnership with Carbonfuture to over 1.1 million tons through 2035",
+     "story_url": "https://carbonherald.com/exomad-green-and-carbonfuture-expand-biochar-supply-deal-to-over-1-1m-tons",
+     "story_title": "Exomad Green And Carbonfuture Expand Biochar Supply Deal To Over 1.1M Tons",
+     "outlet": "Carbon Herald",
+     "verified": true,
+     "reason": null
+    },
+    {
+     "date": "2026-09-18",
+     "company": "Carbonfuture",
+     "action": "Expanded biochar carbon removal supply partnership with Exomad Green to over 1.1 million tons through 2035",
+     "story_url": "https://carbonherald.com/exomad-green-and-carbonfuture-expand-biochar-supply-deal-to-over-1-1m-tons",
+     "story_title": "Exomad Green And Carbonfuture Expand Biochar Supply Deal To Over 1.1M Tons",
+     "outlet": "Carbon Herald",
+     "verified": true,
+     "reason": null
+    },
+    {
+     "date": "2026-09-18",
+     "company": "Biochar Industrial Group",
+     "action": "Raised $1.5M in funding to scale biochar-as-a-service carbon removal in Sub-Saharan Africa",
+     "story_url": "https://carbonherald.com/biochar-industrial-group-to-scale-biochar-as-a-service-with-new-1-5m-funding",
+     "story_title": "Biochar Industrial Group To Scale Biochar-As-A-Service With New $1.5M Funding",
+     "outlet": "Carbon Herald",
+     "verified": true,
+     "reason": null
+    }
+   ]
+  },
+  {
+   "trend_id": "eastern-med-gas-buildout",
+   "name": "Eastern Mediterranean gas development buildout",
+   "thesis": "Operators and oilfield service firms are ramping up investment and service contracts to develop Eastern Mediterranean gas discoveries.",
+   "commodities": [
+    "CRUDE_OIL",
+    "NATURAL_GAS"
+   ],
+   "status": "CONFIRMED",
+   "trajectory": "STEADY",
+   "hotness": "0.00",
+   "companies_current": 0,
+   "companies_previous": 0,
+   "mentions_current": 0,
+   "mentions_previous": 0,
+   "companies_30d": 2,
+   "companies": [
+    "Eni",
+    "Halliburton"
+   ],
+   "first_seen": "2026-09-16",
+   "latest_mention": "2026-09-16T15:17:00+00:00",
+   "only_company_releases": false,
+   "timeline": [
+    {
+     "date": "2026-09-16",
+     "company": "Eni",
+     "action": "Advanced its Cronos ultra-deepwater gas field development off Cyprus by awarding a multi-year services contract",
+     "story_url": "https://www.offshore-energy.biz/halliburton-bags-enis-deepwater-bundle-as-eastern-mediterranean-gas-buildout-continues",
+     "story_title": "Halliburton bags Eni\u2019s deepwater bundle as Eastern Mediterranean gas buildout continues",
+     "outlet": "Offshore Energy",
+     "verified": true,
+     "reason": null
+    },
+    {
+     "date": "2026-09-16",
+     "company": "Halliburton",
+     "action": "Won a multi-year contract for drilling, completions and automation services on Eni's Cyprus gas field",
+     "story_url": "https://www.offshore-energy.biz/halliburton-bags-enis-deepwater-bundle-as-eastern-mediterranean-gas-buildout-continues",
+     "story_title": "Halliburton bags Eni\u2019s deepwater bundle as Eastern Mediterranean gas buildout continues",
+     "outlet": "Offshore Energy",
+     "verified": true,
+     "reason": null
+    }
+   ]
+  },
+  {
+   "trend_id": "majors-retreat-fuel-retail",
+   "name": "Oil majors retreat from fuel retail forecourts",
+   "thesis": "BP and Shell are divesting fuel retail forecourt networks as independents consolidate the downstream retail business.",
+   "commodities": [
+    "REFINED_PRODUCTS"
+   ],
+   "status": "CONFIRMED",
+   "trajectory": "STEADY",
+   "hotness": "0.00",
+   "companies_current": 0,
+   "companies_previous": 0,
+   "mentions_current": 0,
+   "mentions_previous": 0,
+   "companies_30d": 2,
+   "companies": [
+    "BP",
+    "Shell"
+   ],
+   "first_seen": "2026-09-14",
+   "latest_mention": "2026-09-14T04:00:21+00:00",
+   "only_company_releases": false,
+   "timeline": [
+    {
+     "date": "2026-09-13",
+     "company": "BP",
+     "action": "Retreated from UK forecourts business as Essar agreed to buy 118 petrol stations",
+     "story_url": "https://www.ft.com/content/130f45b6-ee45-4fa0-83eb-5ea8f9bc4680?syn-25a6b1a6=1",
+     "story_title": "Essar strikes deal to buy 118 UK petrol stations",
+     "outlet": "Financial Times \u2014 Energy",
+     "verified": true,
+     "reason": null
+    },
+    {
+     "date": "2026-09-13",
+     "company": "Shell",
+     "action": "Retreated from UK forecourts business as Essar agreed to buy 118 petrol stations",
+     "story_url": "https://www.ft.com/content/130f45b6-ee45-4fa0-83eb-5ea8f9bc4680?syn-25a6b1a6=1",
+     "story_title": "Essar strikes deal to buy 118 UK petrol stations",
+     "outlet": "Financial Times \u2014 Energy",
+     "verified": true,
+     "reason": null
+    }
+   ]
+  },
+  {
+   "trend_id": "ai-lng-investment",
+   "name": "AI power demand sustaining gas/LNG investment",
+   "thesis": "Rising electricity demand from AI data centers is keeping energy companies committed to gas and LNG project investment despite higher financing costs.",
+   "commodities": [
+    "NATURAL_GAS"
+   ],
+   "status": "EMERGING",
+   "trajectory": "STEADY",
+   "hotness": "0.00",
+   "companies_current": 0,
+   "companies_previous": 0,
+   "mentions_current": 0,
+   "mentions_previous": 0,
+   "companies_30d": 1,
+   "companies": [
+    "Baker Hughes"
+   ],
+   "first_seen": "2026-09-14",
+   "latest_mention": "2026-09-14T03:27:58+00:00",
+   "only_company_releases": false,
+   "timeline": [
+    {
+     "date": "2026-09-13",
+     "company": "Baker Hughes",
+     "action": "CEO said higher borrowing costs have not slowed energy project investment amid AI-driven LNG demand",
+     "story_url": "https://www.cnbc.com/2026/09/14/baker-hughes-ceo-no-slowdown-in-energy-projects-despite-higher-rates-.html",
+     "story_title": "Baker Hughes sees no slowdown in energy projects despite higher rates as AI buildouts stoke LNG demand",
+     "outlet": "CNBC \u2014 Energy",
+     "verified": true,
+     "reason": null
+    }
+   ]
+  }
+ ]
+}
