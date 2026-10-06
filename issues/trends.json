@@ -81,6 +81,12 @@
           "company": "Novatek",
           "story_url": "https://lngprime.com/asia/pv-gas-in-lng-supply-talks-with-novatek/197852",
           "action": "Entered LNG supply talks with Vietnam's PV Gas"
+        },
+        {
+          "date": "2026-10-05",
+          "company": "ADNOC",
+          "story_url": "https://lngprime.com/asia/adnoc-gulf-seal-lng-supply-deal/197946",
+          "action": "Signed a multi-year LNG sales agreement with Thailand's Gulf Development"
         }
       ]
     },
@@ -204,6 +210,18 @@
           "company": "Venture Global",
           "story_url": "https://lngprime.com/americas/venture-global-conocophillips-seal-20-year-lng-spa/197811",
           "action": "Signed a 20-year LNG sale and purchase agreement with ConocoPhillips"
+        },
+        {
+          "date": "2026-10-06",
+          "company": "Cheniere Energy",
+          "story_url": "https://lngprime.com/americas/chenieres-corpus-christi-trains-8-and-9-project-55-6-percent-complete/197965",
+          "action": "Reported Corpus Christi Midscale Trains 8 and 9 construction 55.6 percent complete"
+        },
+        {
+          "date": "2026-10-05",
+          "company": "Sempra",
+          "story_url": "https://lngprime.com/lng-terminals/sempra-infrastructure-advances-port-arthur-lng-construction/197926",
+          "action": "Advanced construction of the Port Arthur LNG export terminal with Bechtel"
         }
       ]
     },
@@ -270,6 +288,12 @@
           "company": "Isometric",
           "story_url": "https://carbon-pulse.com/555147",
           "action": "Certified a methodology letting biochar stored in underground mines generate carbon removal credits"
+        },
+        {
+          "date": "2026-10-06",
+          "company": "Inkoh",
+          "story_url": "https://carbonherald.com/inkoh-opens-new-biochar-hq-in-switzerland-supported-by-cula-next-generation-elements-tech",
+          "action": "Opened a new biochar headquarters in Landquart, Switzerland"
         }
       ]
     },
@@ -327,6 +351,12 @@
           "company": "Salesforce",
           "story_url": "https://www.esgtoday.com/salesforce-signs-series-of-carbon-removal-deals-with-8-early-stage-suppliers",
           "action": "Signed a series of carbon removal deals with eight early-stage suppliers via Milkywire"
+        },
+        {
+          "date": "2026-10-05",
+          "company": "Eneco",
+          "story_url": "https://carbonherald.com/eneco-expands-its-partnership-with-klimate-to-explore-carbon-removals",
+          "action": "Signed a letter of intent with Klimate to explore carbon removals"
         }
       ]
     },
@@ -387,6 +417,18 @@
           "company": "Hoegh Evi",
           "story_url": "https://lngprime.com/asia/hoegh-evi-to-develop-malaysian-lng-terminal/197734",
           "action": "Signed deal with Petros to jointly develop an FSRU-based LNG import terminal in Sarawak"
+        },
+        {
+          "date": "2026-10-05",
+          "company": "Karpowership",
+          "story_url": "https://offshore-energy.biz/2026/10/05/seatrium-picks-up-9th-fsru-conversion-job-with-karpowership",
+          "action": "Booked another LNG-to-FSRU conversion with Seatrium, the ninth such job"
+        },
+        {
+          "date": "2026-10-06",
+          "company": "GasEntec",
+          "story_url": "https://lngprime.com/asia/gasentec-secures-lr-approval-for-fsru/197983",
+          "action": "Secured Lloyd's Register approval in principle for a high-capacity FSRU concept"
         }
       ]
     }
