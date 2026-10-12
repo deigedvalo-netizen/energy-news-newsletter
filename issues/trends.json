@@ -87,6 +87,12 @@
           "company": "ADNOC",
           "story_url": "https://lngprime.com/asia/adnoc-gulf-seal-lng-supply-deal/197946",
           "action": "Signed a multi-year LNG sales agreement with Thailand's Gulf Development"
+        },
+        {
+          "date": "2026-10-12",
+          "company": "ADNOC",
+          "story_url": "https://offshore-energy.biz/2026/10/12/adnoc-broadens-its-asian-horizons-with-gulf-group-lng-deal",
+          "action": "Inked a multi-year agreement with Gulf Group to ship 2 million tonnes of LNG from 2027"
         }
       ]
     },
@@ -441,6 +447,27 @@
           "company": "GasEntec",
           "story_url": "https://lngprime.com/asia/gasentec-secures-lr-approval-for-fsru/197983",
           "action": "Secured Lloyd's Register approval in principle for a high-capacity FSRU concept"
+        }
+      ]
+    },
+    {
+      "trend_id": "permian-midstream-consolidation",
+      "name": "Midstream buyers consolidating Permian-area assets",
+      "thesis": "Large midstream companies are paying billions to acquire integrated gathering and processing assets in Texas basins.",
+      "commodities": ["NATURAL_GAS"],
+      "first_seen": "2026-10-08",
+      "mentions": [
+        {
+          "date": "2026-10-08",
+          "company": "ONEOK",
+          "story_url": "https://www.rigzone.com/news/brazos_concludes_44b_sale_of_midland_basin_assets_to_oneok-08-oct-2026-184806-article?rss=true",
+          "action": "Concluded a $4.4B purchase of Midland Basin assets from Brazos"
+        },
+        {
+          "date": "2026-10-08",
+          "company": "Energy Transfer",
+          "story_url": "https://www.rigzone.com/news/energy_transfer_buys_already_integrated_vaquero_assets_for_over_26b-08-oct-2026-184803-article?rss=true",
+          "action": "Bought already integrated Vaquero assets for over $2.6B"
         }
       ]
     }
