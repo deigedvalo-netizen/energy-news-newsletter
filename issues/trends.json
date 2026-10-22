@@ -471,6 +471,12 @@
           "company": "Google",
           "story_url": "https://www.esgtoday.com/google-mckinsey-sign-deals-for-320000-carbon-credits-from-brazil-nature-restoration-project",
           "action": "Signed carbon removal deals totalling 320,000 tons with Working Trees from a Brazil nature restoration project"
+        },
+        {
+          "date": "2026-10-20",
+          "company": "Climeworks",
+          "story_url": "https://carbonherald.com/exclusive-terraton-signs-offtakes-with-climeworks-climate-impact-partners",
+          "action": "Signed a purchase agreement for carbon removal credits from biochar platform Terraton"
         }
       ]
     },
@@ -576,6 +582,21 @@
           "company": "Energy Transfer",
           "story_url": "https://www.rigzone.com/news/energy_transfer_buys_already_integrated_vaquero_assets_for_over_26b-08-oct-2026-184803-article?rss=true",
           "action": "Bought already integrated Vaquero assets for over $2.6B"
+        }
+      ]
+    },
+    {
+      "trend_id": "data-center-gas-pipelines",
+      "name": "Gas pipelines built to serve data center power demand",
+      "thesis": "Midstream operators are committing capital to gas pipelines underwritten by hyperscale data center power needs.",
+      "commodities": ["NATURAL_GAS"],
+      "first_seen": "2026-10-21",
+      "mentions": [
+        {
+          "date": "2026-10-21",
+          "company": "Kinder Morgan",
+          "story_url": "https://investinglive.com/stocks/kinder-morgan-commits-to-4-2b-texas-gas-pipeline-to-fuel-hyperscale-data-center-power",
+          "action": "Committed to a $4.2B Texas gas pipeline to supply hyperscale data center power"
         }
       ]
     }
