@@ -18,6 +18,12 @@
           "company": "Halliburton",
           "story_url": "https://www.offshore-energy.biz/halliburton-bags-enis-deepwater-bundle-as-eastern-mediterranean-gas-buildout-continues",
           "action": "Won a multi-year contract for drilling, completions and automation services on Eni's Cyprus gas field"
+        },
+        {
+          "date": "2026-10-28",
+          "company": "Eni",
+          "story_url": "https://www.rigzone.com/news/eni_awards_key_contracts_for_cronos_gas_project-28-oct-2026-184949-article?rss=true",
+          "action": "Awarded main EPC and drilling contracts for Cyprus' Cronos gas development"
         }
       ]
     },
@@ -123,6 +129,12 @@
           "company": "Petrovietnam",
           "story_url": "https://lngprime.com/asia/petrovietnam-units-plan-new-lng-to-power-project/198699",
           "action": "Units PV Power and PV Gas signed agreements to secure gas supply and explore an integrated LNG project in Hai Phong"
+        },
+        {
+          "date": "2026-10-28",
+          "company": "Jera",
+          "story_url": "https://lngprime.com/asia/jera-petrobangla-ink-mou-to-explore-lng-cooperation/199104",
+          "action": "Signed non-binding MoU with Petrobangla to explore LNG supply cooperation in Bangladesh"
         }
       ]
     },
@@ -378,6 +390,18 @@
           "company": "Substrate Biochar",
           "story_url": "https://carbonherald.com/substrate-biochar-launches-first-production-site-in-south-africa",
           "action": "Launched its first industrial biochar production site in South Africa"
+        },
+        {
+          "date": "2026-10-28",
+          "company": "Supercritical",
+          "story_url": "https://carbonherald.com/supercritical-to-offer-buyers-up-to-19000-tonnes-of-biochar-credits-by-jain-irrigation",
+          "action": "Signed agreement to offer buyers up to 19,000 tonnes of biochar credits from Jain Irrigation"
+        },
+        {
+          "date": "2026-10-28",
+          "company": "Jain Irrigation",
+          "story_url": "https://carbonherald.com/supercritical-to-offer-buyers-up-to-19000-tonnes-of-biochar-credits-by-jain-irrigation",
+          "action": "Agreed to supply up to 19,000 tonnes of biochar credits through Supercritical"
         }
       ]
     },
@@ -558,6 +582,18 @@
           "company": "Samsung Heavy Industries",
           "story_url": "https://offshore-energy.biz/2026/10/26/samsung-heavy-industries-unveils-canada-tailored-flng-solution",
           "action": "Unveiled a standardized floating LNG platform tailored to Canadian LNG development"
+        },
+        {
+          "date": "2026-10-28",
+          "company": "Shell",
+          "story_url": "https://lngprime.com/americas/japans-kyushu-electric-inks-lng-canada-deal/199062",
+          "action": "Shell-led LNG Canada phase two drew a Kyushu Electric basic agreement to buy LNG"
+        },
+        {
+          "date": "2026-10-28",
+          "company": "SEFE",
+          "story_url": "https://offshore-energy.biz/2026/10/28/germanys-sefe-firms-up-two-decade-long-offtake-deal-with-canadian-lng-project",
+          "action": "Firmed up binding 20-year deal for 1 mtpa of Canadian LNG"
         }
       ]
     },
