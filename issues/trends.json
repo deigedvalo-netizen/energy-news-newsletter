@@ -135,6 +135,12 @@
           "company": "Jera",
           "story_url": "https://lngprime.com/asia/jera-petrobangla-ink-mou-to-explore-lng-cooperation/199104",
           "action": "Signed non-binding MoU with Petrobangla to explore LNG supply cooperation in Bangladesh"
+        },
+        {
+          "date": "2026-10-28",
+          "company": "Kyushu Electric Power",
+          "story_url": "https://lngprime.com/americas/japans-kyushu-electric-inks-lng-canada-deal/199062",
+          "action": "Signed basic agreement with Diamond Global Energy to buy LNG from LNG Canada phase two"
         }
       ]
     },
@@ -294,6 +300,24 @@
           "company": "Cheniere Energy",
           "story_url": "https://lngprime.com/contracts-and-tenders/cheniere-inks-long-term-lng-supply-deals-with-qatarenergy/198822",
           "action": "Signed long-term LNG sale and purchase agreements with QatarEnergy for 4 mtpa through 2054"
+        },
+        {
+          "date": "2026-10-26",
+          "company": "Woodside Energy",
+          "story_url": "https://lngprime.com/americas/woodside-inks-long-term-louisiana-lng-supply-deal-with-qatarenergy/199195",
+          "action": "Signed long-term Louisiana LNG supply deal with QatarEnergy"
+        },
+        {
+          "date": "2026-10-26",
+          "company": "QatarEnergy",
+          "story_url": "https://lngprime.com/americas/woodside-inks-long-term-louisiana-lng-supply-deal-with-qatarenergy/199195",
+          "action": "Locked in more US LNG through long-term Louisiana LNG deal with Woodside"
+        },
+        {
+          "date": "2026-10-29",
+          "company": "ST LNG",
+          "story_url": "https://lngprime.com/americas/st-lng-gets-marad-approval/199191",
+          "action": "Secured MARAD license for floating liquefaction project offshore Matagorda, Texas"
         }
       ]
     },
@@ -639,6 +663,18 @@
           "company": "Gaz-System",
           "story_url": "https://lngprime.com/lng-terminals/polands-gaz-system-moves-forward-with-gdansk-lng-jetty-work/198692",
           "action": "Advanced construction of the jetty for its first FSRU at the Gdansk LNG import project"
+        },
+        {
+          "date": "2026-10-29",
+          "company": "Deutsche ReGas",
+          "story_url": "https://lngprime.com/europe/deutsche-regas-charters-second-mukran-fsru-from-mol/199115",
+          "action": "Chartered a second Mukran FSRU from MOL to restore full terminal capacity"
+        },
+        {
+          "date": "2026-10-29",
+          "company": "MOL",
+          "story_url": "https://lngprime.com/europe/deutsche-regas-charters-second-mukran-fsru-from-mol/199115",
+          "action": "Agreed to charter a second FSRU to Deutsche ReGas for Mukran"
         }
       ]
     },
