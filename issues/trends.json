@@ -555,6 +555,12 @@
           "company": "Microsoft",
           "story_url": "https://carbonherald.com/microsoft-shares-lessons-learned-from-its-carbon-removal-procurement-program",
           "action": "Published a paper on lessons learned from its carbon removal procurement program"
+        },
+        {
+          "date": "2026-10-29",
+          "company": "Salesforce",
+          "story_url": "https://carbonherald.com/salesforce-partners-with-mitti-labs-to-purchase-500000-rice-methane-carbon-credits",
+          "action": "Signed a five-year offtake with Mitti Labs for 500,000 rice methane carbon credits"
         }
       ]
     },
@@ -717,6 +723,33 @@
           "company": "Kinder Morgan",
           "story_url": "https://investinglive.com/stocks/kinder-morgan-commits-to-4-2b-texas-gas-pipeline-to-fuel-hyperscale-data-center-power",
           "action": "Committed to a $4.2B Texas gas pipeline to supply hyperscale data center power"
+        }
+      ]
+    },
+    {
+      "trend_id": "us-refinery-output-expansion",
+      "name": "US refiners squeezing more fuel from refineries",
+      "thesis": "US oil companies are investing to raise refinery output and restart shuttered plants as the Russia and Iran conflicts tighten fuel supply.",
+      "commodities": ["REFINED_PRODUCTS"],
+      "first_seen": "2026-10-30",
+      "mentions": [
+        {
+          "date": "2026-10-30",
+          "company": "Chevron",
+          "story_url": "https://economictimes.indiatimes.com/news/international/business/us-oil-companies-aim-to-squeeze-more-out-of-refineries-as-war-supply-crunch-weighs/articleshow/135383425.cms",
+          "action": "Investing to extract more fuel from refineries amid wartime supply crunch"
+        },
+        {
+          "date": "2026-10-30",
+          "company": "ExxonMobil",
+          "story_url": "https://economictimes.indiatimes.com/news/international/business/us-oil-companies-aim-to-squeeze-more-out-of-refineries-as-war-supply-crunch-weighs/articleshow/135383425.cms",
+          "action": "Investing to extract more fuel from refineries amid wartime supply crunch"
+        },
+        {
+          "date": "2026-10-30",
+          "company": "Valero",
+          "story_url": "https://economictimes.indiatimes.com/news/international/business/us-oil-companies-aim-to-squeeze-more-out-of-refineries-as-war-supply-crunch-weighs/articleshow/135383425.cms",
+          "action": "Investing to extract more fuel from refineries and bring shuttered plants back online"
         }
       ]
     }
