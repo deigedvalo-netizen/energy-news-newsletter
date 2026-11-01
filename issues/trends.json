@@ -752,6 +752,33 @@
           "action": "Investing to extract more fuel from refineries and bring shuttered plants back online"
         }
       ]
+    },
+    {
+      "trend_id": "us-gas-asset-consolidation",
+      "name": "US gas producers and power firms buying gas assets",
+      "thesis": "US gas producers and generators are completing or announcing large acquisitions to build scale in gas production and gas-fired capacity.",
+      "commodities": ["NATURAL_GAS"],
+      "first_seen": "2026-10-26",
+      "mentions": [
+        {
+          "date": "2026-10-26",
+          "company": "EQT",
+          "story_url": "https://lngprime.com/americas/eqt-to-buy-range-resources/199041",
+          "action": "Agreed to buy Range Resources, creating the largest US natural gas producer"
+        },
+        {
+          "date": "2026-10-26",
+          "company": "Range Resources",
+          "story_url": "https://lngprime.com/americas/eqt-to-buy-range-resources/199041",
+          "action": "Agreed to be acquired by EQT"
+        },
+        {
+          "date": "2026-10-30",
+          "company": "Vistra",
+          "story_url": "https://www.prnewswire.com/news-releases/vistra-completes-acquisition-of-cogentrix-energy-expanding-diverse-generation-fleet-302925088.html",
+          "action": "Completed acquisition of Cogentrix Energy, adding about 5,500 megawatts of gas capacity"
+        }
+      ]
     }
   ]
 }
