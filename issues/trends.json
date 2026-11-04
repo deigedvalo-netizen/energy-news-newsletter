@@ -147,6 +147,12 @@
           "company": "XRG",
           "story_url": "https://www.khaleejtimes.com/business/uaes-xrg-to-acquire-shells-stake-in-australian-project-for-145-billion",
           "action": "Agreed to buy Shell's Australian LNG stake for $1.45 billion to strengthen its Asia-Pacific position"
+        },
+        {
+          "date": "2026-11-04",
+          "company": "TotalEnergies",
+          "story_url": "https://lngprime.com/asia/totalenergies-inks-preliminary-lng-supply-deal-with-chinas-jiangsu-guoxin/199496",
+          "action": "Signed heads of agreement to supply 900,000 tons of LNG per year to China's Jiangsu Guoxin"
         }
       ]
     },
@@ -336,6 +342,18 @@
           "company": "Venture Global",
           "story_url": "https://lngprime.com/americas/venture-global-launches-commercial-ops-of-first-plaquemines-lng-phase/199367",
           "action": "Launched commercial operations of the first phase of Plaquemines LNG and began LNG sales to long-term customers"
+        },
+        {
+          "date": "2026-11-04",
+          "company": "Woodside Energy",
+          "story_url": "https://www.rigzone.com/news/woodsides_louisiana_lng_to_supply_qatarenergy_for_20_years-04-nov-2026-185006-article?rss=true",
+          "action": "Placed under-construction Louisiana LNG on a 20-year supply order of up to three mtpa from QatarEnergy"
+        },
+        {
+          "date": "2026-11-04",
+          "company": "QatarEnergy",
+          "story_url": "https://www.rigzone.com/news/woodsides_louisiana_lng_to_supply_qatarenergy_for_20_years-04-nov-2026-185006-article?rss=true",
+          "action": "Placed a 20-year order for up to three mtpa of LNG from Woodside's Louisiana project"
         }
       ]
     },
@@ -666,6 +684,12 @@
           "company": "SEFE",
           "story_url": "https://offshore-energy.biz/2026/10/28/germanys-sefe-firms-up-two-decade-long-offtake-deal-with-canadian-lng-project",
           "action": "Firmed up binding 20-year deal for 1 mtpa of Canadian LNG"
+        },
+        {
+          "date": "2026-11-04",
+          "company": "Shell",
+          "story_url": "https://lngprime.com/asia/yokogawa-bags-lng-canada-phase-2-gig/199508",
+          "action": "Shell-led LNG Canada Phase 2 project drew Yokogawa unit as main automation contractor"
         }
       ]
     },
