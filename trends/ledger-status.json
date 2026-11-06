@@ -1,0 +1,10 @@
+{
+ "status": "REJECTED",
+ "reasons": [
+  {
+   "code": "BAD_LEDGER",
+   "detail": "trends[1].mentions[15].action required, 20 words or fewer"
+  }
+ ],
+ "validated_at": "2026-11-06T18:08:21.076679+00:00"
+}
