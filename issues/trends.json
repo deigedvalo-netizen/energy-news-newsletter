@@ -207,6 +207,18 @@
           "company": "Shell",
           "story_url": "https://www.ft.com/content/130f45b6-ee45-4fa0-83eb-5ea8f9bc4680?syn-25a6b1a6=1",
           "action": "Retreated from UK forecourts business as Essar agreed to buy 118 petrol stations"
+        },
+        {
+          "date": "2026-11-08",
+          "company": "BP",
+          "story_url": "https://www.ft.com/content/a4340e1e-a849-4e42-938e-dec328fa13d0?syn-25a6b1a6=1",
+          "action": "Rethinking portfolio and moving away from forecourts under activist and upstream pressure"
+        },
+        {
+          "date": "2026-11-08",
+          "company": "Shell",
+          "story_url": "https://www.ft.com/content/a4340e1e-a849-4e42-938e-dec328fa13d0?syn-25a6b1a6=1",
+          "action": "Rethinking portfolio and moving away from forecourts under activist and upstream pressure"
         }
       ]
     },
@@ -633,6 +645,24 @@
           "company": "Salesforce",
           "story_url": "https://carbonherald.com/salesforce-partners-with-mitti-labs-to-purchase-500000-rice-methane-carbon-credits",
           "action": "Signed a five-year offtake with Mitti Labs for 500,000 rice methane carbon credits"
+        },
+        {
+          "date": "2026-11-09",
+          "company": "Underground Forests",
+          "story_url": "https://carbonherald.com/underground-forests-issues-ccp-eligible-credits-and-inks-an-offtake-deal-with-minderco2",
+          "action": "Issued CCP-eligible removal credits and signed an offtake deal with MinderCO2"
+        },
+        {
+          "date": "2026-11-09",
+          "company": "MinderCO2",
+          "story_url": "https://carbonherald.com/underground-forests-issues-ccp-eligible-credits-and-inks-an-offtake-deal-with-minderco2",
+          "action": "Signed an offtake deal for Underground Forests carbon removal credits"
+        },
+        {
+          "date": "2026-11-09",
+          "company": "Climeworks",
+          "story_url": "https://carbon-pulse.com/569000",
+          "action": "Co-authored report urging companies to start buying carbon removals now, allocating about 3% of decarbonisation budgets"
         }
       ]
     },
