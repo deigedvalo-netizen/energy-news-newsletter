@@ -390,6 +390,12 @@
           "company": "QatarEnergy",
           "story_url": "https://www.rigzone.com/news/woodsides_louisiana_lng_to_supply_qatarenergy_for_20_years-04-nov-2026-185006-article?rss=true",
           "action": "Placed a 20-year order for up to three mtpa of LNG from Woodside's Louisiana project"
+        },
+        {
+          "date": "2026-11-10",
+          "company": "Venture Global",
+          "story_url": "https://lngprime.com/americas/venture-global-to-sign-more-20-year-lng-supply-deals-by-year-end-ceo-says/199804",
+          "action": "CEO said it will sign more 20-year LNG supply deals by year-end"
         }
       ]
     },
@@ -516,6 +522,18 @@
           "company": "Robinson Carbon",
           "story_url": "https://carbonherald.com/robinson-carbon-to-build-new-16-3m-biochar-facility-in-louisiana",
           "action": "Investing $16.3 million in a new biochar facility in Louisiana"
+        },
+        {
+          "date": "2026-11-10",
+          "company": "Datavault AI",
+          "story_url": "https://carbonherald.com/datavault-ai-adds-biochar-credits-to-its-digital-tokenization-platform",
+          "action": "Agreed a global partnership to market and distribute insured biochar carbon removal credits"
+        },
+        {
+          "date": "2026-11-10",
+          "company": "Biochar Now",
+          "story_url": "https://carbonherald.com/datavault-ai-adds-biochar-credits-to-its-digital-tokenization-platform",
+          "action": "Partnered with Datavault AI to distribute insured biochar carbon removal credits"
         }
       ]
     },
