@@ -177,6 +177,18 @@
           "company": "PetroChina International",
           "story_url": "https://lngprime.com/asia/gulf-to-supply-lng-to-petrochina-international/199825",
           "action": "Unit signed an LNG sale and purchase agreement with Thailand's Gulf Development"
+        },
+        {
+          "date": "2026-11-11",
+          "company": "ADNOC",
+          "story_url": "https://www.offshore-energy.biz/2026/11/11/adnoc-widens-its-asian-footprint-with-decade-long-lng-offtake-deal",
+          "action": "Signed 10-year deal to supply up to 4 million tonnes of LNG to India's Gujarat Energy"
+        },
+        {
+          "date": "2026-11-12",
+          "company": "Inpex",
+          "story_url": "https://lngprime.com/asia/inpex-seals-first-abadi-lng-spas/199891",
+          "action": "Signed first LNG sales and purchase agreements for the planned Abadi LNG project in Indonesia"
         }
       ]
     },
@@ -546,6 +558,12 @@
           "company": "Biochar Now",
           "story_url": "https://carbonherald.com/datavault-ai-adds-biochar-credits-to-its-digital-tokenization-platform",
           "action": "Partnered with Datavault AI to distribute insured biochar carbon removal credits"
+        },
+        {
+          "date": "2026-11-12",
+          "company": "ReGenerate",
+          "story_url": "https://carbonherald.com/in-a-new-deal-kpmg-secures-biochar-carbon-removal-credits-from-regenerate",
+          "action": "Closed sale of biochar carbon removal credits to KPMG"
         }
       ]
     },
@@ -693,6 +711,12 @@
           "company": "Climeworks",
           "story_url": "https://carbon-pulse.com/569000",
           "action": "Co-authored report urging companies to start buying carbon removals now, allocating about 3% of decarbonisation budgets"
+        },
+        {
+          "date": "2026-11-12",
+          "company": "KPMG",
+          "story_url": "https://carbonherald.com/in-a-new-deal-kpmg-secures-biochar-carbon-removal-credits-from-regenerate",
+          "action": "Secured biochar carbon removal credits from ReGenerate"
         }
       ]
     },
