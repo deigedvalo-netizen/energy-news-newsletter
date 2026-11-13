@@ -4,7 +4,10 @@
       "trend_id": "eastern-med-gas-buildout",
       "name": "Eastern Mediterranean gas development buildout",
       "thesis": "Operators and oilfield service firms are ramping up investment and service contracts to develop Eastern Mediterranean gas discoveries.",
-      "commodities": ["Crude Oil", "Natural Gas"],
+      "commodities": [
+        "Crude Oil",
+        "Natural Gas"
+      ],
       "first_seen": "2026-09-16",
       "mentions": [
         {
@@ -31,7 +34,9 @@
       "trend_id": "lng-asia-offtake",
       "name": "LNG cooperation deals with Asian buyers",
       "thesis": "Trading houses and Asian gas distributors are signing cooperation agreements to secure LNG supply and trading flexibility.",
-      "commodities": ["Natural Gas"],
+      "commodities": [
+        "Natural Gas"
+      ],
       "first_seen": "2026-09-16",
       "mentions": [
         {
@@ -196,7 +201,9 @@
       "trend_id": "ai-lng-investment",
       "name": "AI power demand sustaining gas/LNG investment",
       "thesis": "Rising electricity demand from AI data centers is keeping energy companies committed to gas and LNG project investment despite higher financing costs.",
-      "commodities": ["Natural Gas"],
+      "commodities": [
+        "Natural Gas"
+      ],
       "first_seen": "2026-09-13",
       "mentions": [
         {
@@ -217,7 +224,9 @@
       "trend_id": "majors-retreat-fuel-retail",
       "name": "Oil majors retreat from fuel retail forecourts",
       "thesis": "BP and Shell are divesting fuel retail forecourt networks as independents consolidate the downstream retail business.",
-      "commodities": ["Refined Products"],
+      "commodities": [
+        "Refined Products"
+      ],
       "first_seen": "2026-09-13",
       "mentions": [
         {
@@ -250,7 +259,9 @@
       "trend_id": "us-lng-export-expansion",
       "name": "US LNG export capacity expansion",
       "thesis": "US LNG developers are completing and announcing new liquefaction trains to grow export capacity.",
-      "commodities": ["Natural Gas"],
+      "commodities": [
+        "Natural Gas"
+      ],
       "first_seen": "2026-09-15",
       "mentions": [
         {
@@ -420,6 +431,12 @@
           "company": "Venture Global",
           "story_url": "https://lngprime.com/americas/venture-global-to-sign-more-20-year-lng-supply-deals-by-year-end-ceo-says/199804",
           "action": "CEO said it will sign more 20-year LNG supply deals by year-end"
+        },
+        {
+          "date": "2026-11-13",
+          "company": "Venture Global",
+          "story_url": "https://lngprime.com/americas/venture-globals-cp2-lng-seeks-re-export-approval/199981",
+          "action": "Seeks DOE approval to re-export imported LNG from CP2 LNG in Louisiana as first phase nears launch"
         }
       ]
     },
@@ -427,7 +444,9 @@
       "trend_id": "african-lng-supply-growth",
       "name": "African LNG project development",
       "thesis": "International oil majors are advancing new gas supply and infrastructure projects in Africa to feed LNG export terminals.",
-      "commodities": ["NATURAL_GAS"],
+      "commodities": [
+        "NATURAL_GAS"
+      ],
       "first_seen": "2026-09-23",
       "mentions": [
         {
@@ -478,7 +497,9 @@
       "trend_id": "biochar-carbon-removal-scaleup",
       "name": "Biochar carbon removal supply scale-up",
       "thesis": "Biochar producers and their carbon-market partners are rapidly expanding supply capacity and funding to meet growing demand for durable carbon removal.",
-      "commodities": ["CARBON_CREDITS"],
+      "commodities": [
+        "CARBON_CREDITS"
+      ],
       "first_seen": "2026-09-18",
       "mentions": [
         {
@@ -564,6 +585,12 @@
           "company": "ReGenerate",
           "story_url": "https://carbonherald.com/in-a-new-deal-kpmg-secures-biochar-carbon-removal-credits-from-regenerate",
           "action": "Closed sale of biochar carbon removal credits to KPMG"
+        },
+        {
+          "date": "2026-11-13",
+          "company": "Varaha",
+          "story_url": "https://carbonherald.com/varahas-community-led-biochar-project-is-now-rated-as-a-pre-ex-ante-by-bezero",
+          "action": "Community-led biochar project in Western India secured an A.pre Ex Ante rating from BeZero"
         }
       ]
     },
@@ -571,7 +598,9 @@
       "trend_id": "corporate-carbon-removal-purchases",
       "name": "Corporate purchases of durable carbon removal",
       "thesis": "Large corporations are signing megaton-scale offtake agreements with carbon removal developers, spanning engineered durable removal and nature-based projects, to lock in future supply and price certainty.",
-      "commodities": ["CARBON_CREDITS"],
+      "commodities": [
+        "CARBON_CREDITS"
+      ],
       "first_seen": "2026-09-16",
       "mentions": [
         {
@@ -724,7 +753,9 @@
       "trend_id": "canada-lng-expansion",
       "name": "Canadian LNG export expansion",
       "thesis": "Developers and partners are committing capital to expand Canada's LNG export capacity.",
-      "commodities": ["NATURAL_GAS"],
+      "commodities": [
+        "NATURAL_GAS"
+      ],
       "first_seen": "2026-09-29",
       "mentions": [
         {
@@ -811,7 +842,9 @@
       "trend_id": "fsru-lng-import-buildout",
       "name": "FSRU-based LNG import infrastructure buildout",
       "thesis": "Shipping and terminal firms are converting carriers and developing floating terminals to add LNG import capacity.",
-      "commodities": ["NATURAL_GAS"],
+      "commodities": [
+        "NATURAL_GAS"
+      ],
       "first_seen": "2026-09-30",
       "mentions": [
         {
@@ -880,7 +913,9 @@
       "trend_id": "permian-midstream-consolidation",
       "name": "Midstream buyers consolidating Permian-area assets",
       "thesis": "Large midstream companies are paying billions to acquire integrated gathering and processing assets in Texas basins.",
-      "commodities": ["NATURAL_GAS"],
+      "commodities": [
+        "NATURAL_GAS"
+      ],
       "first_seen": "2026-10-08",
       "mentions": [
         {
@@ -901,7 +936,9 @@
       "trend_id": "data-center-gas-pipelines",
       "name": "Gas pipelines built to serve data center power demand",
       "thesis": "Midstream operators are committing capital to gas pipelines underwritten by hyperscale data center power needs.",
-      "commodities": ["NATURAL_GAS"],
+      "commodities": [
+        "NATURAL_GAS"
+      ],
       "first_seen": "2026-10-21",
       "mentions": [
         {
@@ -916,7 +953,9 @@
       "trend_id": "us-refinery-output-expansion",
       "name": "US refiners squeezing more fuel from refineries",
       "thesis": "US oil companies are investing to raise refinery output and restart shuttered plants as the Russia and Iran conflicts tighten fuel supply.",
-      "commodities": ["REFINED_PRODUCTS"],
+      "commodities": [
+        "REFINED_PRODUCTS"
+      ],
       "first_seen": "2026-10-30",
       "mentions": [
         {
@@ -943,7 +982,9 @@
       "trend_id": "us-gas-asset-consolidation",
       "name": "US gas producers and power firms buying gas assets",
       "thesis": "US gas producers and generators are completing or announcing large acquisitions to build scale in gas production and gas-fired capacity.",
-      "commodities": ["NATURAL_GAS"],
+      "commodities": [
+        "NATURAL_GAS"
+      ],
       "first_seen": "2026-10-26",
       "mentions": [
         {
