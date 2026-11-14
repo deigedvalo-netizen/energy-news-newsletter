@@ -835,6 +835,12 @@
           "company": "Shell",
           "story_url": "https://lngprime.com/asia/yokogawa-bags-lng-canada-phase-2-gig/199508",
           "action": "Shell-led LNG Canada Phase 2 project drew Yokogawa unit as main automation contractor"
+        },
+        {
+          "date": "2026-11-13",
+          "company": "Woodfibre LNG",
+          "story_url": "https://www.cbc.ca/news/canada/british-columbia/woodfibre-lng-federal-investment-9.7421686?cmp=rss",
+          "action": "Received a $200 million federal investment over three years for its British Columbia LNG project"
         }
       ]
     },
@@ -906,6 +912,18 @@
           "company": "Excelerate Energy",
           "story_url": "https://lngprime.com/americas/excelerate-seals-bahamas-lng-deal/199574",
           "action": "Signed an 11-year LNG supply agreement with AxDo supporting the Bahamas LNG hub"
+        },
+        {
+          "date": "2026-11-12",
+          "company": "Sasol",
+          "story_url": "https://lngprime.com/africa/sasol-enh-ink-lng-terminal-mou/199943",
+          "action": "Signed an MoU with ENH to assess an FSRU-based LNG terminal in southern Mozambique"
+        },
+        {
+          "date": "2026-11-12",
+          "company": "ENH",
+          "story_url": "https://lngprime.com/africa/sasol-enh-ink-lng-terminal-mou/199943",
+          "action": "Signed an MoU with Sasol to assess an FSRU-based LNG terminal in southern Mozambique"
         }
       ]
     },
