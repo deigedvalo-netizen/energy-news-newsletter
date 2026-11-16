@@ -752,6 +752,12 @@
           "company": "KPMG",
           "story_url": "https://carbonherald.com/in-a-new-deal-kpmg-secures-biochar-carbon-removal-credits-from-regenerate",
           "action": "Secured biochar carbon removal credits from ReGenerate"
+        },
+        {
+          "date": "2026-11-15",
+          "company": "Fujitsu",
+          "story_url": "https://www.electronicsmedia.info/2026/11/16/fujitsu-net-zero-emissions",
+          "action": "Using carbon removal credits and a VPPA to pursue net-zero Scope 1 and 2 emissions at its sites by fiscal 2030"
         }
       ]
     },
@@ -930,6 +936,24 @@
           "company": "ENH",
           "story_url": "https://lngprime.com/africa/sasol-enh-ink-lng-terminal-mou/199943",
           "action": "Signed an MoU with Sasol to assess an FSRU-based LNG terminal in southern Mozambique"
+        },
+        {
+          "date": "2026-11-16",
+          "company": "Energos Infrastructure",
+          "story_url": "https://lngprime.com/asia/energos-awards-fsru-conversion-gig-to-hanwha-power/200032",
+          "action": "Awarded Hanwha Power a turnkey contract to convert an LNG carrier into an FSRU"
+        },
+        {
+          "date": "2026-11-16",
+          "company": "Hanwha Power",
+          "story_url": "https://lngprime.com/asia/energos-awards-fsru-conversion-gig-to-hanwha-power/200032",
+          "action": "Won turnkey contract to convert an existing LNG carrier into an FSRU for Energos"
+        },
+        {
+          "date": "2026-11-16",
+          "company": "DET",
+          "story_url": "https://lngprime.com/europe/germanys-det-launches-stade-fsru-ops/200056",
+          "action": "Officially launched operations at its FSRU-based Stade LNG import facility in Germany"
         }
       ]
     },
@@ -1028,6 +1052,18 @@
           "company": "Vistra",
           "story_url": "https://www.prnewswire.com/news-releases/vistra-completes-acquisition-of-cogentrix-energy-expanding-diverse-generation-fleet-302925088.html",
           "action": "Completed acquisition of Cogentrix Energy, adding about 5,500 megawatts of gas capacity"
+        },
+        {
+          "date": "2026-11-16",
+          "company": "NRG",
+          "story_url": "https://www.utilitydive.com/news/nrg-energy-gas-plants-ls-power-4b/874761",
+          "action": "Selling 4.9 GW of gas plants to LS Power for $4B"
+        },
+        {
+          "date": "2026-11-16",
+          "company": "LS Power",
+          "story_url": "https://www.utilitydive.com/news/nrg-energy-gas-plants-ls-power-4b/874761",
+          "action": "Buying 4.9 GW of NRG gas plants for $4B"
         }
       ]
     }
