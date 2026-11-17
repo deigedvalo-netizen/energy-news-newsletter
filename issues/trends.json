@@ -954,6 +954,12 @@
           "company": "DET",
           "story_url": "https://lngprime.com/europe/germanys-det-launches-stade-fsru-ops/200056",
           "action": "Officially launched operations at its FSRU-based Stade LNG import facility in Germany"
+        },
+        {
+          "date": "2026-11-17",
+          "company": "Frontera Energy",
+          "story_url": "https://lngprime.com/americas/frontera-plans-colombian-lng-power-plant/200128",
+          "action": "Evaluating a power plant anchored by its FSRU-based LNG import facility in Cartagena, due to start in 2027"
         }
       ]
     },
@@ -1064,6 +1070,18 @@
           "company": "LS Power",
           "story_url": "https://www.utilitydive.com/news/nrg-energy-gas-plants-ls-power-4b/874761",
           "action": "Buying 4.9 GW of NRG gas plants for $4B"
+        },
+        {
+          "date": "2026-11-16",
+          "company": "Sempra",
+          "story_url": "https://www.offshore-energy.biz/2026/11/16/sempra-divest-majority-stake-in-its-lng-and-energy-infrastructure-business",
+          "action": "Divested majority stake in Sempra Infrastructure Partners to a KKR-led consortium, now holding 65%"
+        },
+        {
+          "date": "2026-11-16",
+          "company": "KKR",
+          "story_url": "https://www.offshore-energy.biz/2026/11/16/sempra-divest-majority-stake-in-its-lng-and-energy-infrastructure-business",
+          "action": "KKR-led consortium raised its stake in Sempra Infrastructure Partners to 65%"
         }
       ]
     }
