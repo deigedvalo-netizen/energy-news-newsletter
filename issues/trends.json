@@ -782,6 +782,12 @@
           "company": "Fujitsu",
           "story_url": "https://www.electronicsmedia.info/2026/11/16/fujitsu-net-zero-emissions",
           "action": "Using carbon removal credits and a VPPA to pursue net-zero Scope 1 and 2 emissions at its sites by fiscal 2030"
+        },
+        {
+          "date": "2026-11-18",
+          "company": "Microsoft",
+          "story_url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNTV9Ib1RHRkxaSVhZMk1DM245LWpuVGZKeDlXTV9PZFBoU1Y5SHhHRlNVVG1DWnNxNkhFaGhYMXBoNU9ZLVZ0dkxfejZOUU9PZzN1NW1NbThqWEdQVEdMcEMwNE1QX1I5aFdXdFhmTjF5YjhGT1lHdkVKWmpPaGNRdTNsWkx0c002cDZKSVpJZ0FRaUpIVUJBTA?oc=5",
+          "action": "Using AI to shape its carbon removal strategy"
         }
       ]
     },
@@ -877,6 +883,18 @@
           "company": "Woodfibre LNG",
           "story_url": "https://www.cbc.ca/news/canada/british-columbia/woodfibre-lng-federal-investment-9.7421686?cmp=rss",
           "action": "Received a $200 million federal investment over three years for its British Columbia LNG project"
+        },
+        {
+          "date": "2026-11-19",
+          "company": "Hanwha Ocean",
+          "story_url": "https://lngprime.com/americas/hanwha-ocean-and-kanata-advance-canada-flng-plans/200273",
+          "action": "Signed heads of agreement with Kanata to advance proposed Prince Rupert floating LNG export project"
+        },
+        {
+          "date": "2026-11-19",
+          "company": "Kanata Clean Power & Climate Technologies",
+          "story_url": "https://lngprime.com/americas/hanwha-ocean-and-kanata-advance-canada-flng-plans/200273",
+          "action": "Entered heads of agreement with Hanwha Ocean on proposed $15.7 billion Prince Rupert FLNG project"
         }
       ]
     },
