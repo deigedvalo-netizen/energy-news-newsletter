@@ -324,6 +324,11 @@
       "date": "2026-11-19",
       "status": "SUBMITTED",
       "feed_sha256": "e94e7b6d55674a4b6d000b1b5ead2744297e8942a7f45b433f7b4dacbe63973e"
+    },
+    {
+      "date": "2026-11-20",
+      "status": "SUBMITTED",
+      "feed_sha256": "5682161eafc5f85b62ea6ac450f9bc94d68e9afa67d433926abe48989849221b"
     }
   ]
 }
