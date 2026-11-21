@@ -212,6 +212,18 @@
           "company": "Trafigura",
           "story_url": "https://lngprime.com/australia-and-oceania/woodside-seals-lng-supply-deal-with-trafigura/200138",
           "action": "Signed an LNG sales and supply agreement with Woodside"
+        },
+        {
+          "date": "2026-11-17",
+          "company": "Venture Global",
+          "story_url": "https://seekingalpha.com/news/4673996-venture-global-china-gas-upsize-long-term-lng-deal?feed_item_type=news",
+          "action": "Upsized its long-term LNG deal with China Gas to 1.0 MTPA for 20 years"
+        },
+        {
+          "date": "2026-11-18",
+          "company": "Woodside Energy",
+          "story_url": "https://lngprime.com/australia-and-oceania/woodside-seals-lng-supply-deal-with-trafigura/200138",
+          "action": "Signed an LNG sales and supply agreement with trader Trafigura"
         }
       ]
     },
@@ -467,6 +479,12 @@
           "company": "Cheniere Energy",
           "story_url": "https://lngprime.com/americas/chenieres-sabine-pass-lng-expansion-project-gets-ok-from-ferc/200353",
           "action": "Won FERC approval for its Sabine Pass Stage 5 LNG expansion in Louisiana"
+        },
+        {
+          "date": "2026-11-20",
+          "company": "Cheniere",
+          "story_url": "https://lngprime.com/americas/chenieres-sabine-pass-lng-expansion-project-gets-ok-from-ferc/200353",
+          "action": "Won FERC approval for its Sabine Pass Stage 5 LNG expansion"
         }
       ]
     },
@@ -526,6 +544,12 @@
           "company": "ExxonMobil",
           "story_url": "https://lngprime.com/lng-terminals/exxonmobils-rovuma-lng-gets-ok-from-mozambique/200197",
           "action": "Rovuma LNG's amended plan, with modular electrified units, won Mozambique Cabinet approval"
+        },
+        {
+          "date": "2026-11-18",
+          "company": "ExxonMobil",
+          "story_url": "https://www.rigzone.com/news/wire/mozambique_approves_amended_plan_for_rovuma_lng-18-nov-2026-185108-article?rss=true",
+          "action": "Received Mozambique approval for an amended Rovuma LNG plan using modular electrified units"
         }
       ]
     },
@@ -913,6 +937,12 @@
           "company": "Shell",
           "story_url": "https://lngprime.com/americas/vinci-scores-lng-canada-tank-gig/200348",
           "action": "Shell-led LNG Canada Phase 2 drew a Vinci unit contract to build a 225,000-cbm storage tank"
+        },
+        {
+          "date": "2026-11-20",
+          "company": "Shell",
+          "story_url": "https://lngprime.com/americas/vinci-scores-lng-canada-tank-gig/200348",
+          "action": "Shell-led LNG Canada Phase 2 awarded an LNG storage tank construction contract"
         }
       ]
     },
@@ -1049,6 +1079,12 @@
           "company": "Energy Transfer",
           "story_url": "https://www.rigzone.com/news/energy_transfer_seals_vaquero_acquisition-20-nov-2026-185135-article?rss=true",
           "action": "Sealed its Vaquero acquisition to deepen its Permian gas and NGL footprint"
+        },
+        {
+          "date": "2026-11-20",
+          "company": "Energy Transfer",
+          "story_url": "https://www.rigzone.com/news/energy_transfer_seals_vaquero_acquisition-20-nov-2026-185135-article?rss=true",
+          "action": "Closed the Vaquero acquisition to expand its Permian gas and NGL footprint"
         }
       ]
     },
