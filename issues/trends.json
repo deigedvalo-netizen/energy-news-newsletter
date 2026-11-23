@@ -568,6 +568,12 @@
           "company": "ExxonMobil",
           "story_url": "https://www.rigzone.com/news/wire/mozambique_approves_amended_plan_for_rovuma_lng-18-nov-2026-185108-article?rss=true",
           "action": "Received Mozambique cabinet approval for amended Rovuma LNG plan with modular electrified units"
+        },
+        {
+          "date": "2026-11-23",
+          "company": "Vitol",
+          "story_url": "https://lngprime.com/africa/vitols-unit-plans-to-start-construction-on-south-african-lng-to-power-project-in-late-2028/200461",
+          "action": "Unit Engen plans construction of an integrated LNG-to-power project in Durban from late 2028"
         }
       ]
     },
@@ -1220,6 +1226,64 @@
           "company": "KKR",
           "story_url": "https://www.offshore-energy.biz/2026/11/16/sempra-divest-majority-stake-in-its-lng-and-energy-infrastructure-business",
           "action": "KKR-led consortium raised its stake in Sempra Infrastructure Partners to 65%"
+        }
+      ]
+    },
+    {
+      "trend_id": "argentina-lng-export-project",
+      "name": "Argentina LNG export project backing",
+      "thesis": "Energy majors and state-backed investors are committing capital to an Argentine LNG export project, backed by government investment incentives.",
+      "commodities": [
+        "NATURAL_GAS"
+      ],
+      "first_seen": "2026-11-20",
+      "mentions": [
+        {
+          "date": "2026-11-20",
+          "company": "Eni",
+          "story_url": "https://tass.com/economy/2222785",
+          "action": "Will invest with YPF and XRG in a $25 billion Argentina LNG project by 2030, per the minister"
+        },
+        {
+          "date": "2026-11-20",
+          "company": "YPF",
+          "story_url": "https://tass.com/economy/2222785",
+          "action": "Co-investing with Eni and XRG in the Argentina LNG project"
+        },
+        {
+          "date": "2026-11-20",
+          "company": "XRG",
+          "story_url": "https://tass.com/economy/2222785",
+          "action": "Co-investing with Eni and YPF in the Argentina LNG project"
+        },
+        {
+          "date": "2026-11-23",
+          "company": "YPF",
+          "story_url": "https://lngprime.com/lng-terminals/argentina-approves-rigi-investment-scheme-for-ypfs-lng-project/200448",
+          "action": "YPF-led Argentina LNG project approved for the RIGI investment incentive regime"
+        }
+      ]
+    },
+    {
+      "trend_id": "corsia-credit-supply-buildout",
+      "name": "CORSIA credit supply arrangements",
+      "thesis": "Carbon traders and asset managers are signing long-term supply arrangements to serve airline demand for CORSIA-eligible credits.",
+      "commodities": [
+        "CARBON_CREDITS"
+      ],
+      "first_seen": "2026-11-23",
+      "mentions": [
+        {
+          "date": "2026-11-23",
+          "company": "EDF Trading",
+          "story_url": "https://carbonherald.com/edf-trading-expands-corsia-credit-supply-with-econetix-partnership-through-2035",
+          "action": "Expanded CORSIA credit supply through a partnership with Econetix running to 2035"
+        },
+        {
+          "date": "2026-11-23",
+          "company": "Econetix",
+          "story_url": "https://carbonherald.com/edf-trading-expands-corsia-credit-supply-with-econetix-partnership-through-2035",
+          "action": "Signed agreement with EDF Trading to supply carbon credits for CORSIA airlines"
         }
       ]
     }
