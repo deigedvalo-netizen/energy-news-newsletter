@@ -497,6 +497,12 @@
           "company": "Cheniere",
           "story_url": "https://lngprime.com/americas/chenieres-sabine-pass-lng-expansion-project-gets-ok-from-ferc/200353",
           "action": "Won FERC approval for its Sabine Pass Stage 5 LNG expansion in Louisiana"
+        },
+        {
+          "date": "2026-11-24",
+          "company": "Cheniere Energy",
+          "story_url": "https://lngprime.com/americas/cheniere-seeks-ok-to-begin-site-preparation-activities-for-sabine-pass-lng-expansion/200494",
+          "action": "Sought FERC approval to begin site preparation for the Sabine Pass Stage 5 LNG expansion"
         }
       ]
     },
@@ -1284,6 +1290,41 @@
           "company": "Econetix",
           "story_url": "https://carbonherald.com/edf-trading-expands-corsia-credit-supply-with-econetix-partnership-through-2035",
           "action": "Signed agreement with EDF Trading to supply carbon credits for CORSIA airlines"
+        }
+      ]
+    },
+    {
+      "trend_id": "lng-to-power-emerging-markets",
+      "name": "LNG-to-power projects in emerging markets",
+      "thesis": "Traders, developers and equipment makers are advancing integrated LNG import and gas-fired power projects in emerging markets.",
+      "commodities": [
+        "NATURAL_GAS"
+      ],
+      "first_seen": "2026-11-23",
+      "mentions": [
+        {
+          "date": "2026-11-23",
+          "company": "Vitol",
+          "story_url": "https://lngprime.com/africa/vitols-unit-plans-to-start-construction-on-south-african-lng-to-power-project-in-late-2028/200461",
+          "action": "Unit Engen plans construction of an integrated LNG-to-power project in Durban from late 2028"
+        },
+        {
+          "date": "2026-11-24",
+          "company": "Engen",
+          "story_url": "https://www.offshore-energy.biz/2026/11/24/dollar23-billion-integrated-lng-to-power-project-on-the-development-agenda-in-south-africa",
+          "action": "Leads consortium proposing a $2.3 billion integrated LNG-to-power project in South Africa"
+        },
+        {
+          "date": "2026-11-24",
+          "company": "Trung Nam Construction Investment",
+          "story_url": "https://lngprime.com/asia/trung-nam-awards-gas-turbine-gig-for-vietnam-lng-power-plant/200507",
+          "action": "Awarded a gas turbine contract for its planned Ca Na LNG-to-power project"
+        },
+        {
+          "date": "2026-11-24",
+          "company": "Ansaldo Energia",
+          "story_url": "https://lngprime.com/asia/trung-nam-awards-gas-turbine-gig-for-vietnam-lng-power-plant/200507",
+          "action": "Won gas turbine contract for Vietnam's Ca Na LNG-to-power project"
         }
       ]
     }
