@@ -230,6 +230,18 @@
           "company": "Venture Global",
           "story_url": "https://seekingalpha.com/news/4673996-venture-global-china-gas-upsize-long-term-lng-deal?feed_item_type=news",
           "action": "Expanded its long-term LNG deal with China Gas to 1.0 MTPA for 20 years from 2030"
+        },
+        {
+          "date": "2026-11-26",
+          "company": "Petronas",
+          "story_url": "https://lngprime.com/asia/malaysias-petronas-delivers-first-bio-lng-cargo-to-japan/200574",
+          "action": "Delivered its first certified bio-LNG cargo from Malaysia to Japan with Tokyo Gas"
+        },
+        {
+          "date": "2026-11-25",
+          "company": "QatarEnergy",
+          "story_url": "https://lngprime.com/asia/qatarenergy-jbic-ink-lng-pact/200536",
+          "action": "Signed an MOU with Japan Bank for International Cooperation covering LNG and natural gas"
         }
       ]
     },
@@ -580,6 +592,12 @@
           "company": "Vitol",
           "story_url": "https://lngprime.com/africa/vitols-unit-plans-to-start-construction-on-south-african-lng-to-power-project-in-late-2028/200461",
           "action": "Unit Engen plans construction of an integrated LNG-to-power project in Durban from late 2028"
+        },
+        {
+          "date": "2026-11-25",
+          "company": "Ibom LNG & Logistics Base",
+          "story_url": "https://lngprime.com/africa/ibom-lng-partners-with-afreximbank-on-1-5-billion-nigerian-lng-project/200541",
+          "action": "Signed advisory deal with Afreximbank to mobilize $1.5 billion for its Nigerian LNG project"
         }
       ]
     },
@@ -681,6 +699,24 @@
           "company": "Varaha",
           "story_url": "https://carbonherald.com/varahas-community-led-biochar-project-is-now-rated-as-a-pre-ex-ante-by-bezero",
           "action": "Community-led biochar project in Western India secured an A.pre Ex Ante rating from BeZero"
+        },
+        {
+          "date": "2026-11-25",
+          "company": "Nordic Carbon",
+          "story_url": "https://carbonherald.com/nordic-carbon-launches-biochar-production-in-ghana",
+          "action": "Launched biochar production in Ghana"
+        },
+        {
+          "date": "2026-11-25",
+          "company": "Verde Resources",
+          "story_url": "https://www.globenewswire.com/news-release/2026/11/25/3410148/0/en/verde-resources-signs-u-s-manufacturing-agreement-with-lignetics-to-support-biochar-asphalt-commercialization.html",
+          "action": "Signed US manufacturing agreement with Lignetics to support biochar asphalt commercialization"
+        },
+        {
+          "date": "2026-11-26",
+          "company": "Asosiasi Biochar Indonesia Internasional",
+          "story_url": "https://carbonherald.com/abii-strengthens-partnerships-to-advance-biochar-in-indonesia",
+          "action": "Strengthened partnerships to advance biochar in Indonesia"
         }
       ]
     },
@@ -979,6 +1015,18 @@
           "company": "Shell",
           "story_url": "https://lngprime.com/americas/vinci-scores-lng-canada-tank-gig/200348",
           "action": "Shell-led LNG Canada Phase 2 project advanced with a 225,000-cbm storage tank contract"
+        },
+        {
+          "date": "2026-11-26",
+          "company": "DEME",
+          "story_url": "https://lngprime.com/europe/deme-scores-ksi-lisims-lng-pipeline-gig/200602",
+          "action": "Secured Allseas contract for the pipeline feeding the planned Ksi Lisims LNG export facility"
+        },
+        {
+          "date": "2026-11-26",
+          "company": "Allseas",
+          "story_url": "https://lngprime.com/europe/deme-scores-ksi-lisims-lng-pipeline-gig/200602",
+          "action": "Subcontracted DEME on the Prince Rupert Gas Transmission pipeline serving Ksi Lisims LNG"
         }
       ]
     },
@@ -1104,6 +1152,12 @@
           "company": "Huarun Dadong",
           "story_url": "https://lngprime.com/asia/chinese-yards-to-kick-off-mol-fsru-conversion-in-2027/200557",
           "action": "Set to begin FSRU conversion work in 2027 on MOL's LNG carrier"
+        },
+        {
+          "date": "2026-11-26",
+          "company": "KN Energies",
+          "story_url": "https://lngprime.com/asia/lithuanias-kn-in-another-vietnam-lng-move/200583",
+          "action": "Signed non-binding term sheet to buy a minority stake in a Vietnam LNG filling station developer"
         }
       ]
     },
@@ -1343,6 +1397,18 @@
           "company": "Ansaldo Energia",
           "story_url": "https://lngprime.com/asia/trung-nam-awards-gas-turbine-gig-for-vietnam-lng-power-plant/200507",
           "action": "Won gas turbine contract for Vietnam's Ca Na LNG-to-power project"
+        },
+        {
+          "date": "2026-11-25",
+          "company": "PLN Batam",
+          "story_url": "https://lngprime.com/uncategorized/duo-to-study-batam-lng-project/200532",
+          "action": "Signed MOU to study LNG supply for Batam electricity needs"
+        },
+        {
+          "date": "2026-11-25",
+          "company": "Aslan Energy Capital",
+          "story_url": "https://lngprime.com/uncategorized/duo-to-study-batam-lng-project/200532",
+          "action": "Signed MOU with PLN Batam to study LNG supply for Batam power"
         }
       ]
     }
